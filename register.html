@@ -4,248 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran Akun (Perental, Penjual & Mitra) - Chileorent</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- ==========================================================================
-         HEADER & NAVIGASI
-         ========================================================================== -->
-    <header id="header-utama">
-        <div class="header-container">
-            <div class="brand-group">
-                <a href="index.html" class="brand-logo">
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition">
                     <h1>Chileorent</h1>
                 </a>
-                <p class="brand-tagline">Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay</p>
+                <p class="hidden md:block text-xs text-gray-500 border-l border-gray-300 pl-3">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
             </div>
 
-            <nav id="navigasi-utama" aria-label="Navigasi Utama">
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="index.html#fitur-unggulan">Fitur Utama</a></li>
-                    <li><a href="index.html#alur-escrow">Sistem Escrow</a></li>
-                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="order-3 md:order-2 w-full md:w-auto">
+                <ul class="flex flex-wrap items-center gap-1 md:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2 py-1 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2 py-1 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2 py-1 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="index.html#fitur-unggulan" class="px-2 py-1 hover:text-indigo-600 transition">Fitur Utama</a></li>
+                    <li><a href="index.html#alur-escrow" class="px-2 py-1 hover:text-indigo-600 transition">Sistem Escrow</a></li>
+                    <li><a href="dashboard-rental.html" class="px-2 py-1 hover:text-indigo-600 transition">Dashboard Rental</a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions">
-                <a href="login.html" class="btn-masuk">Masuk</a>
-                <a href="register.html" class="btn-daftar active" aria-current="page">Daftar Akun</a>
+            <div class="flex items-center gap-2 order-2 md:order-3">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Masuk</a>
+                <a href="register.html" aria-current="page" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition">Daftar Akun</a>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================================================
-         BREADCRUMB
-         ========================================================================== -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li>&gt;</li>
-            <li aria-current="page">Pendaftaran Akun Baru</li>
-        </ul>
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Pendaftaran Akun Baru</li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- ==========================================================================
-         MAIN CONTENT: FORMULIR REGISTRASI PENGGUNA BERDASARKAN PERAN
-         ========================================================================== -->
-    <main id="konten-register">
-        <div class="register-wrapper">
+    <!-- MAIN CONTENT -->
+    <main id="konten-register" class="py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8">
 
-            <section class="register-card" aria-labelledby="register-title">
+            <!-- FORM CARD (8 Cols) -->
+            <section class="md:col-span-8 bg-white p-6 sm:p-8 border border-gray-200 rounded-2xl shadow-sm space-y-6" aria-labelledby="register-title">
                 
-                <header class="register-header">
-                    <span class="badge-solusi">✨ Ekosistem Cosplay Terpercaya</span>
-                    <h2 id="register-title">Daftar Akun Chileorent</h2>
-                    <p>
-                        Pilih peran akun sesuai tujuan Anda untuk mendapatkan akses dashboard yang tepat: menyewa kostum impian, atau mengalihfungsikan aset kostum lama Anda.
-                    </p>
+                <header class="space-y-1">
+                    <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded-full">✨ Ekosistem Cosplay Terpercaya</span>
+                    <h2 id="register-title" class="text-2xl font-bold text-gray-900">Daftar Akun Chileorent</h2>
+                    <p class="text-xs text-gray-500">Pilih peran akun sesuai tujuan Anda untuk mendapatkan akses dashboard yang tepat.</p>
                 </header>
 
-                <form id="form-registrasi" action="login.html" method="POST">
+                <form id="form-registrasi" action="login.html" method="POST" class="space-y-6">
 
-                    <!-- ==========================================================
-                         PILIHAN PERAN PENDAFTARAN
-                         ========================================================== -->
-                    <fieldset class="register-role-fieldset">
-                        <legend>Pilih Tujuan & Peran Akun Anda:</legend>
+                    <fieldset class="space-y-3">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider">Pilih Peran Akun Anda:</legend>
                         
-                        <div class="role-cards-grid">
-                            <!-- Opsi 1: Perental -->
-                            <label class="role-selection-card">
-                                <input type="radio" name="account_role" value="renter" checked>
-                                <div class="role-details">
-                                    <span class="role-icon">🎭</span>
-                                    <strong>Perental Kostum (Customer)</strong>
-                                    <p>Saya ingin merental kostum cosplay untuk event/photoshoot, memantau jadwal sewa, melacak nomor resi, dan memantau pengembalian uang deposit di Escrow.</p>
-                                    <small class="benefit-tag">✓ Akses Dashboard Perental (Status Sewa & Wishlist)</small>
+                        <div class="space-y-2 text-xs">
+                            <label class="p-3 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:border-indigo-500 flex items-start gap-2 block">
+                                <input type="radio" name="account_role" value="renter" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900 block">🎭 Perental Kostum (Customer)</strong>
+                                    <p class="text-gray-500">Saya ingin merental kostum cosplay untuk event/photoshoot.</p>
                                 </div>
                             </label>
 
-                            <!-- Opsi 2: Penjual / Pemilik Rental Lama & Cosplayer -->
-                            <label class="role-selection-card">
-                                <input type="radio" name="account_role" value="seller">
-                                <div class="role-details">
-                                    <span class="role-icon">🔄</span>
-                                    <strong>Penjual / Pemilik Kostum Lama</strong>
-                                    <p>Saya adalah pemilik usaha rental yang menutup toko atau cosplayer yang ingin menjual/menitipkan kostum lama. Akun ini mempermudah identifikasi pemilik saat mengisi form alih fungsi dan memantau fitur nego 0-8%.</p>
-                                    <small class="benefit-tag">✓ Akses Dashboard Penjual (Tracking Alih Fungsi & Nego)</small>
+                            <label class="p-3 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:border-indigo-500 flex items-start gap-2 block">
+                                <input type="radio" name="account_role" value="seller" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900 block">🔄 Penjual / Pemilik Kostum Lama</strong>
+                                    <p class="text-gray-500">Pemilik usaha rental yang menutup toko atau cosplayer yang ingin jual/titip sewa.</p>
                                 </div>
                             </label>
 
-                            <!-- Opsi 3: Pemilik Rental Utama / Administrator -->
-                            <label class="role-selection-card">
-                                <input type="radio" name="account_role" value="owner_admin">
-                                <div class="role-details">
-                                    <span class="role-icon">👑</span>
-                                    <strong>Pemilik Usaha Rental Kita / Pengelola</strong>
-                                    <p>Pendaftaran verifikasi kemitraan pemilik rental utama Chileorent dan administrator platform untuk pengelolaan inventaris luas, kurasi grade fisik, dan audit escrow.</p>
-                                    <small class="benefit-tag">✓ Akses Penuh: Admin Dashboard + Rental Fitur Luas</small>
+                            <label class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl cursor-pointer flex items-start gap-2 block">
+                                <input type="radio" name="account_role" value="owner_admin" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-indigo-900 block">👑 Pemilik Rental Utama / Pengelola</strong>
+                                    <p class="text-indigo-700">Pendaftaran verifikasi kemitraan pemilik rental utama & admin platform.</p>
                                 </div>
                             </label>
                         </div>
                     </fieldset>
 
-                    <!-- ==========================================================
-                         INFORMASI IDENTITAS PENGGUNA
-                         ========================================================== -->
-                    <fieldset class="form-section-fieldset">
-                        <legend>Data Identitas Diri / Bisnis</legend>
+                    <fieldset class="space-y-4 border border-gray-200 p-4 rounded-xl text-xs">
+                        <legend class="font-bold text-gray-900 px-1">Data Identitas Diri / Bisnis</legend>
 
-                        <div class="form-grid-2">
-                            <div class="form-group">
-                                <label for="reg-fullname">Nama Lengkap / Nama Bisnis Rental:</label>
-                                <input type="text" id="reg-fullname" name="fullname" placeholder="Cth: Alisa Putri / Kurogane Rental" required autocomplete="name">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="space-y-1">
+                                <label for="reg-fullname" class="font-semibold text-gray-700">Nama Lengkap / Bisnis:</label>
+                                <input type="text" id="reg-fullname" name="fullname" placeholder="Cth: Alisa Putri" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
-
-                            <div class="form-group">
-                                <label for="reg-username">Username Pilihan:</label>
-                                <input type="text" id="reg-username" name="username" placeholder="Cth: alisa_cosplay" required autocomplete="username">
+                            <div class="space-y-1">
+                                <label for="reg-username" class="font-semibold text-gray-700">Username Pilihan:</label>
+                                <input type="text" id="reg-username" name="username" placeholder="Cth: alisa_cosplay" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
                         </div>
 
-                        <div class="form-grid-2">
-                            <div class="form-group">
-                                <label for="reg-email">Alamat Email Aktif:</label>
-                                <input type="email" id="reg-email" name="email" placeholder="Cth: alisa@example.com" required autocomplete="email">
-                                <small>Digunakan untuk konfirmasi pesanan dan verifikasi keamanan.</small>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="space-y-1">
+                                <label for="reg-email" class="font-semibold text-gray-700">Alamat Email Aktif:</label>
+                                <input type="email" id="reg-email" name="email" placeholder="Cth: alisa@example.com" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
-
-                            <div class="form-group">
-                                <label for="reg-whatsapp">Nomor WhatsApp Aktif:</label>
-                                <input type="tel" id="reg-whatsapp" name="whatsapp" placeholder="Cth: 081234567890" required autocomplete="tel">
-                                <small>Untuk notifikasi status resi sewa & tawaran nego alih fungsi.</small>
+                            <div class="space-y-1">
+                                <label for="reg-whatsapp" class="font-semibold text-gray-700">Nomor WhatsApp Aktif:</label>
+                                <input type="tel" id="reg-whatsapp" name="whatsapp" placeholder="Cth: 081234567890" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="reg-social">Tautan Akun Media Sosial / Portofolio Cosplay (Opsional):</label>
-                            <input type="url" id="reg-social" name="social_link" placeholder="https://instagram.com/alisa_cosplay">
-                            <small>Sangat dianjurkan guna mempercepat verifikasi reputasi baik dan pembebasan deposit jaminan.</small>
+                        <div class="space-y-1">
+                            <label for="reg-social" class="font-semibold text-gray-700">Tautan Media Sosial (Opsional):</label>
+                            <input type="url" id="reg-social" name="social_link" placeholder="https://instagram.com/..." class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                         </div>
 
-                        <div class="form-grid-2">
-                            <div class="form-group">
-                                <label for="reg-password">Kata Sandi (Password):</label>
-                                <input type="password" id="reg-password" name="password" placeholder="Minimal 8 karakter" required autocomplete="new-password">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="space-y-1">
+                                <label for="reg-password" class="font-semibold text-gray-700">Kata Sandi:</label>
+                                <input type="password" id="reg-password" name="password" placeholder="Minimal 8 karakter" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
-
-                            <div class="form-group">
-                                <label for="reg-confirm-password">Konfirmasi Kata Sandi:</label>
-                                <input type="password" id="reg-confirm-password" name="confirm_password" placeholder="Ulangi kata sandi" required autocomplete="new-password">
+                            <div class="space-y-1">
+                                <label for="reg-confirm-password" class="font-semibold text-gray-700">Konfirmasi Kata Sandi:</label>
+                                <input type="password" id="reg-confirm-password" name="confirm_password" placeholder="Ulangi kata sandi" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                             </div>
                         </div>
-
                     </fieldset>
 
-                    <!-- Persetujuan Ketentuan -->
-                    <div class="form-agreement-box">
-                        <label>
-                            <input type="checkbox" name="agree_terms" value="yes" required>
-                            Saya menyetujui <a href="index.html#syarat-ketentuan">Syarat &amp; Ketentuan</a> platform Chileorent, penggunaan Rekening Bersama Otomatis (Escrow), serta batas persentase tawar-menawar 0-8% pada alur alih fungsi produk.
-                        </label>
+                    <div class="flex items-start gap-2 text-xs">
+                        <input type="checkbox" name="agree_terms" value="yes" required class="mt-0.5 text-indigo-600">
+                        <label class="text-gray-600">Saya menyetujui <a href="index.html#syarat-ketentuan" class="text-indigo-600 underline">Syarat & Ketentuan</a> platform Chileorent.</label>
                     </div>
 
-                    <!-- Tombol Aksi Pendaftaran -->
-                    <div class="register-action-group">
-                        <button type="submit" class="btn-submit-register">
-                            Daftar Akun Sekarang &rarr;
-                        </button>
-                    </div>
+                    <button type="submit" class="w-full py-2.5 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
+                        Daftar Akun Sekarang &rarr;
+                    </button>
 
                 </form>
 
-                <footer class="register-card-footer">
-                    <p>
-                        Sudah memiliki akun terdaftar? 
-                        <a href="login.html">Masuk ke Portal di sini</a>
-                    </p>
+                <footer class="pt-4 border-t border-gray-100 text-xs text-center">
+                    <p class="text-gray-600">Sudah memiliki akun? <a href="login.html" class="text-indigo-600 font-bold hover:underline">Masuk Portal di sini</a></p>
                 </footer>
 
             </section>
 
-            <!-- Informasi Keuntungan Pendaftaran -->
-            <aside class="register-benefits-sidebar">
-                <h3>Mengapa Mendaftar Akun di Chileorent?</h3>
-                
-                <div class="benefit-item">
-                    <h4>Bagi Perental (Customer):</h4>
-                    <ul>
-                        <li>Pantau status sewa dan nomor resi pengiriman real-time.</li>
-                        <li>Riwayat transaksi terverifikasi membebaskan deposit sewa (Rp 0) di kemudian hari.</li>
-                        <li>Simpan kostum impian ke daftar wishlist untuk event mendatang.</li>
-                    </ul>
-                </div>
+            <!-- SIDEBAR BENEFITS (4 Cols) -->
+            <aside class="md:col-span-4 space-y-4 text-xs text-gray-600">
+                <div class="p-5 bg-white border border-gray-200 rounded-2xl space-y-4">
+                    <h3 class="font-bold text-gray-900 text-sm">Mengapa Mendaftar Akun?</h3>
+                    
+                    <div class="space-y-1">
+                        <h4 class="font-bold text-indigo-600">Bagi Perental:</h4>
+                        <p class="text-gray-500">Pantau status sewa dan resi pengiriman real-time. Riwayat terverifikasi membebaskan deposit sewa (Rp 0).</p>
+                    </div>
 
-                <div class="benefit-item">
-                    <h4>Bagi Penjual (Pemilik Rental Lama / Cosplayer):</h4>
-                    <ul>
-                        <li>Identifikasi otomatis saat mengisi form alih fungsi tanpa harus isi ulang data identitas.</li>
-                        <li>Pantau status kurasi Grade fisik (A/B/C) oleh tim verifikasi.</li>
-                        <li>Atur fitur nego fleksibel (0% - 8%) dan pantau saldo hasil penjualan yang masuk ke Escrow.</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-item">
-                    <h4>Bagi Pemilik Usaha Rental Kita & Administrator:</h4>
-                    <ul>
-                        <li>Akses ganda: Dashboard Rental Fitur Luas + Admin Dashboard Terpadu.</li>
-                        <li>Kontrol penuh seluruh perputaran inventaris dan pelepasan dana transaksi.</li>
-                    </ul>
+                    <div class="space-y-1">
+                        <h4 class="font-bold text-indigo-600">Bagi Penjual:</h4>
+                        <p class="text-gray-500">Identifikasi otomatis pada form alih fungsi. Pantau kurasi Grade dan atur fitur nego (0-8%).</p>
+                    </div>
                 </div>
             </aside>
 
         </div>
     </main>
 
-    <!-- ==========================================================================
-         FOOTER
-         ========================================================================== -->
-    <footer id="footer-utama">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Chileorent</h3>
-                <p>Platform marketplace sewa kostum cosplay terverifikasi dan solusi alur alih fungsi kostum dengan sistem nego terkendali 0-8%.</p>
-                <p>&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Platform marketplace sewa kostum cosplay terverifikasi dan solusi alur alih fungsi kostum dengan sistem nego terkendali 0-8%.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
-                    <li><a href="login.html">Masuk Portal</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                    <li><a href="login.html" class="hover:text-white transition">Masuk Portal</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Keamanan</h4>
-                <ul>
-                    <li><a href="index.html#alur-escrow">Sistem Escrow Otomatis</a></li>
-                    <li><a href="index.html#pusat-verifikasi">Standar Verifikasi Grade A/B/C</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Keamanan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Sistem Escrow Otomatis</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Standar Verifikasi Grade A/B/C</a></li>
                 </ul>
             </div>
         </div>

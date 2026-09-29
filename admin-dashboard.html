@@ -4,273 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Administrator & Kurator Verifikasi - Chileorent</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
 
-    <!-- ==========================================================================
-         HEADER ADMINISTRATOR
-         ========================================================================== -->
-    <header id="header-admin">
-        <div class="header-container">
-            <div class="brand-group">
-                <a href="index.html" class="brand-logo">
-                    <h1>Chileorent <span>Admin</span></h1>
+    <!-- HEADER ADMIN -->
+    <header id="header-admin" class="sticky top-0 z-50 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition">
+                    <h1>Chileorent <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30">Admin</span></h1>
                 </a>
-                <p class="brand-tagline">Pusat Kendali Verifikasi, Kurasi Alih Fungsi &amp; Escrow Platform</p>
+                <p class="hidden md:block text-xs text-slate-400 border-l border-slate-700 pl-3">
+                    Pusat Kendali Verifikasi, Kurasi Alih Fungsi & Escrow Platform
+                </p>
             </div>
 
-            <nav id="navigasi-admin" aria-label="Navigasi Administrator">
-                <ul>
-                    <li><a href="#ringkasan" aria-current="page">Ringkasan</a></li>
-                    <li><a href="#antrean-alih-fungsi">Antrean Verifikasi Kostum</a></li>
-                    <li><a href="#pengawasan-escrow">Pengawasan Escrow</a></li>
-                    <li><a href="#verifikasi-kyc">Verifikasi Mitra (KYC)</a></li>
-                    <li><a href="dashboard-rental.html#view-owner-luas"><strong>Buka Rental Dashboard (Fitur Luas) &rarr;</strong></a></li>
-                    <li><a href="index.html">Lihat Website Publik</a></li>
+            <nav id="navigasi-admin" aria-label="Navigasi Administrator" class="order-3 md:order-2 w-full md:w-auto">
+                <ul class="flex flex-wrap items-center gap-1 md:gap-4 text-xs font-medium text-slate-300">
+                    <li><a href="#ringkasan" aria-current="page" class="px-2 py-1 text-indigo-400 font-bold border-b-2 border-indigo-400">Ringkasan</a></li>
+                    <li><a href="#antrean-alih-fungsi" class="px-2 py-1 hover:text-indigo-400 transition">Antrean Verifikasi Kostum</a></li>
+                    <li><a href="#pengawasan-escrow" class="px-2 py-1 hover:text-indigo-400 transition">Pengawasan Escrow</a></li>
+                    <li><a href="#verifikasi-kyc" class="px-2 py-1 hover:text-indigo-400 transition">Verifikasi Mitra (KYC)</a></li>
+                    <li><a href="dashboard-rental.html#view-owner-luas" class="px-2 py-1 text-amber-400 hover:text-amber-300 transition"><strong>Buka Rental Dashboard &rarr;</strong></a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions">
-                <span class="admin-badge">👑 Pemilik Rental Utama &amp; Administrator</span>
-                <a href="login.html" class="btn-logout">Keluar</a>
+            <div class="flex items-center gap-3 order-2 md:order-3 text-xs">
+                <span class="bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-full font-medium">👑 Administrator</span>
+                <a href="login.html" class="px-3 py-1.5 font-medium text-slate-300 hover:text-white border border-slate-700 rounded-lg hover:bg-slate-800 transition">Keluar</a>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================================================
-         BREADCRUMB
-         ========================================================================== -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li>&gt;</li>
-            <li><a href="login.html">Login</a></li>
-            <li>&gt;</li>
-            <li aria-current="page">Panel Administrator &amp; Pusat Verifikasi</li>
-        </ul>
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-slate-950/50 border-b border-slate-800 py-2.5 text-xs text-slate-400" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-400">Beranda</a></li>
+                <li>&gt;</li>
+                <li><a href="login.html" class="hover:text-indigo-400">Login</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-slate-200">Panel Administrator & Pusat Verifikasi</li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- ==========================================================================
-         MAIN CONTENT: PANEL ADMIN KONTROL PLATFORM
-         ========================================================================== -->
-    <main id="konten-admin">
-        <div class="admin-container">
+    <!-- MAIN CONTENT -->
+    <main id="konten-admin" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-            <!-- ==================================================================
-                 RINGKASAN KONTROL & METRIK PLATFORM
-                 ================================================================== -->
-            <section id="ringkasan" class="admin-metrics-section" aria-labelledby="metrics-heading">
-                <h2 id="metrics-heading">Status Operasional Platform Chileorent</h2>
+            <!-- METRICS -->
+            <section id="ringkasan" class="space-y-4" aria-labelledby="metrics-heading">
+                <h2 id="metrics-heading" class="text-xl font-bold text-white">Status Operasional Platform Chileorent</h2>
 
-                <div class="metrics-grid">
-                    <article class="metric-card">
-                        <h3>Antrean Kurasi Alih Fungsi</h3>
-                        <p class="metric-number highlight-pending">5 Pengajuan</p>
-                        <span class="metric-sub">Menunggu penentuan Grade &amp; inspeksi</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <article class="bg-slate-800 p-5 border border-slate-700 rounded-xl space-y-1">
+                        <h3 class="text-xs font-medium text-slate-400">Antrean Kurasi Alih Fungsi</h3>
+                        <p class="text-2xl font-bold text-amber-400">5 Pengajuan</p>
+                        <span class="text-[10px] text-slate-400 block">Menunggu penentuan Grade</span>
                     </article>
 
-                    <article class="metric-card">
-                        <h3>Transaksi Escrow Aktif</h3>
-                        <p class="metric-number">48 Transaksi</p>
-                        <span class="metric-sub">Dana aman di rekening bersama</span>
+                    <article class="bg-slate-800 p-5 border border-slate-700 rounded-xl space-y-1">
+                        <h3 class="text-xs font-medium text-slate-400">Transaksi Escrow Aktif</h3>
+                        <p class="text-2xl font-bold text-indigo-400">48 Transaksi</p>
+                        <span class="text-[10px] text-slate-400 block">Dana aman di rekening bersama</span>
                     </article>
 
-                    <article class="metric-card">
-                        <h3>Permohonan Pencairan Escrow</h3>
-                        <p class="metric-number highlight-payout">Rp 12.450.000</p>
-                        <span class="metric-sub">Siap dilepas ke pemilik rental</span>
+                    <article class="bg-slate-800 p-5 border border-slate-700 rounded-xl space-y-1">
+                        <h3 class="text-xs font-medium text-slate-400">Permohonan Pencairan</h3>
+                        <p class="text-2xl font-bold text-emerald-400">Rp 12.450.000</p>
+                        <span class="text-[10px] text-slate-400 block">Siap dilepas ke pemilik</span>
                     </article>
 
-                    <article class="metric-card">
-                        <h3>Laporan Sengketa / Kerusakan</h3>
-                        <p class="metric-number highlight-dispute">1 Kasus</p>
-                        <span class="metric-sub">Perlu mediasi tim support</span>
+                    <article class="bg-slate-800 p-5 border border-slate-700 rounded-xl space-y-1">
+                        <h3 class="text-xs font-medium text-slate-400">Laporan Sengketa</h3>
+                        <p class="text-2xl font-bold text-rose-400">1 Kasus</p>
+                        <span class="text-[10px] text-slate-400 block">Perlu mediasi tim support</span>
                     </article>
                 </div>
             </section>
 
-            <!-- ==================================================================
-                 TABEL 1: ANTREAN VERIFIKASI KOSTUM ALIH FUNGSI (PENGATURAN GRADE)
-                 ================================================================== -->
-            <section id="antrean-alih-fungsi" class="admin-section" aria-labelledby="antrean-heading">
-                <header class="section-title-row">
-                    <div>
-                        <h3 id="antrean-heading">Antrean Verifikasi &amp; Kurasi Kostum Alih Fungsi</h3>
-                        <p class="section-subtext">Periksa foto kondisi fisik, tentukan Grade resmi (A/B/C), dan verifikasi toleransi fitur nego (0-8%).</p>
-                    </div>
+            <!-- TABEL 1 -->
+            <section id="antrean-alih-fungsi" class="bg-slate-800 p-6 border border-slate-700 rounded-2xl space-y-4" aria-labelledby="antrean-heading">
+                <header>
+                    <h3 id="antrean-heading" class="text-lg font-bold text-white">Antrean Verifikasi & Kurasi Kostum Alih Fungsi</h3>
+                    <p class="text-xs text-slate-400 mt-1">Periksa foto kondisi fisik, tentukan Grade resmi (A/B/C), dan verifikasi toleransi fitur nego (0-8%).</p>
                 </header>
 
-                <div class="table-responsive">
-                    <table class="admin-table">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs text-slate-300">
                         <thead>
-                            <tr>
-                                <th>ID Pengajuan</th>
-                                <th>Pemilik / Ex-Rental</th>
-                                <th>Karakter &amp; Seri</th>
-                                <th>Skema Alih Fungsi</th>
-                                <th>Harga &amp; Batas Nego</th>
-                                <th>Inspeksi Foto &amp; Minus</th>
-                                <th>Penentuan Grade</th>
-                                <th>Aksi Kurator</th>
+                            <tr class="bg-slate-900/80 text-slate-200 font-bold border-b border-slate-700">
+                                <th class="p-3">ID Pengajuan</th>
+                                <th class="p-3">Pemilik</th>
+                                <th class="p-3">Karakter & Seri</th>
+                                <th class="p-3">Skema</th>
+                                <th class="p-3">Harga & Nego</th>
+                                <th class="p-3">Foto & Minus</th>
+                                <th class="p-3">Grade</th>
+                                <th class="p-3">Aksi Kurator</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Pengajuan 1 -->
+                        <tbody class="divide-y divide-slate-700">
                             <tr>
-                                <td><code>#AF-2026-012</code></td>
-                                <td>
-                                    <strong>Eks-Rental "Sakura Wardrobe"</strong><br>
-                                    <small>Status: Tutup Toko (Bandung)</small>
+                                <td class="p-3 font-mono">#AF-2026-012</td>
+                                <td class="p-3">
+                                    <strong class="text-white">"Sakura Wardrobe"</strong><br>
+                                    <small class="text-slate-400">Bandung</small>
                                 </td>
-                                <td>
-                                    <strong>Raiden Shogun (Fullset)</strong><br>
-                                    <small>Genshin Impact | Size S | Maker: Uwowo</small>
+                                <td class="p-3">
+                                    <strong class="text-white">Raiden Shogun</strong><br>
+                                    <small class="text-slate-400">Size S | Uwowo</small>
                                 </td>
-                                <td><span class="badge-scheme scheme-acquisition">Akuisisi Borongan Chileorent</span></td>
-                                <td>
-                                    Harga Taksiran: Rp 1.200.000<br>
-                                    <small>Nego: Aktif (Toleransi 8%)</small>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded">Akuisisi</span></td>
+                                <td class="p-3">Rp 1.200.000<br><small class="text-slate-400">Nego 8%</small></td>
+                                <td class="p-3">
+                                    <a href="#lihat-foto" class="text-indigo-400 hover:underline">Foto Fisik</a><br>
+                                    <small class="text-slate-400">Minus: Tidak ada</small>
                                 </td>
-                                <td>
-                                    <a href="#lihat-foto" class="btn-inspect-photos">🔍 Lihat 4 Foto Fisik</a><br>
-                                    <small>Minus: Tidak ada, kondisi 95% mulus.</small>
-                                </td>
-                                <td>
-                                    <select name="assigned_grade" aria-label="Pilih Grade">
-                                        <option value="A" selected>Grade A (Pristine)</option>
-                                        <option value="B">Grade B (Wajar)</option>
-                                        <option value="C">Grade C (Minus)</option>
+                                <td class="p-3">
+                                    <select name="assigned_grade" aria-label="Pilih Grade" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded px-2 py-1">
+                                        <option value="A" selected>Grade A</option>
+                                        <option value="B">Grade B</option>
+                                        <option value="C">Grade C</option>
                                     </select>
                                 </td>
-                                <td>
-                                    <button type="button" class="btn-admin-approve">Setujui Akuisisi</button>
-                                    <button type="button" class="btn-admin-reject">Minta Revisi</button>
-                                </td>
-                            </tr>
-
-                            <!-- Pengajuan 2 -->
-                            <tr>
-                                <td><code>#AF-2026-015</code></td>
-                                <td>
-                                    <strong>Individu: Rina Amelia</strong><br>
-                                    <small>Cosplayer (Jakarta)</small>
-                                </td>
-                                <td>
-                                    <strong>Frieren (Jubah + Wig)</strong><br>
-                                    <small>Sousou no Frieren | Size M</small>
-                                </td>
-                                <td><span class="badge-scheme scheme-sell">Jual Putus ke Cosplayer</span></td>
-                                <td>
-                                    Harga: Rp 450.000<br>
-                                    <small>Nego: Aktif (Toleransi 6%)</small>
-                                </td>
-                                <td>
-                                    <a href="#lihat-foto" class="btn-inspect-photos">🔍 Lihat 5 Foto Fisik</a><br>
-                                    <small>Minus: Kancing kedua agak longgar.</small>
-                                </td>
-                                <td>
-                                    <select name="assigned_grade" aria-label="Pilih Grade">
-                                        <option value="A">Grade A (Pristine)</option>
-                                        <option value="B" selected>Grade B (Wajar)</option>
-                                        <option value="C">Grade C (Minus)</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn-admin-approve">Terbitkan ke Katalog</button>
-                                    <button type="button" class="btn-admin-reject">Tolak</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- ==================================================================
-                 TABEL 2: PENGAWASAN ESCROW & PERSETUJUAN PENCAIRAN DANA
-                 ================================================================== -->
-            <section id="pengawasan-escrow" class="admin-section" aria-labelledby="escrow-heading">
-                <header class="section-title-row">
-                    <div>
-                        <h3 id="escrow-heading">Pengawasan Rekening Bersama (Escrow) &amp; Pelepasan Saldo</h3>
-                        <p class="section-subtext">Verifikasi apakah masa sewa selesai dan barang kembali sebelum mencairkan dana ke pemilik.</p>
-                    </div>
-                </header>
-
-                <div class="table-responsive">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID Transaksi</th>
-                                <th>Penyewa / Pembeli</th>
-                                <th>Pemilik Rental</th>
-                                <th>Total Dana Escrow</th>
-                                <th>Skema Bayar</th>
-                                <th>Status Pengembalian</th>
-                                <th>Aksi Admin Escrow</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>#ESC-99218</code></td>
-                                <td>Dimas Arya (Depok)</td>
-                                <td>Kurogane Cosplay Rental</td>
-                                <td>Rp 180.000 (Sewa Rp 95k + Depo Rp 80k + Layanan Rp 5k)</td>
-                                <td><span class="badge-payment">Bayar Penuh (Escrow)</span></td>
-                                <td><span class="status-badge-ok">✓ Kostum Kembali Utuh &amp; Terverifikasi</span></td>
-                                <td>
-                                    <button type="button" class="btn-admin-approve">Cairkan Rp 95k ke Pemilik &amp; Refund Depo</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>#ESC-99224</code></td>
-                                <td>Bella Safitri (Surabaya)</td>
-                                <td>Aether Wardrobe</td>
-                                <td>Rp 48.000 (DP 30% Terkunci)</td>
-                                <td><span class="badge-payment">Fitur DP 30%</span></td>
-                                <td><span class="status-badge-pending">Menunggu Pelunasan H-2</span></td>
-                                <td>
-                                    <button type="button" class="btn-table-action" disabled>Menunggu Pelunasan</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- ==================================================================
-                 TABEL 3: VERIFIKASI IDENTITAS MITRA RENTAL BARU (KYC)
-                 ================================================================== -->
-            <section id="verifikasi-kyc" class="admin-section" aria-labelledby="kyc-heading">
-                <header class="section-title-row">
-                    <div>
-                        <h3 id="kyc-heading">Verifikasi Identitas Mitra Baru (KYC &amp; Legalitas)</h3>
-                        <p class="section-subtext">Menjaga ekosistem sewa dari akun bodong atau penipuan.</p>
-                    </div>
-                </header>
-
-                <div class="table-responsive">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>Nama Rental / Pendaftar</th>
-                                <th>Jenis Mitra</th>
-                                <th>Kontak WhatsApp</th>
-                                <th>Medsos / Portofolio</th>
-                                <th>Dokumen KTP/ID</th>
-                                <th>Keputusan Verifikasi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>NekoNeko Cosplay Hub</strong></td>
-                                <td>Rental Aktif (Tangerang)</td>
-                                <td>+62 813-9876-5432</td>
-                                <td><a href="https://instagram.com" target="_blank">@nekoneko_cosplay</a></td>
-                                <td><a href="#lihat-ktp">📄 Lihat Dokumen KTP</a></td>
-                                <td>
-                                    <button type="button" class="btn-admin-approve">Verifikasi Akun</button>
-                                    <button type="button" class="btn-admin-reject">Tolak KYC</button>
+                                <td class="p-3 space-x-1">
+                                    <button type="button" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Setujui</button>
+                                    <button type="button" class="px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">Revisi</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -281,13 +143,11 @@
         </div>
     </main>
 
-    <!-- ==========================================================================
-         FOOTER ADMIN
-         ========================================================================== -->
-    <footer id="footer-admin">
-        <div class="footer-container">
-            <p>&copy; 2026 Chileorent Administrator Core System. Akses rahasia &amp; terenkripsi.</p>
-            <p><a href="index.html">Kembali ke Beranda Utama Chileorent</a></p>
+    <!-- FOOTER ADMIN -->
+    <footer id="footer-admin" class="bg-slate-950 text-slate-500 py-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between gap-4">
+            <p>&copy; 2026 Chileorent Administrator Core System. Akses rahasia & terenkripsi.</p>
+            <p><a href="index.html" class="hover:text-slate-300">Kembali ke Beranda Utama Chileorent</a></p>
         </div>
     </footer>
 

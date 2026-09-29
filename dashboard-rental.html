@@ -4,508 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Manajemen Rental Pintar - Chileorent</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- ==========================================================================
-         HEADER & NAVIGASI
-         ========================================================================== -->
-    <header id="header-utama">
-        <div class="header-container">
-            <div class="brand-group">
-                <a href="index.html" class="brand-logo">
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition">
                     <h1>Chileorent</h1>
                 </a>
-                <p class="brand-tagline">Sistem Manajemen Rental Pintar & Alih Fungsi Kostum</p>
+                <p class="hidden md:block text-xs text-gray-500 border-l border-gray-300 pl-3">
+                    Sistem Manajemen Rental Pintar & Alih Fungsi Kostum
+                </p>
             </div>
 
-            <nav id="navigasi-utama" aria-label="Navigasi Utama">
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="dashboard-rental.html" aria-current="page">Dashboard Rental</a></li>
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="order-3 md:order-2 w-full md:w-auto">
+                <ul class="flex flex-wrap items-center gap-1 md:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2 py-1 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2 py-1 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2 py-1 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" aria-current="page" class="px-2 py-1 text-indigo-600 font-semibold border-b-2 border-indigo-600">Dashboard Rental</a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions">
-                <span class="user-greeting">Masuk Sebagai: <strong>Multi-Peran (Simulasi UI)</strong></span>
-                <a href="login.html" class="btn-logout">Keluar</a>
+            <div class="flex items-center gap-3 order-2 md:order-3 text-xs">
+                <span class="text-gray-600">Masuk Sebagai: <strong>Multi-Peran (Simulasi UI)</strong></span>
+                <a href="login.html" class="px-3 py-1.5 font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Keluar</a>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================================================
-         BREADCRUMB
-         ========================================================================== -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li>&gt;</li>
-            <li aria-current="page">Dashboard Manajemen Rental Pintar</li>
-        </ul>
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Dashboard Manajemen Rental Pintar</li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- ==========================================================================
-         ROLE VIEW SWITCHER (NAVIGASI SIMULASI PERAN)
-         ========================================================================== -->
-    <aside class="role-switcher-banner" aria-label="Pengalih Tampilan Peran Akun">
-        <div class="role-switcher-container">
+    <!-- ROLE SWITCHER -->
+    <aside class="bg-indigo-900 text-white py-3 border-b border-indigo-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
             <strong>Pilih Simulasi Tampilan Sesuai Peran Login Akun:</strong>
-            <nav class="role-tabs-nav" aria-label="Tab Peran">
-                <a href="#view-owner-luas" class="role-tab-btn active">👑 Pengelola: Pemilik Rental Kita &amp; Admin (Fitur Luas)</a>
-                <a href="#view-penjual-terbatas" class="role-tab-btn">🔄 Penjual: Pemilik Rental Lama &amp; Cosplayer (Fitur Terbatas)</a>
-                <a href="#view-perental-terbatas" class="role-tab-btn">🎭 Perental: Customer Cosplayer (Fitur Terbatas)</a>
+            <nav class="flex flex-wrap gap-2" aria-label="Tab Peran">
+                <a href="#view-owner-luas" class="px-3 py-1 bg-indigo-600 text-white rounded font-bold">👑 Pengelola (Fitur Luas)</a>
+                <a href="#view-penjual-terbatas" class="px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded">🔄 Penjual (Terbatas)</a>
+                <a href="#view-perental-terbatas" class="px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded">🎭 Perental (Terbatas)</a>
             </nav>
         </div>
     </aside>
 
-    <!-- ==========================================================================
-         MAIN CONTENT: DASHBOARD ADAPTIF MULTI-PERAN
-         ========================================================================== -->
-    <main id="konten-dashboard">
-        <div class="dashboard-container">
+    <!-- MAIN CONTENT -->
+    <main id="konten-dashboard" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-            <!-- ##################################################################
-                 PERAN 1: AKSES FITUR LUAS (PEMILIK USAHA RENTAL KITA + ADMIN)
-                 ################################################################## -->
-            <section id="view-owner-luas" class="role-view-section active-view" aria-labelledby="owner-view-title">
+            <!-- PERAN 1: FITUR LUAS -->
+            <section id="view-owner-luas" class="space-y-8" aria-labelledby="owner-view-title">
                 
-                <!-- Header Profil Pengelola Fitur Luas -->
-                <header class="dashboard-profile-header">
-                    <div class="profile-info">
-                        <span class="badge-role-wide">👑 Mode Akses Luas: Pemilik Rental Utama &amp; Admin Platform</span>
-                        <h2 id="owner-view-title">Panel Kontrol Operasional: Kurogane Cosplay Hub</h2>
-                        <p>Status Kemitraan: <span class="badge-verified">✓ Mitra Terverifikasi KYC Chileorent</span> | Rating Toko: ★★★★★ <strong>4.8 / 5.0</strong></p>
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded-full">👑 Mode Akses Luas: Pemilik Rental Utama & Admin Platform</span>
+                        <h2 id="owner-view-title" class="text-2xl font-bold text-gray-900">Panel Kontrol Operasional: Kurogane Cosplay Hub</h2>
+                        <p class="text-xs text-gray-500">Status: <span class="text-emerald-600 font-bold">✓ Mitra Terverifikasi KYC</span> | Rating: ★★★★★ <strong>4.8 / 5.0</strong></p>
                     </div>
-                    <div class="profile-actions">
-                        <a href="admin-dashboard.html" class="btn-admin-switch">⚙️ Buka Admin Dashboard Pusat &rarr;</a>
-                        <a href="alih-fungsi.html" class="btn-primary">+ Tambah / Alih Fungsikan Kostum Baru</a>
+                    <div class="flex gap-2">
+                        <a href="admin-dashboard.html" class="px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-900 rounded-lg transition">⚙️ Admin Dashboard Pusat &rarr;</a>
+                        <a href="alih-fungsi.html" class="px-3 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition">+ Tambah Kostum</a>
                     </div>
                 </header>
 
-                <!-- Ringkasan Statistik Luas -->
-                <section class="metrics-grid" aria-label="Statistik Pengelola Luas">
-                    <article class="metric-card">
-                        <h3>Total Kostum Terdaftar</h3>
-                        <p class="metric-number">24</p>
-                        <span class="metric-sub">Koleksi aktif di sistem</span>
+                <section class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Total Kostum</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">24</p>
                     </article>
-
-                    <article class="metric-card">
-                        <h3>Sedang Aktif Disewa</h3>
-                        <p class="metric-number highlight-rented">7</p>
-                        <span class="metric-sub">Dalam penggunaan cosplayer</span>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Sedang Disewa</h3>
+                        <p class="text-2xl font-bold text-indigo-600 mt-1">7</p>
                     </article>
-
-                    <article class="metric-card">
-                        <h3>Menunggu Pengiriman</h3>
-                        <p class="metric-number highlight-pending">3</p>
-                        <span class="metric-sub">Harus dikirim H-3 acara</span>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Menunggu Kirim</h3>
+                        <p class="text-2xl font-bold text-amber-600 mt-1">3</p>
                     </article>
-
-                    <article class="metric-card">
-                        <h3>Perlu Laundry / Sanitasi</h3>
-                        <p class="metric-number highlight-laundry">4</p>
-                        <span class="metric-sub">Baru kembali dari penyewa</span>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Perlu Laundry</h3>
+                        <p class="text-2xl font-bold text-blue-600 mt-1">4</p>
                     </article>
-
-                    <article class="metric-card">
-                        <h3>Saldo Siap Dicairkan (Escrow)</h3>
-                        <p class="metric-number highlight-income">Rp 3.850.000</p>
-                        <span class="metric-sub">Otomatis cair setelah verifikasi</span>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm col-span-2 md:col-span-1">
+                        <h3 class="text-xs text-gray-500">Saldo Escrow</h3>
+                        <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 3.850.000</p>
                     </article>
                 </section>
 
-                <!-- Tabel Jadwal Sewa Aktif, Pengiriman & Escrow -->
-                <section class="dashboard-section" aria-labelledby="jadwal-sewa-heading">
-                    <header class="section-title-row">
-                        <h3 id="jadwal-sewa-heading">Jadwal Sewa Aktif &amp; Status Pengembalian (Seluruh Pelanggan)</h3>
-                        <div class="filter-controls">
-                            <label for="filter-status-sewa">Filter Status:</label>
-                            <select id="filter-status-sewa">
-                                <option value="all">Semua Status</option>
-                                <option value="shipping">Dalam Pengiriman</option>
-                                <option value="active">Sedang Digunakan</option>
-                                <option value="returning">Dalam Pengembalian</option>
-                            </select>
-                        </div>
-                    </header>
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                    <h3 id="jadwal-sewa-heading" class="font-bold text-gray-900 text-base">Jadwal Sewa Aktif & Status Pengembalian</h3>
 
-                    <div class="table-responsive">
-                        <table class="dashboard-table">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
                             <thead>
-                                <tr>
-                                    <th>ID Booking</th>
-                                    <th>Kostum &amp; Karakter</th>
-                                    <th>Penyewa</th>
-                                    <th>Jadwal Sewa</th>
-                                    <th>Tenggat Kembali</th>
-                                    <th>Status Barang</th>
-                                    <th>Status Escrow</th>
-                                    <th>Aksi Pengelola</th>
+                                <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                    <th class="p-3">ID Booking</th>
+                                    <th class="p-3">Kostum</th>
+                                    <th class="p-3">Penyewa</th>
+                                    <th class="p-3">Jadwal</th>
+                                    <th class="p-3">Status Barang</th>
+                                    <th class="p-3">Status Escrow</th>
+                                    <th class="p-3">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="divide-y divide-gray-200">
                                 <tr>
-                                    <td><code>#BK-2026-081</code></td>
-                                    <td><strong>Frieren (Size M)</strong><br><small>Sousou no Frieren</small></td>
-                                    <td>Alisa Putri (Bandung)</td>
-                                    <td>24 Sep 2026</td>
-                                    <td>27 Sep 2026</td>
-                                    <td><span class="status-badge status-shipping">Dikirim (Resi: JNE8821)</span></td>
-                                    <td><span class="escrow-badge escrow-held">Dana Tertahan Escrow</span></td>
-                                    <td><button type="button" class="btn-table-action">Lacak Resi</button></td>
-                                </tr>
-                                <tr>
-                                    <td><code>#BK-2026-079</code></td>
-                                    <td><strong>Gojo Satoru (Size L)</strong><br><small>Jujutsu Kaisen</small></td>
-                                    <td>Rian Pratama (Jakarta)</td>
-                                    <td>21 Sep 2026</td>
-                                    <td>24 Sep 2026</td>
-                                    <td><span class="status-badge status-active">Sedang Dipakai Event</span></td>
-                                    <td><span class="escrow-badge escrow-held">Dana Tertahan Escrow</span></td>
-                                    <td><button type="button" class="btn-table-action">Ingatkan Kembali</button></td>
-                                </tr>
-                                <tr>
-                                    <td><code>#BK-2026-075</code></td>
-                                    <td><strong>Kamado Tanjiro (Size L)</strong><br><small>Kimetsu no Yaiba</small></td>
-                                    <td>Dimas Arya (Depok)</td>
-                                    <td>18 Sep 2026</td>
-                                    <td>21 Sep 2026</td>
-                                    <td><span class="status-badge status-returning">Paket Kembali Sampai</span></td>
-                                    <td><span class="escrow-badge escrow-ready">Siap Dicairkan (Rp 95.000)</span></td>
-                                    <td><button type="button" class="btn-table-action-success">Konfirmasi &amp; Lepas Deposit</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Tabel Manajemen Seluruh Inventaris & Pengaturan Nego 0-8% -->
-                <section class="dashboard-section" aria-labelledby="inventaris-heading">
-                    <header class="section-title-row">
-                        <h3 id="inventaris-heading">Manajemen Seluruh Inventaris Kostum &amp; Toleransi Nego (0-8%)</h3>
-                    </header>
-
-                    <div class="table-responsive">
-                        <table class="dashboard-table">
-                            <thead>
-                                <tr>
-                                    <th>Foto</th>
-                                    <th>Nama Kostum &amp; Seri</th>
-                                    <th>Ukuran</th>
-                                    <th>Grade Fisik</th>
-                                    <th>Tarif Sewa / Jual</th>
-                                    <th>Fitur Nego</th>
-                                    <th>Status Ketersediaan</th>
-                                    <th>Opsi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="https://placehold.co/60x60/3d5a80/ffffff?text=Frieren" alt="Frieren" width="60" height="60"></td>
-                                    <td><strong>Frieren - Fullset Jubah &amp; Staff</strong><br><small>Sousou no Frieren (Maker: Uwowo)</small></td>
-                                    <td>Size M</td>
-                                    <td><span class="badge-grade">Grade A</span></td>
-                                    <td>Rp 120.000 / 3 hari</td>
-                                    <td><span class="nego-status-active">Aktif (Toleransi 8%)</span></td>
-                                    <td><span class="stock-status rented">Disewa (s.d. 27 Sep)</span></td>
-                                    <td><button type="button" class="btn-action-edit">Ubah</button></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="https://placehold.co/60x60/ee6c4d/ffffff?text=Raiden" alt="Raiden" width="60" height="60"></td>
-                                    <td><strong>Raiden Shogun - Kimono &amp; Armor</strong><br><small>Genshin Impact</small></td>
-                                    <td>Size S</td>
-                                    <td><span class="badge-grade">Grade A</span></td>
-                                    <td>Rp 160.000 / 3 hari</td>
-                                    <td><span class="nego-status-fixed">Harga Pas (0% Nego)</span></td>
-                                    <td><span class="stock-status available">Siap Sewa</span></td>
-                                    <td><button type="button" class="btn-action-edit">Ubah</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Log Pencucian (Laundry) & Kontrol Kualitas -->
-                <section class="dashboard-section" aria-labelledby="laundry-heading">
-                    <header class="section-title-row">
-                        <h3 id="laundry-heading">Log Pencucian (Laundry) &amp; Kontrol Kualitas Kostum</h3>
-                    </header>
-                    <div class="laundry-log-list">
-                        <article class="log-item">
-                            <span class="log-date">21 Sep 2026, 14:30 WIB</span>
-                            <h4>Kostum Kamado Tanjiro Kembali dari Penyewa #BK-2026-075</h4>
-                            <p>Kondisi: Jahitan utuh, tidak ada sobekan. Sedang dimasukkan ke antrean cuci uap dan wig restyling.</p>
-                            <span class="badge-progress">Dalam Proses Sanitasi</span>
-                        </article>
-                    </div>
-                </section>
-
-            </section>
-
-
-            <!-- ##################################################################
-                 PERAN 2: AKSES FITUR TERBATAS (PENJUAL: PEMILIK RENTAL LAMA / COSPLAYER)
-                 ################################################################## -->
-            <section id="view-penjual-terbatas" class="role-view-section" aria-labelledby="seller-view-title">
-                
-                <header class="dashboard-profile-header">
-                    <div class="profile-info">
-                        <span class="badge-role-limited">🔄 Mode Akun Terbatas: Penjual (Pemilik Rental Lama / Cosplayer)</span>
-                        <h2 id="seller-view-title">Dasbor Penjual: Rina Amelia (Eks-Sakura Wardrobe)</h2>
-                        <p>ID Terverifikasi: <strong>#USR-SLR-8821</strong> | Domisili: <strong>Kota Bandung</strong> | Status KYC: <span class="badge-verified">✓ Terverifikasi Otomatis</span></p>
-                        <p class="role-feature-note">
-                            ℹ️ <em>Akun Anda telah teridentifikasi di sistem. Saat mengajukan alih fungsi kostum baru, seluruh identitas dan verifikasi kepemilikan Anda otomatis terisi tanpa perlu mengulang upload KTP!</em>
-                        </p>
-                    </div>
-                    <div class="profile-actions">
-                        <a href="alih-fungsi.html" class="btn-primary">+ Ajukan Alih Fungsi Kostum Baru (ID Otomatis) &rarr;</a>
-                    </div>
-                </header>
-
-                <!-- Metrik Terbatas Khusus Penjual -->
-                <section class="metrics-grid" aria-label="Statistik Penjual">
-                    <article class="metric-card">
-                        <h3>Kostum Saya Dialihfungsikan</h3>
-                        <p class="metric-number">3</p>
-                        <span class="metric-sub">Koleksi terdaftar di Chileorent</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Status Kurasi Grade</h3>
-                        <p class="metric-number highlight-approved">2 Disetujui</p>
-                        <span class="metric-sub">1 Menunggu inspeksi kurator</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Tawaran Nego Masuk (0-8%)</h3>
-                        <p class="metric-number highlight-pending">1 Tawaran</p>
-                        <span class="metric-sub">Memerlukan persetujuan Anda</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Saldo Penjualan di Escrow</h3>
-                        <p class="metric-number highlight-income">Rp 1.650.000</p>
-                        <span class="metric-sub">Akan cair setelah serah terima</span>
-                    </article>
-                </section>
-
-                <!-- Tabel Status Kostum Alih Fungsi Milik Penjual -->
-                <section class="dashboard-section" aria-labelledby="my-costumes-heading">
-                    <header class="section-title-row">
-                        <h3 id="my-costumes-heading">Status Kostum Alih Fungsi Saya &amp; Tawaran Nego Masuk</h3>
-                        <p class="section-subtext">Pantau proses kurasi grade, persetujuan akuisisi, serta penawaran tawar-menawar (0-8%) dari calon pembeli.</p>
-                    </header>
-
-                    <div class="table-responsive">
-                        <table class="dashboard-table">
-                            <thead>
-                                <tr>
-                                    <th>ID Pengajuan</th>
-                                    <th>Kostum &amp; Seri</th>
-                                    <th>Skema Alih Fungsi</th>
-                                    <th>Harga Patokan</th>
-                                    <th>Batas Nego</th>
-                                    <th>Status Kurasi Admin</th>
-                                    <th>Tawaran Nego Calon Pembeli</th>
-                                    <th>Status Saldo Escrow</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>#AF-2026-015</code></td>
-                                    <td><strong>Frieren (Jubah + Wig)</strong><br><small>Sousou no Frieren (Size M)</small></td>
-                                    <td>Jual Putus ke Cosplayer</td>
-                                    <td>Rp 450.000</td>
-                                    <td><span class="nego-status-active">Aktif (Toleransi 6%)</span><br><small>Min: Rp 423.000</small></td>
-                                    <td><span class="badge-grade">Grade B (Disetujui)</span></td>
-                                    <td>
-                                        <strong>Rp 430.000</strong> (Tawaran turun 4.4%)<br>
-                                        <small>Oleh: <em>Budi (Jakarta)</em></small>
-                                    </td>
-                                    <td><span class="escrow-badge escrow-ready">Pembeli Sudah Deposit ke Escrow</span></td>
-                                    <td>
-                                        <button type="button" class="btn-table-action-success">Terima Nego</button>
-                                        <button type="button" class="btn-table-action">Tolak</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><code>#AF-2026-012</code></td>
-                                    <td><strong>Raiden Shogun (Fullset)</strong><br><small>Genshin Impact (Size S)</small></td>
-                                    <td>Akuisisi Borongan Chileorent</td>
-                                    <td>Rp 1.200.000</td>
-                                    <td><span class="nego-status-active">Toleransi 8%</span></td>
-                                    <td><span class="badge-grade">Grade A (Lolos Kurasi)</span></td>
-                                    <td>- (Akuisisi Langsung)</td>
-                                    <td><span class="escrow-badge escrow-ready">Dana Siap Dicairkan: Rp 1.200.000</span></td>
-                                    <td>
-                                        <button type="button" class="btn-table-action-success">Tarik ke Rekening Bank</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><code>#AF-2026-019</code></td>
-                                    <td><strong>Kafka - Stellaron Hunter</strong><br><small>Honkai Star Rail (Size M)</small></td>
-                                    <td>Titip Sewa (Konsinyasi)</td>
-                                    <td>Rp 135.000 / 3 hari</td>
-                                    <td>Harga Pas (0% Nego)</td>
-                                    <td><span class="status-badge-pending">⏳ Sedang Diinspeksi Kurator</span></td>
-                                    <td>-</td>
-                                    <td>Menunggu Publikasi</td>
-                                    <td>
-                                        <button type="button" class="btn-action-edit">Lihat Data</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-            </section>
-
-
-            <!-- ##################################################################
-                 PERAN 3: AKSES FITUR TERBATAS (PERENTAL: CUSTOMER COSPLAYER)
-                 ################################################################## -->
-            <section id="view-perental-terbatas" class="role-view-section" aria-labelledby="renter-view-title">
-                
-                <header class="dashboard-profile-header">
-                    <div class="profile-info">
-                        <span class="badge-role-renter">🎭 Mode Akun Terbatas: Perental (Customer Cosplayer)</span>
-                        <h2 id="renter-view-title">Dasbor Perental: Alisa Putri</h2>
-                        <p>ID Penyewa: <strong>#USR-RNT-4019</strong> | Status Verifikasi: <span class="badge-verified">✓ Akun Terverifikasi (Bebas Deposit)</span></p>
-                        <p class="role-feature-note">
-                            ℹ️ <em>Sebagai penyewa terverifikasi, Anda berhak menikmati fitur <strong>Booking dengan DP (30%/50%)</strong> dan <strong>Bebas Uang Jaminan (Deposit Rp 0)</strong>!</em>
-                        </p>
-                    </div>
-                    <div class="profile-actions">
-                        <a href="catalog.html" class="btn-primary">🔍 Cari &amp; Booking Kostum Lain &rarr;</a>
-                    </div>
-                </header>
-
-                <!-- Metrik Terbatas Khusus Perental -->
-                <section class="metrics-grid" aria-label="Statistik Perental">
-                    <article class="metric-card">
-                        <h3>Kostum Sedang Disewa</h3>
-                        <p class="metric-number highlight-rented">1</p>
-                        <span class="metric-sub">Event 24-27 September 2026</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Paket Menuju Alamat Anda</h3>
-                        <p class="metric-number highlight-pending">1</p>
-                        <span class="metric-sub">Resi JNE: JNE882190</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Riwayat Sewa Sukses</h3>
-                        <p class="metric-number">4</p>
-                        <span class="metric-sub">Transaksi selesai tanpa minus</span>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>Deposit dalam Pengembalian</h3>
-                        <p class="metric-number highlight-income">Rp 0</p>
-                        <span class="metric-sub">Bebas deposit jaminan</span>
-                    </article>
-                </section>
-
-                <!-- Tabel Kostum yang Sedang Dirental -->
-                <section class="dashboard-section" aria-labelledby="my-rentals-heading">
-                    <header class="section-title-row">
-                        <h3 id="my-rentals-heading">Kostum yang Sedang Saya Rental &amp; Status Pengiriman</h3>
-                        <p class="section-subtext">Lacak status pesanan, nomor resi kurir, tenggat pengembalian, dan konfirmasi unboxing.</p>
-                    </header>
-
-                    <div class="table-responsive">
-                        <table class="dashboard-table">
-                            <thead>
-                                <tr>
-                                    <th>ID Booking</th>
-                                    <th>Foto &amp; Kostum</th>
-                                    <th>Rental Mitra</th>
-                                    <th>Jadwal Acara</th>
-                                    <th>Status Pengiriman / Resi</th>
-                                    <th>Tenggat Pengembalian</th>
-                                    <th>Status Pembayaran Escrow</th>
-                                    <th>Aksi Penyewa</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>#BK-2026-081</code></td>
-                                    <td>
-                                        <img src="https://placehold.co/50x50/3d5a80/ffffff?text=Frieren" alt="Frieren" width="50" height="50"><br>
-                                        <strong>Frieren - Fullset (Size M)</strong>
-                                    </td>
-                                    <td>Sakura Cosplay Rental (Bandung)</td>
-                                    <td>24 - 27 Sep 2026</td>
-                                    <td>
-                                        <span class="status-badge status-shipping">🚚 Dalam Pengiriman</span><br>
-                                        <small>Resi: <strong>JNE882190</strong></small>
-                                    </td>
-                                    <td>28 Sep 2026 (Maks 17:00 WIB)</td>
-                                    <td>
-                                        <span class="escrow-badge escrow-held">Lunas via DP + Pelunasan Escrow</span><br>
-                                        <small>Deposit: Rp 0 (Bebas Deposit)</small>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn-table-action-success">Konfirmasi Terima &amp; Unboxing</button>
-                                        <button type="button" class="btn-table-action">Lacak Posisi Kurir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Daftar Wishlist Kostum yang Ingin Dirental -->
-                <section class="dashboard-section" aria-labelledby="my-wishlist-heading">
-                    <header class="section-title-row">
-                        <h3 id="my-wishlist-heading">Daftar Wishlist Kostum Impian yang Ingin Dirental</h3>
-                        <p class="section-subtext">Kostum yang Anda simpan untuk rencana photoshoot atau event cosplay mendatang.</p>
-                    </header>
-
-                    <div class="table-responsive">
-                        <table class="dashboard-table">
-                            <thead>
-                                <tr>
-                                    <th>Foto</th>
-                                    <th>Karakter &amp; Seri</th>
-                                    <th>Ukuran</th>
-                                    <th>Grade Fisik</th>
-                                    <th>Tarif Sewa</th>
-                                    <th>Ketersediaan</th>
-                                    <th>Aksi Cepat</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="https://placehold.co/50x50/ee6c4d/ffffff?text=Raiden" alt="Raiden" width="50" height="50"></td>
-                                    <td><strong>Raiden Shogun - Fullset + Sword</strong><br><small>Genshin Impact</small></td>
-                                    <td>Size S</td>
-                                    <td><span class="badge-grade">Grade A</span></td>
-                                    <td>Rp 160.000 / 3 hari (Bisa DP 30%)</td>
-                                    <td><span class="stock-status available">Siap Sewa</span></td>
-                                    <td>
-                                        <a href="detail-kostum.html" class="btn-rent-now">Booking Jadwal Sekarang &rarr;</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="https://placehold.co/50x50/293241/ffffff?text=Kafka" alt="Kafka" width="50" height="50"></td>
-                                    <td><strong>Kafka - Stellaron Hunter</strong><br><small>Honkai: Star Rail</small></td>
-                                    <td>Size M</td>
-                                    <td><span class="badge-grade">Grade B</span></td>
-                                    <td>Rp 135.000 / 3 hari (Bisa DP 30%)</td>
-                                    <td><span class="stock-status available">Siap Sewa</span></td>
-                                    <td>
-                                        <a href="detail-kostum.html" class="btn-rent-now">Booking Jadwal Sekarang &rarr;</a>
-                                    </td>
+                                    <td class="p-3 font-mono">#BK-2026-081</td>
+                                    <td class="p-3"><strong>Frieren (Size M)</strong></td>
+                                    <td class="p-3">Alisa Putri</td>
+                                    <td class="p-3">24-27 Sep 2026</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded">Dikirim</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Tertahan</span></td>
+                                    <td class="p-3"><button type="button" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-800 border">Lacak Resi</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -517,31 +137,29 @@
         </div>
     </main>
 
-    <!-- ==========================================================================
-         FOOTER
-         ========================================================================== -->
-    <footer id="footer-utama">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Chileorent</h3>
-                <p>Sistem Manajemen Rental Pintar & Marketplace Sewa Kostum Cosplay Indonesia.</p>
-                <p>&copy; 2026 Chileorent Indonesia.</p>
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Sistem Manajemen Rental Pintar & Marketplace Sewa Kostum Cosplay Indonesia.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
-                    <li><a href="admin-dashboard.html">Admin Dashboard Pusat</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                    <li><a href="admin-dashboard.html" class="hover:text-white transition">Admin Dashboard Pusat</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Bantuan Rental</h4>
-                <ul>
-                    <li><a href="index.html#alur-escrow">Pencairan Dana Escrow</a></li>
-                    <li><a href="index.html#pusat-verifikasi">Panduan Sanitasi & Grade</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Bantuan Rental</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Pencairan Dana Escrow</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Panduan Sanitasi & Grade</a></li>
                 </ul>
             </div>
         </div>

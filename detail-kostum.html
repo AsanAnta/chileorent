@@ -4,347 +4,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Sewa: Frieren - Sousou no Frieren - Chileorent</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- ==========================================================================
-         HEADER & NAVIGASI
-         ========================================================================== -->
-    <header id="header-utama">
-        <div class="header-container">
-            <div class="brand-group">
-                <a href="index.html" class="brand-logo">
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition">
                     <h1>Chileorent</h1>
                 </a>
-                <p class="brand-tagline">Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay</p>
+                <p class="hidden md:block text-xs text-gray-500 border-l border-gray-300 pl-3">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
             </div>
 
-            <nav id="navigasi-utama" aria-label="Navigasi Utama">
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="index.html#fitur-unggulan">Fitur Utama</a></li>
-                    <li><a href="index.html#alur-escrow">Sistem Escrow</a></li>
-                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="order-3 md:order-2 w-full md:w-auto">
+                <ul class="flex flex-wrap items-center gap-1 md:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2 py-1 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2 py-1 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2 py-1 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="index.html#fitur-unggulan" class="px-2 py-1 hover:text-indigo-600 transition">Fitur Utama</a></li>
+                    <li><a href="index.html#alur-escrow" class="px-2 py-1 hover:text-indigo-600 transition">Sistem Escrow</a></li>
+                    <li><a href="dashboard-rental.html" class="px-2 py-1 hover:text-indigo-600 transition">Dashboard Rental</a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions">
-                <a href="login.html" class="btn-masuk">Masuk</a>
-                <a href="register.html" class="btn-daftar">Daftar Akun</a>
-                <a href="alih-fungsi.html" class="btn-pasang-kostum">Alih Fungsikan Kostum</a>
+            <div class="flex items-center gap-2 order-2 md:order-3">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition">Daftar Akun</a>
+                <a href="alih-fungsi.html" class="px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">Alih Fungsikan Kostum</a>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================================================
-         BREADCRUMB
-         ========================================================================== -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li>&gt;</li>
-            <li><a href="catalog.html">Katalog Sewa</a></li>
-            <li>&gt;</li>
-            <li><a href="catalog.html?category=anime">Sousou no Frieren</a></li>
-            <li>&gt;</li>
-            <li aria-current="page">Frieren - Fullset Jubah & Staff</li>
-        </ul>
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex flex-wrap items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li><a href="catalog.html" class="hover:text-indigo-600">Katalog Sewa</a></li>
+                <li>&gt;</li>
+                <li><a href="catalog.html?category=anime" class="hover:text-indigo-600">Sousou no Frieren</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Frieren - Fullset Jubah & Staff</li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- ==========================================================================
-         MAIN CONTENT: DETAIL PRODUK KOSTUM SEWA
-         ========================================================================== -->
-    <main id="konten-detail-kostum">
-        <div class="product-detail-container">
+    <!-- MAIN CONTENT -->
+    <main id="konten-detail-kostum" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-            <!-- ==================================================================
-                 BAGIAN KIRI: GALERI FOTO KOSTUM & VERIFIKASI FISIK
-                 ================================================================== -->
-            <section class="product-gallery-section" aria-label="Galeri Foto Kostum">
-                <figure class="main-image-figure">
-                    <img src="https://placehold.co/600x750/3d5a80/ffffff?text=Frieren+Cosplay+Utama" alt="Tampak depan fullset kostum cosplay Frieren" width="600" height="750">
-                    <figcaption>Foto fisik asli kostum Frieren telah melalui inspeksi tim kurasi Chileorent.</figcaption>
+            <!-- GALERI FOTO (4 Cols) -->
+            <section class="lg:col-span-5 space-y-4" aria-label="Galeri Foto Kostum">
+                <figure class="bg-white p-2 border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/600x750/3d5a80/ffffff?text=Frieren+Cosplay+Utama" alt="Tampak depan fullset kostum cosplay Frieren" class="w-full h-auto rounded-xl object-cover">
+                    <figcaption class="p-2 text-center text-xs text-gray-500">Foto fisik asli kostum Frieren telah melalui inspeksi tim kurasi Chileorent.</figcaption>
                 </figure>
 
-                <!-- Thumbnail Foto Detail & Kelengkapan -->
-                <div class="thumbnails-group">
-                    <figure>
-                        <img src="https://placehold.co/140x140/3d5a80/ffffff?text=Jubah+%26+Dress" alt="Detail kain jubah dan dress Frieren" width="140" height="140">
-                        <figcaption>Jubah & Dress</figcaption>
+                <div class="grid grid-cols-4 gap-2">
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/3d5a80/ffffff?text=Jubah+%26+Dress" alt="Detail kain jubah" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Jubah & Dress</figcaption>
                     </figure>
-                    <figure>
-                        <img src="https://placehold.co/140x140/98c1d9/000000?text=Wig+Styling" alt="Detail wig twintail putih Frieren sudah distyling" width="140" height="140">
-                        <figcaption>Wig Terstyling</figcaption>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/98c1d9/000000?text=Wig+Styling" alt="Detail wig" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Wig Terstyling</figcaption>
                     </figure>
-                    <figure>
-                        <img src="https://placehold.co/140x140/ee6c4d/ffffff?text=Prop+Staff" alt="Prop tongkat sihir Frieren bahan PVC ringan" width="140" height="140">
-                        <figcaption>Tongkat Sihir</figcaption>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/ee6c4d/ffffff?text=Prop+Staff" alt="Prop tongkat" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Tongkat Sihir</figcaption>
                     </figure>
-                    <figure>
-                        <img src="https://placehold.co/140x140/293241/ffffff?text=Aksesoris" alt="Aksesoris anting ruby merah dan sabuk Frieren" width="140" height="140">
-                        <figcaption>Anting & Sabuk</figcaption>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/293241/ffffff?text=Aksesoris" alt="Aksesoris" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Anting & Sabuk</figcaption>
                     </figure>
                 </div>
             </section>
 
-            <!-- ==================================================================
-                 BAGIAN KANAN: INFORMASI SPESIFIKASI & FORM BOOKING SEWA
-                 ================================================================== -->
-            <section class="product-info-booking-section" aria-label="Informasi dan Pemesanan Sewa">
+            <!-- INFORMASI & BOOKING (7 Cols) -->
+            <section class="lg:col-span-7 space-y-6" aria-label="Informasi dan Pemesanan Sewa">
                 
-                <!-- Header Produk & Grade Verifikasi -->
-                <header class="detail-header">
-                    <div class="badge-row">
-                        <span class="badge-grade">Grade A (Kondisi Prima)</span>
-                        <span class="badge-verified">✓ Terverifikasi Chileorent</span>
-                        <span class="badge-availability">Status: Tersedia untuk Disewa</span>
-                        <span class="badge-feature-dp">✨ Bisa DP Booking (30% / 50%)</span>
-                        <span class="badge-feature-deposit">🛡️ Deposit Opsional (Khusus Pertama Sewa)</span>
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-3">
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                        <span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full">Grade A (Kondisi Prima)</span>
+                        <span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full">✓ Terverifikasi Chileorent</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-2.5 py-1 rounded-full">Tersedia</span>
+                        <span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full">✨ Bisa DP Booking (30% / 50%)</span>
                     </div>
 
-                    <h1 class="costume-title">Kostum Cosplay Frieren - Fullset + Staff Sihir</h1>
-                    <p class="costume-series">Seri: <strong>Sousou no Frieren (Frieren: Beyond Journey's End)</strong></p>
+                    <h1 class="text-2xl font-extrabold text-gray-900">Kostum Cosplay Frieren - Fullset + Staff Sihir</h1>
+                    <p class="text-xs text-gray-600">Seri: <strong>Sousou no Frieren (Frieren: Beyond Journey's End)</strong></p>
 
-                    <div class="rental-partner-card">
-                        <p>Pemilik Rental: <strong>Sakura Cosplay Rental</strong></p>
-                        <p>Lokasi: <strong>Kota Bandung, Jawa Barat</strong> | Pengiriman: <strong>Bisa Kirim Se-Indonesia</strong></p>
-                        <p>Reputasi: ★★★★★ <strong>4.9 / 5.0</strong> (128 transaksi sukses)</p>
+                    <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs space-y-1">
+                        <p class="text-gray-900 font-semibold">Pemilik Rental: Sakura Cosplay Rental</p>
+                        <p class="text-gray-600">Lokasi: <strong>Kota Bandung</strong> | Bisa Kirim Se-Indonesia</p>
+                        <p class="text-amber-600 font-bold">★★★★★ 4.9 / 5.0 <span class="text-gray-500 font-normal">(128 transaksi sukses)</span></p>
                     </div>
                 </header>
 
-                <!-- Spesifikasi Ukuran & Kelengkapan -->
-                <article class="specs-article">
-                    <h2>Spesifikasi & Rincian Ukuran (Size M)</h2>
+                <article class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4 text-xs text-gray-600">
+                    <h2 class="text-base font-bold text-gray-900">Spesifikasi & Rincian Ukuran (Size M)</h2>
                     
-                    <table class="specs-table">
-                        <thead>
-                            <tr>
-                                <th>Parameter</th>
-                                <th>Ukuran Detail</th>
-                                <th>Rekomendasi Postur</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Ukuran Label</td>
-                                <td>Size M (Standar Asia)</td>
-                                <td>Tinggi Badan: 155 - 165 cm</td>
-                            </tr>
-                            <tr>
-                                <td>Lingkar Dada (Bust)</td>
-                                <td>84 - 88 cm</td>
-                                <td>Berat Badan: 45 - 55 kg</td>
-                            </tr>
-                            <tr>
-                                <td>Lingkar Pinggang (Waist)</td>
-                                <td>66 - 72 cm (Karet elastis di pinggang)</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Panjang Jubah</td>
-                                <td>110 cm</td>
-                                <td>Bahan: Katun Twill & Velvet List Gold</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 font-bold text-gray-900 border-b border-gray-200">
+                                    <th class="p-2 border border-gray-200">Parameter</th>
+                                    <th class="p-2 border border-gray-200">Ukuran Detail</th>
+                                    <th class="p-2 border border-gray-200">Rekomendasi Postur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Ukuran Label</td>
+                                    <td class="p-2 border border-gray-200">Size M (Standar Asia)</td>
+                                    <td class="p-2 border border-gray-200">Tinggi: 155 - 165 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Lingkar Dada</td>
+                                    <td class="p-2 border border-gray-200">84 - 88 cm</td>
+                                    <td class="p-2 border border-gray-200">Berat: 45 - 55 kg</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Lingkar Pinggang</td>
+                                    <td class="p-2 border border-gray-200">66 - 72 cm (Elastis)</td>
+                                    <td class="p-2 border border-gray-200">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <h3>Daftar Item Kelengkapan yang Diterima Penyewa:</h3>
-                    <ul class="inclusions-list">
-                        <li>✓ 1x Jubah Putih List Emas + Bros Leher</li>
-                        <li>✓ 1x Dress / Kemeja Garis Frieren</li>
+                    <h3 class="text-sm font-bold text-gray-900 pt-2">Daftar Item Kelengkapan:</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-gray-700">
+                        <li>✓ 1x Jubah Putih List Emas</li>
+                        <li>✓ 1x Dress / Kemeja Garis</li>
                         <li>✓ 1x Rok Hitam Pleated</li>
-                        <li>✓ 1x Sabuk Cokelat Pinggang</li>
-                        <li>✓ 1x Pasang Telinga Elf Silikon Elastis (Higienis & Disanitasi)</li>
-                        <li>✓ 1x Pasang Anting Ruby Merah (Model Klip / Jepit tanpa tindik)</li>
-                        <li>✓ 1x Wig Putih Silver Frieren (Twintail sudah distyling rapi)</li>
-                        <li>✓ 1x Tongkat Sihir Frieren (Bongkar pasang 3 bagian, panjang 140 cm)</li>
+                        <li>✓ 1x Sabuk Cokelat</li>
+                        <li>✓ 1x Pasang Telinga Elf</li>
+                        <li>✓ 1x Pasang Anting Ruby</li>
+                        <li>✓ 1x Wig Putih Silver</li>
+                        <li>✓ 1x Tongkat Sihir (140 cm)</li>
                     </ul>
-
-                    <h3>Catatan Perawatan & Kebersihan:</h3>
-                    <p>
-                        Kostum telah dicuci dengan detergen hipoalergenik dan disanitasi dengan uap panas sebelum dikirimkan. Wig telah disisir dan diberi jaring pelindung (hairnet).
-                    </p>
                 </article>
 
-                <!-- ==============================================================
-                     FORM BOOKING SEWA DENGAN PERHITUNGAN ESCROW
-                     ============================================================== -->
-                <section class="booking-form-box" aria-labelledby="form-booking-title">
-                    <h2 id="form-booking-title">Formulir Booking Sewa & Rekening Bersama (Escrow)</h2>
-                    <p class="form-intro">
-                        Uang sewa dan uang jaminan Anda aman 100% di Rekening Bersama Otomatis Chileorent hingga kostum Anda terima dengan selamat.
-                    </p>
+                <!-- FORM BOOKING -->
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-6" aria-labelledby="form-booking-title">
+                    <div>
+                        <h2 id="form-booking-title" class="text-lg font-bold text-gray-900">Formulir Booking Sewa & Escrow</h2>
+                        <p class="text-xs text-gray-500 mt-1">Uang sewa dan jaminan Anda aman 100% di Rekening Bersama Otomatis Chileorent.</p>
+                    </div>
 
-                    <form id="form-rental-booking" action="pembayaran-escrow.html" method="POST">
+                    <form id="form-rental-booking" action="pembayaran-escrow.html" method="POST" class="space-y-6">
                         
-                        <!-- Pilihan Tanggal & Durasi Sewa -->
-                        <div class="form-row">
-                            <div class="form-field">
-                                <label for="rent-start-date">Tanggal Mulai Sewa (Acara/Event):</label>
-                                <input type="date" id="rent-start-date" name="start_date" required>
-                                <small>Disarankan pesan H-4 sebelum acara agar sampai tepat waktu.</small>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="rent-start-date" class="text-xs font-semibold text-gray-700">Tanggal Mulai Sewa:</label>
+                                <input type="date" id="rent-start-date" name="start_date" required class="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg">
                             </div>
 
-                            <div class="form-field">
-                                <label for="rent-duration">Durasi Sewa:</label>
-                                <select id="rent-duration" name="duration" required>
-                                    <option value="3" selected>3 Hari (Standar Event) - Rp 120.000</option>
-                                    <option value="5">5 Hari (Event + Photoshoot) - Rp 170.000</option>
-                                    <option value="7">7 Hari (Luar Kota / Luar Pulau) - Rp 220.000</option>
+                            <div class="space-y-1">
+                                <label for="rent-duration" class="text-xs font-semibold text-gray-700">Durasi Sewa:</label>
+                                <select id="rent-duration" name="duration" required class="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg bg-white">
+                                    <option value="3" selected>3 Hari - Rp 120.000</option>
+                                    <option value="5">5 Hari - Rp 170.000</option>
+                                    <option value="7">7 Hari - Rp 220.000</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Pilihan Skema Pembayaran: Bayar Penuh vs Fitur DP (Down Payment) -->
-                        <fieldset class="payment-scheme-fieldset">
-                            <legend>Pilihan Skema Pembayaran Booking</legend>
-                            <label class="radio-option">
-                                <input type="radio" name="payment_scheme" value="full" checked>
-                                <strong>Bayar Penuh Langsung (Full Payment - 100%)</strong><br>
-                                <small>Bayar lunas seluruh biaya sewa sekaligus ke Rekening Bersama Escrow.</small>
+                        <fieldset class="space-y-3 p-4 bg-gray-50 border border-gray-200 rounded-xl text-xs">
+                            <legend class="font-bold text-gray-900 px-1">Skema Pembayaran</legend>
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="full" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900">Bayar Penuh Langsung (100%)</strong>
+                                    <p class="text-gray-500">Bayar lunas seluruh biaya sewa sekaligus ke Escrow.</p>
+                                </div>
                             </label>
-                            <br><br>
-                            <label class="radio-option">
-                                <input type="radio" name="payment_scheme" value="dp_30">
-                                <strong>Kunci Tanggal dengan Fitur DP 30% (Uang Muka Booking)</strong><br>
-                                <small>Cukup bayar DP 30% (<strong>Rp 36.000</strong>) hari ini untuk mengunci tanggal kostum agar tidak diambil cosplayer lain. Sisa pelunasan (Rp 84.000) dibayarkan H-2 sebelum tanggal pengiriman.</small>
-                            </label>
-                            <br><br>
-                            <label class="radio-option">
-                                <input type="radio" name="payment_scheme" value="dp_50">
-                                <strong>Kunci Tanggal dengan Fitur DP 50% (Uang Muka 50%)</strong><br>
-                                <small>Bayar DP 50% (<strong>Rp 60.000</strong>) hari ini untuk amankan jadwal, sisa 50% dilunasi H-2 sebelum kostum dikirim.</small>
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="dp_30" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900">Kunci Tanggal DP 30% (Rp 36.000)</strong>
+                                    <p class="text-gray-500">Pelunasan H-2 sebelum pengiriman.</p>
+                                </div>
                             </label>
                         </fieldset>
 
-                        <!-- Opsi Layanan Tambahan -->
-                        <fieldset class="addons-fieldset">
-                            <legend>Layanan Tambahan (Opsional)</legend>
-                            <label>
-                                <input type="checkbox" name="service_laundry" value="yes">
-                                <strong>Bebas Cuci Kembali (+Rp 25.000):</strong> Kembalikan kostum apa adanya tanpa perlu dicuci sendiri.
-                            </label>
-                            <br>
-                            <label>
-                                <input type="checkbox" name="damage_protection" value="yes" checked>
-                                <strong>Proteksi Kerusakan Minor (+Rp 15.000):</strong> Bebas klaim untuk kancing copot atau noda ringan yang bisa dihilangkan.
-                            </label>
+                        <fieldset class="space-y-2 text-xs">
+                            <legend class="font-bold text-gray-900">Layanan Tambahan</legend>
+                            <label class="flex items-center gap-2"><input type="checkbox" name="service_laundry" value="yes" class="rounded text-indigo-600"> Bebas Cuci Kembali (+Rp 25.000)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" name="damage_protection" value="yes" checked class="rounded text-indigo-600"> Proteksi Kerusakan Minor (+Rp 15.000)</label>
                         </fieldset>
 
-                        <!-- Opsi Uang Jaminan / Deposit Keamanan (Opsional: Khusus Pertama Kali Rental) -->
-                        <fieldset class="deposit-fieldset">
-                            <legend>Uang Jaminan / Deposit Keamanan (Opsional)</legend>
-                            <p class="field-help">
-                                ℹ️ <em>Uang jaminan ini bersifat <strong>opsional</strong>. Hanya dikenakan bagi penyewa yang baru <strong>pertama kali</strong> merental kostum di platform/mitra ini. Jika Anda sudah pernah sewa atau akun Anda telah terverifikasi, Anda bebas dari uang jaminan (Deposit Rp 0)!</em>
-                            </p>
-                            <label class="radio-option">
-                                <input type="radio" name="renter_deposit_status" value="first_time" checked>
-                                <strong>Saya Penyewa Baru / Pertama Kali Merental di Sini (+Deposit Rp 100.000)</strong><br>
-                                <small>Uang deposit ditampung aman di Escrow dan akan dikembalikan 100% penuh segera setelah kostum kembali selamat.</small>
-                            </label>
-                            <br><br>
-                            <label class="radio-option">
-                                <input type="radio" name="renter_deposit_status" value="verified_repeat">
-                                <strong>Saya Pernah Sewa Sebelumnya / Akun Terverifikasi (Bebas Deposit - Rp 0)</strong><br>
-                                <small>Tanpa uang jaminan bagi penyewa langganan atau yang telah melewati verifikasi KYC reputasi baik.</small>
-                            </label>
-                        </fieldset>
-
-                        <!-- Rincian Biaya Escrow Transparan -->
-                        <div class="escrow-breakdown-box">
-                            <h3>Rincian Pembayaran Rekening Bersama (Escrow)</h3>
-                            <dl class="cost-summary">
-                                <dt>Biaya Sewa Pokok (3 Hari):</dt>
-                                <dd>Rp 120.000</dd>
-
-                                <dt>Proteksi Kerusakan Minor (Opsional):</dt>
-                                <dd>Rp 15.000</dd>
-
-                                <dt>Biaya Layanan Escrow Chileorent:</dt>
-                                <dd>Rp 5.000</dd>
-
-                                <dt><strong>Deposit Jaminan (Opsional untuk Pertama Kali):</strong></dt>
-                                <dd><strong>+ Rp 100.000 (Dapat Dikembalikan 100%)</strong> / <small>Rp 0 jika repeat order</small></dd>
+                        <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-2 text-xs">
+                            <h3 class="font-bold text-indigo-900">Rincian Pembayaran Escrow</h3>
+                            <dl class="space-y-1 text-indigo-900">
+                                <div class="flex justify-between"><dt>Biaya Sewa Pokok:</dt><dd>Rp 120.000</dd></div>
+                                <div class="flex justify-between"><dt>Proteksi Minor:</dt><dd>Rp 15.000</dd></div>
+                                <div class="flex justify-between"><dt>Biaya Layanan:</dt><dd>Rp 5.000</dd></div>
+                                <div class="flex justify-between font-bold border-t border-indigo-200 pt-1"><dt>Deposit (Opsional):</dt><dd>+ Rp 100.000</dd></div>
                             </dl>
-                            <hr>
-                            
-                            <!-- Perbandingan Skema Pembayaran: Full vs DP -->
-                            <div class="payment-comparison-breakdown">
-                                <h4>Simulasi Tagihan Pembayaran:</h4>
-                                
-                                <div class="scheme-calc-box">
-                                    <p><strong>Jika Memilih Bayar Penuh (Full Payment):</strong></p>
-                                    <p>Total Ditransfer ke Escrow: <span class="highlight-total">Rp 240.000</span> (dengan deposit Rp 100.000 yang dapat kembali) atau <span class="highlight-total">Rp 140.000</span> (tanpa deposit jika repeat order).</p>
-                                </div>
-
-                                <div class="scheme-calc-box">
-                                    <p><strong>Jika Memilih Fitur DP (Contoh: DP 30% untuk Kunci Tanggal):</strong></p>
-                                    <p>Tagihan DP Dibayar Hari Ini: <span class="highlight-dp">Rp 36.000</span> <small>(Jadwal kostum resmi terkunci untuk Anda)</small></p>
-                                    <p>Sisa Pelunasan (H-2 Sebelum Kirim): <strong>Rp 84.000</strong> (+ Biaya Layanan & Deposit jika pertama kali sewa).</p>
-                                </div>
-                            </div>
-
-                            <p class="escrow-notice">
-                                ℹ️ <em>Uang deposit (jika disertakan) akan otomatis ditransfer kembali 100% ke rekening/e-wallet Anda segera setelah kostum dikembalikan dalam kondisi baik.</em>
-                            </p>
                         </div>
 
-                        <!-- Tombol Checkout -->
-                        <div class="booking-submit-group">
-                            <button type="submit" class="btn-checkout-escrow">
-                                Lanjutkan Pembayaran Booking via Escrow &rarr;
-                            </button>
-                        </div>
+                        <button type="submit" class="w-full py-3 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
+                            Lanjutkan Pembayaran Booking via Escrow &rarr;
+                        </button>
 
                     </form>
                 </section>
-
-                <!-- Jaminan Keamanan Chileorent -->
-                <aside class="security-guarantee-note">
-                    <h3>🛡️ Jaminan Perlindungan Penyewa Chileorent</h3>
-                    <ul>
-                        <li><strong>Uang Kembali 100%:</strong> Jika barang tidak dikirim atau tidak sesuai foto verifikasi.</li>
-                        <li><strong>Kemudahan Sengketa:</strong> Mediasi langsung oleh customer support Chileorent jika ada perselisihan kondisi barang.</li>
-                    </ul>
-                </aside>
 
             </section>
         </div>
     </main>
 
-    <!-- ==========================================================================
-         FOOTER
-         ========================================================================== -->
-    <footer id="footer-utama">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Chileorent</h3>
-                <p>Platform marketplace sewa kostum cosplay terverifikasi dan aman dengan rekening bersama otomatis.</p>
-                <p>&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Platform marketplace sewa kostum cosplay terverifikasi dan aman dengan rekening bersama otomatis.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="catalog.html">Katalog Sewa</a></li>
-                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
-                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Bantuan</h4>
-                <ul>
-                    <li><a href="index.html#alur-escrow">Alur Rekening Bersama Escrow</a></li>
-                    <li><a href="index.html#pusat-verifikasi">Standar Grade Kostum</a></li>
-                    <li><a href="index.html#faq">FAQ Rental</a></li>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Bantuan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Alur Rekening Bersama Escrow</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Standar Grade Kostum</a></li>
+                    <li><a href="index.html#faq" class="hover:text-white transition">FAQ Rental</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Kontak</h4>
-                <address>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Kontak</h4>
+                <address class="not-italic text-xs space-y-2">
                     <p>Email: bantuan@chileorent.com</p>
                     <p>WhatsApp: +62 812-3456-7890</p>
                 </address>
