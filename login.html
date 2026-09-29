@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk Pengelola (Owner & Admin) - Chileorent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER & NAVIGASI
+         ========================================================================== -->
+    <header id="header-utama">
+        <div class="header-container">
+            <div class="brand-group">
+                <a href="index.html" class="brand-logo">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="brand-tagline">Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay</p>
+            </div>
+
+            <nav id="navigasi-utama" aria-label="Navigasi Utama">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="index.html#fitur-unggulan">Fitur Utama</a></li>
+                    <li><a href="index.html#alur-escrow">Sistem Escrow</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-masuk active" aria-current="page">Masuk</a>
+                <a href="alih-fungsi.html" class="btn-pasang-kostum">Alih Fungsikan Kostum</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         BREADCRUMB
+         ========================================================================== -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li>&gt;</li>
+            <li aria-current="page">Masuk Pengelola (Owner &amp; Admin)</li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================================
+         MAIN CONTENT: FORMULIR LOGIN OWNER & ADMIN
+         ========================================================================== -->
+    <main id="konten-login">
+        <div class="login-wrapper">
+
+            <!-- Kotak Formulir Login -->
+            <section class="login-card" aria-labelledby="login-title">
+                
+                <header class="login-header">
+                    <span class="badge-security">🔐 Portal Otentikasi Chileorent</span>
+                    <h2 id="login-title">Masuk ke Akun Anda</h2>
+                    <p>Silakan pilih peran akun Anda untuk diarahkan ke dasbor yang sesuai (Akses Luas untuk Pengelola atau Akses Terbatas untuk Perental/Penjual).</p>
+                </header>
+
+                <form id="form-login-pengelola" action="dashboard-rental.html" method="POST">
+
+                    <!-- Pilihan Peran Pengguna (Role Selection) -->
+                    <fieldset class="role-selector-fieldset">
+                        <legend>Masuk Sebagai Peran:</legend>
+                        <div class="role-options-group">
+                            <!-- Peran 1: Perental -->
+                            <label class="role-card">
+                                <input type="radio" name="user_role" value="renter" checked>
+                                <strong>Perental (Customer)</strong>
+                                <small>Akses dashboard terbatas: Pantau status kostum yang disewa, tracking resi, tenggat kembali, dan pengembalian deposit escrow.</small>
+                            </label>
+
+                            <!-- Peran 2: Penjual (Pemilik Rental Lama / Cosplayer) -->
+                            <label class="role-card">
+                                <input type="radio" name="user_role" value="seller">
+                                <strong>Penjual (Pemilik Rental Lama / Cosplayer)</strong>
+                                <small>Akses dashboard terbatas: Identifikasi pemilik saat form alih fungsi, pantau status kurasi Grade, penawaran nego (0-8%), dan saldo escrow.</small>
+                            </label>
+
+                            <!-- Peran 3: Pemilik Usaha Rental Kita + Administrator Platform -->
+                            <label class="role-card highlight-role">
+                                <input type="radio" name="user_role" value="owner_admin">
+                                <strong>Pemilik Rental Kita &amp; Administrator Platform</strong>
+                                <small>Akses fitur luas: Akses ganda ke Admin Dashboard (verifikasi KYC, kurasi grade, persetujuan escrow) + Rental Dashboard fitur lengkap.</small>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Input Identitas Akun -->
+                    <div class="form-group">
+                        <label for="login-identifier">Email Terdaftar / Username / ID Pengelola:</label>
+                        <input type="text" id="login-identifier" name="identifier" placeholder="Cth: nama@email.com atau admin@chileorent.com" required autocomplete="username">
+                    </div>
+
+                    <!-- Input Kata Sandi -->
+                    <div class="form-group">
+                        <div class="password-label-row">
+                            <label for="login-password">Kata Sandi (Password):</label>
+                            <a href="#lupa-password" class="link-forgot-password">Lupa Kata Sandi?</a>
+                        </div>
+                        <input type="password" id="login-password" name="password" placeholder="Masukkan kata sandi akun Anda" required autocomplete="current-password">
+                    </div>
+
+                    <!-- Input Kode Keamanan / 2FA Token -->
+                    <div class="form-group">
+                        <label for="login-2fa">Kode Keamanan 2FA (Khusus Pemilik Rental Kita &amp; Administrator):</label>
+                        <input type="text" id="login-2fa" name="two_factor_code" placeholder="6 Digit PIN Authenticator" maxlength="6" pattern="[0-9]{6}">
+                        <small>ℹ️ <em>Perental &amp; Penjual tidak perlu mengisi kolom ini. Wajib untuk akun pengelola dengan akses fitur luas.</em></small>
+                    </div>
+
+                    <!-- Opsi Ingat Saya & Persetujuan Sesi -->
+                    <div class="form-options-row">
+                        <label class="checkbox-remember">
+                            <input type="checkbox" name="remember_me" value="yes" checked>
+                            Ingat sesi saya di perangkat ini
+                        </label>
+                    </div>
+
+                    <!-- Tombol Masuk -->
+                    <div class="login-action-group">
+                        <button type="submit" class="btn-submit-login">
+                            Masuk ke Dashboard &rarr;
+                        </button>
+                    </div>
+
+                </form>
+
+                <!-- Informasi Bantuan & Pendaftaran Mitra Baru -->
+                <footer class="login-card-footer">
+                    <p>
+                        Belum memiliki akun Chileorent? 
+                        <a href="register.html"><strong>Daftar Akun Baru di Sini &rarr;</strong></a>
+                    </p>
+                    <p class="admin-notice">
+                        Pengguna lama yang ingin mengalihfungsikan kostum disarankan mendaftar agar data identitas terverifikasi otomatis pada form alih fungsi.
+                    </p>
+                </footer>
+
+            </section>
+
+            <!-- Panel Informasi Tambahan & Keamanan -->
+            <aside class="login-info-sidebar">
+                <h3>Keamanan Ekosistem Chileorent</h3>
+                <ul>
+                    <li>
+                        <strong>Enkripsi Tingkat Tinggi:</strong> Seluruh data identitas KYC dan transaksi dilindungi enkripsi standar perbankan.
+                    </li>
+                    <li>
+                        <strong>Pemantauan Escrow Real-Time:</strong> Pemilik rental dapat melihat status penahanan dan pelepasan dana secara transparan.
+                    </li>
+                    <li>
+                        <strong>Kontrol Penuh Toleransi Nego:</strong> Mengubah batas tawar-menawar 0-8% kapan saja dari dalam dashboard.
+                    </li>
+                </ul>
+
+                <div class="quick-nav-box">
+                    <h4>Pintasan Dashboard Demo:</h4>
+                    <ul>
+                        <li><a href="dashboard-rental.html">Buka Dashboard Pemilik Rental (Owner) &rarr;</a></li>
+                        <li><a href="admin-dashboard.html">Buka Dashboard Administrator Platform &rarr;</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer id="footer-utama">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Chileorent</h3>
+                <p>Portal Pengelola Resmi - Sistem Manajemen Rental Pintar & Pengawasan Marketplace Cosplay.</p>
+                <p>&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Keamanan</h4>
+                <ul>
+                    <li><a href="index.html#alur-escrow">Sistem Escrow Otomatis</a></li>
+                    <li><a href="index.html#pusat-verifikasi">Standar Verifikasi Grade A/B/C</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Akun (Perental, Penjual & Mitra) - Chileorent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER & NAVIGASI
+         ========================================================================== -->
+    <header id="header-utama">
+        <div class="header-container">
+            <div class="brand-group">
+                <a href="index.html" class="brand-logo">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="brand-tagline">Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay</p>
+            </div>
+
+            <nav id="navigasi-utama" aria-label="Navigasi Utama">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="index.html#fitur-unggulan">Fitur Utama</a></li>
+                    <li><a href="index.html#alur-escrow">Sistem Escrow</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-masuk">Masuk</a>
+                <a href="register.html" class="btn-daftar active" aria-current="page">Daftar Akun</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         BREADCRUMB
+         ========================================================================== -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li>&gt;</li>
+            <li aria-current="page">Pendaftaran Akun Baru</li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================================
+         MAIN CONTENT: FORMULIR REGISTRASI PENGGUNA BERDASARKAN PERAN
+         ========================================================================== -->
+    <main id="konten-register">
+        <div class="register-wrapper">
+
+            <section class="register-card" aria-labelledby="register-title">
+                
+                <header class="register-header">
+                    <span class="badge-solusi">✨ Ekosistem Cosplay Terpercaya</span>
+                    <h2 id="register-title">Daftar Akun Chileorent</h2>
+                    <p>
+                        Pilih peran akun sesuai tujuan Anda untuk mendapatkan akses dashboard yang tepat: menyewa kostum impian, atau mengalihfungsikan aset kostum lama Anda.
+                    </p>
+                </header>
+
+                <form id="form-registrasi" action="login.html" method="POST">
+
+                    <!-- ==========================================================
+                         PILIHAN PERAN PENDAFTARAN
+                         ========================================================== -->
+                    <fieldset class="register-role-fieldset">
+                        <legend>Pilih Tujuan & Peran Akun Anda:</legend>
+                        
+                        <div class="role-cards-grid">
+                            <!-- Opsi 1: Perental -->
+                            <label class="role-selection-card">
+                                <input type="radio" name="account_role" value="renter" checked>
+                                <div class="role-details">
+                                    <span class="role-icon">🎭</span>
+                                    <strong>Perental Kostum (Customer)</strong>
+                                    <p>Saya ingin merental kostum cosplay untuk event/photoshoot, memantau jadwal sewa, melacak nomor resi, dan memantau pengembalian uang deposit di Escrow.</p>
+                                    <small class="benefit-tag">✓ Akses Dashboard Perental (Status Sewa & Wishlist)</small>
+                                </div>
+                            </label>
+
+                            <!-- Opsi 2: Penjual / Pemilik Rental Lama & Cosplayer -->
+                            <label class="role-selection-card">
+                                <input type="radio" name="account_role" value="seller">
+                                <div class="role-details">
+                                    <span class="role-icon">🔄</span>
+                                    <strong>Penjual / Pemilik Kostum Lama</strong>
+                                    <p>Saya adalah pemilik usaha rental yang menutup toko atau cosplayer yang ingin menjual/menitipkan kostum lama. Akun ini mempermudah identifikasi pemilik saat mengisi form alih fungsi dan memantau fitur nego 0-8%.</p>
+                                    <small class="benefit-tag">✓ Akses Dashboard Penjual (Tracking Alih Fungsi & Nego)</small>
+                                </div>
+                            </label>
+
+                            <!-- Opsi 3: Pemilik Rental Utama / Administrator -->
+                            <label class="role-selection-card">
+                                <input type="radio" name="account_role" value="owner_admin">
+                                <div class="role-details">
+                                    <span class="role-icon">👑</span>
+                                    <strong>Pemilik Usaha Rental Kita / Pengelola</strong>
+                                    <p>Pendaftaran verifikasi kemitraan pemilik rental utama Chileorent dan administrator platform untuk pengelolaan inventaris luas, kurasi grade fisik, dan audit escrow.</p>
+                                    <small class="benefit-tag">✓ Akses Penuh: Admin Dashboard + Rental Fitur Luas</small>
+                                </div>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- ==========================================================
+                         INFORMASI IDENTITAS PENGGUNA
+                         ========================================================== -->
+                    <fieldset class="form-section-fieldset">
+                        <legend>Data Identitas Diri / Bisnis</legend>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="reg-fullname">Nama Lengkap / Nama Bisnis Rental:</label>
+                                <input type="text" id="reg-fullname" name="fullname" placeholder="Cth: Alisa Putri / Kurogane Rental" required autocomplete="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-username">Username Pilihan:</label>
+                                <input type="text" id="reg-username" name="username" placeholder="Cth: alisa_cosplay" required autocomplete="username">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="reg-email">Alamat Email Aktif:</label>
+                                <input type="email" id="reg-email" name="email" placeholder="Cth: alisa@example.com" required autocomplete="email">
+                                <small>Digunakan untuk konfirmasi pesanan dan verifikasi keamanan.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-whatsapp">Nomor WhatsApp Aktif:</label>
+                                <input type="tel" id="reg-whatsapp" name="whatsapp" placeholder="Cth: 081234567890" required autocomplete="tel">
+                                <small>Untuk notifikasi status resi sewa & tawaran nego alih fungsi.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-social">Tautan Akun Media Sosial / Portofolio Cosplay (Opsional):</label>
+                            <input type="url" id="reg-social" name="social_link" placeholder="https://instagram.com/alisa_cosplay">
+                            <small>Sangat dianjurkan guna mempercepat verifikasi reputasi baik dan pembebasan deposit jaminan.</small>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="reg-password">Kata Sandi (Password):</label>
+                                <input type="password" id="reg-password" name="password" placeholder="Minimal 8 karakter" required autocomplete="new-password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-confirm-password">Konfirmasi Kata Sandi:</label>
+                                <input type="password" id="reg-confirm-password" name="confirm_password" placeholder="Ulangi kata sandi" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Persetujuan Ketentuan -->
+                    <div class="form-agreement-box">
+                        <label>
+                            <input type="checkbox" name="agree_terms" value="yes" required>
+                            Saya menyetujui <a href="index.html#syarat-ketentuan">Syarat &amp; Ketentuan</a> platform Chileorent, penggunaan Rekening Bersama Otomatis (Escrow), serta batas persentase tawar-menawar 0-8% pada alur alih fungsi produk.
+                        </label>
+                    </div>
+
+                    <!-- Tombol Aksi Pendaftaran -->
+                    <div class="register-action-group">
+                        <button type="submit" class="btn-submit-register">
+                            Daftar Akun Sekarang &rarr;
+                        </button>
+                    </div>
+
+                </form>
+
+                <footer class="register-card-footer">
+                    <p>
+                        Sudah memiliki akun terdaftar? 
+                        <a href="login.html">Masuk ke Portal di sini</a>
+                    </p>
+                </footer>
+
+            </section>
+
+            <!-- Informasi Keuntungan Pendaftaran -->
+            <aside class="register-benefits-sidebar">
+                <h3>Mengapa Mendaftar Akun di Chileorent?</h3>
+                
+                <div class="benefit-item">
+                    <h4>Bagi Perental (Customer):</h4>
+                    <ul>
+                        <li>Pantau status sewa dan nomor resi pengiriman real-time.</li>
+                        <li>Riwayat transaksi terverifikasi membebaskan deposit sewa (Rp 0) di kemudian hari.</li>
+                        <li>Simpan kostum impian ke daftar wishlist untuk event mendatang.</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-item">
+                    <h4>Bagi Penjual (Pemilik Rental Lama / Cosplayer):</h4>
+                    <ul>
+                        <li>Identifikasi otomatis saat mengisi form alih fungsi tanpa harus isi ulang data identitas.</li>
+                        <li>Pantau status kurasi Grade fisik (A/B/C) oleh tim verifikasi.</li>
+                        <li>Atur fitur nego fleksibel (0% - 8%) dan pantau saldo hasil penjualan yang masuk ke Escrow.</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-item">
+                    <h4>Bagi Pemilik Usaha Rental Kita & Administrator:</h4>
+                    <ul>
+                        <li>Akses ganda: Dashboard Rental Fitur Luas + Admin Dashboard Terpadu.</li>
+                        <li>Kontrol penuh seluruh perputaran inventaris dan pelepasan dana transaksi.</li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer id="footer-utama">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Chileorent</h3>
+                <p>Platform marketplace sewa kostum cosplay terverifikasi dan solusi alur alih fungsi kostum dengan sistem nego terkendali 0-8%.</p>
+                <p>&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                    <li><a href="login.html">Masuk Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Keamanan</h4>
+                <ul>
+                    <li><a href="index.html#alur-escrow">Sistem Escrow Otomatis</a></li>
+                    <li><a href="index.html#pusat-verifikasi">Standar Verifikasi Grade A/B/C</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

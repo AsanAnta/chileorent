@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Sewa Kostum Cosplay - Chileorent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER & NAVIGASI
+         ========================================================================== -->
+    <header id="header-utama">
+        <div class="header-container">
+            <div class="brand-group">
+                <a href="index.html" class="brand-logo">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="brand-tagline">Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay</p>
+            </div>
+
+            <nav id="navigasi-utama" aria-label="Navigasi Utama">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html" aria-current="page">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="index.html#fitur-unggulan">Fitur Utama</a></li>
+                    <li><a href="index.html#alur-escrow">Sistem Escrow</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-masuk">Masuk</a>
+                <a href="register.html" class="btn-daftar">Daftar Akun</a>
+                <a href="alih-fungsi.html" class="btn-pasang-kostum">Alih Fungsikan Kostum</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         BREADCRUMB
+         ========================================================================== -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li>&gt;</li>
+            <li aria-current="page">Katalog Sewa Kostum Cosplay</li>
+        </ul>
+    </nav>
+
+    <!-- ==========================================================================
+         MAIN CONTENT: KATALOG SEWA (SIDEBAR FILTER + GRID PRODUK)
+         ========================================================================== -->
+    <main id="konten-katalog">
+        <div class="catalog-layout-container">
+
+            <!-- ==================================================================
+                 SIDEBAR FILTER PENCARIAN
+                 ================================================================== -->
+            <aside class="catalog-sidebar" aria-labelledby="filter-heading">
+                <div class="sidebar-header">
+                    <h2 id="filter-heading">Filter Pencarian</h2>
+                    <a href="catalog.html" class="btn-reset-filter">Reset Semua</a>
+                </div>
+
+                <form id="form-filter-katalog" action="catalog.html" method="GET">
+                    
+                    <!-- Pencarian Kata Kunci -->
+                    <fieldset class="filter-group">
+                        <legend>Cari Karakter / Seri</legend>
+                        <label for="keyword-search" class="visually-hidden">Kata Kunci:</label>
+                        <input type="search" id="keyword-search" name="q" placeholder="Cth: Frieren, Genshin, Sukuna...">
+                    </fieldset>
+
+                    <!-- Filter Kategori Seri -->
+                    <fieldset class="filter-group">
+                        <legend>Kategori Seri</legend>
+                        <label><input type="checkbox" name="category" value="anime"> Anime & Manga</label><br>
+                        <label><input type="checkbox" name="category" value="game"> Game & RPG</label><br>
+                        <label><input type="checkbox" name="category" value="vtuber"> VTuber / Virtual Streamer</label><br>
+                        <label><input type="checkbox" name="category" value="tokusatsu"> Tokusatsu & Mecha</label><br>
+                        <label><input type="checkbox" name="category" value="original"> Original Character (OC)</label>
+                    </fieldset>
+
+                    <!-- Filter Ukuran Kostum -->
+                    <fieldset class="filter-group">
+                        <legend>Ukuran (Size)</legend>
+                        <label><input type="checkbox" name="size" value="S"> S (Small)</label><br>
+                        <label><input type="checkbox" name="size" value="M"> M (Medium)</label><br>
+                        <label><input type="checkbox" name="size" value="L"> L (Large)</label><br>
+                        <label><input type="checkbox" name="size" value="XL"> XL (Extra Large)</label><br>
+                        <label><input type="checkbox" name="size" value="Custom"> Custom / Freesize</label>
+                    </fieldset>
+
+                    <!-- Filter Gender Karakter -->
+                    <fieldset class="filter-group">
+                        <legend>Gender Karakter</legend>
+                        <label><input type="radio" name="gender" value="all" checked> Semua</label><br>
+                        <label><input type="radio" name="gender" value="female"> Karakter Wanita</label><br>
+                        <label><input type="radio" name="gender" value="male"> Karakter Pria</label><br>
+                        <label><input type="radio" name="gender" value="unisex"> Karakter Unisex</label>
+                    </fieldset>
+
+                    <!-- Filter Rentang Harga Sewa (per 3 hari) -->
+                    <fieldset class="filter-group">
+                        <legend>Harga Sewa (per 3 Hari)</legend>
+                        <label for="min-price">Harga Minimal (Rp):</label>
+                        <input type="number" id="min-price" name="min_price" placeholder="50.000" min="0" step="10000"><br>
+                        <label for="max-price">Harga Maksimal (Rp):</label>
+                        <input type="number" id="max-price" name="max_price" placeholder="300.000" min="0" step="10000">
+                    </fieldset>
+
+                    <!-- Filter Kelengkapan Paket -->
+                    <fieldset class="filter-group">
+                        <legend>Kelengkapan Paket</legend>
+                        <label><input type="checkbox" name="include" value="wig"> Termasuk Wig Siap Pakai</label><br>
+                        <label><input type="checkbox" name="include" value="shoes"> Termasuk Sepatu / Boots</label><br>
+                        <label><input type="checkbox" name="include" value="prop"> Termasuk Senjata / Prop</label><br>
+                        <label><input type="checkbox" name="include" value="accessories"> Aksesoris Lengkap</label>
+                    </fieldset>
+
+                    <!-- Filter Grade Kondisi Verifikasi -->
+                    <fieldset class="filter-group">
+                        <legend>Grade Verifikasi Fisik</legend>
+                        <label><input type="checkbox" name="grade" value="A"> Grade A (Kondisi Prima 90-100%)</label><br>
+                        <label><input type="checkbox" name="grade" value="B"> Grade B (Kondisi Wajar 75-89%)</label><br>
+                        <label><input type="checkbox" name="grade" value="C"> Grade C (Minus Tertulis Transparan)</label>
+                    </fieldset>
+
+                    <div class="filter-actions">
+                        <button type="submit" class="btn-submit-filter">Terapkan Filter</button>
+                    </div>
+
+                </form>
+            </aside>
+
+            <!-- ==================================================================
+                 AREA KATALOG PRODUK
+                 ================================================================== -->
+            <section class="catalog-results-area" aria-labelledby="catalog-header-title">
+                
+                <header class="catalog-results-header">
+                    <div>
+                        <h2 id="catalog-header-title">Daftar Kostum Siap Sewa</h2>
+                        <p>Menampilkan <strong>6 dari 48</strong> kostum terverifikasi dengan jaminan rekening bersama otomatis.</p>
+                    </div>
+
+                    <div class="sort-controls">
+                        <label for="sort-select">Urutkan Berdasarkan:</label>
+                        <select id="sort-select" name="sort">
+                            <option value="popular">Paling Populer</option>
+                            <option value="price_asc">Harga Sewa: Termurah</option>
+                            <option value="price_desc">Harga Sewa: Tertinggi</option>
+                            <option value="rating">Rating Rental Tertinggi</option>
+                            <option value="newest">Terbaru Ditambahkan</option>
+                        </select>
+                    </div>
+                </header>
+
+                <!-- Grid Item Kostum -->
+                <div class="catalog-grid">
+                    
+                    <!-- Item 1 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/3d5a80/ffffff?text=Frieren+Cosplay" alt="Kostum Cosplay Frieren Sousou no Frieren" width="320" height="380">
+                            <span class="badge-grade">Grade A</span>
+                            <span class="badge-status-available">Tersedia</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Sousou no Frieren</span>
+                            <h3><a href="detail-kostum.html">Frieren - Fullset Jubah & Staff</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>M</strong></li>
+                                <li>Termasuk: Jubah, Dress, Wig, Prop Staff</li>
+                                <li>Lokasi: <strong>Bandung</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>Sakura Cosplay Rental (★ 4.9)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 120.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 100k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Sewa</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/98c1d9/000000?text=Gojo+Satoru" alt="Kostum Cosplay Gojo Satoru Jujutsu Kaisen" width="320" height="380">
+                            <span class="badge-grade">Grade A</span>
+                            <span class="badge-status-available">Tersedia</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Jujutsu Kaisen</span>
+                            <h3><a href="detail-kostum.html">Gojo Satoru - Tokyo Jujutsu High</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>L</strong></li>
+                                <li>Termasuk: Atasan, Celana, Wig Styling, Blindfold</li>
+                                <li>Lokasi: <strong>Jakarta Selatan</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>Tokyo Rental (★ 4.8)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 100.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 100k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Sewa</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/ee6c4d/ffffff?text=Raiden+Shogun" alt="Kostum Cosplay Raiden Shogun Genshin Impact" width="320" height="380">
+                            <span class="badge-grade">Grade A (Premium)</span>
+                            <span class="badge-status-booked">Dibooking (Tersedia tgl 28)</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Genshin Impact</span>
+                            <h3><a href="detail-kostum.html">Raiden Shogun - Fullset + Sword</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>S</strong></li>
+                                <li>Termasuk: Kimono, Armor, Wig Panjang, Pedang LED</li>
+                                <li>Lokasi: <strong>Surabaya</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>Aether Wardrobe (★ 5.0)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 160.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 150k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Jadwal</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/293241/ffffff?text=Kafka+HSR" alt="Kostum Cosplay Kafka Honkai Star Rail" width="320" height="380">
+                            <span class="badge-grade">Grade B</span>
+                            <span class="badge-status-available">Tersedia</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Honkai: Star Rail</span>
+                            <h3><a href="detail-kostum.html">Kafka - Stellaron Hunter Fullset</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>M</strong></li>
+                                <li>Termasuk: Kemeja, Jaket, Wig, Kacamata, Sarung Tangan</li>
+                                <li>Lokasi: <strong>Yogyakarta</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>Starlight Cosplay (★ 4.7)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 135.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 100k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Sewa</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 5 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/457b9d/ffffff?text=Houshou+Marine" alt="Kostum Cosplay Houshou Marine Hololive" width="320" height="380">
+                            <span class="badge-grade">Grade A</span>
+                            <span class="badge-status-available">Tersedia</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Hololive VTuber</span>
+                            <h3><a href="detail-kostum.html">Houshou Marine - Pirate Captain</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>M</strong></li>
+                                <li>Termasuk: Topi Bajak Laut, Dress, Jubah, Wig Twintail, Eyepatch</li>
+                                <li>Lokasi: <strong>Tangerang</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>NekoNeko Rental (★ 4.9)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 140.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 120k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Sewa</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 6 -->
+                    <article class="product-item">
+                        <figure>
+                            <img src="https://placehold.co/320x380/6d597a/ffffff?text=Kamado+Tanjiro" alt="Kostum Cosplay Kamado Tanjiro Demon Slayer" width="320" height="380">
+                            <span class="badge-grade">Grade B+</span>
+                            <span class="badge-status-available">Tersedia</span>
+                        </figure>
+                        <div class="product-info">
+                            <span class="category-tag">Kimetsu no Yaiba</span>
+                            <h3><a href="detail-kostum.html">Kamado Tanjiro - Kisatsutai + Haori</a></h3>
+                            <ul class="specs-summary">
+                                <li>Ukuran: <strong>L</strong></li>
+                                <li>Termasuk: Haori Kotak-kotak, Seragam, Anting Hanafuda, Wig, Nichirin Kayu</li>
+                                <li>Lokasi: <strong>Depok</strong></li>
+                            </ul>
+                            <p class="rental-shop-info">Mitra: <em>Kurogane Cosplay (★ 4.8)</em></p>
+                            <div class="price-box">
+                                <span class="price-label">Biaya Sewa:</span>
+                                <span class="price-amount">Rp 95.000 <small>/ 3 Hari</small></span>
+                                <span class="deposit-note">✨ Bisa DP Booking | Deposit Opsional (+Rp 80k khusus pertama sewa)</span>
+                            </div>
+                            <div class="card-btn-group">
+                                <a href="detail-kostum.html" class="btn-rent-now">Booking Sewa</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Navigasi Halaman (Pagination) -->
+                <nav class="pagination-nav" aria-label="Navigasi Halaman Katalog">
+                    <ul>
+                        <li><a href="#prev" class="page-prev" aria-disabled="true">&laquo; Sebelumnya</a></li>
+                        <li><a href="#page-1" class="page-link active" aria-current="page">1</a></li>
+                        <li><a href="#page-2" class="page-link">2</a></li>
+                        <li><a href="#page-3" class="page-link">3</a></li>
+                        <li><a href="#page-4" class="page-link">4</a></li>
+                        <li><a href="#next" class="page-next">Selanjutnya &raquo;</a></li>
+                    </ul>
+                </nav>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer id="footer-utama">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Chileorent</h3>
+                <p>Platform marketplace sewa kostum cosplay terverifikasi dan aman dengan rekening bersama otomatis.</p>
+                <p>&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="catalog.html">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="index.html#alur-escrow">Sistem Rekening Bersama (Escrow)</a></li>
+                    <li><a href="index.html#pusat-verifikasi">Panduan Grade Kostum</a></li>
+                    <li><a href="index.html#faq">FAQ Rental</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <address>
+                    <p>Email: bantuan@chileorent.com</p>
+                    <p>WhatsApp: +62 812-3456-7890</p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
