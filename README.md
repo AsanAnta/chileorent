@@ -50,14 +50,3 @@ Buka browser dan akses: `http://localhost:8000`
 
 ### Cara 3: Menggunakan Live Server (VS Code)
 Klik kanan pada `index.html` di VS Code, lalu pilih **"Open with Live Server"**.
-
----
-
-## 🌐 Deploy Gratis ke GitHub Pages
-
-Proyek ini dibangun menggunakan **HTML5 & CSS3 murni**, sehingga dapat langsung di-deploy secara online melalui **GitHub Pages**:
-1. Buat repository baru di GitHub bernama `chileorent`.
-2. Push seluruh berkas ke repository.
-3. Buka **Settings** > **Pages** di repository GitHub Anda.
-4. Pilih branch `main` dan folder `/ (root)`, lalu klik **Save**.
-5. Website Anda akan aktif secara publik di alamat: `https://<username>.github.io/chileorent/`
