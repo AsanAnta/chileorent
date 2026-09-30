@@ -425,5 +425,154 @@
         </div>
     </footer>
 
+    <!-- ENGINE SCRIPT & ALIH FUNGSI CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        function checkSellerAutofill() {
+            const session = ChileoDB.getUserSession();
+            const banner = document.querySelector('#form-alih-fungsi .bg-amber-50');
+
+            if (session.name) {
+                const ownerNameInput = document.getElementById('owner-name');
+                const ownerPhoneInput = document.getElementById('owner-phone');
+                const ownerCityInput = document.getElementById('owner-city');
+
+                if (ownerNameInput) ownerNameInput.value = session.name;
+                if (ownerPhoneInput && session.phone) ownerPhoneInput.value = session.phone;
+                if (ownerCityInput && session.city) ownerCityInput.value = session.city;
+
+                if (banner) {
+                    banner.className = "p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800";
+                    banner.innerHTML = `✓ <strong>Identitas Terisi Otomatis:</strong> Masuk sebagai <strong>${session.name}</strong> (${session.role === 'seller' ? 'Penjual Terdaftar' : 'Pengelola/Admin'}). Data identitas & status KYC valid tanpa perlu upload ulang KTP!`;
+                }
+            }
+        }
+
+        function updateNegoCalculator() {
+            const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+            const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+
+            const discount = Math.round(basePrice * (tolerance / 100));
+            const floorPrice = basePrice - discount;
+
+            const baseDisp = document.getElementById('calc-base-display');
+            const percentDisp = document.getElementById('calc-percent-display');
+            const discountDisp = document.getElementById('calc-discount-display');
+            const floorDisp = document.getElementById('calc-floor-display');
+
+            if (baseDisp) baseDisp.textContent = formatRupiah(basePrice);
+            if (percentDisp) percentDisp.textContent = tolerance + '% (Maksimal)';
+            if (discountDisp) discountDisp.textContent = formatRupiah(discount);
+            if (floorDisp) floorDisp.textContent = formatRupiah(floorPrice);
+
+            // Sync presets
+            const presetRadio = document.querySelector(`input[name="nego_preset"][value="${tolerance}"]`);
+            if (presetRadio) presetRadio.checked = true;
+
+            // Update Mock dialog
+            const mockBidInput = document.getElementById('mock-buyer-bid');
+            if (mockBidInput) {
+                mockBidInput.min = floorPrice;
+                mockBidInput.max = basePrice;
+                mockBidInput.value = Math.round((basePrice + floorPrice) / 2);
+            }
+            const mockDialogInfo = document.querySelector('#simulasi-nego .space-y-1');
+            if (mockDialogInfo) {
+                mockDialogInfo.innerHTML = `
+                    <p>Harga Buka: <strong>${formatRupiah(basePrice)}</strong></p>
+                    <p>Batas Terendah yang Diterima: <strong>${formatRupiah(floorPrice)}</strong> (-${tolerance}%)</p>
+                `;
+            }
+        }
+
+        function testBuyerBid() {
+            const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+            const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+            const discount = Math.round(basePrice * (tolerance / 100));
+            const floorPrice = basePrice - discount;
+
+            const bidInput = document.getElementById('mock-buyer-bid');
+            const bidVal = Number(bidInput?.value) || 0;
+            const resultBox = document.querySelector('#simulasi-nego .text-\\[11px\\]') || document.querySelector('#simulasi-nego div[class*="text-"]');
+
+            if (!resultBox) return;
+
+            if (bidVal < floorPrice) {
+                resultBox.className = "text-xs font-semibold text-rose-400 p-2 bg-rose-950/40 rounded border border-rose-800";
+                resultBox.innerHTML = `❌ Tawaran ${formatRupiah(bidVal)} DITOLAK otomatis oleh sistem karena di bawah batas minimal toleransi (${formatRupiah(floorPrice)}).`;
+            } else if (bidVal > basePrice) {
+                resultBox.className = "text-xs font-semibold text-amber-400 p-2 bg-amber-950/40 rounded border border-amber-800";
+                resultBox.innerHTML = `ℹ️ Tawaran ${formatRupiah(bidVal)} melebihi harga buka (${formatRupiah(basePrice)}).`;
+            } else {
+                const pct = (((basePrice - bidVal) / basePrice) * 100).toFixed(1);
+                resultBox.className = "text-xs font-semibold text-emerald-400 p-2 bg-emerald-950/40 rounded border border-emerald-800";
+                resultBox.innerHTML = `✓ Tawaran ${formatRupiah(bidVal)} DITERIMA! Berada dalam batas toleransi aman (penurunan ${pct}% dari harga buka).`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkSellerAutofill();
+            updateNegoCalculator();
+
+            document.getElementById('base-price')?.addEventListener('input', updateNegoCalculator);
+            document.getElementById('nego-tolerance-range')?.addEventListener('input', (e) => {
+                updateNegoCalculator();
+            });
+
+            document.querySelectorAll('input[name="nego_preset"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const slider = document.getElementById('nego-tolerance-range');
+                    if (slider) {
+                        slider.value = e.target.value;
+                        updateNegoCalculator();
+                    }
+                });
+            });
+
+            // Button test mock bid
+            const bidBtn = document.querySelector('#simulasi-nego button');
+            if (bidBtn) {
+                bidBtn.addEventListener('click', testBuyerBid);
+            }
+
+            // Form Submit
+            document.getElementById('form-alih-fungsi')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const character = document.getElementById('character-name')?.value || 'Kostum Cosplay';
+                const series = document.getElementById('series-name')?.value || 'Anime';
+                const ownerName = document.getElementById('owner-name')?.value || 'Sakura Wardrobe';
+                const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+                const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+                const floorPrice = basePrice - Math.round(basePrice * (tolerance / 100));
+
+                const schemeRadio = document.querySelector('input[name="selected_scheme"]:checked')?.value || 'titip_sewa';
+                const schemeLabel = schemeRadio === 'titip_sewa' ? 'Titip Sewa (Bagi Hasil 70:30)' : 'Akuisisi Langsung oleh Chileorent';
+
+                const newSubmission = {
+                    id: 'AF-' + new Date().getFullYear() + '-' + Math.floor(100 + Math.random() * 900),
+                    ownerName: ownerName,
+                    ownerCategory: document.querySelector('input[name="owner_type"]:checked')?.value === 'ex_rental' ? 'Pemilik Usaha Rental Tutup' : 'Cosplayer Individu',
+                    character: character,
+                    series: series,
+                    scheme: schemeRadio,
+                    schemeLabel: schemeLabel,
+                    basePrice: basePrice,
+                    negoTolerance: tolerance,
+                    minPrice: floorPrice,
+                    submittedGrade: 'A',
+                    adminGrade: 'Menunggu Kurasi Fisik Admin',
+                    status: 'Menunggu Verifikasi Admin',
+                    escrowStatus: 'Proses Kurasi Escrow',
+                    date: new Date().toISOString().split('T')[0]
+                };
+
+                ChileoDB.addRepurposing(newSubmission);
+
+                alert('✅ Pengajuan Alih Fungsi Berhasil Dikirim!\n\nID: ' + newSubmission.id + '\nKarakter: ' + newSubmission.character + '\nSkema: ' + newSubmission.schemeLabel + '\nBatas Nego: ' + tolerance + '%\n\nPengajuan Anda sekarang masuk ke Antrean Kurasi Admin untuk penentuan Grade resmi.');
+                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
+            });
+        });
+    </script>
 </body>
 </html>

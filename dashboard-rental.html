@@ -402,7 +402,8 @@
         </div>
     </footer>
 
-    <!-- SCRIPT TAB SWITCHER PERAN -->
+    <!-- SCRIPT ENGINE & DASHBOARD RENTAL CONTROLLER -->
+    <script src="app.js"></script>
     <script>
         function setRoleTab(tabId) {
             const sections = ['view-owner-luas', 'view-penjual-terbatas', 'view-perental-terbatas'];
@@ -421,23 +422,170 @@
             buttons.forEach(btn => {
                 const href = btn.getAttribute('href').replace('#', '');
                 if (href === tabId) {
-                    btn.className = "px-3 py-1 bg-indigo-600 text-white rounded font-bold transition";
+                    btn.className = "px-3 py-1 bg-indigo-600 text-white rounded font-bold transition shadow-sm";
                 } else {
                     btn.className = "px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded transition";
                 }
             });
         }
 
+        function renderOwnerTables() {
+            const rentals = ChileoDB.getRentals();
+            const ownerTbody = document.querySelector('#view-owner-luas tbody');
+            if (ownerTbody) {
+                ownerTbody.innerHTML = rentals.map(r => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-indigo-600">${r.id}</td>
+                        <td class="p-3"><strong>${r.costumeTitle}</strong></td>
+                        <td class="p-3">${r.renterName}</td>
+                        <td class="p-3">${r.startDate} s/d ${r.endDate}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${r.itemStatus.includes('Dipakai') ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'} rounded font-medium">${r.itemStatus}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">${r.scheme}</span></td>
+                        <td class="p-3 space-x-1">
+                            <button type="button" onclick="promptTracking('${r.id}')" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-800 border">Input Resi</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Liquidation table
+            const liquidations = ChileoDB.getOwnerLiquidation();
+            const liqTbody = document.querySelector('#view-owner-luas section.bg-gradient-to-br tbody');
+            if (liqTbody) {
+                liqTbody.innerHTML = liquidations.map(l => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold">${l.id}</td>
+                        <td class="p-3"><strong>${l.costumeTitle}</strong><br><small class="text-gray-500">${l.source}</small></td>
+                        <td class="p-3">${l.condition}</td>
+                        <td class="p-3"><strong class="text-indigo-600">${formatRupiah(l.directPrice)}</strong></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">Nego Maks: ${l.negoTolerance}%</span><br><small class="text-gray-500">Min: ${formatRupiah(l.floorPrice)}</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${l.status.includes('Selesai') ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} rounded font-bold">${l.status}</span></td>
+                        <td class="p-3 space-x-1">
+                            ${l.status.includes('Ditawar') ? `<button type="button" onclick="acceptLiquidation('${l.id}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Terima Nego</button>` : ''}
+                            <button type="button" onclick="alert('Harga aset ${l.costumeTitle} dapat disesuaikan kembali dari panel inventaris.')" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded border">Ubah</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function renderSellerTable() {
+            const list = ChileoDB.getRepurposing();
+            const sellerTbody = document.querySelector('#view-penjual-terbatas tbody');
+            if (sellerTbody) {
+                sellerTbody.innerHTML = list.map(item => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-purple-700">${item.id}</td>
+                        <td class="p-3"><strong>${item.character}</strong><br><small class="text-gray-500">${item.series}</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">${item.schemeLabel}</span></td>
+                        <td class="p-3">${formatRupiah(item.basePrice)}<br><small class="text-indigo-600 font-medium">Nego Maks: ${item.negoTolerance}% (${formatRupiah(item.minPrice)})</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${item.adminGrade.includes('Grade') ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} rounded font-bold">${item.adminGrade}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-medium">${item.status}</span></td>
+                        <td class="p-3">
+                            <a href="alih-fungsi.html#simulasi-nego" class="px-2.5 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded border border-indigo-200 font-semibold inline-block">Cek Nego</a>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function renderRenterTable() {
+            const list = ChileoDB.getRentals();
+            const renterTbody = document.querySelector('#view-perental-terbatas tbody');
+            if (renterTbody) {
+                renterTbody.innerHTML = list.map(r => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-emerald-700">${r.id}</td>
+                        <td class="p-3"><strong>${r.costumeTitle}</strong></td>
+                        <td class="p-3">${r.startDate} s/d ${r.endDate}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">${r.scheme}</span></td>
+                        <td class="p-3">${r.depositAmount > 0 ? formatRupiah(r.depositAmount) : '<strong class="text-emerald-700">Rp 0 (Bebas Deposit)</strong>'}<br><small class="text-gray-500">${r.depositStatus}</small></td>
+                        <td class="p-3 font-mono text-indigo-600 font-bold">${r.courier}<br><span class="text-gray-600 font-normal">${r.trackingNumber}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">${r.itemStatus}</span></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function promptTracking(id) {
+            const resi = prompt('Masukkan Nomor Resi Ekspedisi untuk booking ' + id + ':', 'JNE-' + Math.floor(100000000 + Math.random() * 900000000));
+            if (resi) {
+                const rentals = ChileoDB.getRentals();
+                const found = rentals.find(x => x.id === id);
+                if (found) {
+                    found.trackingNumber = resi;
+                    found.itemStatus = 'Sedang Dikirim via Kurir';
+                    localStorage.setItem('chileorent_rentals', JSON.stringify(rentals));
+                    renderOwnerTables();
+                    renderRenterTable();
+                    alert('✓ Nomor resi ' + resi + ' berhasil disimpan dan disinkronkan ke Dashboard Perental!');
+                }
+            }
+        }
+
+        function acceptLiquidation(id) {
+            const list = ChileoDB.getOwnerLiquidation();
+            const found = list.find(x => x.id === id);
+            if (found) {
+                found.status = 'Selesai Terjual Putus (Dana Rp ' + Number(found.buyerBid || found.floorPrice).toLocaleString('id-ID') + ' Masuk Kas)';
+                localStorage.setItem('chileorent_owner_liquidation', JSON.stringify(list));
+                renderOwnerTables();
+                alert('✓ Penjualan Jual Putus aset unit toko disetujui! Dana langsung dicairkan ke kas operasional rental kami.');
+            }
+        }
+
+        function addNewStoreLiquidation() {
+            const title = prompt('Nama Kostum Toko Kami yang Ingin Dijual Putus (Butuh Dana Cepat):', 'Arataki Itto Fullset (Size L)');
+            if (!title) return;
+            const price = Number(prompt('Harga Jual Putus Langsung (Rp):', '1250000')) || 1000000;
+            const tolerance = Number(prompt('Batas Toleransi Nego (0 s.d 8%):', '8')) || 8;
+            const floorPrice = price - Math.round(price * (tolerance / 100));
+
+            const newItem = {
+                id: 'OWN-KST-' + Math.floor(10 + Math.random() * 90),
+                costumeTitle: title,
+                source: 'Inventaris Rental Utama Kami (Butuh Dana Kas Cepat)',
+                condition: 'Grade A (Koleksi Toko Lengkap)',
+                directPrice: price,
+                negoTolerance: tolerance,
+                floorPrice: floorPrice,
+                buyerBid: 0,
+                status: 'Aktif Dijual Putus'
+            };
+
+            ChileoDB.addOwnerLiquidation(newItem);
+            renderOwnerTables();
+            alert('✓ Kostum ' + title + ' berhasil didaftarkan ke modul Jual Putus Toko Kami!');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            const session = ChileoDB.getUserSession();
+            
+            // Render user badge in header
+            const userBadge = document.querySelector('#header-utama .text-xs span');
+            if (userBadge && session.name) {
+                userBadge.innerHTML = 'Masuk Sebagai: <strong>' + session.name + '</strong>';
+            }
+
+            renderOwnerTables();
+            renderSellerTable();
+            renderRenterTable();
+
+            // Hook up add store liquidation button
+            const addLiqBtn = document.querySelector('#view-owner-luas section.bg-gradient-to-br button');
+            if (addLiqBtn) {
+                addLiqBtn.onclick = addNewStoreLiquidation;
+            }
+
             const hash = window.location.hash.replace('#', '');
             const params = new URLSearchParams(window.location.search);
             const role = params.get('role');
 
             if (hash && document.getElementById(hash)) {
                 setRoleTab(hash);
-            } else if (role === 'seller') {
+            } else if (role === 'seller' || session.role === 'seller') {
                 setRoleTab('view-penjual-terbatas');
-            } else if (role === 'renter') {
+            } else if (role === 'renter' || session.role === 'renter') {
                 setRoleTab('view-perental-terbatas');
             } else {
                 setRoleTab('view-owner-luas');
@@ -453,6 +601,5 @@
             });
         });
     </script>
-
 </body>
 </html>

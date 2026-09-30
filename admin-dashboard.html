@@ -254,5 +254,104 @@
         </div>
     </footer>
 
+    <!-- ENGINE SCRIPT & ADMIN CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        function renderAdminDashboard() {
+            const repurposingList = ChileoDB.getRepurposing();
+            const escrowList = ChileoDB.getEscrow();
+
+            // Update Metrics
+            const pendingKurasi = repurposingList.filter(x => x.status.includes('Menunggu') || x.status.includes('Proses')).length;
+            const kurasiMetric = document.querySelector('#ringkasan article:nth-child(1) p');
+            if (kurasiMetric) kurasiMetric.textContent = pendingKurasi + ' Pengajuan';
+
+            const escrowMetric = document.querySelector('#ringkasan article:nth-child(2) p');
+            if (escrowMetric) escrowMetric.textContent = escrowList.length + ' Transaksi';
+
+            const totalEscrow = escrowList.reduce((acc, curr) => acc + (curr.amount || 0), 0);
+            const totalEscrowBadge = document.querySelector('#pengawasan-escrow span');
+            if (totalEscrowBadge) totalEscrowBadge.textContent = 'Total Dana Aktif: ' + formatRupiah(totalEscrow);
+
+            // Render Kurasi Table
+            const kurasiTbody = document.querySelector('#antrean-alih-fungsi tbody');
+            if (kurasiTbody) {
+                kurasiTbody.innerHTML = repurposingList.map(item => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-indigo-400">${item.id}</td>
+                        <td class="p-3">
+                            <strong class="text-white">${item.ownerName}</strong><br>
+                            <small class="text-slate-400">${item.ownerCategory}</small>
+                        </td>
+                        <td class="p-3">
+                            <strong class="text-white">${item.character}</strong><br>
+                            <small class="text-slate-400">${item.series}</small>
+                        </td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded">${item.schemeLabel}</span></td>
+                        <td class="p-3">${formatRupiah(item.basePrice)}<br><small class="text-slate-400">Nego: ${item.negoTolerance}% (${formatRupiah(item.minPrice)})</small></td>
+                        <td class="p-3">
+                            <span class="text-emerald-400 font-semibold">${item.status}</span><br>
+                            <small class="text-slate-400">${item.adminGrade}</small>
+                        </td>
+                        <td class="p-3">
+                            <select id="grade-select-${item.id}" aria-label="Pilih Grade" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded px-2 py-1">
+                                <option value="Grade A (95%)" selected>Grade A (95%)</option>
+                                <option value="Grade B (85%)">Grade B (85%)</option>
+                                <option value="Grade C (Minus Ringan)">Grade C (Minus)</option>
+                            </select>
+                        </td>
+                        <td class="p-3 space-x-1">
+                            <button type="button" onclick="approveGrade('${item.id}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium transition">Setujui</button>
+                            <button type="button" onclick="reviseItem('${item.id}')" class="px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium transition">Revisi</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Render Escrow Table
+            const escrowTbody = document.querySelector('#pengawasan-escrow tbody');
+            if (escrowTbody) {
+                escrowTbody.innerHTML = escrowList.map(e => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-amber-400">${e.id}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-blue-500/20 text-blue-300 rounded font-medium">${e.type}</span></td>
+                        <td class="p-3">${e.renter}</td>
+                        <td class="p-3">${e.owner}</td>
+                        <td class="p-3 font-bold text-white">${formatRupiah(e.amount)}<br><small class="text-slate-400 font-normal">${e.depositPart > 0 ? '(Termasuk Deposit ' + formatRupiah(e.depositPart) + ')' : '(Bebas Jaminan)'}</small></td>
+                        <td class="p-3"><span class="text-emerald-400 font-semibold">${e.itemState}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${e.status.includes('Selesai') ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'} rounded font-medium">${e.status}</span></td>
+                        <td class="p-3 space-x-1">
+                            ${!e.status.includes('Selesai') ? `<button type="button" onclick="approveEscrowRelease('${e.id}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium transition">Lepaskan & Refund</button>` : '<span class="text-slate-500 text-xs italic">Tuntas</span>'}
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function approveGrade(id) {
+            const selectEl = document.getElementById('grade-select-' + id);
+            const selectedGrade = selectEl ? selectEl.value : 'Grade A (95%)';
+
+            ChileoDB.updateRepurposingGrade(id, selectedGrade, 'Disetujui Masuk Listing Chileorent');
+            renderAdminDashboard();
+            alert('✓ Pengajuan ' + id + ' berhasil diverifikasi dengan ' + selectedGrade + '! Status di Dashboard Penjual telah otomatis terupdate.');
+        }
+
+        function reviseItem(id) {
+            ChileoDB.updateRepurposingGrade(id, 'Perlu Revisi Foto/Kelengkapan', 'Menunggu Revisi Penjual');
+            renderAdminDashboard();
+            alert('ℹ️ Pengajuan ' + id + ' diberi catatan perbaikan kepada pemilik kostum.');
+        }
+
+        function approveEscrowRelease(id) {
+            ChileoDB.releaseEscrow(id);
+            renderAdminDashboard();
+            alert('✓ Escrow ' + id + ' berhasil disetujui! Dana sewa diteruskan ke rekening pemilik dan uang jaminan (deposit) otomatis di-refund ke perental.');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAdminDashboard();
+        });
+    </script>
 </body>
 </html>

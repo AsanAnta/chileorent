@@ -295,5 +295,157 @@
         </div>
     </footer>
 
+    <!-- ENGINE SCRIPT & BOOKING CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        let currentCostume = null;
+
+        function loadCostumeDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const costumeId = params.get('id') || 'c1';
+            const costumes = ChileoDB.getCostumes();
+            currentCostume = costumes.find(c => c.id === costumeId) || costumes[0];
+
+            // Update DOM
+            const titleEl = document.querySelector('header h1') || document.querySelector('h1');
+            const breadcrumbEl = document.querySelector('.breadcrumb-nav li[aria-current="page"]');
+            const seriesEl = document.querySelector('header p strong');
+
+            if (titleEl) titleEl.textContent = currentCostume.title;
+            if (breadcrumbEl) breadcrumbEl.textContent = currentCostume.title;
+            if (seriesEl) seriesEl.textContent = currentCostume.series;
+
+            calculateEscrowSummary();
+        }
+
+        function calculateEscrowSummary() {
+            if (!currentCostume) return;
+
+            const durationDays = Number(document.getElementById('rent-duration')?.value) || 3;
+            let rentPrice = currentCostume.price;
+            if (durationDays === 5) rentPrice = currentCostume.price + 50000;
+            if (durationDays === 7) rentPrice = currentCostume.price + 100000;
+
+            const hasLaundry = document.querySelector('input[name="service_laundry"]')?.checked;
+            const hasProtection = document.querySelector('input[name="damage_protection"]')?.checked;
+            const laundryFee = hasLaundry ? 25000 : 0;
+            const protectionFee = hasProtection ? 15000 : 0;
+            const serviceFee = 5000;
+
+            const depositType = document.querySelector('input[name="deposit_status"]:checked')?.value || 'pertama';
+            const depositAmount = (depositType === 'pertama') ? 100000 : 0;
+
+            const scheme = document.querySelector('input[name="payment_scheme"]:checked')?.value || 'full';
+
+            const subtotalRent = rentPrice + laundryFee + protectionFee + serviceFee;
+            let currentPayment = 0;
+            let remainingBill = 0;
+            let schemeNote = '';
+
+            if (scheme === 'dp_30') {
+                const dpPart = Math.round(rentPrice * 0.3);
+                currentPayment = dpPart + laundryFee + protectionFee + serviceFee + depositAmount;
+                remainingBill = rentPrice - dpPart;
+                schemeNote = '(DP 30% Kunci Tanggal + Deposit)';
+            } else if (scheme === 'dp_50') {
+                const dpPart = Math.round(rentPrice * 0.5);
+                currentPayment = dpPart + laundryFee + protectionFee + serviceFee + depositAmount;
+                remainingBill = rentPrice - dpPart;
+                schemeNote = '(DP 50% Kunci Tanggal + Deposit)';
+            } else {
+                currentPayment = subtotalRent + depositAmount;
+                remainingBill = 0;
+                schemeNote = '(Bayar Penuh 100% + Deposit)';
+            }
+
+            // Update UI breakdown
+            const dl = document.querySelector('#form-rental-booking dl');
+            if (dl) {
+                dl.innerHTML = `
+                    <div class="flex justify-between"><dt>Biaya Sewa Pokok (${durationDays} Hari):</dt><dd>${formatRupiah(rentPrice)}</dd></div>
+                    <div class="flex justify-between"><dt>Proteksi Kerusakan Minor:</dt><dd>${formatRupiah(protectionFee)}</dd></div>
+                    ${hasLaundry ? `<div class="flex justify-between"><dt>Bebas Cuci Kembali:</dt><dd>${formatRupiah(laundryFee)}</dd></div>` : ''}
+                    <div class="flex justify-between"><dt>Biaya Layanan Escrow:</dt><dd>${formatRupiah(serviceFee)}</dd></div>
+                    <div class="flex justify-between border-t border-indigo-200 pt-1 text-amber-800">
+                        <dt>Uang Jaminan/Deposit (Opsional):</dt>
+                        <dd id="deposit-summary-text">${depositAmount > 0 ? formatRupiah(depositAmount) : '<span class="text-emerald-700 font-bold">Rp 0 (Bebas Deposit)</span>'}</dd>
+                    </div>
+                    ${remainingBill > 0 ? `<div class="flex justify-between text-indigo-700"><dt>Sisa Pelunasan (H-2):</dt><dd class="font-bold">${formatRupiah(remainingBill)}</dd></div>` : ''}
+                    <div class="flex justify-between font-bold border-t border-indigo-300 pt-1 text-indigo-950 text-sm">
+                        <dt>Total Ditransfer ke Escrow:</dt>
+                        <dd id="total-summary-text">${formatRupiah(currentPayment)} <small class="text-xs font-normal text-gray-600">${schemeNote}</small></dd>
+                    </div>
+                `;
+            }
+
+            const submitBtn = document.querySelector('#form-rental-booking button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.innerHTML = `Lanjutkan Booking (${formatRupiah(currentPayment)}) & Simpan ke Dashboard Perental &rarr;`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCostumeDetail();
+
+            // Set default date to tomorrow
+            const dateInput = document.getElementById('rent-start-date');
+            if (dateInput && !dateInput.value) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+
+            // Event listeners for recalculating
+            document.getElementById('rent-duration')?.addEventListener('change', calculateEscrowSummary);
+            document.querySelectorAll('#form-rental-booking input').forEach(el => {
+                el.addEventListener('change', calculateEscrowSummary);
+            });
+
+            // Form Submit handler
+            document.getElementById('form-rental-booking')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const session = ChileoDB.getUserSession();
+                const renterName = (session.role === 'renter' && session.name) ? session.name : 'Alisa Putri (Cosplayer)';
+                const durationDays = Number(document.getElementById('rent-duration')?.value) || 3;
+                const startDate = document.getElementById('rent-start-date')?.value || new Date().toISOString().split('T')[0];
+
+                const end = new Date(startDate);
+                end.setDate(end.getDate() + durationDays);
+                const endDate = end.toISOString().split('T')[0];
+
+                const schemeVal = document.querySelector('input[name="payment_scheme"]:checked')?.value || 'full';
+                const depositType = document.querySelector('input[name="deposit_status"]:checked')?.value || 'pertama';
+                const depositAmount = (depositType === 'pertama') ? 100000 : 0;
+
+                let schemeLabel = 'Lunas 100%';
+                if (schemeVal === 'dp_30') schemeLabel = 'DP 30% Kunci Tanggal';
+                if (schemeVal === 'dp_50') schemeLabel = 'DP 50% Kunci Tanggal';
+
+                const newBooking = {
+                    id: 'BK-' + new Date().getFullYear() + '-' + Math.floor(100 + Math.random() * 900),
+                    costumeTitle: (currentCostume ? currentCostume.title : 'Frieren') + ' (Size ' + (currentCostume ? currentCostume.size : 'M') + ')',
+                    renterName: renterName,
+                    renterPhone: session.phone || '0812-3456-7890',
+                    startDate: startDate,
+                    duration: durationDays,
+                    endDate: endDate,
+                    scheme: schemeLabel,
+                    dpAmount: schemeVal !== 'full' ? Math.round(currentCostume.price * (schemeVal === 'dp_30' ? 0.3 : 0.5)) : 0,
+                    totalPaid: currentCostume.price,
+                    depositAmount: depositAmount,
+                    depositStatus: depositAmount > 0 ? 'Tertahan di Escrow (Refund Saat Selesai)' : 'Bebas Deposit (Akun Terverifikasi)',
+                    itemStatus: 'Booking Baru Terkonfirmasi',
+                    courier: 'JNE Express',
+                    trackingNumber: 'Menunggu Pengiriman H-1'
+                };
+
+                ChileoDB.addRental(newBooking);
+
+                alert('✅ Booking Berhasil Dikonfirmasi!\n\nID Booking: ' + newBooking.id + '\nKostum: ' + newBooking.costumeTitle + '\nSkema: ' + newBooking.scheme + '\nDana aman di Rekening Bersama Escrow Chileorent.\n\nAnda akan dialihkan ke Dashboard Perental.');
+                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
+            });
+        });
+    </script>
 </body>
 </html>

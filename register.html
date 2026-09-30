@@ -201,5 +201,37 @@
         </div>
     </footer>
 
+    <!-- ENGINE SCRIPT & REGISTRATION CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('form-registrasi')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const role = document.querySelector('input[name="account_role"]:checked')?.value || 'renter';
+            const fullname = document.getElementById('reg-fullname')?.value || 'Pengguna Baru';
+            const email = document.getElementById('reg-email')?.value || '';
+            const phone = document.getElementById('reg-whatsapp')?.value || '';
+
+            ChileoDB.setUserSession({
+                role: role,
+                name: fullname,
+                email: email,
+                phone: phone,
+                city: 'Kota Bandung',
+                isVerified: true
+            });
+
+            alert('✅ Pendaftaran Berhasil!\\n\\nSelamat datang, ' + fullname + '!\\nAkun Anda telah aktif sebagai ' + (role === 'owner_admin' ? 'Pemilik Rental / Admin' : role === 'seller' ? 'Penjual Alih Fungsi' : 'Perental Kostum') + '.');
+
+            if (role === 'owner_admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else if (role === 'seller') {
+                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
+            } else {
+                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
+            }
+        });
+    </script>
+
 </body>
 </html>
