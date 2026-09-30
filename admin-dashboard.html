@@ -140,6 +140,109 @@
                 </div>
             </section>
 
+            <!-- TABEL 2: PENGAWASAN ESCROW & PERSETUJUAN PELEPASAN DANA -->
+            <section id="pengawasan-escrow" class="bg-slate-800 p-6 border border-slate-700 rounded-2xl space-y-4" aria-labelledby="escrow-heading">
+                <header class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <h3 id="escrow-heading" class="text-lg font-bold text-white">Pengawasan Rekening Bersama Escrow & Pelepasan Dana</h3>
+                        <p class="text-xs text-slate-400 mt-1">Audit status dana sewa, uang jaminan (deposit), dan hasil penjualan alih fungsi sebelum diteruskan ke rekening mitra.</p>
+                    </div>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">Total Dana Aktif: Rp 16.300.000</span>
+                </header>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs text-slate-300">
+                        <thead>
+                            <tr class="bg-slate-900/80 text-slate-200 font-bold border-b border-slate-700">
+                                <th class="p-3">ID Transaksi</th>
+                                <th class="p-3">Jenis Alur</th>
+                                <th class="p-3">Perental / Pembeli</th>
+                                <th class="p-3">Pemilik Kostum</th>
+                                <th class="p-3">Nominal Escrow</th>
+                                <th class="p-3">Status Fisik & Resi</th>
+                                <th class="p-3">Status Dana</th>
+                                <th class="p-3">Aksi Administrator</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            <tr>
+                                <td class="p-3 font-mono">#ESC-8841</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-blue-500/20 text-blue-300 rounded font-medium">Sewa Kostum</span></td>
+                                <td class="p-3">Alisa Putri</td>
+                                <td class="p-3">Kurogane Rental</td>
+                                <td class="p-3">Rp 240.000<br><small class="text-slate-400">(Sewa + Deposit Rp 100k)</small></td>
+                                <td class="p-3"><span class="text-emerald-400 font-semibold">✓ Barang Kembali Aman</span></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded">Menunggu Approval</span></td>
+                                <td class="p-3 space-x-1">
+                                    <button type="button" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Lepaskan & Refund</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono">#ESC-8849</td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded font-medium">Alih Fungsi (Jual)</span></td>
+                                <td class="p-3">Dimas R.</td>
+                                <td class="p-3">Sakura Wardrobe</td>
+                                <td class="p-3">Rp 1.104.000<br><small class="text-indigo-400">(Nego 8% Disetujui)</small></td>
+                                <td class="p-3"><span class="text-slate-300">Kurir Pengiriman (J&T)</span></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Tertahan Sementara</span></td>
+                                <td class="p-3 space-x-1">
+                                    <button type="button" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded font-medium">Lacak Resi</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TABEL 3: VERIFIKASI MITRA & KYC IDENTITAS -->
+            <section id="verifikasi-kyc" class="bg-slate-800 p-6 border border-slate-700 rounded-2xl space-y-4" aria-labelledby="kyc-heading">
+                <header class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <h3 id="kyc-heading" class="text-lg font-bold text-white">Pusat Verifikasi Identitas (KYC) & Reputasi Mitra</h3>
+                        <p class="text-xs text-slate-400 mt-1">Validasi KTP, identitas bisnis rental lama, atau cosplayer untuk kepatuhan hukum dan proteksi bebas sengketa.</p>
+                    </div>
+                </header>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs text-slate-300">
+                        <thead>
+                            <tr class="bg-slate-900/80 text-slate-200 font-bold border-b border-slate-700">
+                                <th class="p-3">ID Pengguna</th>
+                                <th class="p-3">Nama / Entitas</th>
+                                <th class="p-3">Peran Akun</th>
+                                <th class="p-3">Kontak & Kota</th>
+                                <th class="p-3">Dokumen KYC</th>
+                                <th class="p-3">Status Verifikasi</th>
+                                <th class="p-3">Aksi Kurator</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            <tr>
+                                <td class="p-3 font-mono">#USR-2026-104</td>
+                                <td class="p-3"><strong class="text-white">Alisa Putri</strong><br><small class="text-slate-400">@alisa_cos</small></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded">Perental</span></td>
+                                <td class="p-3">0812-3456-7890<br><small class="text-slate-400">Bandung</small></td>
+                                <td class="p-3"><a href="#doc-ktp" class="text-indigo-400 hover:underline">KTP-Alisa.jpg</a></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-semibold">✓ Terverifikasi (Bebas Deposit)</span></td>
+                                <td class="p-3"><span class="text-slate-500 text-xs italic">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono">#USR-2026-108</td>
+                                <td class="p-3"><strong class="text-white">Kurogane Rental (Budi S.)</strong><br><small class="text-slate-400">Ex-Rental Owner</small></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded">Penjual Alih Fungsi</span></td>
+                                <td class="p-3">0877-9876-5432<br><small class="text-slate-400">Surabaya</small></td>
+                                <td class="p-3"><a href="#doc-ktp" class="text-indigo-400 hover:underline">KTP+SuratRental.pdf</a></td>
+                                <td class="p-3"><span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded font-semibold">Menunggu Review</span></td>
+                                <td class="p-3 space-x-1">
+                                    <button type="button" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Verifikasi</button>
+                                    <button type="button" class="px-2.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded font-medium">Tolak</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
         </div>
     </main>
 

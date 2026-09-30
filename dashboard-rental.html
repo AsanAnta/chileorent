@@ -127,6 +127,199 @@
                                     <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Tertahan</span></td>
                                     <td class="p-3"><button type="button" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-800 border">Lacak Resi</button></td>
                                 </tr>
+                                <tr>
+                                    <td class="p-3 font-mono">#BK-2026-085</td>
+                                    <td class="p-3"><strong>Raiden Shogun (Size S)</strong></td>
+                                    <td class="p-3">Rian Kusuma</td>
+                                    <td class="p-3">28-30 Sep 2026</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Menunggu Kirim</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">DP 30% Masuk</span></td>
+                                    <td class="p-3"><button type="button" class="px-2.5 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded border border-indigo-200 font-semibold">Input Resi</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </section>
+
+            <!-- PERAN 2: FITUR TERBATAS PENJUAL (PEMILIK RENTAL LAMA & COSPLAYER ALIH FUNGSI) -->
+            <section id="view-penjual-terbatas" class="space-y-8 pt-4 border-t-2 border-dashed border-gray-300" aria-labelledby="seller-view-title">
+                
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-purple-100 text-purple-800 rounded-full">🔄 Mode Akses Terbatas: Penjual (Pemilik Kostum Lama & Cosplayer)</span>
+                        <h2 id="seller-view-title" class="text-2xl font-bold text-gray-900">Panel Penjual & Pemilik Aset: Sakura Wardrobe</h2>
+                        <p class="text-xs text-gray-500">ID Mitra: <span class="font-mono font-bold text-gray-800">#SL-2026-092</span> | Status: <span class="text-emerald-600 font-bold">✓ Terverifikasi KYC (Auto-Identifikasi Form Aktif)</span></p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="alih-fungsi.html" class="px-4 py-2 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">
+                            + Ajukan Alih Fungsi Kostum (Auto-Isi Identitas) &rarr;
+                        </a>
+                    </div>
+                </header>
+
+                <!-- BANNER PENJUAL INFO -->
+                <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl text-xs text-indigo-900 space-y-1">
+                    <p class="font-bold">✨ Manfaat Akun Penjual Terdaftar:</p>
+                    <p class="text-gray-600">Akun ini terdaftar khusus untuk memudahkan identifikasi kepemilikan kostum lama saat mengisi alur formulir alih fungsi. Anda tidak perlu mengulang proses verifikasi identitas (KTP/rekening) untuk setiap kostum yang diajukan.</p>
+                </div>
+
+                <!-- METRICS PENJUAL -->
+                <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Kostum Dialihfungsikan</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">3 Unit</p>
+                        <span class="text-[10px] text-gray-500">2 Jual Putus, 1 Titip Sewa</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Menunggu Kurasi Fisik</h3>
+                        <p class="text-2xl font-bold text-amber-600 mt-1">1 Pengajuan</p>
+                        <span class="text-[10px] text-gray-500">Proses Grade & Cek Foto</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Tawaran Nego Masuk (0-8%)</h3>
+                        <p class="text-2xl font-bold text-indigo-600 mt-1">2 Calon Pembeli</p>
+                        <span class="text-[10px] text-gray-500">Toleransi nego terkendali</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Saldo Rekening Escrow</h3>
+                        <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 1.850.000</p>
+                        <span class="text-[10px] text-emerald-600">Siap dicairkan ke bank</span>
+                    </article>
+                </section>
+
+                <!-- TABEL STATUS KOSTUM ALIH FUNGSI -->
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gray-900 text-base">Status Kostum yang Sedang Dialihfungsikan</h3>
+                        <span class="text-xs text-gray-500">Daftar kostum Anda yang sedang dikurasi atau dipasarkan</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                    <th class="p-3">ID Pengajuan</th>
+                                    <th class="p-3">Kostum & Karakter</th>
+                                    <th class="p-3">Skema Dipilih</th>
+                                    <th class="p-3">Harga & Toleransi Nego</th>
+                                    <th class="p-3">Grade Kurasi</th>
+                                    <th class="p-3">Status Listing</th>
+                                    <th class="p-3">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-mono">#AF-2026-012</td>
+                                    <td class="p-3"><strong>Raiden Shogun (Size S)</strong><br><small class="text-gray-500">Uwowo Fullset + Wig</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">Jual Putus</span></td>
+                                    <td class="p-3">Rp 1.200.000<br><small class="text-indigo-600 font-medium">Nego Maks: 8% (Rp 1.104.000)</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold">Grade A (95%)</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded">Aktif Tayang</span></td>
+                                    <td class="p-3"><a href="alih-fungsi.html#fitur-nego" class="px-2.5 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded border border-indigo-200 font-semibold inline-block">Kelola Nego</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono">#AF-2026-018</td>
+                                    <td class="p-3"><strong>Kafka Honkai Star Rail (Size M)</strong><br><small class="text-gray-500">Costyle + Sepatu Size 38</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-purple-100 text-purple-800 rounded font-medium">Titip Sewa</span></td>
+                                    <td class="p-3">Rp 150.000 / 3 hari<br><small class="text-gray-500">Bagi Hasil 70:30</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold">Menunggu Kurasi</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Verifikasi Fisik</span></td>
+                                    <td class="p-3"><span class="text-gray-400 text-xs italic">Menunggu Admin</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </section>
+
+            <!-- PERAN 3: FITUR TERBATAS PERENTAL (CUSTOMER COSPLAYER) -->
+            <section id="view-perental-terbatas" class="space-y-8 pt-4 border-t-2 border-dashed border-gray-300" aria-labelledby="renter-view-title">
+                
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded-full">🎭 Mode Akses Terbatas: Perental (Customer Cosplayer)</span>
+                        <h2 id="renter-view-title" class="text-2xl font-bold text-gray-900">Halo, Alisa Putri!</h2>
+                        <p class="text-xs text-gray-500">Status Akun: <span class="text-emerald-600 font-bold">✓ Perental Terverifikasi (Bebas Uang Jaminan / Deposit Rp 0 pada order berikutnya)</span></p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="catalog.html" class="px-4 py-2 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">
+                            🔍 Jelajahi Katalog Kostum & Sewa Lagi &rarr;
+                        </a>
+                    </div>
+                </header>
+
+                <!-- BANNER PERENTAL INFO -->
+                <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900 space-y-1">
+                    <p class="font-bold">✨ Manfaat Akun Perental Terdaftar:</p>
+                    <p class="text-gray-600">Akun perental Anda mempermudah tracking status pengiriman kostum, jadwal pengembalian, status pelunasan DP, serta pengembalian dana deposit (uang jaminan) otomatis melalui Escrow tanpa repot konfirmasi manual.</p>
+                </div>
+
+                <!-- METRICS PERENTAL -->
+                <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Kostum Sedang Disewa</h3>
+                        <p class="text-2xl font-bold text-indigo-600 mt-1">1 Kostum</p>
+                        <span class="text-[10px] text-gray-500">Frieren (Size M)</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Booking DP (Mendatang)</h3>
+                        <p class="text-2xl font-bold text-amber-600 mt-1">1 Booking</p>
+                        <span class="text-[10px] text-gray-500">DP 30% Terbayar</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Riwayat Sewa Selesai</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">4 Kali</p>
+                        <span class="text-[10px] text-emerald-600">Skor Reputasi: 5.0 ★</span>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Uang Jaminan di Escrow</h3>
+                        <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 100.000</p>
+                        <span class="text-[10px] text-emerald-600">Proses refund otomatis</span>
+                    </article>
+                </section>
+
+                <!-- TABEL STATUS KOSTUM YANG DIRENTAL -->
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gray-900 text-base">Status Kostum yang Sedang / Akan Dirental</h3>
+                        <span class="text-xs text-gray-500">Pantau resi kurir, batas waktu kembali, dan status dana jaminan</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                    <th class="p-3">ID Booking</th>
+                                    <th class="p-3">Kostum & Seri</th>
+                                    <th class="p-3">Tanggal Sewa</th>
+                                    <th class="p-3">Skema Bayar</th>
+                                    <th class="p-3">Uang Jaminan</th>
+                                    <th class="p-3">Resi & Pengiriman</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-mono">#BK-2026-081</td>
+                                    <td class="p-3"><strong>Frieren (Size M)</strong><br><small class="text-gray-500">Kurogane Rental (Bandung)</small></td>
+                                    <td class="p-3">24 - 27 Sep 2026<br><small class="text-amber-600 font-semibold">Kembali besok pk 18:00</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">Lunas 100%</span></td>
+                                    <td class="p-3">Rp 100.000<br><small class="text-emerald-600 font-medium">Refund saat barang balik</small></td>
+                                    <td class="p-3">JNE Express<br><strong class="font-mono text-indigo-600">JNE-882910481</strong></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">Sedang Dipakai</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono">#BK-2026-094</td>
+                                    <td class="p-3"><strong>Hu Tao (Size S)</strong><br><small class="text-gray-500">Sakura Cosplay (Jakarta)</small></td>
+                                    <td class="p-3">10 - 12 Okt 2026<br><small class="text-gray-500">Event Comifuro</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-medium">DP 30% Terbayar</span><br><small class="text-gray-500">Sisa Rp 98.000 H-2</small></td>
+                                    <td class="p-3"><strong class="text-emerald-700">Rp 0 (Bebas Deposit)</strong><br><small class="text-gray-500">Perental Terverifikasi</small></td>
+                                    <td class="p-3"><span class="text-gray-400 italic">Resi diterbitkan H-1</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-purple-100 text-purple-800 rounded font-bold">Booking Terkunci</span></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -164,6 +357,58 @@
             </div>
         </div>
     </footer>
+
+    <!-- SCRIPT TAB SWITCHER PERAN -->
+    <script>
+        function setRoleTab(tabId) {
+            const sections = ['view-owner-luas', 'view-penjual-terbatas', 'view-perental-terbatas'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === tabId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            const buttons = document.querySelectorAll('nav[aria-label="Tab Peran"] a');
+            buttons.forEach(btn => {
+                const href = btn.getAttribute('href').replace('#', '');
+                if (href === tabId) {
+                    btn.className = "px-3 py-1 bg-indigo-600 text-white rounded font-bold transition";
+                } else {
+                    btn.className = "px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded transition";
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            const params = new URLSearchParams(window.location.search);
+            const role = params.get('role');
+
+            if (hash && document.getElementById(hash)) {
+                setRoleTab(hash);
+            } else if (role === 'seller') {
+                setRoleTab('view-penjual-terbatas');
+            } else if (role === 'renter') {
+                setRoleTab('view-perental-terbatas');
+            } else {
+                setRoleTab('view-owner-luas');
+            }
+
+            document.querySelectorAll('nav[aria-label="Tab Peran"] a').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = btn.getAttribute('href').replace('#', '');
+                    if (document.getElementById(targetId)) {
+                        setRoleTab(targetId);
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

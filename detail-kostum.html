@@ -158,7 +158,7 @@
                         <p class="text-xs text-gray-500 mt-1">Uang sewa dan jaminan Anda aman 100% di Rekening Bersama Otomatis Chileorent.</p>
                     </div>
 
-                    <form id="form-rental-booking" action="pembayaran-escrow.html" method="POST" class="space-y-6">
+                    <form id="form-rental-booking" action="dashboard-rental.html#view-perental-terbatas" method="GET" class="space-y-6">
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="space-y-1">
@@ -176,20 +176,52 @@
                             </div>
                         </div>
 
+                        <!-- OPSI UANG JAMINAN (OPSIONAL / KHUSUS PERENTAL PERTAMA KALI) -->
+                        <fieldset class="space-y-3 p-4 bg-amber-50/50 border border-amber-200 rounded-xl text-xs">
+                            <legend class="font-bold text-amber-900 px-1">Status Perental & Uang Jaminan (Deposit)</legend>
+                            <p class="text-[11px] text-gray-600 mb-2">Uang jaminan (deposit) bersifat opsional bagi perental langganan terverifikasi dan hanya dikenakan bagi penyewa pertama kali.</p>
+                            
+                            <label class="flex items-start gap-2 cursor-pointer p-2.5 bg-white border border-gray-200 rounded-lg hover:border-amber-400">
+                                <input type="radio" name="deposit_status" id="dep-pertama" value="pertama" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900">Perental Pertama Kali (Wajib Jaminan Rp 100.000)</strong>
+                                    <p class="text-gray-500">Deposit masuk ke Escrow dan <strong>dikembalikan 100%</strong> otomatis setelah kostum selesai dirental dan kembali dalam keadaan aman.</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-2 cursor-pointer p-2.5 bg-white border border-gray-200 rounded-lg hover:border-amber-400">
+                                <input type="radio" name="deposit_status" id="dep-langganan" value="langganan" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-emerald-700">Perental Terverifikasi / Langganan (Bebas Deposit - Rp 0)</strong>
+                                    <p class="text-gray-500">Khusus akun perental yang sudah pernah merental sebelumnya atau telah menyelesaikan verifikasi identitas (KYC).</p>
+                                </div>
+                            </label>
+                        </fieldset>
+
+                        <!-- FITUR SKEMA PEMBAYARAN & DP -->
                         <fieldset class="space-y-3 p-4 bg-gray-50 border border-gray-200 rounded-xl text-xs">
-                            <legend class="font-bold text-gray-900 px-1">Skema Pembayaran</legend>
+                            <legend class="font-bold text-gray-900 px-1">Fitur Skema Pembayaran (Opsi DP Booking)</legend>
                             <label class="flex items-start gap-2 cursor-pointer">
                                 <input type="radio" name="payment_scheme" value="full" checked class="mt-0.5 text-indigo-600">
                                 <div>
-                                    <strong class="text-gray-900">Bayar Penuh Langsung (100%)</strong>
-                                    <p class="text-gray-500">Bayar lunas seluruh biaya sewa sekaligus ke Escrow.</p>
+                                    <strong class="text-gray-900">Bayar Penuh Langsung (100% - Rp 140.000)</strong>
+                                    <p class="text-gray-500">Bayar lunas seluruh biaya sewa sekaligus ke Escrow aman Chileorent.</p>
                                 </div>
                             </label>
+
                             <label class="flex items-start gap-2 cursor-pointer">
                                 <input type="radio" name="payment_scheme" value="dp_30" class="mt-0.5 text-indigo-600">
                                 <div>
-                                    <strong class="text-gray-900">Kunci Tanggal DP 30% (Rp 36.000)</strong>
-                                    <p class="text-gray-500">Pelunasan H-2 sebelum pengiriman.</p>
+                                    <strong class="text-indigo-900">Fitur DP 30% Kunci Tanggal (Rp 42.000)</strong>
+                                    <p class="text-gray-500">Kunci tanggal booking kostum terlebih dahulu. Pelunasan 70% dibayarkan maksimal H-2 sebelum pengiriman.</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="dp_50" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-indigo-900">Fitur DP 50% Kunci Tanggal (Rp 70.000)</strong>
+                                    <p class="text-gray-500">Kunci tanggal booking kostum dengan DP 50%. Pelunasan 50% sisanya dibayarkan maksimal H-2 sebelum pengiriman.</p>
                                 </div>
                             </label>
                         </fieldset>
@@ -203,15 +235,22 @@
                         <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-2 text-xs">
                             <h3 class="font-bold text-indigo-900">Rincian Pembayaran Escrow</h3>
                             <dl class="space-y-1 text-indigo-900">
-                                <div class="flex justify-between"><dt>Biaya Sewa Pokok:</dt><dd>Rp 120.000</dd></div>
-                                <div class="flex justify-between"><dt>Proteksi Minor:</dt><dd>Rp 15.000</dd></div>
-                                <div class="flex justify-between"><dt>Biaya Layanan:</dt><dd>Rp 5.000</dd></div>
-                                <div class="flex justify-between font-bold border-t border-indigo-200 pt-1"><dt>Deposit (Opsional):</dt><dd>+ Rp 100.000</dd></div>
+                                <div class="flex justify-between"><dt>Biaya Sewa Pokok (3 Hari):</dt><dd>Rp 120.000</dd></div>
+                                <div class="flex justify-between"><dt>Proteksi Kerusakan Minor:</dt><dd>Rp 15.000</dd></div>
+                                <div class="flex justify-between"><dt>Biaya Layanan Escrow:</dt><dd>Rp 5.000</dd></div>
+                                <div class="flex justify-between border-t border-indigo-200 pt-1 text-amber-800">
+                                    <dt>Uang Jaminan/Deposit (Opsional):</dt>
+                                    <dd id="deposit-summary-text">Rp 100.000 <span class="text-[10px] text-gray-500">(Bebas Rp 0 jika langganan)</span></dd>
+                                </div>
+                                <div class="flex justify-between font-bold border-t border-indigo-300 pt-1 text-indigo-950 text-sm">
+                                    <dt>Total Ditransfer ke Escrow:</dt>
+                                    <dd id="total-summary-text">Rp 240.000 (Bayar Penuh + Deposit)</dd>
+                                </div>
                             </dl>
                         </div>
 
                         <button type="submit" class="w-full py-3 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
-                            Lanjutkan Pembayaran Booking via Escrow &rarr;
+                            Lanjutkan Booking & Simpan ke Dashboard Perental &rarr;
                         </button>
 
                     </form>

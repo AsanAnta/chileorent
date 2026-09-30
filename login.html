@@ -178,5 +178,20 @@
         </div>
     </footer>
 
+    <!-- SCRIPT ROLE-BASED LOGIN REDIRECT -->
+    <script>
+        document.getElementById('form-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedRole = document.querySelector('input[name="user_role"]:checked')?.value;
+            if (selectedRole === 'owner_admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else if (selectedRole === 'seller') {
+                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
+            } else {
+                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
+            }
+        });
+    </script>
+
 </body>
 </html>
