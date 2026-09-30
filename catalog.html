@@ -211,5 +211,118 @@
         </div>
     </footer>
 
+    <!-- ENGINE SCRIPT & KATALOG CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        function renderCatalogItems() {
+            const costumes = ChileoDB.getCostumes();
+            const grid = document.getElementById('catalog-grid');
+            const empty = document.getElementById('catalog-empty-state');
+            if (!grid) return;
+
+            const q = document.getElementById('keyword-search')?.value.toLowerCase().trim() || '';
+            const checkedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value);
+            const checkedSizes = Array.from(document.querySelectorAll('input[name="size"]:checked')).map(el => el.value);
+            const selectedGender = document.querySelector('input[name="gender"]:checked')?.value || 'all';
+            const checkedGrades = Array.from(document.querySelectorAll('input[name="grade"]:checked')).map(el => el.value);
+            const minPrice = Number(document.getElementById('min-price')?.value) || 0;
+            const maxPrice = Number(document.getElementById('max-price')?.value) || Infinity;
+            const sortBy = document.getElementById('sort-select')?.value || 'popular';
+
+            let filtered = costumes.filter(c => {
+                if (q && !c.title.toLowerCase().includes(q) && !c.character.toLowerCase().includes(q) && !c.series.toLowerCase().includes(q)) {
+                    return false;
+                }
+                if (checkedCategories.length > 0 && !checkedCategories.includes(c.category)) {
+                    return false;
+                }
+                if (checkedSizes.length > 0 && !checkedSizes.includes(c.size)) {
+                    return false;
+                }
+                if (selectedGender !== 'all' && c.gender !== selectedGender) {
+                    return false;
+                }
+                if (checkedGrades.length > 0 && !checkedGrades.includes(c.grade)) {
+                    return false;
+                }
+                if (c.price < minPrice || c.price > maxPrice) {
+                    return false;
+                }
+                return true;
+            });
+
+            if (sortBy === 'price_asc') filtered.sort((a, b) => a.price - b.price);
+            else if (sortBy === 'price_desc') filtered.sort((a, b) => b.price - a.price);
+            else if (sortBy === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+            else filtered.sort((a, b) => b.rentCount - a.rentCount);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (empty) empty.classList.remove('hidden');
+                return;
+            }
+
+            if (empty) empty.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(c => `
+                <article class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 bg-gray-100 overflow-hidden">
+                            <img src="${c.image}" alt="${c.title}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 px-2 py-0.5 text-[11px] font-bold ${c.grade === 'A' ? 'bg-emerald-600' : 'bg-blue-600'} text-white rounded-md shadow">
+                                Grade ${c.grade}
+                            </span>
+                            <span class="absolute top-3 right-3 px-2 py-0.5 text-[11px] font-semibold bg-white/90 text-gray-800 rounded-md backdrop-blur-sm">
+                                Size ${c.size}
+                            </span>
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-indigo-600 uppercase">${c.series}</div>
+                            <h3 class="font-bold text-gray-900 text-sm leading-snug">
+                                <a href="detail-kostum.html?id=${c.id}" class="hover:text-indigo-600">${c.title}</a>
+                            </h3>
+                            <div class="flex items-center gap-1 text-xs text-amber-500">
+                                <span>★</span>
+                                <strong class="text-gray-800">${c.rating}</strong>
+                                <span class="text-gray-400">(${c.rentCount}x disewa)</span>
+                            </div>
+                            <div class="flex flex-wrap gap-1 text-[10px] text-gray-600 pt-1">
+                                ${c.includes.map(inc => `<span class="px-1.5 py-0.5 bg-gray-100 rounded">✓ ${inc}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-0 border-t border-gray-100 flex items-center justify-between mt-3">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block">Sewa 3 Hari:</span>
+                            <strong class="text-base font-bold text-indigo-600">${formatRupiah(c.price)}</strong>
+                        </div>
+                        <a href="detail-kostum.html?id=${c.id}" class="px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition shadow-sm">
+                            Detail & Sewa &rarr;
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+
+            const counter = document.querySelector('#catalog-header-title + p');
+            if (counter) {
+                counter.innerHTML = `Menampilkan <strong>${filtered.length} dari ${costumes.length}</strong> kostum terverifikasi dengan jaminan escrow otomatis.`;
+            }
+        }
+
+        function resetAllFilters() {
+            document.getElementById('form-filter-katalog')?.reset();
+            renderCatalogItems();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCatalogItems();
+            document.getElementById('form-filter-katalog')?.addEventListener('input', renderCatalogItems);
+            document.getElementById('form-filter-katalog')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                renderCatalogItems();
+            });
+            document.getElementById('sort-select')?.addEventListener('change', renderCatalogItems);
+        });
+    </script>
 </body>
 </html>

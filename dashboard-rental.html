@@ -29,9 +29,10 @@
                 </ul>
             </nav>
 
-            <div class="flex items-center gap-3 order-2 md:order-3 text-xs">
-                <span class="text-gray-600">Masuk Sebagai: <strong>Multi-Peran (Simulasi UI)</strong></span>
-                <a href="login.html" class="px-3 py-1.5 font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Keluar</a>
+            <div class="flex items-center gap-2 order-2 md:order-3">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition">Daftar Akun</a>
+                <a href="alih-fungsi.html" class="px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">Alih Fungsikan Kostum</a>
             </div>
         </div>
     </header>
@@ -42,26 +43,25 @@
             <ul class="flex items-center space-x-2">
                 <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
                 <li>&gt;</li>
-                <li aria-current="page" class="font-semibold text-gray-800">Dashboard Manajemen Rental Pintar</li>
+                <li id="breadcrumb-dashboard-title" aria-current="page" class="font-semibold text-gray-800">Dashboard Manajemen Rental Pintar</li>
             </ul>
         </div>
     </nav>
 
-    <!-- ROLE SWITCHER -->
-    <aside class="bg-indigo-900 text-white py-3 border-b border-indigo-800 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
-            <strong>Pilih Simulasi Tampilan Sesuai Peran Login Akun:</strong>
-            <nav class="flex flex-wrap gap-2" aria-label="Tab Peran">
-                <a href="#view-owner-luas" class="px-3 py-1 bg-indigo-600 text-white rounded font-bold">👑 Pengelola (Fitur Luas)</a>
-                <a href="#view-penjual-terbatas" class="px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded">🔄 Penjual (Terbatas)</a>
-                <a href="#view-perental-terbatas" class="px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded">🎭 Perental (Terbatas)</a>
-            </nav>
-        </div>
-    </aside>
-
     <!-- MAIN CONTENT -->
     <main id="konten-dashboard" class="py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- NOTIFIKASI TAMU JIKA BELUM LOGIN -->
+            <section id="view-guest-notice" class="hidden p-8 bg-white border border-gray-200 rounded-2xl text-center space-y-4 shadow-sm">
+                <span class="text-4xl block">🔐</span>
+                <h2 class="text-xl font-bold text-gray-900">Akses Dashboard Memerlukan Login Akun</h2>
+                <p class="text-xs text-gray-500 max-w-md mx-auto">Silakan masuk ke akun Anda atau daftarkan akun baru sesuai peran Anda (Perental, Penjual Alih Fungsi, atau Pemilik Rental/Admin).</p>
+                <div class="flex justify-center gap-3 pt-2">
+                    <a href="login.html" class="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition">Masuk ke Akun &rarr;</a>
+                    <a href="register.html" class="px-4 py-2 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 border rounded-lg transition">Daftar Akun Baru</a>
+                </div>
+            </section>
 
             <!-- PERAN 1: FITUR LUAS -->
             <section id="view-owner-luas" class="space-y-8" aria-labelledby="owner-view-title">
@@ -406,7 +406,7 @@
     <script src="app.js"></script>
     <script>
         function setRoleTab(tabId) {
-            const sections = ['view-owner-luas', 'view-penjual-terbatas', 'view-perental-terbatas'];
+            const sections = ['view-owner-luas', 'view-penjual-terbatas', 'view-perental-terbatas', 'view-guest-notice'];
             sections.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
@@ -418,15 +418,18 @@
                 }
             });
 
-            const buttons = document.querySelectorAll('nav[aria-label="Tab Peran"] a');
-            buttons.forEach(btn => {
-                const href = btn.getAttribute('href').replace('#', '');
-                if (href === tabId) {
-                    btn.className = "px-3 py-1 bg-indigo-600 text-white rounded font-bold transition shadow-sm";
+            const breadcrumbEl = document.getElementById('breadcrumb-dashboard-title');
+            if (breadcrumbEl) {
+                if (tabId === 'view-perental-terbatas') {
+                    breadcrumbEl.textContent = 'Dashboard Perental - Pelacakan Sewa & Resi';
+                } else if (tabId === 'view-penjual-terbatas') {
+                    breadcrumbEl.textContent = 'Dashboard Penjual - Pemantauan Alih Fungsi Kostum';
+                } else if (tabId === 'view-owner-luas') {
+                    breadcrumbEl.textContent = 'Dashboard Pengelola - Manajemen Operasional Rental';
                 } else {
-                    btn.className = "px-3 py-1 bg-indigo-950 text-indigo-200 hover:bg-indigo-800 rounded transition";
+                    breadcrumbEl.textContent = 'Dashboard Rental';
                 }
-            });
+            }
         }
 
         function renderOwnerTables() {
@@ -560,12 +563,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const session = ChileoDB.getUserSession();
-            
-            // Render user badge in header
-            const userBadge = document.querySelector('#header-utama .text-xs span');
-            if (userBadge && session.name) {
-                userBadge.innerHTML = 'Masuk Sebagai: <strong>' + session.name + '</strong>';
-            }
 
             renderOwnerTables();
             renderSellerTable();
@@ -587,18 +584,11 @@
                 setRoleTab('view-penjual-terbatas');
             } else if (role === 'renter' || session.role === 'renter') {
                 setRoleTab('view-perental-terbatas');
-            } else {
+            } else if (role === 'owner_admin' || session.role === 'owner_admin') {
                 setRoleTab('view-owner-luas');
+            } else {
+                setRoleTab('view-guest-notice');
             }
-
-            document.querySelectorAll('nav[aria-label="Tab Peran"] a').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const targetId = btn.getAttribute('href').replace('#', '');
-                    if (document.getElementById(targetId)) {
-                        setRoleTab(targetId);
-                    }
-                });
-            });
         });
     </script>
 </body>

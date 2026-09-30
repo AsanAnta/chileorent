@@ -33,6 +33,7 @@
 
             <div class="flex items-center gap-2 order-2 md:order-3">
                 <a href="login.html" aria-current="page" class="px-3 py-1.5 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-lg hover:bg-indigo-50 transition">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition">Daftar Akun</a>
                 <a href="alih-fungsi.html" class="px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">Alih Fungsikan Kostum</a>
             </div>
         </div>
@@ -44,7 +45,7 @@
             <ul class="flex items-center space-x-2">
                 <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
                 <li>&gt;</li>
-                <li aria-current="page" class="font-semibold text-gray-800">Masuk Pengelola (Owner & Admin)</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Masuk Portal Akun</li>
             </ul>
         </div>
     </nav>
@@ -117,22 +118,6 @@
 
                 </form>
 
-                <!-- TOMBOL SIMULASI CEPAT (1-KLIK) -->
-                <div class="pt-4 border-t border-gray-100 space-y-2">
-                    <p class="text-[11px] font-bold text-gray-600 uppercase tracking-wider">⚡ 1-Klik Simulasi Akses Akun Langsung:</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                        <button type="button" onclick="quickLogin('renter')" class="p-2 text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg hover:bg-emerald-100 font-semibold transition text-left">
-                            🎭 Masuk sbg Perental
-                        </button>
-                        <button type="button" onclick="quickLogin('seller')" class="p-2 text-xs bg-purple-50 text-purple-800 border border-purple-200 rounded-lg hover:bg-purple-100 font-semibold transition text-left">
-                            🔄 Masuk sbg Penjual
-                        </button>
-                        <button type="button" onclick="quickLogin('owner_admin')" class="p-2 text-xs bg-indigo-50 text-indigo-800 border border-indigo-200 rounded-lg hover:bg-indigo-100 font-semibold transition text-left">
-                            👑 Masuk sbg Admin/Owner
-                        </button>
-                    </div>
-                </div>
-
                 <footer class="pt-2 text-xs text-center space-y-1">
                     <p class="text-gray-600">Belum memiliki akun? <a href="register.html" class="text-indigo-600 font-bold hover:underline">Daftar Akun Baru &rarr;</a></p>
                 </footer>
@@ -147,14 +132,6 @@
                         <li>• <strong>Enkripsi Tingkat Tinggi:</strong> Seluruh data identitas KYC dan transaksi dilindungi enkripsi.</li>
                         <li>• <strong>Pemantauan Escrow Real-Time:</strong> Status penahanan dan pelepasan dana transparan.</li>
                         <li>• <strong>Kontrol Toleransi Nego:</strong> Mengubah batas tawar 0-8% dari dashboard.</li>
-                    </ul>
-                </div>
-
-                <div class="p-4 bg-white border border-gray-200 rounded-xl space-y-2">
-                    <h4 class="font-bold text-gray-900">Pintasan Dashboard Demo:</h4>
-                    <ul class="space-y-1 text-indigo-600 font-medium">
-                        <li><a href="dashboard-rental.html" class="hover:underline">Buka Dashboard Rental &rarr;</a></li>
-                        <li><a href="admin-dashboard.html" class="hover:underline">Buka Dashboard Admin Platform &rarr;</a></li>
                     </ul>
                 </div>
             </aside>
@@ -192,42 +169,47 @@
     <!-- ENGINE SCRIPT & LOGIN CONTROLLER -->
     <script src="app.js"></script>
     <script>
-        function quickLogin(role) {
-            if (role === 'owner_admin') {
-                ChileoDB.setUserSession({
-                    role: 'owner_admin',
-                    name: 'Kurogane Hub & Administrator',
-                    email: 'admin@chileorent.com',
-                    isVerified: true
-                });
-                window.location.href = 'admin-dashboard.html';
-            } else if (role === 'seller') {
-                ChileoDB.setUserSession({
-                    role: 'seller',
-                    name: 'Sakura Wardrobe (Eks Rental Bandung)',
-                    email: 'sakura@wardrobe.id',
-                    phone: '0812-9876-5432',
-                    city: 'Kota Bandung',
-                    isVerified: true
-                });
-                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
-            } else {
-                ChileoDB.setUserSession({
-                    role: 'renter',
-                    name: 'Alisa Putri (Cosplayer)',
-                    email: 'alisa@cosplay.id',
-                    phone: '0812-3456-7890',
-                    city: 'Bandung',
-                    isVerified: true
-                });
-                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
-            }
-        }
+        const roleInputs = document.querySelectorAll('input[name="user_role"]');
+        const idInput = document.getElementById('login-identifier');
+
+        roleInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (input.value === 'owner_admin') {
+                    idInput.value = 'admin@chileorent.com';
+                } else if (input.value === 'seller') {
+                    idInput.value = 'sakura@wardrobe.id';
+                } else {
+                    idInput.value = 'alisa@cosplay.id';
+                }
+            });
+        });
 
         document.getElementById('form-login').addEventListener('submit', function(e) {
             e.preventDefault();
-            const selectedRole = document.querySelector('input[name="user_role"]:checked')?.value;
-            quickLogin(selectedRole);
+            const selectedRole = document.querySelector('input[name="user_role"]:checked')?.value || 'renter';
+            const identifier = idInput ? idInput.value.trim() : 'Pengguna';
+
+            let sessionData = {
+                role: selectedRole,
+                email: identifier,
+                isVerified: true
+            };
+
+            if (selectedRole === 'owner_admin') {
+                sessionData.name = 'Kurogane Hub & Administrator';
+                ChileoDB.setUserSession(sessionData);
+                window.location.href = 'admin-dashboard.html';
+            } else if (selectedRole === 'seller') {
+                sessionData.name = identifier.includes('@') ? (identifier.split('@')[0] === 'sakura' ? 'Sakura Wardrobe (Eks Rental)' : identifier.split('@')[0]) : identifier;
+                sessionData.city = 'Kota Bandung';
+                ChileoDB.setUserSession(sessionData);
+                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
+            } else {
+                sessionData.name = identifier.includes('@') ? (identifier.split('@')[0] === 'alisa' ? 'Alisa Putri (Cosplayer)' : identifier.split('@')[0]) : identifier;
+                sessionData.city = 'Bandung';
+                ChileoDB.setUserSession(sessionData);
+                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
+            }
         });
     </script>
 

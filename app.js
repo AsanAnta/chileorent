@@ -262,19 +262,30 @@ function initChileorentData() {
         localStorage.setItem(STORAGE_KEYS.OWNER_LIQUIDATION, JSON.stringify(INITIAL_DATA.ownerLiquidation));
     }
     if (!localStorage.getItem(STORAGE_KEYS.USER_SESSION)) {
-        // Default role: Owner/Admin (bisa diubah lewat login)
+        // Default awal: Tamu / Pengunjung (belum masuk)
         localStorage.setItem(STORAGE_KEYS.USER_SESSION, JSON.stringify({
-            role: 'owner_admin',
-            name: 'Kurogane Hub & Administrator',
-            isVerified: true
+            role: 'guest',
+            name: null
         }));
     }
 }
 
 // GETTERS & SETTERS
 const ChileoDB = {
-    getUserSession: () => JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_SESSION) || '{}'),
-    setUserSession: (session) => localStorage.setItem(STORAGE_KEYS.USER_SESSION, JSON.stringify(session)),
+    getUserSession: () => JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_SESSION) || '{"role":"guest"}'),
+    setUserSession: (session) => {
+        localStorage.setItem(STORAGE_KEYS.USER_SESSION, JSON.stringify(session));
+        if (typeof ChileoUI !== 'undefined' && ChileoUI.syncNavbar) {
+            ChileoUI.syncNavbar();
+        }
+    },
+    logout: () => {
+        localStorage.setItem(STORAGE_KEYS.USER_SESSION, JSON.stringify({
+            role: 'guest',
+            name: null
+        }));
+        window.location.href = 'index.html';
+    },
     
     getCostumes: () => JSON.parse(localStorage.getItem(STORAGE_KEYS.COSTUMES) || '[]'),
     getRentals: () => JSON.parse(localStorage.getItem(STORAGE_KEYS.RENTALS) || '[]'),
@@ -332,8 +343,108 @@ const ChileoDB = {
     }
 };
 
+// UI SYNCHRONIZER: MENYESUAIKAN NAVBAR SESUAI TIPE PERAN PENDAFTAR / LOGIN
+const ChileoUI = {
+    syncNavbar: function() {
+        const session = ChileoDB.getUserSession();
+        const role = (session && session.role) ? session.role : 'guest';
+
+        // 1. Sinkronkan link "Dashboard Rental" di navbar utama
+        const navLinks = document.querySelectorAll('nav a, header a');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            const text = link.textContent.trim();
+
+            if (href.includes('dashboard-rental.html') || 
+                text === 'Dashboard Rental' || 
+                text === 'Dashboard Perental' || 
+                text === 'Dashboard Penjual' || 
+                text === 'Dashboard Pengelola') {
+                
+                if (role === 'renter') {
+                    link.textContent = 'Dashboard Perental';
+                    link.setAttribute('href', 'dashboard-rental.html#view-perental-terbatas');
+                    link.setAttribute('title', 'Dashboard Khusus Perental (Lacak Sewa & Resi)');
+                } else if (role === 'seller') {
+                    link.textContent = 'Dashboard Penjual';
+                    link.setAttribute('href', 'dashboard-rental.html#view-penjual-terbatas');
+                    link.setAttribute('title', 'Dashboard Khusus Penjual (Alih Fungsi & Grade)');
+                } else if (role === 'owner_admin') {
+                    link.textContent = 'Dashboard Pengelola';
+                    link.setAttribute('href', 'dashboard-rental.html#view-owner-luas');
+                    link.setAttribute('title', 'Dashboard Pemilik Usaha Rental & Admin');
+                } else {
+                    link.textContent = 'Dashboard Rental';
+                    link.setAttribute('href', 'dashboard-rental.html');
+                }
+            }
+        });
+
+        // 2. Sinkronkan tombol Auth Header (Masuk & Daftar Akun -> User Badge & Keluar)
+        const headerActions = document.querySelector('header .flex.items-center.gap-2.order-2') ||
+                              document.querySelector('header .flex.items-center.gap-2:not(#navigasi-utama)');
+
+        if (headerActions) {
+            const loginLink = headerActions.querySelector('a[href*="login.html"]');
+            const registerLink = headerActions.querySelector('a[href*="register.html"]');
+
+            if (role && role !== 'guest' && session.name) {
+                let roleLabel = 'Perental';
+                let roleColor = 'bg-emerald-50 text-emerald-800 border-emerald-300';
+                if (role === 'seller') {
+                    roleLabel = 'Penjual';
+                    roleColor = 'bg-purple-50 text-purple-800 border-purple-300';
+                } else if (role === 'owner_admin') {
+                    roleLabel = 'Admin/Owner';
+                    roleColor = 'bg-amber-50 text-amber-800 border-amber-300';
+                }
+
+                if (loginLink) loginLink.style.display = 'none';
+                if (registerLink) registerLink.style.display = 'none';
+
+                let userBox = headerActions.querySelector('.chileo-auth-box');
+                if (!userBox) {
+                    userBox = document.createElement('div');
+                    userBox.className = 'chileo-auth-box flex items-center gap-2 flex-wrap';
+                    headerActions.insertBefore(userBox, headerActions.firstChild);
+                }
+
+                let adminShortcut = '';
+                if (role === 'owner_admin') {
+                    adminShortcut = `<a href="admin-dashboard.html" class="px-2.5 py-1.5 text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg transition">⚙️ Admin Pusat</a>`;
+                }
+
+                userBox.innerHTML = `
+                    <span class="px-2.5 py-1 text-xs font-medium border rounded-lg ${roleColor} flex items-center gap-1.5 shadow-sm">
+                        <span>👤</span>
+                        <strong class="max-w-[120px] truncate sm:max-w-none">${session.name}</strong>
+                        <span class="text-[10px] font-bold uppercase opacity-75">(${roleLabel})</span>
+                    </span>
+                    ${adminShortcut}
+                    <button type="button" onclick="ChileoDB.logout()" class="px-2.5 py-1.5 text-xs font-semibold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg transition">
+                        Keluar
+                    </button>
+                `;
+            } else {
+                if (loginLink) loginLink.style.display = '';
+                if (registerLink) registerLink.style.display = '';
+                const userBox = headerActions.querySelector('.chileo-auth-box');
+                if (userBox) userBox.remove();
+            }
+        }
+    }
+};
+
 // AUTO-RUN ON PAGE LOAD
 initChileorentData();
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        ChileoUI.syncNavbar();
+    });
+} else {
+    ChileoUI.syncNavbar();
+}
 
 // HELPER: Format Rupiah
 function formatRupiah(number) {
