@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CosVers | RuangCosplay - Platform Marketplace & Persewaan Kostum Cosplay Terverifikasi Komunitas Indonesia.">
+  <title>CosVers | RuangCosplay - Marketplace Cosplay Indonesia</title>
+
+  <!-- Stylesheet Utama Modern Dark Scarlet & Gold -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       STICKY HEADER
+       Desktop: logo RuangCosplay - navigation - search - profile
+       Mobile: hamburger kiri - logo RuangCosplay - profile kanan
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="header-container container">
+      
+      <!-- Hamburger Kiri (Mobile Only) -->
+      <button type="button" class="header-action-btn mobile-hamburger" id="mobileHamburgerBtn" aria-label="Buka Menu Navigasi">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Logo RuangCosplay Original (Brand: CosVers) -->
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <!-- Original Crest / Mask Emblem Vector -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+            <path d="M9 11c1-1 2-1 3 0 1-1 2-1 3 0"></path>
+            <circle cx="9" cy="14" r="1.5" fill="currentColor"></circle>
+            <circle cx="15" cy="14" r="1.5" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="brand-title">Cos<span>Vers</span></span>
+          <span class="brand-subtitle">RuangCosplay</span>
+        </div>
+      </a>
+
+      <!-- Navigasi Desktop -->
+      <nav class="header-nav" aria-label="Navigasi Utama">
+        <a href="#event" class="nav-link">Event</a>
+        <a href="#trending" class="nav-link">Tren</a>
+        <a href="#katalog" class="nav-link active">Katalog Kostum</a>
+        <a href="#cosrent" class="nav-link">Cosrent Populer</a>
+        <a href="Latihan.html" class="nav-link" title="Buka Dokumen Konsep Perkuliahan Asli">Konsep Awal</a>
+      </nav>
+
+      <!-- Search Desktop -->
+      <div class="header-search">
+        <div class="search-input-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="searchInputDesktop" placeholder="Cari karakter, anime, game, kostum..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Profile Kanan -->
+      <div class="profile-dropdown-wrapper">
+        <button type="button" class="profile-avatar-btn" id="profileAvatarBtn" aria-label="Menu Profil Pengguna">
+          <div class="avatar-circle">AS</div>
+          <span class="profile-label-desktop">Ali Nawawi</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Navigasi Samping Mobile">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <div class="logo-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+          </svg>
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="brand-title">Cos<span>Vers</span></span>
+          <span class="brand-subtitle">RuangCosplay</span>
+        </div>
+      </div>
+      <button type="button" class="header-action-btn" id="mobileDrawerCloseBtn" aria-label="Tutup Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="drawer-menu">
+      <li>
+        <a href="#event" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Event Terdekat
+        </a>
+      </li>
+      <li>
+        <a href="#trending" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          Cosplay Tren
+        </a>
+      </li>
+      <li>
+        <a href="#katalog" class="drawer-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Katalog Kostum
+        </a>
+      </li>
+      <li>
+        <a href="#cosrent" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Cosrent Populer
+        </a>
+      </li>
+      <li>
+        <a href="Latihan.html" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          Dokumentasi Ide (Latihan.html)
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <p class="drawer-badge-note">Marketplace Cosplay Indonesia &copy; 2026</p>
+      <a href="Latihan.html" class="btn-secondary" style="display:block; text-align:center;">Buka Arsip Latihan</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT (HOME PAGE SESUAI URUTAN)
+       1. Hero / Search
+       2. Event Terdekat
+       3. Cosplay yang Sedang Tren
+       4. Katalog Kostum
+       5. Cosrent Populer
+       ========================================================================== -->
+  <main class="container">
+
+    <!-- ========================================================================
+         URUTAN 1: HERO / SEARCH
+         ======================================================================== -->
+    <section class="hero-search-section">
+      <div class="hero-box">
+        <div class="hero-title-group">
+          <div class="hero-badge-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path></svg>
+            Community-Driven Cosplay Marketplace ID
+          </div>
+          <h1 class="hero-heading">Temukan Kostum Cosplay</h1>
+          <p class="hero-subheading">Cari kostum cosplay untuk event, photoshoot, atau koleksi.</p>
+        </div>
+
+        <form class="hero-search-form" id="heroFilterForm">
+          <!-- Search Input Utama -->
+          <div class="hero-main-search-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="heroMainSearchInput" class="hero-search-input" placeholder="Cari karakter, anime, game, atau kostum..." autocomplete="off">
+            <button type="submit" class="hero-search-btn">
+              <span>Cari</span>
+            </button>
+          </div>
+
+          <!-- 6 Filter Dropdowns Sesuai Spesifikasi: Kota, Gender, Kategori, Ukuran, Brand, Series -->
+          <div class="hero-filter-grid">
+            
+            <!-- 1. Filter Kota -->
+            <div class="filter-select-wrapper">
+              <label for="filterKota">Kota</label>
+              <select id="filterKota" class="filter-select">
+                <option value="all">Semua Kota</option>
+                <option value="jakarta">Jakarta</option>
+                <option value="surabaya">Surabaya</option>
+                <option value="bandung">Bandung</option>
+                <option value="malang">Malang</option>
+                <option value="yogyakarta">Yogyakarta</option>
+                <option value="semarang">Semarang</option>
+                <option value="bekasi">Bekasi</option>
+                <option value="tangerang">Tangerang</option>
+                <option value="bali">Bali</option>
+              </select>
+            </div>
+
+            <!-- 2. Filter Gender -->
+            <div class="filter-select-wrapper">
+              <label for="filterGender">Gender</label>
+              <select id="filterGender" class="filter-select">
+                <option value="all">Semua Gender</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="unisex">Unisex</option>
+              </select>
+            </div>
+
+            <!-- 3. Filter Kategori -->
+            <div class="filter-select-wrapper">
+              <label for="filterKategori">Kategori</label>
+              <select id="filterKategori" class="filter-select">
+                <option value="all">Semua Kategori</option>
+                <option value="anime">Anime & Manga</option>
+                <option value="game">Game RPG</option>
+                <option value="vtuber">VTuber</option>
+                <option value="armor">Armor & Tokusatsu</option>
+                <option value="props">Wig & Aksesori</option>
+              </select>
+            </div>
+
+            <!-- 4. Filter Ukuran -->
+            <div class="filter-select-wrapper">
+              <label for="filterUkuran">Ukuran</label>
+              <select id="filterUkuran" class="filter-select">
+                <option value="all">Semua Ukuran</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="free">Free Size / Custom</option>
+              </select>
+            </div>
+
+            <!-- 5. Filter Brand -->
+            <div class="filter-select-wrapper">
+              <label for="filterBrand">Brand</label>
+              <select id="filterBrand" class="filter-select">
+                <option value="all">Semua Brand</option>
+                <option value="manmei">Manmei</option>
+                <option value="dokidoki">DokiDoki</option>
+                <option value="uwowo">Uwowo</option>
+                <option value="miccostumes">Miccostumes</option>
+                <option value="wetrose">Wetrose</option>
+                <option value="custom">Custom Maker ID</option>
+              </select>
+            </div>
+
+            <!-- 6. Filter Series -->
+            <div class="filter-select-wrapper">
+              <label for="filterSeries">Series</label>
+              <select id="filterSeries" class="filter-select">
+                <option value="all">Semua Series</option>
+                <option value="genshin">Genshin Impact</option>
+                <option value="hsr">Honkai: Star Rail</option>
+                <option value="frieren">Sousou no Frieren</option>
+                <option value="kimetsu">Demon Slayer</option>
+                <option value="jjk">Jujutsu Kaisen</option>
+                <option value="vocaloid">Vocaloid</option>
+                <option value="nier">NieR: Automata</option>
+                <option value="geats">Kamen Rider</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Quick keyword tag suggestions -->
+          <div class="hero-quick-keywords">
+            <span class="quick-label">Paling Dicari:</span>
+            <span class="quick-chip" data-query="Frieren">#Frieren</span>
+            <span class="quick-chip" data-query="Raiden">#Raiden Shogun</span>
+            <span class="quick-chip" data-query="Kafka">#Kafka HSR</span>
+            <span class="quick-chip" data-query="Gojo">#Gojo Satoru</span>
+            <span class="quick-chip" data-query="Armor">#Armor Tokusatsu</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         URUTAN 2: EVENT TERDEKAT
+         - Tampilkan event cosplay yang tanggalnya paling dekat
+         - Poster, Nama event, Tanggal, Lokasi, Kota, Countdown ("12 hari lagi"), Tombol "Lihat Detail"
+         - Jangan tampilkan event yang sudah lewat.
+         ======================================================================== -->
+    <section class="section-wrapper" id="event">
+      <div class="section-head-box">
+        <div class="section-head-row">
+          <h2 class="section-main-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Event Terdekat
+          </h2>
+          <span style="font-size:0.8rem; color:var(--accent-gold); font-weight:600;">Booking kostum lebih awal</span>
+        </div>
+        <p class="section-subtitle">Event cosplay mendatang dengan tanggal paling dekat. Siapkan rental kostum sebelum kehabisan slot.</p>
+      </div>
+
+      <div class="events-grid">
+        
+        <!-- Event 1: Paling Dekat (12 hari lagi dari 6 Okt 2026 -> 18 Okt 2026) -->
+        <article class="event-card" data-event-name="Comic Frontier 20 (Comifuro 20)" data-event-date="18 - 19 Oktober 2026" data-event-location="ICE BSD City, Hall 8-10" data-event-city="Tangerang" data-event-countdown="12 hari lagi" data-event-desc="Pameran kreator pop culture & konvensi cosplay terbesar di Indonesia dengan puluhan ribu partisipan.">
+          <div class="event-poster-wrapper">
+            <span class="event-countdown-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              12 hari lagi
+            </span>
+            <span class="event-city-badge">Tangerang</span>
+            <!-- Poster Vector Art Original -->
+            <svg viewBox="0 0 400 225" width="100%" height="100%" style="background:#2d0e19;">
+              <rect width="400" height="225" fill="#290d17"/>
+              <circle cx="340" cy="60" r="100" fill="#d4af37" opacity="0.15"/>
+              <path d="M0 160 L120 110 L220 170 L340 100 L400 130 L400 225 L0 225 Z" fill="#1b070f"/>
+              <text x="30" y="70" fill="#ffffff" font-size="22" font-family="sans-serif" font-weight="900" letter-spacing="1">COMIFURO 20</text>
+              <text x="30" y="100" fill="#d4af37" font-size="13" font-family="sans-serif" font-weight="700">COMIC FRONTIER INDONESIA</text>
+              <rect x="30" y="120" width="160" height="24" fill="#140508" rx="4" stroke="#d4af37" stroke-width="1"/>
+              <text x="110" y="136" fill="#f8fafc" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">18 - 19 OKTOBER 2026</text>
+            </svg>
+          </div>
+          <div class="event-info-body">
+            <div class="event-date-row">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              18 - 19 Oktober 2026
+            </div>
+            <h3 class="event-name">Comic Frontier 20 (Comifuro 20)</h3>
+            <div class="event-location-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              ICE BSD City, Hall 8-10 &bull; Kota Tangerang
+            </div>
+            <button type="button" class="btn-event-detail">Lihat Detail</button>
+          </div>
+        </article>
+
+        <!-- Event 2: 25 hari lagi (31 Okt 2026) -->
+        <article class="event-card" data-event-name="WakuWaku Japan Festival Vol. 5" data-event-date="31 Oktober - 1 November 2026" data-event-location="Mall Kelapa Gading 3" data-event-city="Jakarta" data-event-countdown="25 hari lagi" data-event-desc="Festival budaya pop Jepang dengan kompetisi cosplay individu, anisong performance, dan gathering komunitas.">
+          <div class="event-poster-wrapper">
+            <span class="event-countdown-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              25 hari lagi
+            </span>
+            <span class="event-city-badge">Jakarta</span>
+            <svg viewBox="0 0 400 225" width="100%" height="100%" style="background:#1d1222;">
+              <rect width="400" height="225" fill="#1e0f22"/>
+              <circle cx="80" cy="140" r="90" fill="#9333ea" opacity="0.2"/>
+              <text x="30" y="70" fill="#ffffff" font-size="22" font-family="sans-serif" font-weight="900">WAKUWAKU FEST</text>
+              <text x="30" y="98" fill="#d4af37" font-size="13" font-family="sans-serif" font-weight="700">VOL. 5 HALLOWEEN SPECIAL</text>
+              <rect x="30" y="120" width="170" height="24" fill="#140508" rx="4" stroke="#d4af37" stroke-width="1"/>
+              <text x="115" y="136" fill="#f8fafc" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">31 OKT - 1 NOV 2026</text>
+            </svg>
+          </div>
+          <div class="event-info-body">
+            <div class="event-date-row">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              31 Oktober - 1 November 2026
+            </div>
+            <h3 class="event-name">WakuWaku Japan Festival Vol. 5</h3>
+            <div class="event-location-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Mall Kelapa Gading 3 &bull; Kota Jakarta
+            </div>
+            <button type="button" class="btn-event-detail">Lihat Detail</button>
+          </div>
+        </article>
+
+        <!-- Event 3: 39 hari lagi (14 Nov 2026) -->
+        <article class="event-card" data-event-name="Chibi Matsuri Malang 2026" data-event-date="14 - 15 November 2026" data-event-location="Graha Cakrawala Universitas Negeri Malang" data-event-city="Malang" data-event-countdown="39 hari lagi" data-event-desc="Gathering cosplay akbar Jawa Timur dengan parade kostum armor, kompetisi skits cosplay, dan photo corner.">
+          <div class="event-poster-wrapper">
+            <span class="event-countdown-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              39 hari lagi
+            </span>
+            <span class="event-city-badge">Malang</span>
+            <svg viewBox="0 0 400 225" width="100%" height="100%" style="background:#131d1f;">
+              <rect width="400" height="225" fill="#131d1f"/>
+              <circle cx="320" cy="120" r="80" fill="#0284c7" opacity="0.25"/>
+              <text x="30" y="70" fill="#ffffff" font-size="22" font-family="sans-serif" font-weight="900">CHIBI MATSURI</text>
+              <text x="30" y="98" fill="#d4af37" font-size="13" font-family="sans-serif" font-weight="700">EAST JAVA COSPLAY GATHERING</text>
+              <rect x="30" y="120" width="160" height="24" fill="#140508" rx="4" stroke="#d4af37" stroke-width="1"/>
+              <text x="110" y="136" fill="#f8fafc" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">14 - 15 NOV 2026</text>
+            </svg>
+          </div>
+          <div class="event-info-body">
+            <div class="event-date-row">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              14 - 15 November 2026
+            </div>
+            <h3 class="event-name">Chibi Matsuri Malang 2026</h3>
+            <div class="event-location-text">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Graha Cakrawala UM &bull; Kota Malang
+            </div>
+            <button type="button" class="btn-event-detail">Lihat Detail</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         URUTAN 3: COSPLAY YANG SEDANG TREN
+         - Berdasarkan demand/popularity
+         - Card: Foto, Character, Series, Cosrent, Harga, Lokasi, "🔥 Demand Score 92"
+         - Note: Demand Score menunjukkan tingkat permintaan/popularitas, BUKAN kualitas costume.
+         ======================================================================== -->
+    <section class="section-wrapper" id="trending">
+      <div class="section-head-box">
+        <div class="section-head-row">
+          <h2 class="section-main-title">
+            <span>🔥</span> Cosplay yang Sedang Tren
+          </h2>
+          <span style="font-size:0.75rem; color:var(--trend-fire); background:var(--trend-fire-bg); padding:3px 10px; border-radius:var(--radius-full); font-weight:700;">
+            *Demand Score = Tingkat Permintaan Komunitas (Bukan Kualitas Kostum)
+          </span>
+        </div>
+        <p class="section-subtitle">Kostum dengan frekuensi pencarian dan permohonan sewa tertinggi pekan ini di berbagai kota.</p>
+      </div>
+
+      <div class="trending-grid">
+
+        <!-- Trend 1: Raiden Shogun (Demand Score 96) -->
+        <article class="trend-card">
+          <div class="trend-media-box">
+            <div class="demand-score-pill">
+              <span>🔥</span> Demand Score 96
+            </div>
+            <svg viewBox="0 0 200 220" width="100%" height="100%" style="background:#28101a;">
+              <rect width="200" height="220" fill="#250d17" />
+              <circle cx="100" cy="80" r="45" fill="#4a1836" opacity="0.6"/>
+              <path d="M70 120 L100 85 L130 120 L145 210 L55 210 Z" fill="#6b21a8" />
+              <path d="M100 85 L85 140 L115 140 Z" fill="#9333ea" />
+              <rect x="75" y="140" width="50" height="18" fill="#d4af37" rx="3"/>
+              <path d="M55 210 Q100 190 145 210" stroke="#f3e8ff" stroke-width="2" fill="none"/>
+              <circle cx="100" cy="70" r="28" fill="#fbcfe8" opacity="0.8"/>
+              <path d="M72 65 Q100 40 128 65 Q135 110 130 150 Q120 155 120 120 Q100 65 72 65 Z" fill="#581c87"/>
+            </svg>
+          </div>
+          <div class="trend-body">
+            <span class="trend-series">Genshin Impact</span>
+            <h3 class="trend-character"><a href="costume-detail.html" style="color:inherit; text-decoration:none;">Raiden Shogun Kimono Fullset</a></h3>
+            <div class="trend-cosrent-row">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <strong>Aoi Cosrent</strong>
+            </div>
+            <div class="trend-location-row">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+              Jakarta Selatan
+            </div>
+            <div class="trend-price-footer">
+              <span class="trend-price-value">Rp 140.000</span>
+              <span class="trend-price-unit">/ 3 hari</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Trend 2: Frieren (Demand Score 94) -->
+        <article class="trend-card">
+          <div class="trend-media-box">
+            <div class="demand-score-pill">
+              <span>🔥</span> Demand Score 94
+            </div>
+            <svg viewBox="0 0 200 220" width="100%" height="100%" style="background:#1d121c;">
+              <rect width="200" height="220" fill="#20111a" />
+              <circle cx="100" cy="80" r="45" fill="#2d3748" opacity="0.5"/>
+              <path d="M65 110 L100 80 L135 110 L150 210 L50 210 Z" fill="#f8fafc" />
+              <path d="M80 115 L100 90 L120 115 L125 155 L75 155 Z" fill="#1e293b" />
+              <path d="M80 120 L120 120" stroke="#d4af37" stroke-width="4"/>
+              <circle cx="100" cy="70" r="26" fill="#fde68a" opacity="0.6"/>
+              <path d="M74 65 Q60 100 50 140 M126 65 Q140 100 150 140" stroke="#f1f5f9" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="trend-body">
+            <span class="trend-series">Sousou no Frieren</span>
+            <h3 class="trend-character">Frieren Mage Robe + Staff</h3>
+            <div class="trend-cosrent-row">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <strong>Sakura Wardrobe</strong>
+            </div>
+            <div class="trend-location-row">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+              Bandung
+            </div>
+            <div class="trend-price-footer">
+              <span class="trend-price-value">Rp 110.000</span>
+              <span class="trend-price-unit">/ 3 hari</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Trend 3: Kafka (Demand Score 92 - Sesuai Contoh Prompt) -->
+        <article class="trend-card">
+          <div class="trend-media-box">
+            <div class="demand-score-pill">
+              <span>🔥</span> Demand Score 92
+            </div>
+            <svg viewBox="0 0 200 220" width="100%" height="100%" style="background:#260c18;">
+              <rect width="200" height="220" fill="#260c18" />
+              <circle cx="100" cy="75" r="45" fill="#831843" opacity="0.4"/>
+              <path d="M60 110 L100 80 L140 110 L150 210 L50 210 Z" fill="#4a044e" />
+              <path d="M80 115 L100 85 L120 115 L120 170 L80 170 Z" fill="#ffffff" />
+              <path d="M90 120 L110 120 L100 145 Z" fill="#d4af37" />
+              <ellipse cx="100" cy="65" rx="18" ry="8" fill="#18181b"/>
+            </svg>
+          </div>
+          <div class="trend-body">
+            <span class="trend-series">Honkai: Star Rail</span>
+            <h3 class="trend-character">Kafka Stellaron Hunter Coat</h3>
+            <div class="trend-cosrent-row">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <strong>Kitsune Rental ID</strong>
+            </div>
+            <div class="trend-location-row">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+              Malang
+            </div>
+            <div class="trend-price-footer">
+              <span class="trend-price-value">Rp 150.000</span>
+              <span class="trend-price-unit">/ 3 hari</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Trend 4: Gojo Satoru (Demand Score 89) -->
+        <article class="trend-card">
+          <div class="trend-media-box">
+            <div class="demand-score-pill">
+              <span>🔥</span> Demand Score 89
+            </div>
+            <svg viewBox="0 0 200 220" width="100%" height="100%" style="background:#0f172a;">
+              <rect width="200" height="220" fill="#0f172a" />
+              <path d="M65 110 L100 80 L135 110 L145 210 L55 210 Z" fill="#020617" />
+              <rect x="85" y="80" width="30" height="25" fill="#020617" rx="2" stroke="#334155" stroke-width="1"/>
+              <circle cx="100" cy="65" r="28" fill="#f8fafc" />
+              <rect x="80" y="60" width="40" height="12" fill="#09090b" rx="3"/>
+            </svg>
+          </div>
+          <div class="trend-body">
+            <span class="trend-series">Jujutsu Kaisen</span>
+            <h3 class="trend-character">Gojo Satoru High Uniform</h3>
+            <div class="trend-cosrent-row">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <strong>Ronin Cosplay Studio</strong>
+            </div>
+            <div class="trend-location-row">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+              Yogyakarta
+            </div>
+            <div class="trend-price-footer">
+              <span class="trend-price-value">Rp 105.000</span>
+              <span class="trend-price-unit">/ 3 hari</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         URUTAN 4: KATALOG KOSTUM
+         - Grid: Mobile = 2 kolom, Tablet = 2-3 kolom, Desktop = 3-4 kolom
+         - Foto kostum menjadi elemen paling dominan
+         - JANGAN membuat UI terlihat seperti dashboard admin
+         ======================================================================== -->
+    <section class="section-wrapper" id="katalog">
+      <div class="section-head-box">
+        <div class="section-head-row">
+          <h2 class="section-main-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Katalog Kostum
+          </h2>
+          <span style="font-size:0.8rem; color:var(--accent-gold); background:var(--accent-gold-muted); padding:3px 10px; border-radius:var(--radius-full); font-weight:700;" id="resultCount">8 Kostum Siap Sewa</span>
+        </div>
+        <p class="section-subtitle">Jelajahi koleksi busana cosplay terverifikasi. Klik "Ajukan Nego" untuk penawaran harga sewa.</p>
+      </div>
+
+      <!-- Kategori Filter Bar -->
+      <div class="catalog-filter-bar">
+        <button type="button" class="catalog-pill active" data-category="all">Semua Kategori</button>
+        <button type="button" class="catalog-pill" data-category="anime">Anime & Manga</button>
+        <button type="button" class="catalog-pill" data-category="game">Game RPG</button>
+        <button type="button" class="catalog-pill" data-category="vtuber">VTuber</button>
+        <button type="button" class="catalog-pill" data-category="armor">Armor & Tokusatsu</button>
+      </div>
+
+      <!-- Grid Katalog (Mobile 2 kolom, Tablet 2-3 kolom, Desktop 3-4 kolom) -->
+      <div class="catalog-grid" id="catalogGrid">
+
+        <!-- Card 1: Raiden Shogun -->
+        <article class="costume-card" data-category="game" data-city="jakarta" data-gender="female" data-size="m" data-series="genshin">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">M</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#28101a;">
+              <rect width="200" height="240" fill="#250d17" />
+              <circle cx="100" cy="85" r="48" fill="#4a1836" opacity="0.6"/>
+              <path d="M70 125 L100 90 L130 125 L145 225 L55 225 Z" fill="#6b21a8" />
+              <path d="M100 90 L85 145 L115 145 Z" fill="#9333ea" />
+              <rect x="75" y="145" width="50" height="20" fill="#d4af37" rx="3"/>
+              <circle cx="100" cy="72" r="28" fill="#fbcfe8" opacity="0.8"/>
+              <path d="M72 68 Q100 42 128 68 Q135 115 130 160 Q120 165 120 125 Q100 68 72 68 Z" fill="#581c87"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Genshin Impact</span>
+            <h3 class="card-title"><a href="costume-detail.html" style="color:inherit; text-decoration:none;">Raiden Shogun (Baal) Kimono Fullset + Wig</a></h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Jakarta Sel.
+              </span>
+              <span class="card-condition">Kondisi 96%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 140.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <a href="costume-detail.html" class="btn-card-rent" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">Detail</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Frieren -->
+        <article class="costume-card" data-category="anime" data-city="bandung" data-gender="female" data-size="s" data-series="frieren">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">S</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#1d121c;">
+              <rect width="200" height="240" fill="#20111a" />
+              <circle cx="100" cy="85" r="48" fill="#2d3748" opacity="0.5"/>
+              <path d="M65 115 L100 85 L135 115 L150 225 L50 225 Z" fill="#f8fafc" />
+              <path d="M80 120 L100 95 L120 120 L125 165 L75 165 Z" fill="#1e293b" />
+              <path d="M80 125 L120 125" stroke="#d4af37" stroke-width="4"/>
+              <circle cx="100" cy="72" r="26" fill="#fde68a" opacity="0.6"/>
+              <path d="M74 68 Q60 105 50 150 M126 68 Q140 105 150 150" stroke="#f1f5f9" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Sousou no Frieren</span>
+            <h3 class="card-title">Frieren Mage Robe + Syal & Tongkat Sihir</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Bandung
+              </span>
+              <span class="card-condition">Kondisi 98%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 110.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Tanjiro -->
+        <article class="costume-card" data-category="anime" data-city="surabaya" data-gender="male" data-size="l" data-series="kimetsu">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">L</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#131c19;">
+              <rect width="200" height="240" fill="#131c19" />
+              <path d="M55 110 L100 85 L145 110 L155 225 L45 225 Z" fill="#047857" />
+              <path d="M75 110 L100 85 L125 110 L125 225 L75 225 Z" fill="#111827" />
+              <rect x="55" y="135" width="20" height="20" fill="#111827"/>
+              <rect x="125" y="135" width="20" height="20" fill="#111827"/>
+              <rect x="55" y="175" width="20" height="20" fill="#111827"/>
+              <rect x="125" y="175" width="20" height="20" fill="#111827"/>
+              <circle cx="100" cy="70" r="26" fill="#fecaca" opacity="0.6"/>
+              <line x1="40" y1="185" x2="160" y2="125" stroke="#d4af37" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Demon Slayer</span>
+            <h3 class="card-title">Kamado Tanjiro Haori Kotak + Seragam Kisatsutai</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Surabaya
+              </span>
+              <span class="card-condition">Kondisi 94%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 95.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Kafka HSR -->
+        <article class="costume-card" data-category="game" data-city="malang" data-gender="female" data-size="m" data-series="hsr">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">M</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#260c18;">
+              <rect width="200" height="240" fill="#260c18" />
+              <circle cx="100" cy="80" r="45" fill="#831843" opacity="0.4"/>
+              <path d="M60 115 L100 85 L140 115 L150 225 L50 225 Z" fill="#4a044e" />
+              <path d="M80 120 L100 90 L120 120 L120 175 L80 175 Z" fill="#ffffff" />
+              <path d="M90 125 L110 125 L100 150 Z" fill="#d4af37" />
+              <ellipse cx="100" cy="70" rx="18" ry="8" fill="#18181b"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Honkai: Star Rail</span>
+            <h3 class="card-title">Kafka Stellaron Hunter Coat + Aksesori Kacamata</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Malang
+              </span>
+              <span class="card-condition">Kondisi 97%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 150.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Gojo Satoru -->
+        <article class="costume-card" data-category="anime" data-city="yogyakarta" data-gender="male" data-size="xl" data-series="jjk">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">XL</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#0f172a;">
+              <rect width="200" height="240" fill="#0f172a" />
+              <path d="M65 115 L100 85 L135 115 L145 225 L55 225 Z" fill="#020617" />
+              <rect x="85" y="85" width="30" height="25" fill="#020617" rx="2" stroke="#334155" stroke-width="1"/>
+              <circle cx="100" cy="70" r="28" fill="#f8fafc" />
+              <rect x="80" y="65" width="40" height="12" fill="#09090b" rx="3"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Jujutsu Kaisen</span>
+            <h3 class="card-title">Gojo Satoru Jujutsu High Uniform + Blindfold</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Yogyakarta
+              </span>
+              <span class="card-condition">Kondisi 95%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 105.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Hatsune Miku -->
+        <article class="costume-card" data-category="vtuber" data-city="semarang" data-gender="female" data-size="m" data-series="vocaloid">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">M</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#0e1e24;">
+              <rect width="200" height="240" fill="#0e1e24" />
+              <path d="M70 65 Q40 95 35 155 M130 65 Q160 95 165 155" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none"/>
+              <path d="M70 115 L100 90 L130 115 L135 175 L65 175 Z" fill="#94a3b8" />
+              <line x1="100" y1="100" x2="100" y2="155" stroke="#06b6d4" stroke-width="6"/>
+              <rect x="65" y="175" width="70" height="50" fill="#0f172a"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Vocaloid</span>
+            <h3 class="card-title">Hatsune Miku V4X Standard Original + Long Wig</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Semarang
+              </span>
+              <span class="card-condition">Kondisi 96%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 120.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7: Kamen Rider Geats (Armor) -->
+        <article class="costume-card" data-category="armor" data-city="bekasi" data-gender="unisex" data-size="free" data-series="geats">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">Free</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#201015;">
+              <rect width="200" height="240" fill="#201015" />
+              <path d="M65 115 L100 85 L135 115 L140 225 L60 225 Z" fill="#e2e8f0" stroke="#d4af37" stroke-width="1.5"/>
+              <polygon points="100,55 80,80 120,80" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+              <polygon points="75,45 85,70 65,70" fill="#f87171"/>
+              <polygon points="125,45 135,70 115,70" fill="#f87171"/>
+              <rect x="75" y="150" width="50" height="18" fill="#dc2626" rx="2"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">Kamen Rider Geats</span>
+            <h3 class="card-title">Magnum Boost Form Armor Eva Foam + Helm Prop</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Bekasi
+              </span>
+              <span class="card-condition">Kondisi 92%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 280.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8: 2B NieR -->
+        <article class="costume-card" data-category="game" data-city="tangerang" data-gender="female" data-size="m" data-series="nier">
+          <div class="card-media">
+            <div class="card-badge-top-left">
+              <span class="badge-tag badge-verified">Terverifikasi</span>
+              <span class="badge-tag badge-nego">Bisa Nego</span>
+            </div>
+            <div class="card-badge-top-right">
+              <span class="badge-size">M</span>
+            </div>
+            <svg viewBox="0 0 200 240" width="100%" height="100%" style="background:#170910;">
+              <rect width="200" height="240" fill="#170910" />
+              <path d="M65 115 L100 90 L135 115 L150 225 L50 225 Z" fill="#09090b" stroke="#3f3f46" stroke-width="1"/>
+              <path d="M85 115 L100 95 L115 115 L115 135 L85 135 Z" fill="#f4f4f5" />
+              <circle cx="100" cy="72" r="25" fill="#e4e4e7"/>
+              <rect x="82" y="67" width="36" height="10" fill="#18181b"/>
+              <line x1="140" y1="85" x2="160" y2="65" stroke="#d4af37" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="card-series">NieR: Automata</span>
+            <h3 class="card-title">YoRHa No.2 Type B (2B) Dress Beludru + Pedang Prop</h3>
+            <div class="card-meta-row">
+              <span class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+                Tangerang
+              </span>
+              <span class="card-condition">Kondisi 95%</span>
+            </div>
+            <div class="card-price-section">
+              <div class="price-row">
+                <span class="price-val">Rp 130.000</span>
+                <span class="price-unit">/ 3 hari</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-nego">Ajukan Nego</button>
+                <button type="button" class="btn-card-rent">Sewa</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         URUTAN 5: COSRENT POPULER
+         Penyedia rental kostum terpercaya komunitas di Indonesia
+         ======================================================================== -->
+    <section class="section-wrapper" id="cosrent">
+      <div class="section-head-box">
+        <div class="section-head-row">
+          <h2 class="section-main-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Cosrent Populer
+          </h2>
+          <span style="font-size:0.8rem; color:var(--accent-gold); font-weight:600;">Mitra Rental Terpercaya ID</span>
+        </div>
+        <p class="section-subtitle">Rental kostum terverifikasi dengan ulasan bintang tertinggi dan kelayakan fisik terjamin.</p>
+      </div>
+
+      <div class="cosrent-grid">
+
+        <!-- Cosrent 1: Aoi Cosrent -->
+        <article class="cosrent-card">
+          <div class="cosrent-top-row">
+            <div class="cosrent-avatar">AC</div>
+            <div class="cosrent-meta-info">
+              <div class="cosrent-name-wrap">
+                <h3 class="cosrent-name">Aoi Cosrent Studio</h3>
+                <svg class="verified-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <span class="cosrent-city">Jakarta Selatan &bull; Respon Cepat</span>
+            </div>
+          </div>
+          <div class="cosrent-stats-row">
+            <div class="cosrent-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              4.9 (150+ ulasan)
+            </div>
+            <div class="cosrent-count">
+              <strong>85</strong> Kostum Aktif
+            </div>
+          </div>
+          <a href="#katalog" class="btn-visit-cosrent" onclick="filterByCosrent('Jakarta')">Lihat Koleksi Toko &rarr;</a>
+        </article>
+
+        <!-- Cosrent 2: Sakura Wardrobe -->
+        <article class="cosrent-card">
+          <div class="cosrent-top-row">
+            <div class="cosrent-avatar">SW</div>
+            <div class="cosrent-meta-info">
+              <div class="cosrent-name-wrap">
+                <h3 class="cosrent-name">Sakura Wardrobe Bandung</h3>
+                <svg class="verified-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <span class="cosrent-city">Bandung &bull; Spesialis Anime & Wig Styling</span>
+            </div>
+          </div>
+          <div class="cosrent-stats-row">
+            <div class="cosrent-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              4.9 (128+ ulasan)
+            </div>
+            <div class="cosrent-count">
+              <strong>64</strong> Kostum Aktif
+            </div>
+          </div>
+          <a href="#katalog" class="btn-visit-cosrent" onclick="filterByCosrent('Bandung')">Lihat Koleksi Toko &rarr;</a>
+        </article>
+
+        <!-- Cosrent 3: Kitsune Rental ID -->
+        <article class="cosrent-card">
+          <div class="cosrent-top-row">
+            <div class="cosrent-avatar">KR</div>
+            <div class="cosrent-meta-info">
+              <div class="cosrent-name-wrap">
+                <h3 class="cosrent-name">Kitsune Rental ID</h3>
+                <svg class="verified-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <span class="cosrent-city">Malang &bull; Spesialis Genshin & Star Rail</span>
+            </div>
+          </div>
+          <div class="cosrent-stats-row">
+            <div class="cosrent-rating">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              4.8 (96+ ulasan)
+            </div>
+            <div class="cosrent-count">
+              <strong>42</strong> Kostum Aktif
+            </div>
+          </div>
+          <a href="#katalog" class="btn-visit-cosrent" onclick="filterByCosrent('Malang')">Lihat Koleksi Toko &rarr;</a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODAL DETAIL EVENT (Interaktif)
+       ========================================================================== -->
+  <div class="modal-overlay" id="eventDetailModal" role="dialog" aria-modal="true" aria-labelledby="modalEventTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalEventTitle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Detail Event Cosplay
+        </h3>
+        <button type="button" class="modal-close-btn" id="closeEventModalBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <span style="font-size:0.75rem; color:var(--accent-gold); font-weight:700; text-transform:uppercase;" id="modalEventCountdown">12 hari lagi</span>
+          <h4 style="font-size:1.15rem; font-weight:800; color:var(--text-white);" id="modalEventNameText">Nama Event</h4>
+        </div>
+        <div style="background:var(--bg-input); padding:10px 12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:0.82rem; color:var(--accent-gold); display:flex; align-items:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span id="modalEventDateText">Tanggal Event</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-secondary); display:flex; align-items:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span id="modalEventLocText">Lokasi Event</span>
+          </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.4;" id="modalEventDescText">Deskripsi event.</p>
+        <div style="background:var(--accent-gold-muted); border:1px solid var(--border-gold-subtle); padding:10px; border-radius:var(--radius-sm); font-size:0.8rem; color:var(--text-white);">
+          <strong style="color:var(--accent-gold);">Rekomendasi CosVers:</strong> Segera amankan jadwal sewa kostum minimal 5 hari sebelum event agar proses fitting & laundry berjalan lancar.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="closeEventModalBtn2">Tutup</button>
+        <a href="#katalog" class="btn-primary" id="btnCariKostumEvent">Cari Kostum untuk Event Ini</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL FITUR NEGO HARGA (Interaktif)
+       ========================================================================== -->
+  <div class="modal-overlay" id="negoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitleText">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitleText">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+          Ajukan Negosiasi Harga
+        </h3>
+        <button type="button" class="modal-close-btn" id="closeNegoModalBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <form id="submitNegoForm">
+        <div class="modal-body">
+          <div class="nego-product-preview">
+            <div class="nego-product-img" style="background:#2d121c; display:flex; align-items:center; justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1.8"><path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path></svg>
+            </div>
+            <div class="nego-product-info">
+              <h5 id="modalProductTitle">Kostum Cosplay</h5>
+              <p id="modalProductSeries">Series Anime</p>
+              <div class="nego-price-tag">Harga Katalog: <span id="modalBasePrice">Rp 120.000 / 3 hari</span></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="negoPriceInput">Harga Tawaran Anda (Rp)</label>
+            <input type="number" id="negoPriceInput" step="5000" min="20000" placeholder="Contoh: 110000" required>
+            <small style="color:var(--text-muted); font-size:0.75rem;">Batas wajar penawaran komunitas: 10% - 25% dari harga katalog.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="rentDuration">Durasi Sewa</label>
+            <select id="rentDuration">
+              <option value="3">3 Hari (Standar Event Akhir Pekan)</option>
+              <option value="5">5 Hari (Persiapan & Photoshoot)</option>
+              <option value="7">7 Hari (Event Luar Kota)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="negoNotes">Pesan Tambahan untuk Pemilik Rental</label>
+            <textarea id="negoNotes" rows="2" placeholder="Sebutkan tanggal event atau kebutuhan tanpa wig..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelNegoBtn">Batal</button>
+          <button type="submit" class="btn-primary">Kirim Tawaran</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    <span id="toastText">Aksi berhasil dilakukan.</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER (Dark Red & Gold Accent)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+              </svg>
+            </div>
+            <div class="logo-text-wrapper">
+              <span class="brand-title">Cos<span>Vers</span></span>
+              <span class="brand-subtitle">RuangCosplay</span>
+            </div>
+          </div>
+          <p>
+            Platform marketplace dan persewaan kostum cosplay komunitas Indonesia. Menghadirkan kemudahan transaksi sewa, nego harga transparan, dan jaminan verifikasi fisik kostum.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Menu Utama</h4>
+          <ul class="footer-links">
+            <li><a href="#event">Event Terdekat</a></li>
+            <li><a href="#trending">Cosplay Sedang Tren</a></li>
+            <li><a href="#katalog">Katalog Kostum</a></li>
+            <li><a href="#cosrent">Cosrent Populer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Komunitas & Aturan</h4>
+          <ul class="footer-links">
+            <li><a href="#">Standar Cek Fisik Kostum</a></li>
+            <li><a href="#">Sistem Demand Score</a></li>
+            <li><a href="#">Panduan Nego Harga</a></li>
+            <li><a href="#">Kebijakan Deposit Sewa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Arsip Akademik</h4>
+          <ul class="footer-links">
+            <li><a href="Latihan.html" target="_blank" rel="noopener">Latihan.html (Tabel Asli)</a></li>
+            <li><a href="page.css" target="_blank" rel="noopener">page.css (CSS Asli)</a></li>
+            <li><a href="#">Semester 5 Pemrograman Web</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>CosVers | RuangCosplay</strong>. Dikembangkan untuk Praktikum Pemrograman Web.</div>
+        <div>Modern Dark Scarlet &bull; Aksen Warm Gold &bull; Mobile-First</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Interaktif -->
+  <script src="app.js"></script>
+</body>
+</html>

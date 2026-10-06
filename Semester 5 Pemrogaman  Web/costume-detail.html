@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail Kostum Raiden Shogun (Baal) Kimono Fullset - Persewaan Kostum Cosplay CosVers / RuangCosplay.">
+  <title>Raiden Shogun Kimono Fullset | CosVers - RuangCosplay</title>
+
+  <!-- Stylesheet Utama Modern Dark Scarlet & Gold -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       STICKY HEADER
+       Desktop: logo RuangCosplay - navigation - search - profile
+       Mobile: hamburger kiri - logo RuangCosplay - profile kanan
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="header-container container">
+      
+      <!-- Hamburger Kiri (Mobile Only) -->
+      <button type="button" class="header-action-btn mobile-hamburger" id="mobileHamburgerBtn" aria-label="Buka Menu Navigasi">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Logo RuangCosplay Original (Brand: CosVers) -->
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+            <path d="M9 11c1-1 2-1 3 0 1-1 2-1 3 0"></path>
+            <circle cx="9" cy="14" r="1.5" fill="currentColor"></circle>
+            <circle cx="15" cy="14" r="1.5" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="brand-title">Cos<span>Vers</span></span>
+          <span class="brand-subtitle">RuangCosplay</span>
+        </div>
+      </a>
+
+      <!-- Navigasi Desktop -->
+      <nav class="header-nav" aria-label="Navigasi Utama">
+        <a href="index.html#event" class="nav-link">Event</a>
+        <a href="index.html#trending" class="nav-link">Tren</a>
+        <a href="index.html#katalog" class="nav-link active">Katalog Kostum</a>
+        <a href="index.html#cosrent" class="nav-link">Cosrent Populer</a>
+        <a href="Latihan.html" class="nav-link">Konsep Awal</a>
+      </nav>
+
+      <!-- Search Desktop -->
+      <div class="header-search">
+        <div class="search-input-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="searchInputDesktop" placeholder="Cari karakter, anime, game..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Profile Kanan -->
+      <div class="profile-dropdown-wrapper">
+        <button type="button" class="profile-avatar-btn" id="profileAvatarBtn" aria-label="Menu Profil Pengguna">
+          <div class="avatar-circle">AS</div>
+          <span class="profile-label-desktop">Ali Nawawi</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Navigasi Samping Mobile">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <div class="logo-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+          </svg>
+        </div>
+        <div class="logo-text-wrapper">
+          <span class="brand-title">Cos<span>Vers</span></span>
+          <span class="brand-subtitle">RuangCosplay</span>
+        </div>
+      </div>
+      <button type="button" class="header-action-btn" id="mobileDrawerCloseBtn" aria-label="Tutup Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="drawer-menu">
+      <li>
+        <a href="index.html#katalog" class="drawer-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Kembali ke Katalog
+        </a>
+      </li>
+      <li>
+        <a href="index.html#event" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Event Terdekat
+        </a>
+      </li>
+      <li>
+        <a href="index.html#cosrent" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Cosrent Populer
+        </a>
+      </li>
+      <li>
+        <a href="Latihan.html" class="drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          Dokumentasi Ide (Latihan.html)
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="index.html" class="btn-secondary" style="display:block; text-align:center;">&larr; Beranda CosVers</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: COSTUME DETAIL PAGE
+       1. Gallery
+       2. Informasi Kostum
+       3. Detail
+       4. Include / Exclude
+       5. Kondisi
+       6. Cosrent
+       7. Dipakai Cosplayer
+       8. Video
+       9. Booking
+       ========================================================================== -->
+  <main class="container">
+
+    <!-- Breadcrumb Navigasi -->
+    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span class="crumb-separator">&rsaquo;</span>
+      <a href="index.html#katalog">Katalog</a>
+      <span class="crumb-separator">&rsaquo;</span>
+      <a href="#">Genshin Impact</a>
+      <span class="crumb-separator">&rsaquo;</span>
+      <span class="crumb-current">Raiden Shogun Kimono Fullset</span>
+    </nav>
+
+    <div class="detail-layout">
+
+      <!-- ======================================================================
+           KOLOM KIRI: 1. GALLERY, 7. DIPAKAI COSPLAYER, 8. VIDEO
+           ====================================================================== -->
+      <div class="detail-left-col">
+
+        <!-- 1. GALLERY (FOTO PRODUK RESMI) -->
+        <section class="detail-gallery">
+          <div class="gallery-category-badge">
+            <span class="badge-tag-product">FOTO PRODUK RESMI</span>
+            <span>(Katalog Studio Toko, Mannequin, &amp; Detail Jahitan Toko)</span>
+          </div>
+
+          <div class="gallery-main-view" id="galleryMainView" role="region" aria-label="Galeri Foto Produk Kostum">
+            
+            <!-- Tombol Navigasi Prev/Next -->
+            <button type="button" class="gallery-nav-btn gallery-nav-prev" id="galleryPrevBtn" aria-label="Foto Sebelumnya">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="gallery-nav-btn gallery-nav-next" id="galleryNextBtn" aria-label="Foto Selanjutnya">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <!-- Slide 1: Foto Depan Fullset (Default Active) -->
+            <div class="gallery-slide active" data-slide-index="0" style="width:100%; height:100%;">
+              <svg viewBox="0 0 400 520" width="100%" height="100%" style="background:#28101a;">
+                <rect width="400" height="520" fill="#250d17" />
+                <circle cx="200" cy="190" r="110" fill="#4a1836" opacity="0.6"/>
+                <!-- Kimono Purple Silhouette High Detail -->
+                <path d="M130 280 L200 200 L270 280 L305 480 L95 480 Z" fill="#6b21a8" />
+                <path d="M200 200 L165 310 L235 310 Z" fill="#9333ea" />
+                <rect x="145" y="310" width="110" height="42" fill="#d4af37" rx="5" stroke="#fef08a" stroke-width="1.5"/>
+                <!-- Mitsudomoe Gold Badge -->
+                <circle cx="200" cy="331" r="12" fill="#581c87"/>
+                <path d="M196 327 C198 323 204 325 204 330 C204 335 198 337 196 333" stroke="#d4af37" stroke-width="2" fill="none"/>
+                <!-- Tassel & Ribbons -->
+                <line x1="160" y1="352" x2="150" y2="440" stroke="#a855f7" stroke-width="4"/>
+                <line x1="240" y1="352" x2="250" y2="440" stroke="#a855f7" stroke-width="4"/>
+                <circle cx="200" cy="165" r="58" fill="#fbcfe8" opacity="0.85"/>
+                <!-- Long Braided Dark Purple Hair -->
+                <path d="M140 160 Q200 100 260 160 Q275 270 265 370 Q245 385 245 300 Q200 160 140 160 Z" fill="#581c87"/>
+                <!-- Gold Kanzashi Hairpin -->
+                <line x1="235" y1="130" x2="275" y2="105" stroke="#d4af37" stroke-width="5" stroke-linecap="round"/>
+                <polygon points="275,105 285,115 270,120" fill="#fde047"/>
+                <text x="200" y="470" fill="#e9d5ff" font-size="16" font-family="sans-serif" font-weight="900" letter-spacing="1" text-anchor="middle">TAMPAK DEPAN FULLSET</text>
+              </svg>
+            </div>
+
+            <!-- Slide 2: Foto Tampak Belakang & Obi Kaku -->
+            <div class="gallery-slide" data-slide-index="1" style="width:100%; height:100%; display:none;">
+              <svg viewBox="0 0 400 520" width="100%" height="100%" style="background:#220c16;">
+                <rect width="400" height="520" fill="#200a14" />
+                <circle cx="200" cy="200" r="100" fill="#3b0724" opacity="0.6"/>
+                <!-- Backview Kimono & Giant Purple/Gold Bow -->
+                <path d="M130 280 L200 210 L270 280 L300 480 L100 480 Z" fill="#581c87"/>
+                <!-- Giant Obi Bow on Back -->
+                <ellipse cx="160" cy="315" rx="35" ry="24" fill="#a855f7" stroke="#d4af37" stroke-width="2"/>
+                <ellipse cx="240" cy="315" rx="35" ry="24" fill="#a855f7" stroke="#d4af37" stroke-width="2"/>
+                <circle cx="200" cy="315" r="16" fill="#d4af37"/>
+                <path d="M185 330 L160 430 L185 415 L215 415 L240 430 L215 330 Z" fill="#7e22ce" stroke="#d4af37" stroke-width="1.5"/>
+                <!-- Long single braid falling straight down -->
+                <path d="M190 160 Q200 250 200 450 Q210 250 210 160 Z" fill="#3b0764"/>
+                <text x="200" y="470" fill="#e9d5ff" font-size="16" font-family="sans-serif" font-weight="900" letter-spacing="1" text-anchor="middle">TAMPAK BELAKANG (OBI KAKU)</text>
+              </svg>
+            </div>
+
+            <!-- Slide 3: Detail Bordir Benang Emas & Aksesori -->
+            <div class="gallery-slide" data-slide-index="2" style="width:100%; height:100%; display:none;">
+              <svg viewBox="0 0 400 520" width="100%" height="100%" style="background:#1c0912;">
+                <rect width="400" height="520" fill="#1c0912" />
+                <!-- Macro zoom of jacquard embroidery -->
+                <rect x="50" y="80" width="300" height="340" fill="#3b0764" rx="12" stroke="#d4af37" stroke-width="3"/>
+                <path d="M80 180 Q150 120 200 180 T320 180" stroke="#d4af37" stroke-width="5" fill="none"/>
+                <path d="M80 240 Q150 180 200 240 T320 240" stroke="#fde047" stroke-width="3" fill="none"/>
+                <circle cx="200" cy="270" r="32" fill="#581c87" stroke="#d4af37" stroke-width="3"/>
+                <polygon points="200,245 210,265 230,270 215,285 220,305 200,295 180,305 185,285 170,270 190,265" fill="#fde047"/>
+                <text x="200" y="360" fill="#fef08a" font-size="15" font-family="sans-serif" font-weight="bold" text-anchor="middle">BORDIR EMAS ORIGINAL MANMEI</text>
+                <text x="200" y="470" fill="#e9d5ff" font-size="16" font-family="sans-serif" font-weight="900" letter-spacing="1" text-anchor="middle">DETAIL JAHITAN & EMBROIDERY</text>
+              </svg>
+            </div>
+
+            <!-- Slide 4: Wig Styling Manmei -->
+            <div class="gallery-slide" data-slide-index="3" style="width:100%; height:100%; display:none;">
+              <svg viewBox="0 0 400 520" width="100%" height="100%" style="background:#1a0710;">
+                <rect width="400" height="520" fill="#1a0710" />
+                <circle cx="200" cy="180" r="75" fill="#581c87"/>
+                <circle cx="200" cy="190" r="50" fill="#fbcfe8" opacity="0.7"/>
+                <!-- Braided section -->
+                <path d="M190 240 L210 260 L190 280 L210 300 L190 320 L210 340 L190 360 L210 380 L190 400 L200 430" stroke="#7e22ce" stroke-width="18" stroke-linecap="round" fill="none"/>
+                <!-- Hair accessory pins -->
+                <circle cx="230" cy="150" r="14" fill="#d4af37"/>
+                <line x1="230" y1="150" x2="270" y2="180" stroke="#fde047" stroke-width="4"/>
+                <text x="200" y="470" fill="#e9d5ff" font-size="16" font-family="sans-serif" font-weight="900" letter-spacing="1" text-anchor="middle">WIG PROFESSIONAL STYLING</text>
+              </svg>
+            </div>
+
+            <!-- Slide 5: Video Slide (Jika Kostum Mempunyai Video) -->
+            <div class="gallery-slide gallery-video-slide" data-slide-index="4" style="width:100%; height:100%; display:none; background:#000;">
+              <video class="gallery-video-element" id="mainGalleryVideo" controls preload="metadata" playsinline poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='520' fill='%23140508'><rect width='400' height='520'/><circle cx='200' cy='260' r='40' fill='%23d4af37'/><polygon points='190,245 220,260 190,275' fill='%23140508'/><text x='200' y='330' fill='%23ffffff' font-family='sans-serif' font-size='14' text-anchor='middle'>Klik Play untuk Review Kostum</text></svg>">
+                <!-- Video demo MP4 lokal yang sudah tersedia di folder user -->
+                <source src="../../lv_0_20241006095356.mp4" type="video/mp4">
+                Browser Anda tidak mendukung pemutar video HTML5.
+              </video>
+            </div>
+
+            <!-- Indikator Swipe Mobile -->
+            <div class="gallery-swipe-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>Swipe foto</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+
+            <!-- Counter Pill -->
+            <div class="gallery-counter-pill" id="galleryCounterPill">1 / 5</div>
+          </div>
+
+          <!-- Thumbnails Strip -->
+          <div class="gallery-thumbs" id="galleryThumbsList" role="tablist" aria-label="Pilihan Foto Tambahan">
+            <button type="button" class="thumb-item active" data-thumb-target="0" aria-label="Tampak Depan">
+              <svg viewBox="0 0 100 120" width="100%" height="100%"><rect width="100" height="120" fill="#250d17"/><circle cx="50" cy="45" r="22" fill="#581c87"/><path d="M30 65 L50 48 L70 65 L75 110 L25 110 Z" fill="#9333ea"/><rect x="35" y="70" width="30" height="10" fill="#d4af37"/></svg>
+            </button>
+            <button type="button" class="thumb-item" data-thumb-target="1" aria-label="Tampak Belakang">
+              <svg viewBox="0 0 100 120" width="100%" height="100%"><rect width="100" height="120" fill="#200a14"/><ellipse cx="40" cy="65" rx="14" ry="10" fill="#a855f7"/><ellipse cx="60" cy="65" rx="14" ry="10" fill="#a855f7"/><circle cx="50" cy="65" r="6" fill="#d4af37"/></svg>
+            </button>
+            <button type="button" class="thumb-item" data-thumb-target="2" aria-label="Detail Bordir">
+              <svg viewBox="0 0 100 120" width="100%" height="100%"><rect width="100" height="120" fill="#1c0912"/><path d="M20 50 Q50 30 80 50" stroke="#d4af37" stroke-width="4" fill="none"/><polygon points="50,60 55,70 65,72 57,80 60,90 50,85 40,90 43,80 35,72 45,70" fill="#fde047"/></svg>
+            </button>
+            <button type="button" class="thumb-item" data-thumb-target="3" aria-label="Wig Styling">
+              <svg viewBox="0 0 100 120" width="100%" height="100%"><rect width="100" height="120" fill="#1a0710"/><circle cx="50" cy="40" r="20" fill="#581c87"/><path d="M48 55 L52 70 L48 85 L52 100" stroke="#7e22ce" stroke-width="8" fill="none"/></svg>
+            </button>
+            <!-- Thumbnail Video (Kostum Mempunyai Video) -->
+            <button type="button" class="thumb-item" data-thumb-target="4" aria-label="Video 360 Spin Kostum">
+              <svg viewBox="0 0 100 120" width="100%" height="100%"><rect width="100" height="120" fill="#000000"/><rect x="25" y="45" width="50" height="30" rx="4" fill="#371621"/></svg>
+              <div class="thumb-video-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <!-- 8. VIDEO SECTION RESMI (Tampil karena kostum ini mempunyai video) -->
+        <section class="video-section-wrapper">
+          <div class="video-section-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Video Review & 360&deg; Spin Look Kostum
+          </div>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:8px;">
+            Lihat jatuhnya bahan kimono, kerapian styling kepangan wig, dan kilau bordir emas asli saat bergerak.
+          </p>
+          <div class="video-responsive-player">
+            <!-- Video dengan kontrol, responsive, tidak autoplay bersuara, lazy loading via preload="metadata" -->
+            <video controls preload="metadata" playsinline class="responsive-costume-video" poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='340' fill='%23140508'><rect width='600' height='340'/><circle cx='300' cy='170' r='36' fill='%23d4af37'/><polygon points='292,154 316,170 292,186' fill='%23140508'/><text x='300' y='230' fill='%23ffffff' font-family='sans-serif' font-size='14' text-anchor='middle'>Klik untuk Putar Video Review</text></svg>">
+              <source src="../../lv_0_20241006095356.mp4" type="video/mp4">
+              Browser Anda tidak mendukung pemutar video HTML5.
+            </video>
+          </div>
+        </section>
+
+        <!-- 7. FITUR: "DIPAKAI COSPLAYER" (Pemisahan Tegas Foto Produk vs Foto Pemakai) -->
+        <section class="worn-cosplayer-section" id="dipakaiCosplayerSection">
+          
+          <!-- Ringkasan Rating & Jumlah Pemakai Sesuai Spesifikasi -->
+          <div class="worn-summary-header">
+            <div class="worn-rating-block">
+              <div class="worn-stars-row">
+                <span class="stars-gold">★★★★★</span>
+                <span class="worn-score-num">4.8 / 5</span>
+              </div>
+              <div class="worn-wearers-count" id="wearerCountText">
+                <strong>24 orang</strong> telah memakai costume ini
+              </div>
+            </div>
+            <button type="button" class="btn-open-review-modal" id="btnOpenReviewModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
+              Tulis Review Pemakai
+            </button>
+          </div>
+
+          <!-- Pemisahan Tegas Foto Produk vs Foto Pemakai -->
+          <div class="worn-distinction-banner">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <span class="badge-tag-wearer">FOTO PEMAKAI DI EVENT</span>
+              <strong style="color:var(--text-white);">Pemisahan Visual Tegas</strong>
+            </div>
+            <span>Bagian ini khusus menampilkan foto asli dan ulasan pengalaman nyata orang yang benar-benar pernah menyewa dan memakai kostum ini (tidak dicampur dengan Foto Produk Resmi di katalog atas).</span>
+          </div>
+
+          <!-- Galeri Foto Pemakai (Khusus foto yang disetujui publik) -->
+          <div class="worn-photo-gallery-title">
+            <span>Dokumentasi Foto Pemakai di Event & Photoshoot</span>
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">(Hanya foto dengan persetujuan publik)</span>
+          </div>
+
+          <div class="worn-photo-gallery-grid">
+            <div class="worn-gallery-item" title="Foto pemakai oleh @clarissa_cosplay di Comifuro 19">
+              <svg viewBox="0 0 100 115" width="100%" height="100%"><rect width="100" height="115" fill="#3b0764"/><circle cx="50" cy="45" r="26" fill="#fbcfe8"/><path d="M20 95 C20 70 35 65 50 65 C65 65 80 70 80 95 Z" fill="#9333ea"/><circle cx="65" cy="30" r="6" fill="#d4af37"/></svg>
+              <div class="worn-gallery-username-pill">@clarissa_cosplay</div>
+            </div>
+            <div class="worn-gallery-item" title="Foto pemakai oleh @renata_koneko di Studio Photoshoot">
+              <svg viewBox="0 0 100 115" width="100%" height="100%"><rect width="100" height="115" fill="#2d121c"/><circle cx="50" cy="45" r="26" fill="#fed7aa"/><path d="M20 95 C20 70 35 65 50 65 C65 65 80 70 80 95 Z" fill="#581c87"/><rect x="42" y="70" width="16" height="10" fill="#d4af37"/></svg>
+              <div class="worn-gallery-username-pill">@renata_koneko</div>
+            </div>
+            <div class="worn-gallery-item" title="Foto pemakai oleh @keiko_hime di WakuWaku Fest">
+              <svg viewBox="0 0 100 115" width="100%" height="100%"><rect width="100" height="115" fill="#1b1226"/><circle cx="50" cy="45" r="26" fill="#fce7f3"/><path d="M20 95 C20 70 35 65 50 65 C65 65 80 70 80 95 Z" fill="#7e22ce"/><path d="M30 40 Q50 20 70 40" stroke="#fde047" stroke-width="4" fill="none"/></svg>
+              <div class="worn-gallery-username-pill">@keiko_hime</div>
+            </div>
+            <div class="worn-gallery-item" title="Foto pemakai oleh @alicia_violet di gathering cosplay">
+              <svg viewBox="0 0 100 115" width="100%" height="100%"><rect width="100" height="115" fill="#240c1e"/><circle cx="50" cy="45" r="26" fill="#fde68a"/><path d="M20 95 C20 70 35 65 50 65 C65 65 80 70 80 95 Z" fill="#6b21a8"/></svg>
+              <div class="worn-gallery-username-pill">@alicia_violet</div>
+            </div>
+          </div>
+
+          <!-- List Ulasan & Pengalaman Pemakai -->
+          <div class="worn-reviews-list" id="wornReviewsList">
+
+            <!-- Review 1: Foto Cosplayer Ditampilkan Secara Publik (Persetujuan Publik Dicentang) -->
+            <article class="worn-review-card">
+              <div class="review-user-row">
+                <div class="review-user-info">
+                  <div class="review-avatar-circle">CC</div>
+                  <div class="review-user-meta">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="review-username-link">@clarissa_cosplay</a>
+                    <span class="review-event-tag">Dipakai di Event Comifuro 19 &bull; Booking #RC-2026-0819</span>
+                  </div>
+                </div>
+                <div class="verified-renter-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  ✓ Terverifikasi Pernah Menyewa
+                </div>
+              </div>
+
+              <div class="review-stars-row">
+                <span class="review-stars-text">★★★★★</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-left:4px;">(Rating 5/5)</span>
+              </div>
+
+              <div class="review-content-body">
+                <p class="review-quote-text">
+                  "Costumenya sesuai deskripsi dan nyaman digunakan. Jahitan kimononya adem dipakai seharian di ICE BSD, wignya wangi dan bentuk kepangannya kokoh nggak gampang buyar pas dipakai photoshoot!"
+                </p>
+
+                <!-- Foto Pemakai Ditampilkan Karena Disetujui Publik -->
+                <div style="display:flex; flex-direction:column; gap:4px;">
+                  <span style="font-size:0.7rem; color:var(--accent-gold); font-weight:700;">📸 FOTO PEMAKAI DI EVENT:</span>
+                  <div class="review-wearer-photo-box">
+                    <svg viewBox="0 0 140 160" width="100%" height="100%"><rect width="140" height="160" fill="#3b0764"/><circle cx="70" cy="65" r="35" fill="#fbcfe8"/><path d="M25 140 C25 100 45 90 70 90 C95 90 115 100 115 140 Z" fill="#9333ea"/><circle cx="90" cy="45" r="8" fill="#d4af37"/><text x="70" y="152" fill="#e9d5ff" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">@clarissa_cosplay</text></svg>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 2: Foto Cosplayer Ditampilkan Secara Publik (Persetujuan Publik Dicentang) -->
+            <article class="worn-review-card">
+              <div class="review-user-row">
+                <div class="review-user-info">
+                  <div class="review-avatar-circle">RK</div>
+                  <div class="review-user-meta">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="review-username-link">@renata_koneko</a>
+                    <span class="review-event-tag">Dipakai Photoshoot Studio &bull; Booking #RC-2026-0870</span>
+                  </div>
+                </div>
+                <div class="verified-renter-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  ✓ Terverifikasi Pernah Menyewa
+                </div>
+              </div>
+
+              <div class="review-stars-row">
+                <span class="review-stars-text">★★★★★</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-left:4px;">(Rating 5/5)</span>
+              </div>
+
+              <div class="review-content-body">
+                <p class="review-quote-text">
+                  "Costumenya sesuai deskripsi dan nyaman digunakan. Obi kakunya presisi bikin pinggang kelihatan ramping. Bordir emasnya pas kena lighting studio hasilnya mewah banget. Sangat rekomendasi!"
+                </p>
+
+                <!-- Foto Pemakai Ditampilkan Karena Disetujui Publik -->
+                <div style="display:flex; flex-direction:column; gap:4px;">
+                  <span style="font-size:0.7rem; color:var(--accent-gold); font-weight:700;">📸 FOTO PEMAKAI DI STUDIO:</span>
+                  <div class="review-wearer-photo-box">
+                    <svg viewBox="0 0 140 160" width="100%" height="100%"><rect width="140" height="160" fill="#2d121c"/><circle cx="70" cy="65" r="35" fill="#fed7aa"/><path d="M25 140 C25 100 45 90 70 90 C95 90 115 100 115 140 Z" fill="#581c87"/><rect x="60" y="98" width="20" height="14" fill="#d4af37"/><text x="70" y="152" fill="#fed7aa" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">@renata_koneko</text></svg>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 3: FOTO TIDAK DISETUJUI PUBLIK (Penerapan Syarat: "Jika tidak disetujui: jangan tampilkan foto customer secara publik") -->
+            <article class="worn-review-card">
+              <div class="review-user-row">
+                <div class="review-user-info">
+                  <div class="review-avatar-circle">DH</div>
+                  <div class="review-user-meta">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="review-username-link">@dian_haruka</a>
+                    <span class="review-event-tag">Dipakai Gathering Cosplay &bull; Booking #RC-2026-0914</span>
+                  </div>
+                </div>
+                <div class="verified-renter-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  ✓ Terverifikasi Pernah Menyewa
+                </div>
+              </div>
+
+              <div class="review-stars-row">
+                <span class="review-stars-text">★★★★★</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-left:4px;">(Rating 5/5)</span>
+              </div>
+
+              <div class="review-content-body">
+                <p class="review-quote-text">
+                  "Costumenya sesuai deskripsi dan nyaman digunakan. Wignya wangi banget dan ga gampang kusut. Ukuran M beneran pas sesuai tabel LD/LP di deskripsi. Terima kasih Aoi Cosrent!"
+                </p>
+
+                <!-- Foto Disimpan Privat Karena Checkbox Publik Tidak Dicentang -->
+                <div class="review-private-photo-notice">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>Foto pemakai disimpan privat (Hanya digunakan untuk verifikasi fisik pengembalian kostum atas permintaan cosplayer).</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Tempat Menampung Review Baru dari Form User -->
+            <div id="dynamicReviewsContainer" style="display:flex; flex-direction:column; gap:14px;"></div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ======================================================================
+           KOLOM KANAN: 2. INFORMASI, 3. DETAIL, 4. INCLUDE/EXCLUDE, 5. KONDISI, 6. COSRENT, 9. BOOKING
+           ====================================================================== -->
+      <div class="detail-right-col">
+
+        <div class="detail-info-card">
+
+          <!-- 2. INFORMASI KOSTUM -->
+          <div class="detail-badge-row">
+            <span class="detail-series-tag">Genshin Impact &bull; Inazuma</span>
+            <span class="badge-tag badge-verified">Terverifikasi Fisik</span>
+            <span class="badge-tag badge-nego">Bisa Nego</span>
+          </div>
+
+          <h1 class="detail-costume-name">Raiden Shogun (Baal) Kimono Fullset + Styled Wig</h1>
+
+          <!-- Harga Hijau Sesuai Panduan -->
+          <div class="detail-price-banner">
+            <div>
+              <span class="detail-price-main">Rp 140.000</span>
+              <span class="detail-price-unit">/ 3 Hari Sewa</span>
+            </div>
+            <div class="detail-avail-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Tersedia Mulai 10 Okt 2026
+            </div>
+          </div>
+
+          <!-- Specs Grid (Ukuran, Gender, LD, LP, Lokasi, Brand, Series, Character, Tanggal) -->
+          <div class="detail-specs-grid">
+            <div class="spec-cell">
+              <span class="spec-cell-label">Ukuran</span>
+              <span class="spec-cell-value">M (Medium)</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Gender</span>
+              <span class="spec-cell-value">Female</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Lingkar Dada (LD)</span>
+              <span class="spec-cell-value highlight-gold">88 - 92 cm</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Lingkar Pinggang (LP)</span>
+              <span class="spec-cell-value highlight-gold">68 - 72 cm</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Lokasi Rental</span>
+              <span class="spec-cell-value">Jakarta Selatan</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Brand Pembuat</span>
+              <span class="spec-cell-value">Manmei Official</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Series</span>
+              <span class="spec-cell-value">Genshin Impact</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-cell-label">Character</span>
+              <span class="spec-cell-value">Raiden Shogun (Ei)</span>
+            </div>
+          </div>
+
+          <!-- 9. ACTION BUTTONS (DESKTOP / MAIN) -->
+          <div class="detail-action-card">
+            <!-- Booking Button Hijau Sesuai Spesifikasi -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-booking-green" id="btnBookingDm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              Booking via DM Instagram
+            </a>
+
+            <!-- Lihat di Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-link-instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              Lihat di Instagram
+            </a>
+
+            <!-- Sub Action Buttons: Wishlist & Nego -->
+            <div class="detail-sub-actions">
+              <button type="button" class="btn-wishlist-action" id="btnWishlistAction">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>♡ Wishlist</span>
+              </button>
+              <button type="button" class="btn-nego-action" id="btnOpenNegoModal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+                <span>Ajukan Nego</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. DETAIL & DESKRIPSI -->
+          <div class="detail-text-block">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              Detail & Spesifikasi Bahan
+            </h3>
+            <p>
+              Kostum Raiden Shogun produksi Manmei Official dengan material kain jacquard sutra impor halus bercorak mitsudomoe tenun emas asli. Bagian obi pinggang dilapisi busa padat sehingga tidak melorot saat dipakai berjalan atau bergaya laga. Wig telah dipotong dan dikepang rapi dengan panjang 120 cm gradasi ungu tua ke ungu lavender.
+            </p>
+          </div>
+
+          <!-- 4. INCLUDE / EXCLUDE -->
+          <div class="include-exclude-grid">
+            <!-- Include -->
+            <div class="in-ex-card">
+              <div class="in-ex-header inc">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Include (Disertakan)
+              </div>
+              <ul class="in-ex-list">
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Kimono Atas & Bawahan Bordir</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Obi Kaku + Pita Belakang Raksasa</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Wig Manmei 120cm (Sudah Styled)</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Aksesori Rambut Hairpin Kanzashi</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Kaos Kaki Tabi Putih Baru Higienis</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Vision Electro Bahu & Rumbai Ungu</li>
+              </ul>
+            </div>
+
+            <!-- Exclude -->
+            <div class="in-ex-card">
+              <div class="in-ex-header exc">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                Exclude (Tidak Disertakan)
+              </div>
+              <ul class="in-ex-list">
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Sandal Geta Hak Kayu (Add-on +25k)</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Senjata Tombak Engulfing Lightning</li>
+                <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Innerwear / Kemben Pribadi</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5. KONDISI KOSTUM -->
+          <div class="condition-card">
+            <div class="condition-header">
+              <span class="condition-title">Kelayakan Fisik Kostum</span>
+              <span class="condition-percent">96% (Grade A+)</span>
+            </div>
+            <div class="condition-bar-wrap">
+              <div class="condition-bar-fill" style="width: 96%;"></div>
+            </div>
+            <p class="condition-notes">
+              <strong style="color:var(--accent-gold);">Hasil Verifikasi CosVers:</strong> Kain bersih tanpa noda makanan/minuman, bau wangi laundry ozone, kancing & ritsleting 100% utuh. Terdapat bekas jarum pentul mikro di lipatan kain dalam obi (tidak kasat mata saat dipakai).
+            </p>
+          </div>
+
+          <!-- 6. COSRENT (PROFIL TOKO RENTAL) -->
+          <div class="cosrent-detail-card">
+            <div class="cosrent-header-row">
+              <div class="cosrent-shop-avatar">AC</div>
+              <div class="cosrent-shop-info">
+                <div class="cosrent-shop-title">
+                  Aoi Cosrent Studio
+                  <svg class="verified-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <span class="cosrent-shop-meta">Jakarta Selatan &bull; Official Partner CosVers</span>
+              </div>
+            </div>
+            <div class="cosrent-sub-meta">
+              <span>⭐ <strong>4.9</strong> (150+ review terverifikasi)</span>
+              <span>Balas DM: <strong>&plusmn;10 menit</strong></span>
+            </div>
+            <a href="index.html#katalog" class="btn-secondary" style="text-align:center; padding:6px; font-size:0.8rem;">
+              Lihat 84 Kostum Lain Toko Ini &rarr;
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       MOBILE STICKY BOTTOM BOOKING BAR
+       Pada mobile: booking button sticky di bagian bawah.
+       Tombol booking berwarna HIJAU.
+       ========================================================================== -->
+  <div class="mobile-sticky-booking-bar">
+    <div class="mobile-bar-price-info">
+      <span class="mobile-bar-price">Rp 140.000</span>
+      <span class="mobile-bar-duration">/ 3 hari sewa (M)</span>
+    </div>
+    <div class="mobile-bar-actions">
+      <button type="button" class="btn-mobile-wishlist" id="btnMobileWishlist" aria-label="Simpan ke Wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      </button>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-mobile-booking">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        Booking via DM
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL FITUR NEGO HARGA (Interaktif dari Ide Latihan.html)
+       ========================================================================== -->
+  <div class="modal-overlay" id="negoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitleText">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitleText">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+          Ajukan Nego Harga Sewa
+        </h3>
+        <button type="button" class="modal-close-btn" id="closeNegoModalBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <form id="submitNegoForm">
+        <div class="modal-body">
+          <div class="nego-product-preview">
+            <div class="nego-product-img" style="background:#2d121c; display:flex; align-items:center; justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1.8"><path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path></svg>
+            </div>
+            <div class="nego-product-info">
+              <h5>Raiden Shogun (Baal) Kimono Fullset</h5>
+              <p>Genshin Impact &bull; Aoi Cosrent Jakarta</p>
+              <div class="nego-price-tag">Harga Katalog: <span>Rp 140.000 / 3 hari</span></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="negoPriceInput">Harga Tawaran Anda (Rp)</label>
+            <input type="number" id="negoPriceInput" value="120000" step="5000" min="50000" required>
+            <small style="color:var(--text-muted); font-size:0.75rem;">Disarankan menawar dalam batas wajar (10% - 25% dari harga katalog).</small>
+          </div>
+
+          <div class="form-group">
+            <label for="rentDuration">Durasi Sewa</label>
+            <select id="rentDuration">
+              <option value="3">3 Hari (Standar Event Akhir Pekan)</option>
+              <option value="5">5 Hari (Persiapan & Photoshoot)</option>
+              <option value="7">7 Hari (Event Luar Kota)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="negoNotes">Pesan Tambahan ke Aoi Cosrent</label>
+            <textarea id="negoNotes" rows="2" placeholder="Sebutkan tanggal pemakaian event dan perlakuan khusus..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelNegoBtn">Batal</button>
+          <button type="submit" class="btn-primary">Kirim Tawaran Nego</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL FITUR REVIEW: "DIPAKAI COSPLAYER"
+       - Review hanya boleh dibuat oleh customer yang memiliki booking costume tersebut dengan status completed
+       - Satu booking hanya boleh memberikan satu review
+       - Customer dapat memberikan: rating 1–5, review, foto ketika menggunakan costume
+       - Checkbox: "Foto saya boleh ditampilkan secara publik" (jika tidak disetujui, foto tidak ditampilkan publik)
+       ========================================================================== -->
+  <div class="modal-overlay" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="modalReviewTitleText">
+    <div class="modal-box" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalReviewTitleText">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Tulis Review Pengalaman Memakai Kostum
+        </h3>
+        <button type="button" class="modal-close-btn" id="closeReviewModalBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <form id="submitReviewForm">
+        <div class="modal-body">
+          
+          <!-- Verifikasi Booking Customer -->
+          <div class="form-group">
+            <label for="reviewBookingSelect">Pilih Riwayat Sewa (Booking ID)</label>
+            <select id="reviewBookingSelect" required>
+              <option value="RC-2026-0955" data-status="completed" data-reviewed="false">Booking #RC-2026-0955 - Raiden Shogun (Status: Completed ✓)</option>
+              <option value="RC-2026-1002" data-status="in-progress" data-reviewed="false">Booking #RC-2026-1002 - Raiden Shogun (Status: Sedang Berjalan - Belum Selesai)</option>
+            </select>
+          </div>
+
+          <div id="bookingValidationNotice" class="booking-status-notice valid">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span id="bookingValidationMsg"><strong>Status Booking Terverifikasi:</strong> Booking #RC-2026-0955 telah selesai (Completed). Anda berhak menulis review pemakai.</span>
+          </div>
+
+          <!-- Rating 1–5 Bintang -->
+          <div class="form-group">
+            <label>Rating Pengalaman Memakai Kostum (1 - 5 Bintang)</label>
+            <div class="star-rating-select" id="starRatingSelect">
+              <svg data-rating="1" class="filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg data-rating="2" class="filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg data-rating="3" class="filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg data-rating="4" class="filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg data-rating="5" class="filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <input type="hidden" id="selectedStarRating" value="5">
+          </div>
+
+          <!-- Review Teks -->
+          <div class="form-group">
+            <label for="reviewTextInput">Ulasan Pengalaman Pemakaian</label>
+            <textarea id="reviewTextInput" rows="3" placeholder="Ceritakan fitting ukuran, kenyamanan bahan, kondisi wig, dan pengalaman di event..." required>Costumenya sesuai deskripsi dan nyaman digunakan seharian!</textarea>
+          </div>
+
+          <!-- Foto Ketika Menggunakan Kostum -->
+          <div class="form-group">
+            <label for="wearerPhotoInput">Upload Foto Ketika Menggunakan Kostum</label>
+            <input type="file" id="wearerPhotoInput" accept="image/*" style="font-size:0.8rem;">
+            <small style="color:var(--text-muted); font-size:0.75rem;">Format JPG/PNG foto di event atau photoshoot.</small>
+          </div>
+
+          <!-- Checkbox Persetujuan Publik Sesuai Spesifikasi -->
+          <label class="checkbox-label-wrapper">
+            <input type="checkbox" id="publicPhotoConsentCheckbox" checked>
+            <div class="checkbox-text-info">
+              <span class="checkbox-title">Foto saya boleh ditampilkan secara publik</span>
+              <span class="checkbox-desc">Jika tidak disetujui, foto Anda HANYA disimpan untuk riwayat sewa pribadi dan TIDAK AKAN ditampilkan kepada publik di halaman website.</span>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelReviewBtn">Batal</button>
+          <button type="submit" class="btn-primary" id="btnSubmitReview">Kirim Review Terverifikasi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    <span id="toastText">Aksi berhasil dilakukan.</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.35 5.25-1.2 9-6.1 9-11.35V7l-9-5z"></path>
+              </svg>
+            </div>
+            <div class="logo-text-wrapper">
+              <span class="brand-title">Cos<span>Vers</span></span>
+              <span class="brand-subtitle">RuangCosplay</span>
+            </div>
+          </div>
+          <p>
+            Platform marketplace dan persewaan kostum cosplay komunitas Indonesia.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#katalog">Semua Kostum</a></li>
+            <li><a href="index.html#event">Event Terdekat</a></li>
+            <li><a href="index.html#cosrent">Cosrent Terverifikasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Bantuan & Aturan</h4>
+          <ul class="footer-links">
+            <li><a href="#">Cara Booking via DM</a></li>
+            <li><a href="#">Standar Cek Fisik Kostum</a></li>
+            <li><a href="#">Aturan Deposit & Denda</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Dokumentasi</h4>
+          <ul class="footer-links">
+            <li><a href="Latihan.html" target="_blank" rel="noopener">Latihan.html (Ide Awal)</a></li>
+            <li><a href="page.css" target="_blank" rel="noopener">page.css (CSS Asli)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>CosVers | RuangCosplay</strong>. Detail Kostum Cosplay.</div>
+        <div>Booking Button Hijau &bull; Mobile Sticky &bull; Gallery Swipe</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Khusus Halaman Detail -->
+  <script src="detail.js"></script>
+</body>
+</html>

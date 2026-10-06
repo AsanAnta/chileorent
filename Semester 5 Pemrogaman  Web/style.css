@@ -1,0 +1,2886 @@
+/* ==========================================================================
+   CosVers | RuangCosplay - Marketplace Cosplay Indonesia
+   Design System & Modern Dark Scarlet Theme
+   Style: Modern, Dark, Community-Driven, Elegant Warm Gold Accents
+   ========================================================================== */
+
+:root {
+  /* Palet Warna Sesuai Panduan */
+  --bg-primary: #140508;          /* Dark Scarlet / Deep Red */
+  --bg-secondary: #220d13;        /* Dark Red / Charcoal Red */
+  --bg-surface: #2b1119;          /* Permukaan Card / Kontainer */
+  --bg-surface-hover: #371621;    /* Card Hover State */
+  --bg-input: #1a080f;            /* Field Input & Dropdown */
+  
+  /* Aksen Gold Elegan (Warm Gold) */
+  --accent-gold: #d4af37;
+  --accent-gold-hover: #e5be49;
+  --accent-gold-muted: rgba(212, 175, 55, 0.14);
+  --border-gold-subtle: rgba(212, 175, 55, 0.28);
+  --border-gold-strong: rgba(212, 175, 55, 0.7);
+
+  /* Typography */
+  --text-white: #ffffff;
+  --text-secondary: #b0b4bc;      /* Light Gray */
+  --text-muted: #848a96;
+  
+  /* Status & Aksen */
+  --price-green: #22c55e;         /* Hijau Harga */
+  --price-green-bg: rgba(34, 197, 94, 0.12);
+  --link-blue: #60a5fa;           /* Biru Link */
+  --link-blue-hover: #93c5fd;
+  --trend-fire: #f97316;          /* Orange Aksen Api Demand Score */
+  --trend-fire-bg: rgba(249, 115, 22, 0.12);
+  
+  /* Border & Shadows */
+  --border-subtle: #3a1622;
+  --border-card: #451b27;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 24px rgba(10, 2, 5, 0.6);
+
+  /* Layout & Sizing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --header-height: 68px;
+  --header-height-mobile: 60px;
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-white);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Link Styling */
+a {
+  color: var(--link-blue);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--link-blue-hover);
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ==========================================================================
+   STICKY HEADER (Mobile-First)
+   Desktop: logo RuangCosplay - navigation - search - profile
+   Mobile: hamburger kiri - logo RuangCosplay - profile kanan
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(20, 5, 8, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height-mobile);
+  padding: 0 1rem;
+}
+
+.header-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.header-action-btn:hover {
+  background-color: var(--bg-surface);
+  color: var(--accent-gold);
+}
+
+/* Logo Branding Original */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none !important;
+}
+
+.logo-badge {
+  width: 34px;
+  height: 34px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+}
+
+.logo-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+
+.brand-title span {
+  color: var(--accent-gold);
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.header-nav {
+  display: none;
+}
+
+.header-search {
+  display: none;
+}
+
+.profile-avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-gold-subtle);
+  background: var(--bg-surface);
+  color: var(--text-white);
+  transition: var(--transition);
+}
+
+.profile-avatar-btn:hover {
+  border-color: var(--accent-gold);
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-label-desktop {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER
+   ========================================================================== */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 290px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  z-index: 1200;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobile-nav-active .mobile-nav-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-active .mobile-nav-drawer {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.drawer-menu {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+}
+
+.drawer-link:hover, .drawer-link.active {
+  color: var(--accent-gold);
+  background: var(--bg-surface);
+  border-left-color: var(--accent-gold);
+  text-decoration: none;
+}
+
+.drawer-link svg {
+  color: var(--text-secondary);
+}
+
+.drawer-footer {
+  margin-top: auto;
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+}
+
+.drawer-badge-note {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   SECTION COMMON HEADERS & TITLES
+   ========================================================================== */
+.section-wrapper {
+  padding: 2.25rem 0 1.25rem;
+}
+
+.section-head-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.section-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.section-main-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-main-title .gold-accent {
+  color: var(--accent-gold);
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.view-all-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--link-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-all-link:hover {
+  color: var(--link-blue-hover);
+}
+
+/* ==========================================================================
+   1. HERO / SEARCH SECTION
+   Judul: "Temukan Kostum Cosplay"
+   Sub: "Cari kostum cosplay untuk event, photoshoot, atau koleksi."
+   Search: "Cari karakter, anime, game, atau kostum..."
+   Filter: Kota, Gender, Kategori, Ukuran, Brand, Series
+   ========================================================================== */
+.hero-search-section {
+  padding: 1.5rem 0 1.25rem;
+}
+
+.hero-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gold);
+}
+
+.hero-title-group {
+  margin-bottom: 1.25rem;
+}
+
+.hero-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-gold);
+  background: var(--accent-gold-muted);
+  border: 1px solid var(--border-gold-subtle);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+}
+
+.hero-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.hero-subheading {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Search Input Box */
+.hero-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-main-search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-main-search-bar svg {
+  position: absolute;
+  left: 14px;
+  color: var(--accent-gold);
+  pointer-events: none;
+}
+
+.hero-search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 44px 0 46px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-white);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.hero-search-input:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px var(--border-gold-subtle);
+  background: #200a12;
+}
+
+.hero-search-btn {
+  position: absolute;
+  right: 6px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--accent-gold);
+  color: #140508;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.hero-search-btn:hover {
+  background: var(--accent-gold-hover);
+}
+
+/* 6 Filter Dropdown Grid: Kota, Gender, Kategori, Ukuran, Brand, Series */
+.hero-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.filter-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.filter-select-wrapper label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-select {
+  width: 100%;
+  height: 38px;
+  padding: 0 26px 0 10px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-white);
+  font-size: 0.82rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23b0b4bc%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.filter-select:focus {
+  border-color: var(--accent-gold);
+}
+
+.hero-quick-keywords {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.quick-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.quick-chip {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quick-chip:hover {
+  color: var(--accent-gold);
+  border-color: var(--border-gold-subtle);
+}
+
+/* ==========================================================================
+   2. EVENT TERDEKAT
+   Tampilkan event cosplay yang tanggalnya paling dekat.
+   Card event: Poster, Nama event, Tanggal, Lokasi, Kota, Countdown: "12 hari lagi", Tombol: "Lihat Detail"
+   Jangan tampilkan event yang sudah lewat.
+   ========================================================================== */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.event-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.event-poster-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.event-countdown-pill {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(20, 5, 8, 0.88);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.event-city-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  z-index: 2;
+}
+
+.event-info-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.event-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.event-location-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.event-location-text svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.btn-event-detail {
+  margin-top: auto;
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--accent-gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-event-detail:hover {
+  background: var(--accent-gold);
+  color: #140508;
+}
+
+/* ==========================================================================
+   3. COSPLAY YANG SEDANG TREN
+   Tampilkan kostum berdasarkan demand/popularity.
+   Card: Foto, Character, Series, Cosrent, Harga, Lokasi, "🔥 Demand Score 92"
+   Note: Demand Score menunjukkan tingkat permintaan/popularitas, BUKAN kualitas costume.
+   ========================================================================== */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trend-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.trend-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.trend-media-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.trend-media-box img, .trend-media-box svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.trend-card:hover .trend-media-box svg {
+  transform: scale(1.03);
+}
+
+/* 🔥 Demand Score Badge */
+.demand-score-pill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(20, 5, 8, 0.92);
+  border: 1px solid var(--trend-fire);
+  color: #ffedd5;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.demand-score-pill span {
+  color: var(--trend-fire);
+}
+
+.trend-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.trend-series {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trend-character {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.3em;
+}
+
+.trend-cosrent-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.trend-cosrent-row svg {
+  flex-shrink: 0;
+}
+
+.trend-location-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.trend-price-footer {
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.trend-price-value {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--price-green);
+}
+
+.trend-price-unit {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   4. KATALOG KOSTUM (Mobile-First, Foto Dominan, Bukan Dashboard Admin)
+   Mobile: 2 Kolom (Card tidak terlalu kecil)
+   Tablet: 2-3 Kolom
+   Desktop: 3-4 Kolom
+   ========================================================================== */
+.catalog-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 1rem;
+  scrollbar-width: none;
+}
+
+.catalog-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.catalog-pill {
+  white-space: nowrap;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+.catalog-pill:hover {
+  color: var(--text-white);
+  border-color: var(--border-gold-subtle);
+}
+
+.catalog-pill.active {
+  background: var(--accent-gold);
+  color: #140508;
+  border-color: var(--accent-gold);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.costume-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.costume-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+/* Foto Kostum Menjadi Elemen Paling Dominan */
+.card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.8;
+  background: var(--bg-secondary);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-media svg, .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.costume-card:hover .card-media svg {
+  transform: scale(1.04);
+}
+
+.card-badge-top-left {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+
+.card-badge-top-right {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+.badge-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.badge-verified {
+  background: rgba(16, 185, 129, 0.92);
+  color: #ffffff;
+}
+
+.badge-nego {
+  background: rgba(212, 175, 55, 0.92);
+  color: #140508;
+}
+
+.badge-size {
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--text-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.card-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-series {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.3em;
+}
+
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-location svg {
+  flex-shrink: 0;
+  color: var(--accent-gold);
+}
+
+.card-condition {
+  color: var(--accent-gold);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.card-price-section {
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--price-green);
+}
+
+.price-unit {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.btn-card-nego {
+  background: var(--accent-gold-muted);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--accent-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-card-nego:hover {
+  background: var(--accent-gold);
+  color: #140508;
+}
+
+.btn-card-rent {
+  background: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  color: #140508;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-card-rent:hover {
+  background: var(--accent-gold-hover);
+}
+
+/* ==========================================================================
+   5. COSRENT POPULER
+   Tampilkan penyedia rental kostum terpercaya komunitas di Indonesia
+   ========================================================================== */
+.cosrent-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.cosrent-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.cosrent-card:hover {
+  border-color: var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.cosrent-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cosrent-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.cosrent-meta-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cosrent-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cosrent-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.verified-icon {
+  color: #10b981;
+}
+
+.cosrent-city {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cosrent-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+}
+
+.cosrent-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.cosrent-count {
+  color: var(--text-secondary);
+}
+
+.cosrent-count strong {
+  color: var(--text-white);
+}
+
+.btn-visit-cosrent {
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--link-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-visit-cosrent:hover {
+  border-color: var(--link-blue);
+  background: var(--bg-surface);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   FOOTER (Dark Red & Gold Accent)
+   ========================================================================== */
+.site-footer {
+  margin-top: auto;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 2.5rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.footer-column h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-column h4::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--link-blue);
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   MODALS & TOAST
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-close-btn {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  color: var(--text-white);
+  background: var(--bg-surface);
+}
+
+.modal-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nego-product-preview {
+  display: flex;
+  gap: 12px;
+  background: var(--bg-input);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.nego-product-img {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--bg-secondary);
+}
+
+.nego-product-info h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.nego-product-info p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.nego-price-tag {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--price-green);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-white);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--accent-gold);
+}
+
+.modal-footer {
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-secondary {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  color: var(--text-white);
+  border-color: var(--border-gold-subtle);
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #140508;
+  background: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold-hover);
+}
+
+.toast-notice {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3000;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold);
+  color: var(--text-white);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (TABLET & DESKTOP)
+   Mobile:
+     - 2 kolom katalog (grid)
+     - 2 kolom trending
+     - 1 kolom event
+     - 1 kolom cosrent
+   Tablet (min-width: 640px):
+     - 2–3 kolom katalog
+     - 2–3 kolom trending
+     - 2 kolom event
+     - 2 kolom cosrent
+     - 3 kolom filter hero
+   Desktop (min-width: 1024px):
+     - 3–4 kolom katalog
+     - 4 kolom trending
+     - 3 kolom event
+     - 3–4 kolom cosrent
+     - 6 kolom filter hero
+   ========================================================================== */
+
+/* Tablet (min-width: 640px) */
+@media (min-width: 640px) {
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-filter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trending-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .cosrent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .header-container {
+    height: var(--header-height);
+  }
+
+  .header-action-btn.mobile-hamburger {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 1.5rem;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent-gold);
+    text-decoration: none;
+  }
+
+  .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+  }
+
+  .header-search {
+    display: flex;
+    flex-grow: 1;
+    max-width: 320px;
+    margin-right: 1.5rem;
+  }
+
+  .header-search .search-input-box {
+    position: relative;
+    width: 100%;
+  }
+
+  .header-search .search-input-box svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+
+  .header-search .search-input-box input {
+    width: 100%;
+    height: 38px;
+    padding: 0 14px 0 38px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--text-white);
+    font-size: 0.85rem;
+    outline: none;
+  }
+
+  .header-search .search-input-box input:focus {
+    border-color: var(--accent-gold);
+  }
+
+  .profile-avatar-btn {
+    padding: 4px 12px 4px 6px;
+  }
+
+  .profile-label-desktop {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-white);
+  }
+
+  .hero-box {
+    padding: 2.25rem 2rem;
+  }
+
+  .hero-heading {
+    font-size: 2.4rem;
+  }
+
+  /* 6 Filter sejajar sempurna di desktop */
+  .hero-filter-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trending-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* 3–4 Kolom Katalog (Spesifikasi Desktop = 3-4 kolom, Foto paling dominan) */
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .card-media {
+    aspect-ratio: 3 / 4;
+  }
+
+  .cosrent-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+/* ==========================================================================
+   COSTUME DETAIL PAGE STYLES (CosVers / RuangCosplay)
+   ========================================================================== */
+
+/* Breadcrumb */
+.detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0.5rem;
+}
+
+.detail-breadcrumb a {
+  color: var(--link-blue);
+  text-decoration: none;
+}
+
+.detail-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.detail-breadcrumb .crumb-separator {
+  color: var(--border-subtle);
+}
+
+.detail-breadcrumb .crumb-current {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Two-column layout */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding-bottom: 5rem; /* space for mobile sticky bar */
+}
+
+/* 1. GALLERY COMPONENT */
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gallery-main-view {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 3.9;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y; /* allow vertical scroll while capturing horizontal swipe */
+  user-select: none;
+}
+
+.gallery-main-view img, 
+.gallery-main-view svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-video-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: #000000;
+}
+
+.gallery-video-container.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Navigation buttons (Next / Prev) */
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(20, 5, 8, 0.75);
+  backdrop-filter: blur(4px);
+  color: var(--text-white);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.gallery-nav-btn:hover {
+  background: var(--accent-gold);
+  color: #140508;
+  border-color: var(--accent-gold);
+}
+
+.gallery-nav-prev {
+  left: 10px;
+}
+
+.gallery-nav-next {
+  right: 10px;
+}
+
+.gallery-counter-pill {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  color: var(--text-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 5;
+}
+
+.gallery-swipe-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(20, 5, 8, 0.85);
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border-gold-subtle);
+  pointer-events: none;
+}
+
+/* Thumbnails */
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.thumb-item {
+  width: 72px;
+  height: 84px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-card);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  opacity: 0.65;
+  transition: var(--transition);
+  position: relative;
+}
+
+.thumb-item:hover, .thumb-item.active {
+  opacity: 1;
+  border-color: var(--accent-gold);
+}
+
+.thumb-item.active {
+  box-shadow: 0 0 0 2px var(--border-gold-subtle);
+}
+
+.thumb-item img, .thumb-item svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-video-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--accent-gold);
+}
+
+/* 2. INFORMASI KOSTUM */
+.detail-info-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.detail-series-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.detail-costume-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.25;
+}
+
+/* Price block - GREEN PER SPESIFIKASI */
+.detail-price-banner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--price-green-bg);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.detail-price-main {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--price-green); /* WARNA HIJAU */
+  letter-spacing: -0.5px;
+}
+
+.detail-price-unit {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.detail-avail-badge {
+  font-size: 0.78rem;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Specs Grid: Ukuran, Gender, LD, LP, Lokasi, Brand, Series, Character, Tanggal */
+.detail-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.spec-cell {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-cell-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.spec-cell-value {
+  font-size: 0.85rem;
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.spec-cell-value.highlight-green {
+  color: var(--price-green);
+}
+
+.spec-cell-value.highlight-gold {
+  color: var(--accent-gold);
+}
+
+/* 3. DETAIL & DESKRIPSI */
+.detail-text-block h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-text-block p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 4. INCLUDE / EXCLUDE */
+.include-exclude-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.in-ex-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+
+.in-ex-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.in-ex-header.inc {
+  color: #10b981;
+}
+
+.in-ex-header.exc {
+  color: #f87171;
+}
+
+.in-ex-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.in-ex-list li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.in-ex-list li svg {
+  flex-shrink: 0;
+}
+
+/* 5. KONDISI KOSTUM */
+.condition-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.condition-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.condition-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.condition-percent {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+}
+
+.condition-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.condition-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #22c55e);
+  border-radius: 3px;
+}
+
+.condition-notes {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* 6. COSRENT (PROFIL TOKO) */
+.cosrent-detail-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cosrent-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cosrent-shop-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.cosrent-shop-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cosrent-shop-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cosrent-shop-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.cosrent-sub-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 7. DIPAKAI COSPLAYER */
+.cosplayer-showcase-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-top: 1rem;
+}
+
+.cosplayer-showcase-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cosplayer-testimonial-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+}
+
+.cosplayer-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-gold-subtle);
+  background: var(--bg-secondary);
+}
+
+.cosplayer-quote-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cosplayer-username {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--link-blue); /* LINK BIRU */
+}
+
+.cosplayer-event-tag {
+  font-size: 0.72rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.cosplayer-quote {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+/* 8. VIDEO SECTION */
+.video-section-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-top: 1rem;
+}
+
+.video-section-header {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-responsive-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.video-responsive-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 9. BOOKING & ACTION BUTTONS */
+.detail-action-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+/* Tombol Booking Hijau Sesuai Spesifikasi */
+.btn-booking-green {
+  width: 100%;
+  height: 48px;
+  background-color: var(--price-green); /* HIJAU */
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none !important;
+  transition: var(--transition);
+  border: 1px solid #16a34a;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.btn-booking-green:hover {
+  background-color: #16a34a;
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.4);
+}
+
+.btn-link-instagram {
+  width: 100%;
+  height: 42px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--link-blue); /* LINK BIRU */
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.btn-link-instagram:hover {
+  border-color: var(--link-blue);
+  color: var(--link-blue-hover);
+  background: #230d17;
+}
+
+.detail-sub-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-wishlist-action {
+  height: 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-wishlist-action:hover {
+  border-color: #f43f5e;
+  color: #f43f5e;
+}
+
+.btn-wishlist-action.active {
+  background: rgba(244, 63, 94, 0.12);
+  border-color: #f43f5e;
+  color: #f43f5e;
+}
+
+.btn-nego-action {
+  height: 40px;
+  background: var(--accent-gold-muted);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-nego-action:hover {
+  background: var(--accent-gold);
+  color: #140508;
+}
+
+/* ==========================================================================
+   MOBILE STICKY BOTTOM BOOKING BAR
+   Pada mobile: booking button sticky di bagian bawah.
+   ========================================================================== */
+.mobile-sticky-booking-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(20, 5, 8, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-gold-subtle);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.mobile-bar-price-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-bar-price {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--price-green); /* HIJAU */
+  line-height: 1.1;
+}
+
+.mobile-bar-duration {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.mobile-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-mobile-wishlist {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-mobile-wishlist.active {
+  color: #f43f5e;
+  border-color: #f43f5e;
+}
+
+.btn-mobile-booking {
+  padding: 0 16px;
+  height: 44px;
+  background-color: var(--price-green); /* HIJAU */
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+/* Desktop Detail Media Query (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .detail-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .mobile-sticky-booking-bar {
+    display: none; /* Sembunyikan bar sticky di desktop */
+  }
+
+  .include-exclude-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .detail-costume-name {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* ==========================================================================
+   FITUR: "DIPAKAI COSPLAYER" (Separation of Foto Produk vs Foto Pemakai)
+   ========================================================================== */
+
+/* Pemisah Jelas: Foto Produk vs Foto Pemakai */
+.gallery-category-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.badge-tag-product {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.badge-tag-wearer {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid var(--price-green);
+  color: var(--price-green);
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+/* Worn by Cosplayer Section */
+.worn-cosplayer-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Summary Header Box: 4.8 / 5 & 24 orang telah memakai costume ini */
+.worn-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-subtle);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+}
+
+.worn-rating-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.worn-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars-gold {
+  color: #facc15; /* Emas bintang */
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+}
+
+.worn-score-num {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-white);
+}
+
+.worn-wearers-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.worn-wearers-count strong {
+  color: var(--accent-gold);
+}
+
+.btn-open-review-modal {
+  padding: 8px 16px;
+  background: var(--accent-gold-muted);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-open-review-modal:hover {
+  background: var(--accent-gold);
+  color: #140508;
+}
+
+/* Clear Distinction Notice Banner */
+.worn-distinction-banner {
+  background: var(--bg-input);
+  border-left: 3px solid var(--price-green);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.worn-distinction-banner strong {
+  color: var(--text-white);
+}
+
+/* Galeri Foto Pemakai (Hanya Foto yang disetujui publik) */
+.worn-photo-gallery-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.worn-photo-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.worn-gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1.15;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.worn-gallery-item:hover {
+  border-color: var(--accent-gold);
+  transform: scale(1.03);
+}
+
+.worn-gallery-item img, .worn-gallery-item svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.worn-gallery-username-pill {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  background: rgba(20, 5, 8, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--link-blue);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 3px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* List Review Pemakai */
+.worn-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.worn-review-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+}
+
+.worn-review-card:hover {
+  border-color: var(--border-gold-subtle);
+}
+
+.review-user-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.review-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-avatar-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.review-user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-username-link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--link-blue); /* LINK BIRU */
+}
+
+.review-event-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Badge Verifikasi Pernah Menyewa */
+.verified-renter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10b981;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.review-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.review-stars-text {
+  color: #facc15;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.review-content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-quote-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Foto Pemakai di dalam Review (Hanya jika disetujui publik) */
+.review-wearer-photo-box {
+  position: relative;
+  width: 140px;
+  aspect-ratio: 1 / 1.15;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-gold-subtle);
+  background: var(--bg-secondary);
+}
+
+.review-wearer-photo-box img, .review-wearer-photo-box svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge jika foto tidak disetujui publik */
+.review-private-photo-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-subtle);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.review-private-photo-notice svg {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+/* Modal Form Review */
+.star-rating-select {
+  display: flex;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.star-rating-select svg {
+  color: #4b5563;
+  transition: var(--transition);
+}
+
+.star-rating-select svg.filled {
+  color: #facc15;
+  fill: #facc15;
+}
+
+.booking-status-notice {
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.booking-status-notice.valid {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #a7f3d0;
+}
+
+.booking-status-notice.invalid {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.checkbox-label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}
+
+.checkbox-label-wrapper input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-gold);
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.checkbox-text-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkbox-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.checkbox-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
