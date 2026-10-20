@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Sewa: Frieren - Sousou no Frieren - Chileorent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            <!-- Logo & Slogan -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition whitespace-nowrap">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="hidden xl:block text-xs text-gray-500 border-l border-gray-300 pl-3 whitespace-nowrap">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="hidden md:flex items-center">
+                <ul class="flex items-center gap-2 lg:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Alih Fungsi Kostum <span class="hidden xl:inline text-xs text-indigo-500 font-semibold">(Nego 0-8%)</span></a></li>
+                    <li><a href="dashboard-rental.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksi Auth Desktop -->
+            <div id="desktop-auth-actions" class="hidden md:flex items-center gap-2 shrink-0">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition whitespace-nowrap">Daftar Akun</a>
+            </div>
+
+            <!-- Kontrol Mobile: Badge Singkat Pengguna + Tombol Hamburger -->
+            <div class="flex items-center gap-2 md:hidden">
+                <div id="mobile-compact-badge" class="flex items-center"></div>
+                <button type="button" id="mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobile-dropdown-menu" class="p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="hamburger-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="hamburger-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-4 space-y-3 shadow-lg">
+            <nav aria-label="Navigasi Mobile">
+                <ul class="flex flex-col space-y-1 text-sm font-medium text-gray-700">
+                    <li><a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-auth-actions" class="pt-2 border-t border-gray-100">
+                <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                    <a href="login.html" class="py-2.5 px-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+                    <a href="register.html" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm transition">Daftar Akun</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex flex-wrap items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li><a href="catalog.html" class="hover:text-indigo-600">Katalog Sewa</a></li>
+                <li>&gt;</li>
+                <li><a href="catalog.html?category=anime" class="hover:text-indigo-600">Sousou no Frieren</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Frieren - Fullset Jubah & Staff</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="konten-detail-kostum" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- GALERI FOTO (4 Cols) -->
+            <section class="lg:col-span-5 space-y-4" aria-label="Galeri Foto Kostum">
+                <figure class="bg-white p-2 border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/600x750/3d5a80/ffffff?text=Frieren+Cosplay+Utama" alt="Tampak depan fullset kostum cosplay Frieren" class="w-full h-auto rounded-xl object-cover">
+                    <figcaption class="p-2 text-center text-xs text-gray-500">Foto fisik asli kostum Frieren telah melalui inspeksi tim kurasi Chileorent.</figcaption>
+                </figure>
+
+                <div class="grid grid-cols-4 gap-2">
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/3d5a80/ffffff?text=Jubah+%26+Dress" alt="Detail kain jubah" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Jubah & Dress</figcaption>
+                    </figure>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/98c1d9/000000?text=Wig+Styling" alt="Detail wig" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Wig Terstyling</figcaption>
+                    </figure>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/ee6c4d/ffffff?text=Prop+Staff" alt="Prop tongkat" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Tongkat Sihir</figcaption>
+                    </figure>
+                    <figure class="bg-white p-1 border border-gray-200 rounded-lg text-center">
+                        <img src="https://placehold.co/140x140/293241/ffffff?text=Aksesoris" alt="Aksesoris" class="w-full h-16 object-cover rounded">
+                        <figcaption class="text-[10px] text-gray-600 mt-1 truncate">Anting & Sabuk</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- INFORMASI & BOOKING (7 Cols) -->
+            <section class="lg:col-span-7 space-y-6" aria-label="Informasi dan Pemesanan Sewa">
+                
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-3">
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                        <span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full">Grade A (Kondisi Prima)</span>
+                        <span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full">✓ Terverifikasi Chileorent</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-2.5 py-1 rounded-full">Tersedia</span>
+                        <span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full">✨ Bisa DP Booking (30% / 50%)</span>
+                    </div>
+
+                    <h1 class="text-2xl font-extrabold text-gray-900">Kostum Cosplay Frieren - Fullset + Staff Sihir</h1>
+                    <p class="text-xs text-gray-600">Seri: <strong>Sousou no Frieren (Frieren: Beyond Journey's End)</strong></p>
+
+                    <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs space-y-1">
+                        <p class="text-gray-900 font-semibold">Pemilik Rental: Sakura Cosplay Rental</p>
+                        <p class="text-gray-600">Lokasi: <strong>Kota Bandung</strong> | Bisa Kirim Se-Indonesia</p>
+                        <p class="text-amber-600 font-bold">★★★★★ 4.9 / 5.0 <span class="text-gray-500 font-normal">(128 transaksi sukses)</span></p>
+                    </div>
+                </header>
+
+                <article class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4 text-xs text-gray-600">
+                    <h2 class="text-base font-bold text-gray-900">Spesifikasi & Rincian Ukuran (Size M)</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 font-bold text-gray-900 border-b border-gray-200">
+                                    <th class="p-2 border border-gray-200">Parameter</th>
+                                    <th class="p-2 border border-gray-200">Ukuran Detail</th>
+                                    <th class="p-2 border border-gray-200">Rekomendasi Postur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Ukuran Label</td>
+                                    <td class="p-2 border border-gray-200">Size M (Standar Asia)</td>
+                                    <td class="p-2 border border-gray-200">Tinggi: 155 - 165 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Lingkar Dada</td>
+                                    <td class="p-2 border border-gray-200">84 - 88 cm</td>
+                                    <td class="p-2 border border-gray-200">Berat: 45 - 55 kg</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-200 font-semibold">Lingkar Pinggang</td>
+                                    <td class="p-2 border border-gray-200">66 - 72 cm (Elastis)</td>
+                                    <td class="p-2 border border-gray-200">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-sm font-bold text-gray-900 pt-2">Daftar Item Kelengkapan:</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-gray-700">
+                        <li>✓ 1x Jubah Putih List Emas</li>
+                        <li>✓ 1x Dress / Kemeja Garis</li>
+                        <li>✓ 1x Rok Hitam Pleated</li>
+                        <li>✓ 1x Sabuk Cokelat</li>
+                        <li>✓ 1x Pasang Telinga Elf</li>
+                        <li>✓ 1x Pasang Anting Ruby</li>
+                        <li>✓ 1x Wig Putih Silver</li>
+                        <li>✓ 1x Tongkat Sihir (140 cm)</li>
+                    </ul>
+                </article>
+
+                <!-- FORM BOOKING -->
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-6" aria-labelledby="form-booking-title">
+                    <div>
+                        <h2 id="form-booking-title" class="text-lg font-bold text-gray-900">Formulir Booking Sewa & Escrow</h2>
+                        <p class="text-xs text-gray-500 mt-1">Uang sewa dan jaminan Anda aman 100% di Rekening Bersama Otomatis Chileorent.</p>
+                    </div>
+
+                    <form id="form-rental-booking" action="dashboard-rental.html#view-perental-terbatas" method="GET" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="rent-start-date" class="text-xs font-semibold text-gray-700">Tanggal Mulai Sewa:</label>
+                                <input type="date" id="rent-start-date" name="start_date" required class="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg">
+                            </div>
+
+                            <div class="space-y-1">
+                                <label for="rent-duration" class="text-xs font-semibold text-gray-700">Durasi Sewa:</label>
+                                <select id="rent-duration" name="duration" required class="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg bg-white">
+                                    <option value="3" selected>3 Hari - Rp 120.000</option>
+                                    <option value="5">5 Hari - Rp 170.000</option>
+                                    <option value="7">7 Hari - Rp 220.000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- OPSI UANG JAMINAN (OPSIONAL / KHUSUS PERENTAL PERTAMA KALI) -->
+                        <fieldset class="space-y-3 p-4 bg-amber-50/50 border border-amber-200 rounded-xl text-xs">
+                            <legend class="font-bold text-amber-900 px-1">Status Perental & Uang Jaminan (Deposit)</legend>
+                            <p class="text-[11px] text-gray-600 mb-2">Uang jaminan (deposit) bersifat opsional bagi perental langganan terverifikasi dan hanya dikenakan bagi penyewa pertama kali.</p>
+                            
+                            <label class="flex items-start gap-2 cursor-pointer p-2.5 bg-white border border-gray-200 rounded-lg hover:border-amber-400">
+                                <input type="radio" name="deposit_status" id="dep-pertama" value="pertama" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900">Perental Pertama Kali (Wajib Jaminan Rp 100.000)</strong>
+                                    <p class="text-gray-500">Deposit masuk ke Escrow dan <strong>dikembalikan 100%</strong> otomatis setelah kostum selesai dirental dan kembali dalam keadaan aman.</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-2 cursor-pointer p-2.5 bg-white border border-gray-200 rounded-lg hover:border-amber-400">
+                                <input type="radio" name="deposit_status" id="dep-langganan" value="langganan" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-emerald-700">Perental Terverifikasi / Langganan (Bebas Deposit - Rp 0)</strong>
+                                    <p class="text-gray-500">Khusus akun perental yang sudah pernah merental sebelumnya atau telah menyelesaikan verifikasi identitas (KYC).</p>
+                                </div>
+                            </label>
+                        </fieldset>
+
+                        <!-- FITUR SKEMA PEMBAYARAN & DP -->
+                        <fieldset class="space-y-3 p-4 bg-gray-50 border border-gray-200 rounded-xl text-xs">
+                            <legend class="font-bold text-gray-900 px-1">Fitur Skema Pembayaran (Opsi DP Booking)</legend>
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="full" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900">Bayar Penuh Langsung (100% - Rp 140.000)</strong>
+                                    <p class="text-gray-500">Bayar lunas seluruh biaya sewa sekaligus ke Escrow aman Chileorent.</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="dp_30" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-indigo-900">Fitur DP 30% Kunci Tanggal (Rp 42.000)</strong>
+                                    <p class="text-gray-500">Kunci tanggal booking kostum terlebih dahulu. Pelunasan 70% dibayarkan maksimal H-2 sebelum pengiriman.</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="radio" name="payment_scheme" value="dp_50" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-indigo-900">Fitur DP 50% Kunci Tanggal (Rp 70.000)</strong>
+                                    <p class="text-gray-500">Kunci tanggal booking kostum dengan DP 50%. Pelunasan 50% sisanya dibayarkan maksimal H-2 sebelum pengiriman.</p>
+                                </div>
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="space-y-2 text-xs">
+                            <legend class="font-bold text-gray-900">Layanan Tambahan</legend>
+                            <label class="flex items-center gap-2"><input type="checkbox" name="service_laundry" value="yes" class="rounded text-indigo-600"> Bebas Cuci Kembali (+Rp 25.000)</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" name="damage_protection" value="yes" checked class="rounded text-indigo-600"> Proteksi Kerusakan Minor (+Rp 15.000)</label>
+                        </fieldset>
+
+                        <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-2 text-xs">
+                            <h3 class="font-bold text-indigo-900">Rincian Pembayaran Escrow</h3>
+                            <dl class="space-y-1 text-indigo-900">
+                                <div class="flex justify-between"><dt>Biaya Sewa Pokok (3 Hari):</dt><dd>Rp 120.000</dd></div>
+                                <div class="flex justify-between"><dt>Proteksi Kerusakan Minor:</dt><dd>Rp 15.000</dd></div>
+                                <div class="flex justify-between"><dt>Biaya Layanan Escrow:</dt><dd>Rp 5.000</dd></div>
+                                <div class="flex justify-between border-t border-indigo-200 pt-1 text-amber-800">
+                                    <dt>Uang Jaminan/Deposit (Opsional):</dt>
+                                    <dd id="deposit-summary-text">Rp 100.000 <span class="text-[10px] text-gray-500">(Bebas Rp 0 jika langganan)</span></dd>
+                                </div>
+                                <div class="flex justify-between font-bold border-t border-indigo-300 pt-1 text-indigo-950 text-sm">
+                                    <dt>Total Ditransfer ke Escrow:</dt>
+                                    <dd id="total-summary-text">Rp 240.000 (Bayar Penuh + Deposit)</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
+                            Lanjutkan Booking & Simpan ke Dashboard Perental &rarr;
+                        </button>
+
+                    </form>
+                </section>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Platform marketplace sewa kostum cosplay terverifikasi dan aman dengan rekening bersama otomatis.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Bantuan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Alur Rekening Bersama Escrow</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Standar Grade Kostum</a></li>
+                    <li><a href="index.html#faq" class="hover:text-white transition">FAQ Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Kontak</h4>
+                <address class="not-italic text-xs space-y-2">
+                    <p>Email: bantuan@chileorent.com</p>
+                    <p>WhatsApp: +62 812-3456-7890</p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ENGINE SCRIPT & BOOKING CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        let currentCostume = null;
+
+        function loadCostumeDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const costumeId = params.get('id') || 'c1';
+
+            const updateUIWithCostume = (costume) => {
+                if (!costume) return;
+                currentCostume = {
+                    ...costume,
+                    title: costume.title || costume.judul,
+                    character: costume.character || costume.karakter,
+                    series: costume.series || costume.seri,
+                    size: costume.size || costume.ukuran,
+                    price: Number(costume.price || costume.harga || 0),
+                    image: costume.image || costume.gambar,
+                    owner: costume.owner || costume.pemilik
+                };
+
+                // Update DOM
+                const titleEl = document.querySelector('header h1') || document.querySelector('h1');
+                const breadcrumbEl = document.querySelector('.breadcrumb-nav li[aria-current="page"]');
+                const seriesEl = document.querySelector('header p strong');
+                const mainImg = document.querySelector('section[aria-label="Galeri Foto Kostum"] figure img');
+
+                if (titleEl) titleEl.textContent = currentCostume.title;
+                if (breadcrumbEl) breadcrumbEl.textContent = currentCostume.title;
+                if (seriesEl) seriesEl.textContent = currentCostume.series;
+                if (mainImg && currentCostume.image) mainImg.src = currentCostume.image;
+
+                calculateEscrowSummary();
+            };
+
+            // 1. Render cepat dari cache lokal
+            const costumes = ChileoDB.getCostumes();
+            const foundCached = costumes.find(c => String(c.id) === String(costumeId)) || costumes[0];
+            if (foundCached) updateUIWithCostume(foundCached);
+
+            // 2. Sinkronkan via Fetch API (Pertemuan 4: Connect to API)
+            if (typeof ChileoAPI !== 'undefined') {
+                ChileoAPI.fetchCostumes((data) => {
+                    const found = data.find(c => String(c.id) === String(costumeId)) || data[0];
+                    if (found) updateUIWithCostume(found);
+                });
+            }
+        }
+
+        function calculateEscrowSummary() {
+            if (!currentCostume) return;
+
+            const durationDays = Number(document.getElementById('rent-duration')?.value) || 3;
+            let rentPrice = currentCostume.price;
+            if (durationDays === 5) rentPrice = currentCostume.price + 50000;
+            if (durationDays === 7) rentPrice = currentCostume.price + 100000;
+
+            const hasLaundry = document.querySelector('input[name="service_laundry"]')?.checked;
+            const hasProtection = document.querySelector('input[name="damage_protection"]')?.checked;
+            const laundryFee = hasLaundry ? 25000 : 0;
+            const protectionFee = hasProtection ? 15000 : 0;
+            const serviceFee = 5000;
+
+            const depositType = document.querySelector('input[name="deposit_status"]:checked')?.value || 'pertama';
+            const depositAmount = (depositType === 'pertama') ? 100000 : 0;
+
+            const scheme = document.querySelector('input[name="payment_scheme"]:checked')?.value || 'full';
+
+            const subtotalRent = rentPrice + laundryFee + protectionFee + serviceFee;
+            let currentPayment = 0;
+            let remainingBill = 0;
+            let schemeNote = '';
+
+            if (scheme === 'dp_30') {
+                const dpPart = Math.round(rentPrice * 0.3);
+                currentPayment = dpPart + laundryFee + protectionFee + serviceFee + depositAmount;
+                remainingBill = rentPrice - dpPart;
+                schemeNote = '(DP 30% Kunci Tanggal + Deposit)';
+            } else if (scheme === 'dp_50') {
+                const dpPart = Math.round(rentPrice * 0.5);
+                currentPayment = dpPart + laundryFee + protectionFee + serviceFee + depositAmount;
+                remainingBill = rentPrice - dpPart;
+                schemeNote = '(DP 50% Kunci Tanggal + Deposit)';
+            } else {
+                currentPayment = subtotalRent + depositAmount;
+                remainingBill = 0;
+                schemeNote = '(Bayar Penuh 100% + Deposit)';
+            }
+
+            // Update UI breakdown
+            const dl = document.querySelector('#form-rental-booking dl');
+            if (dl) {
+                dl.innerHTML = `
+                    <div class="flex justify-between"><dt>Biaya Sewa Pokok (${durationDays} Hari):</dt><dd>${formatRupiah(rentPrice)}</dd></div>
+                    <div class="flex justify-between"><dt>Proteksi Kerusakan Minor:</dt><dd>${formatRupiah(protectionFee)}</dd></div>
+                    ${hasLaundry ? `<div class="flex justify-between"><dt>Bebas Cuci Kembali:</dt><dd>${formatRupiah(laundryFee)}</dd></div>` : ''}
+                    <div class="flex justify-between"><dt>Biaya Layanan Escrow:</dt><dd>${formatRupiah(serviceFee)}</dd></div>
+                    <div class="flex justify-between border-t border-indigo-200 pt-1 text-amber-800">
+                        <dt>Uang Jaminan/Deposit (Opsional):</dt>
+                        <dd id="deposit-summary-text">${depositAmount > 0 ? formatRupiah(depositAmount) : '<span class="text-emerald-700 font-bold">Rp 0 (Bebas Deposit)</span>'}</dd>
+                    </div>
+                    ${remainingBill > 0 ? `<div class="flex justify-between text-indigo-700"><dt>Sisa Pelunasan (H-2):</dt><dd class="font-bold">${formatRupiah(remainingBill)}</dd></div>` : ''}
+                    <div class="flex justify-between font-bold border-t border-indigo-300 pt-1 text-indigo-950 text-sm">
+                        <dt>Total Ditransfer ke Escrow:</dt>
+                        <dd id="total-summary-text">${formatRupiah(currentPayment)} <small class="text-xs font-normal text-gray-600">${schemeNote}</small></dd>
+                    </div>
+                `;
+            }
+
+            const submitBtn = document.querySelector('#form-rental-booking button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.innerHTML = `Lanjutkan Booking (${formatRupiah(currentPayment)}) & Simpan ke Dashboard Perental &rarr;`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCostumeDetail();
+
+            // Set default date to tomorrow
+            const dateInput = document.getElementById('rent-start-date');
+            if (dateInput && !dateInput.value) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+
+            // Event listeners for recalculating
+            document.getElementById('rent-duration')?.addEventListener('change', calculateEscrowSummary);
+            document.querySelectorAll('#form-rental-booking input').forEach(el => {
+                el.addEventListener('change', calculateEscrowSummary);
+            });
+
+            // Form Submit handler
+            document.getElementById('form-rental-booking')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const session = ChileoDB.getUserSession();
+                const renterName = (session.role === 'renter' && session.name) ? session.name : 'Alisa Putri (Cosplayer)';
+                const durationDays = Number(document.getElementById('rent-duration')?.value) || 3;
+                const startDate = document.getElementById('rent-start-date')?.value || new Date().toISOString().split('T')[0];
+
+                const end = new Date(startDate);
+                end.setDate(end.getDate() + durationDays);
+                const endDate = end.toISOString().split('T')[0];
+
+                const schemeVal = document.querySelector('input[name="payment_scheme"]:checked')?.value || 'full';
+                const depositType = document.querySelector('input[name="deposit_status"]:checked')?.value || 'pertama';
+                const depositAmount = (depositType === 'pertama') ? 100000 : 0;
+
+                let schemeLabel = 'Lunas 100%';
+                if (schemeVal === 'dp_30') schemeLabel = 'DP 30% Kunci Tanggal';
+                if (schemeVal === 'dp_50') schemeLabel = 'DP 50% Kunci Tanggal';
+
+                const newBooking = {
+                    id: 'BK-' + new Date().getFullYear() + '-' + Math.floor(100 + Math.random() * 900),
+                    costumeTitle: (currentCostume ? currentCostume.title : 'Frieren') + ' (Size ' + (currentCostume ? currentCostume.size : 'M') + ')',
+                    renterName: renterName,
+                    renterPhone: session.phone || '0812-3456-7890',
+                    startDate: startDate,
+                    duration: durationDays,
+                    endDate: endDate,
+                    scheme: schemeLabel,
+                    dpAmount: schemeVal !== 'full' ? Math.round(currentCostume.price * (schemeVal === 'dp_30' ? 0.3 : 0.5)) : 0,
+                    totalPaid: currentCostume.price,
+                    depositAmount: depositAmount,
+                    depositStatus: depositAmount > 0 ? 'Tertahan di Escrow (Refund Saat Selesai)' : 'Bebas Deposit (Akun Terverifikasi)',
+                    itemStatus: 'Booking Baru Terkonfirmasi',
+                    courier: 'JNE Express',
+                    trackingNumber: 'Menunggu Pengiriman H-1'
+                };
+
+                ChileoDB.addRental(newBooking);
+
+                alert('✅ Booking Berhasil Dikonfirmasi!\n\nID Booking: ' + newBooking.id + '\nKostum: ' + newBooking.costumeTitle + '\nSkema: ' + newBooking.scheme + '\nDana aman di Rekening Bersama Escrow Chileorent.\n\nAnda akan dialihkan ke Dashboard Perental.');
+                window.location.href = 'dashboard-rental.html#view-perental-terbatas';
+            });
+        });
+    </script>
+</body>
+</html>

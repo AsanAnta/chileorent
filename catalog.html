@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Sewa Kostum Cosplay - Chileorent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER & NAVIGASI -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            <!-- Logo & Slogan -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition whitespace-nowrap">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="hidden xl:block text-xs text-gray-500 border-l border-gray-300 pl-3 whitespace-nowrap">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="hidden md:flex items-center">
+                <ul class="flex items-center gap-2 lg:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Beranda</a></li>
+                    <li><a href="catalog.html" aria-current="page" class="px-2.5 py-1 text-indigo-600 font-semibold border-b-2 border-indigo-600 whitespace-nowrap">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Alih Fungsi Kostum <span class="hidden xl:inline text-xs text-indigo-500 font-semibold">(Nego 0-8%)</span></a></li>
+                    <li><a href="dashboard-rental.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksi Auth Desktop -->
+            <div id="desktop-auth-actions" class="hidden md:flex items-center gap-2 shrink-0">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition whitespace-nowrap">Daftar Akun</a>
+            </div>
+
+            <!-- Kontrol Mobile: Badge Singkat Pengguna + Tombol Hamburger -->
+            <div class="flex items-center gap-2 md:hidden">
+                <div id="mobile-compact-badge" class="flex items-center"></div>
+                <button type="button" id="mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobile-dropdown-menu" class="p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="hamburger-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="hamburger-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-4 space-y-3 shadow-lg">
+            <nav aria-label="Navigasi Mobile">
+                <ul class="flex flex-col space-y-1 text-sm font-medium text-gray-700">
+                    <li><a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" aria-current="page" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-50 text-indigo-600 font-semibold">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-auth-actions" class="pt-2 border-t border-gray-100">
+                <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                    <a href="login.html" class="py-2.5 px-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+                    <a href="register.html" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm transition">Daftar Akun</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Katalog Sewa Kostum Cosplay</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="konten-katalog" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8">
+
+            <!-- SIDEBAR FILTER -->
+            <aside class="w-full lg:w-64 bg-white p-5 border border-gray-200 rounded-xl shadow-sm h-fit space-y-6" aria-labelledby="filter-heading">
+                <div class="flex items-center justify-between pb-3 border-b border-gray-200">
+                    <h2 id="filter-heading" class="font-bold text-gray-900">Filter Pencarian</h2>
+                    <a href="catalog.html" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800">Reset Semua</a>
+                </div>
+
+                <form id="form-filter-katalog" action="catalog.html" method="GET" class="space-y-6">
+                    
+                    <fieldset class="space-y-2">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider">Cari Karakter / Seri</legend>
+                        <label for="keyword-search" class="sr-only">Kata Kunci:</label>
+                        <input type="search" id="keyword-search" name="q" placeholder="Cth: Frieren, Genshin..." class="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Kategori Seri</legend>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="category" value="anime" class="rounded text-indigo-600"> Anime & Manga</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="category" value="game" class="rounded text-indigo-600"> Game & RPG</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="category" value="vtuber" class="rounded text-indigo-600"> VTuber / Virtual Streamer</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="category" value="tokusatsu" class="rounded text-indigo-600"> Tokusatsu & Mecha</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="category" value="original" class="rounded text-indigo-600"> Original Character (OC)</label>
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Ukuran (Size)</legend>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="size" value="S" class="rounded text-indigo-600"> S (Small)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="size" value="M" class="rounded text-indigo-600"> M (Medium)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="size" value="L" class="rounded text-indigo-600"> L (Large)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="size" value="XL" class="rounded text-indigo-600"> XL (Extra Large)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="size" value="Custom" class="rounded text-indigo-600"> Custom / Freesize</label>
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Gender Karakter</legend>
+                        <label class="flex items-center gap-2"><input type="radio" name="gender" value="all" checked class="text-indigo-600"> Semua</label>
+                        <label class="flex items-center gap-2"><input type="radio" name="gender" value="female" class="text-indigo-600"> Karakter Wanita</label>
+                        <label class="flex items-center gap-2"><input type="radio" name="gender" value="male" class="text-indigo-600"> Karakter Pria</label>
+                        <label class="flex items-center gap-2"><input type="radio" name="gender" value="unisex" class="text-indigo-600"> Karakter Unisex</label>
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Harga Sewa (per 3 Hari)</legend>
+                        <label for="min-price" class="text-xs text-gray-600">Harga Minimal (Rp):</label>
+                        <input type="number" id="min-price" name="min_price" placeholder="50.000" min="0" step="10000" class="w-full px-3 py-1 border border-gray-300 rounded focus:ring-1 focus:ring-indigo-500">
+                        <label for="max-price" class="text-xs text-gray-600 block mt-1">Harga Maksimal (Rp):</label>
+                        <input type="number" id="max-price" name="max_price" placeholder="300.000" min="0" step="10000" class="w-full px-3 py-1 border border-gray-300 rounded focus:ring-1 focus:ring-indigo-500">
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Kelengkapan Paket</legend>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="include" value="wig" class="rounded text-indigo-600"> Wig Siap Pakai</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="include" value="shoes" class="rounded text-indigo-600"> Sepatu / Boots</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="include" value="prop" class="rounded text-indigo-600"> Senjata / Prop</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="include" value="accessories" class="rounded text-indigo-600"> Aksesoris Lengkap</label>
+                    </fieldset>
+
+                    <fieldset class="space-y-2 text-sm">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Grade Verifikasi Fisik</legend>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="grade" value="A" class="rounded text-indigo-600"> Grade A (90-100%)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="grade" value="B" class="rounded text-indigo-600"> Grade B (75-89%)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="grade" value="C" class="rounded text-indigo-600"> Grade C (Minus Transparan)</label>
+                    </fieldset>
+
+                    <button type="submit" class="w-full py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition shadow-sm">
+                        Terapkan Filter
+                    </button>
+
+                </form>
+            </aside>
+
+            <!-- KATALOG RESULTS -->
+            <section class="flex-1 space-y-6" aria-labelledby="catalog-header-title">
+                
+                <!-- API INTEGRATION BANNER (PERTEMUAN 4: TASK 01 CONNECT TO API) -->
+                <div id="api-status-banner" class="bg-gradient-to-r from-indigo-50 via-white to-blue-50 border border-indigo-200 rounded-xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <span class="flex h-3 w-3 relative">
+                            <span id="api-status-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span id="api-status-dot" class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">Task 01: Connect to API</span>
+                                <span id="api-status-text" class="text-xs font-semibold text-emerald-700">REST API Terhubung</span>
+                            </div>
+                            <p id="api-status-detail" class="text-xs text-gray-500 mt-0.5">
+                                Endpoint: <code class="bg-gray-100 px-1.5 py-0.5 rounded text-indigo-700 font-mono text-[11px]">GET data/costumes.json</code> | Dimuat via Fetch API
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="loadCostumesFromAPI(true)" class="px-3 py-1.5 text-xs font-medium text-indigo-700 bg-white hover:bg-indigo-50 border border-indigo-300 rounded-lg shadow-sm transition flex items-center gap-1.5">
+                            <span>🔄</span> Uji Fetch API
+                        </button>
+                        <button type="button" onclick="toggleApiModal(true)" class="px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition flex items-center gap-1.5">
+                            <span>{ ; }</span> Response JSON
+                        </button>
+                    </div>
+                </div>
+
+                <header class="bg-white p-4 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-4 shadow-sm">
+                    <div>
+                        <h2 id="catalog-header-title" class="text-xl font-bold text-gray-900">Daftar Kostum Siap Sewa</h2>
+                        <p class="text-xs text-gray-500">Menampilkan <strong>6 dari 48</strong> kostum terverifikasi dengan jaminan escrow otomatis.</p>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-sm">
+                        <label for="sort-select" class="text-gray-600 font-medium">Urutkan:</label>
+                        <select id="sort-select" name="sort" class="px-3 py-1.5 border border-gray-300 rounded-lg text-sm bg-white focus:ring-1 focus:ring-indigo-500">
+                            <option value="popular">Paling Populer</option>
+                            <option value="price_asc">Harga Sewa: Termurah</option>
+                            <option value="price_desc">Harga Sewa: Tertinggi</option>
+                            <option value="rating">Rating Rental Tertinggi</option>
+                            <option value="newest">Terbaru Ditambahkan</option>
+                        </select>
+                    </div>
+                </header>
+
+                <!-- GRID KATALOG DINAMIS -->
+                <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Kartu kostum dimuat secara dinamis via app.js -->
+                </div>
+
+                <div id="catalog-empty-state" class="hidden p-12 bg-white border border-gray-200 rounded-2xl text-center space-y-3">
+                    <span class="text-4xl block">🔍</span>
+                    <h3 class="text-base font-bold text-gray-900">Kostum Tidak Ditemukan</h3>
+                    <p class="text-xs text-gray-500 max-w-md mx-auto">Tidak ada kostum yang cocok dengan kriteria filter Anda. Coba kurangi filter atau reset pencarian.</p>
+                    <button type="button" onclick="resetAllFilters()" class="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition">
+                        Reset Semua Filter
+                    </button>
+                </div>
+
+                <!-- PAGINATION -->
+                <nav id="catalog-pagination-nav" class="flex justify-center pt-6" aria-label="Navigasi Halaman Katalog">
+                    <ul id="catalog-pagination-list" class="flex items-center space-x-1 text-sm font-semibold">
+                        <li><button type="button" disabled class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-400 cursor-not-allowed select-none" aria-disabled="true">&laquo; Sebelum</button></li>
+                        <li><button type="button" aria-current="page" class="px-3 py-1.5 bg-indigo-600 text-white rounded-lg font-semibold shadow-sm">1</button></li>
+                        <li><button type="button" disabled class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-400 cursor-not-allowed select-none" aria-disabled="true">Lanjut &raquo;</button></li>
+                    </ul>
+                </nav>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Platform marketplace sewa kostum cosplay terverifikasi dan aman dengan rekening bersama otomatis.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Bantuan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Sistem Rekening Bersama (Escrow)</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Panduan Grade Kostum</a></li>
+                    <li><a href="index.html#faq" class="hover:text-white transition">FAQ Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Kontak</h4>
+                <address class="not-italic text-xs space-y-2">
+                    <p>Email: bantuan@chileorent.com</p>
+                    <p>WhatsApp: +62 812-3456-7890</p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL REST API JSON VIEWER (TASK 01: CONNECT TO API) -->
+    <div id="api-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-gray-200 overflow-hidden">
+            <header class="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⚡</span>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-900">Task 01: Connect to API Inspector</h3>
+                        <p class="text-xs text-gray-500">Hasil request <code class="font-mono text-indigo-600">fetch('data/costumes.json')</code></p>
+                    </div>
+                </div>
+                <button type="button" onclick="toggleApiModal(false)" class="text-gray-400 hover:text-gray-600 text-xl font-bold p-1 leading-none">&times;</button>
+            </header>
+            <div class="p-4 space-y-3 overflow-y-auto flex-1 text-xs">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div class="p-2.5 bg-gray-50 rounded-lg border border-gray-200">
+                        <span class="text-[10px] text-gray-500 uppercase block font-semibold">HTTP Method</span>
+                        <strong class="text-indigo-700 font-mono text-xs">GET</strong>
+                    </div>
+                    <div class="p-2.5 bg-gray-50 rounded-lg border border-gray-200">
+                        <span class="text-[10px] text-gray-500 uppercase block font-semibold">Status Code</span>
+                        <strong id="modal-api-status" class="text-emerald-700 font-mono text-xs">200 OK</strong>
+                    </div>
+                    <div class="p-2.5 bg-gray-50 rounded-lg border border-gray-200">
+                        <span class="text-[10px] text-gray-500 uppercase block font-semibold">Latency / Durasi</span>
+                        <strong id="modal-api-latency" class="text-indigo-700 font-mono text-xs">0 ms</strong>
+                    </div>
+                    <div class="p-2.5 bg-gray-50 rounded-lg border border-gray-200">
+                        <span class="text-[10px] text-gray-500 uppercase block font-semibold">Total Item JSON</span>
+                        <strong id="modal-api-count" class="text-gray-800 font-mono text-xs">0 Kostum</strong>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold text-gray-700 block mb-1">Payload JSON Diterima:</span>
+                    <pre id="modal-json-content" class="bg-gray-900 text-emerald-400 p-4 rounded-xl overflow-x-auto font-mono text-[11px] leading-relaxed max-h-96 whitespace-pre-wrap"></pre>
+                </div>
+            </div>
+            <footer class="p-3 border-t border-gray-200 bg-gray-50 flex justify-between items-center text-xs">
+                <span class="text-gray-500">Materi Pertemuan 4 Web Programming: Fetch API & REST JSON</span>
+                <button type="button" onclick="toggleApiModal(false)" class="px-4 py-1.5 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition">Tutup</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ENGINE SCRIPT & KATALOG CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        let allCostumesData = [];
+        let currentApiMeta = null;
+
+        function toggleApiModal(open) {
+            const modal = document.getElementById('api-modal');
+            if (!modal) return;
+            if (open) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // PERTEMUAN 4 TASK 01: Memuat data dari REST API endpoint menggunakan Fetch API
+        function loadCostumesFromAPI(showToast = false) {
+            const grid = document.getElementById('catalog-grid');
+            if (grid) {
+                grid.innerHTML = `
+                    <div class="col-span-full p-12 text-center space-y-3 bg-white border border-gray-200 rounded-2xl">
+                        <div class="inline-block animate-spin text-3xl">⏳</div>
+                        <p class="text-sm font-semibold text-gray-700">Mengambil data dari REST API...</p>
+                        <p class="text-xs text-indigo-600 font-mono">fetch('data/costumes.json')</p>
+                    </div>
+                `;
+            }
+
+            // Memanggil Fetch API
+            ChileoAPI.fetchCostumes(
+                (data, meta) => {
+                    allCostumesData = data;
+                    currentApiMeta = meta;
+
+                    // Update banner status
+                    const statusText = document.getElementById('api-status-text');
+                    const statusDetail = document.getElementById('api-status-detail');
+                    const ping = document.getElementById('api-status-ping');
+                    const dot = document.getElementById('api-status-dot');
+
+                    if (statusText) statusText.textContent = `REST API Terhubung (${meta.source})`;
+                    if (statusDetail) {
+                        statusDetail.innerHTML = `Endpoint: <code class="bg-gray-100 px-1.5 py-0.5 rounded text-indigo-700 font-mono text-[11px]">${meta.endpoint}</code> | ${data.length} Kostum dimuat via Fetch API (${meta.duration || 0}ms)`;
+                    }
+                    if (ping) ping.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75';
+                    if (dot) dot.className = 'relative inline-flex rounded-full h-3 w-3 bg-emerald-500';
+
+                    // Update modal info
+                    const modalStatus = document.getElementById('modal-api-status');
+                    const modalLatency = document.getElementById('modal-api-latency');
+                    const modalCount = document.getElementById('modal-api-count');
+                    const modalJson = document.getElementById('modal-json-content');
+
+                    if (modalStatus) modalStatus.textContent = meta.status ? `${meta.status} OK` : '200 OK (Cache)';
+                    if (modalLatency) modalLatency.textContent = `${meta.duration || 10} ms`;
+                    if (modalCount) modalCount.textContent = `${data.length} Kostum`;
+                    if (modalJson) modalJson.textContent = JSON.stringify(data, null, 2);
+
+                    renderCatalogItems();
+
+                    if (showToast) {
+                        alert(`✅ Sukses Terhubung ke REST API!\n\nEndpoint: ${meta.endpoint}\nTotal: ${data.length} item data kostum berhasil diterima via Fetch API (${meta.duration || 0} ms).`);
+                    }
+                },
+                (fallbackData, meta) => {
+                    allCostumesData = fallbackData;
+                    currentApiMeta = meta;
+
+                    const statusText = document.getElementById('api-status-text');
+                    const statusDetail = document.getElementById('api-status-detail');
+                    const ping = document.getElementById('api-status-ping');
+                    const dot = document.getElementById('api-status-dot');
+
+                    if (statusText) statusText.textContent = 'REST API Fallback (Offline/CORS)';
+                    if (statusDetail) {
+                        statusDetail.innerHTML = `Data dimuat dari local cache (${meta.error || 'CORS file://'}). Jalankan via Live Server untuk koneksi HTTP penuh.`;
+                    }
+                    if (ping) ping.className = 'hidden';
+                    if (dot) dot.className = 'relative inline-flex rounded-full h-3 w-3 bg-amber-500';
+
+                    const modalJson = document.getElementById('modal-json-content');
+                    if (modalJson) modalJson.textContent = JSON.stringify(fallbackData, null, 2);
+
+                    renderCatalogItems();
+                }
+            );
+        }
+
+        let currentPage = 1;
+        const ITEMS_PER_PAGE = 6;
+
+        function setPage(page) {
+            currentPage = page;
+            renderCatalogItems(false);
+            const catalogSec = document.getElementById('catalog-header-title');
+            if (catalogSec) {
+                catalogSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function renderPagination(totalPages, current) {
+            const nav = document.getElementById('catalog-pagination-nav');
+            const list = document.getElementById('catalog-pagination-list');
+            if (!nav || !list) return;
+
+            if (totalPages <= 0) {
+                nav.classList.add('hidden');
+                return;
+            }
+            nav.classList.remove('hidden');
+
+            let html = '';
+
+            // Tombol "Sebelum"
+            if (current > 1) {
+                html += `<li><button type="button" onclick="setPage(${current - 1})" class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition cursor-pointer">&laquo; Sebelum</button></li>`;
+            } else {
+                html += `<li><button type="button" disabled class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-400 cursor-not-allowed select-none" aria-disabled="true">&laquo; Sebelum</button></li>`;
+            }
+
+            // Nomor Halaman: jika list sedikit (totalPages === 1) hanya tampil 1, jika banyak maka dibagi sesuai data
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === current) {
+                    html += `<li><button type="button" aria-current="page" class="px-3 py-1.5 bg-indigo-600 text-white rounded-lg font-semibold shadow-sm select-none">${i}</button></li>`;
+                } else {
+                    html += `<li><button type="button" onclick="setPage(${i})" class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition font-semibold cursor-pointer">${i}</button></li>`;
+                }
+            }
+
+            // Tombol "Lanjut"
+            if (current < totalPages) {
+                html += `<li><button type="button" onclick="setPage(${current + 1})" class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition cursor-pointer">Lanjut &raquo;</button></li>`;
+            } else {
+                html += `<li><button type="button" disabled class="px-3 py-1.5 border border-gray-300 rounded-lg text-gray-400 cursor-not-allowed select-none" aria-disabled="true">Lanjut &raquo;</button></li>`;
+            }
+
+            list.innerHTML = html;
+        }
+
+        function renderCatalogItems(resetPage = false) {
+            if (resetPage) {
+                currentPage = 1;
+            }
+
+            const costumes = allCostumesData.length > 0 ? allCostumesData : ChileoDB.getCostumes();
+            const grid = document.getElementById('catalog-grid');
+            const empty = document.getElementById('catalog-empty-state');
+            if (!grid) return;
+
+            const q = document.getElementById('keyword-search')?.value.toLowerCase().trim() || '';
+            const checkedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value);
+            const checkedSizes = Array.from(document.querySelectorAll('input[name="size"]:checked')).map(el => el.value);
+            const selectedGender = document.querySelector('input[name="gender"]:checked')?.value || 'all';
+            const checkedGrades = Array.from(document.querySelectorAll('input[name="grade"]:checked')).map(el => el.value);
+            const minPrice = Number(document.getElementById('min-price')?.value) || 0;
+            const maxPrice = Number(document.getElementById('max-price')?.value) || Infinity;
+            const sortBy = document.getElementById('sort-select')?.value || 'popular';
+
+            let filtered = costumes.filter(c => {
+                const titleStr = (c.title || c.judul || '').toLowerCase();
+                const charStr = (c.character || c.karakter || '').toLowerCase();
+                const seriesStr = (c.series || c.seri || '').toLowerCase();
+                const catStr = (c.category || c.kategori || '').toLowerCase();
+                const sizeStr = c.size || c.ukuran || '';
+                const gradeStr = c.grade || '';
+                const priceNum = Number(c.price || c.harga || 0);
+
+                if (q && !titleStr.includes(q) && !charStr.includes(q) && !seriesStr.includes(q)) {
+                    return false;
+                }
+                if (checkedCategories.length > 0 && !checkedCategories.includes(catStr)) {
+                    return false;
+                }
+                if (checkedSizes.length > 0 && !checkedSizes.includes(sizeStr)) {
+                    return false;
+                }
+                if (selectedGender !== 'all' && c.gender !== selectedGender) {
+                    return false;
+                }
+                if (checkedGrades.length > 0 && !checkedGrades.includes(gradeStr)) {
+                    return false;
+                }
+                if (priceNum < minPrice || priceNum > maxPrice) {
+                    return false;
+                }
+                return true;
+            });
+
+            if (sortBy === 'price_asc') filtered.sort((a, b) => (a.price || a.harga) - (b.price || b.harga));
+            else if (sortBy === 'price_desc') filtered.sort((a, b) => (b.price || b.harga) - (a.price || a.harga));
+            else if (sortBy === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+            else filtered.sort((a, b) => (b.rentCount || b.jumlah_sewa || 0) - (a.rentCount || a.jumlah_sewa || 0));
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (empty) empty.classList.remove('hidden');
+                renderPagination(0, 1);
+                const counter = document.querySelector('#catalog-header-title + p');
+                if (counter) {
+                    counter.innerHTML = `Menampilkan <strong>0 dari ${costumes.length}</strong> kostum terverifikasi dengan jaminan escrow otomatis.`;
+                }
+                return;
+            }
+
+            if (empty) empty.classList.add('hidden');
+
+            const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE) || 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
+
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const pagedItems = filtered.slice(startIndex, endIndex);
+
+            grid.innerHTML = pagedItems.map(c => `
+                <article class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 bg-gray-100 overflow-hidden">
+                            <img src="${c.image || c.gambar}" alt="${c.title || c.judul}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x500/3d5a80/ffffff?text=${encodeURIComponent(c.title || c.judul)}'">
+                            <span class="absolute top-3 left-3 px-2 py-0.5 text-[11px] font-bold ${c.grade === 'A' ? 'bg-emerald-600' : 'bg-blue-600'} text-white rounded-md shadow">
+                                Grade ${c.grade}
+                            </span>
+                            <span class="absolute top-3 right-3 px-2 py-0.5 text-[11px] font-semibold bg-white/90 text-gray-800 rounded-md backdrop-blur-sm">
+                                Size ${c.size || c.ukuran}
+                            </span>
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-indigo-600 uppercase">${c.series || c.seri}</div>
+                            <h3 class="font-bold text-gray-900 text-sm leading-snug">
+                                <a href="detail-kostum.html?id=${c.id}" class="hover:text-indigo-600">${c.title || c.judul}</a>
+                            </h3>
+                            <div class="flex items-center gap-1 text-xs text-amber-500">
+                                <span>★</span>
+                                <strong class="text-gray-800">${c.rating}</strong>
+                                <span class="text-gray-400">(${c.rentCount || c.jumlah_sewa || 0}x disewa)</span>
+                            </div>
+                            <div class="flex flex-wrap gap-1 text-[10px] text-gray-600 pt-1">
+                                ${(c.includes || c.kelengkapan || []).map(inc => `<span class="px-1.5 py-0.5 bg-gray-100 rounded">✓ ${inc}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-0 border-t border-gray-100 flex items-center justify-between mt-3">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block">Sewa 3 Hari:</span>
+                            <strong class="text-base font-bold text-indigo-600">${formatRupiah(c.price || c.harga)}</strong>
+                        </div>
+                        <a href="detail-kostum.html?id=${c.id}" class="px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition shadow-sm">
+                            Detail & Sewa &rarr;
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+
+            renderPagination(totalPages, currentPage);
+
+            const counter = document.querySelector('#catalog-header-title + p');
+            if (counter) {
+                if (totalPages > 1) {
+                    counter.innerHTML = `Menampilkan <strong>${startIndex + 1}&ndash;${Math.min(endIndex, filtered.length)} dari ${filtered.length}</strong> kostum terverifikasi (Halaman ${currentPage} dari ${totalPages}) dengan jaminan escrow otomatis.`;
+                } else {
+                    counter.innerHTML = `Menampilkan <strong>${filtered.length} dari ${costumes.length}</strong> kostum terverifikasi dengan jaminan escrow otomatis.`;
+                }
+            }
+        }
+
+        function resetAllFilters() {
+            document.getElementById('form-filter-katalog')?.reset();
+            renderCatalogItems(true);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCostumesFromAPI();
+            document.getElementById('form-filter-katalog')?.addEventListener('input', () => renderCatalogItems(true));
+            document.getElementById('form-filter-katalog')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                renderCatalogItems(true);
+            });
+            document.getElementById('sort-select')?.addEventListener('change', () => renderCatalogItems(true));
+        });
+    </script>
+</body>
+</html>

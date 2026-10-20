@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Manajemen Rental Pintar - Chileorent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            <!-- Logo & Slogan -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition whitespace-nowrap">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="hidden xl:block text-xs text-gray-500 border-l border-gray-300 pl-3 whitespace-nowrap">
+                    Sistem Manajemen Rental Pintar & Alih Fungsi Kostum
+                </p>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="hidden md:flex items-center">
+                <ul class="flex items-center gap-2 lg:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Alih Fungsi Kostum <span class="hidden xl:inline text-xs text-indigo-500 font-semibold">(Nego 0-8%)</span></a></li>
+                    <li><a href="dashboard-rental.html" aria-current="page" class="px-2.5 py-1 text-indigo-600 font-semibold border-b-2 border-indigo-600 whitespace-nowrap">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksi Auth Desktop -->
+            <div id="desktop-auth-actions" class="hidden md:flex items-center gap-2 shrink-0">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition whitespace-nowrap">Daftar Akun</a>
+            </div>
+
+            <!-- Kontrol Mobile: Badge Singkat Pengguna + Tombol Hamburger -->
+            <div class="flex items-center gap-2 md:hidden">
+                <div id="mobile-compact-badge" class="flex items-center"></div>
+                <button type="button" id="mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobile-dropdown-menu" class="p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="hamburger-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="hamburger-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-4 space-y-3 shadow-lg">
+            <nav aria-label="Navigasi Mobile">
+                <ul class="flex flex-col space-y-1 text-sm font-medium text-gray-700">
+                    <li><a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" aria-current="page" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-50 text-indigo-600 font-semibold">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-auth-actions" class="pt-2 border-t border-gray-100">
+                <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                    <a href="login.html" class="py-2.5 px-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+                    <a href="register.html" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm transition">Daftar Akun</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li id="breadcrumb-dashboard-title" aria-current="page" class="font-semibold text-gray-800">Dashboard Manajemen Rental Pintar</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="konten-dashboard" class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- NOTIFIKASI TAMU JIKA BELUM LOGIN -->
+            <section id="view-guest-notice" class="hidden p-8 bg-white border border-gray-200 rounded-2xl text-center space-y-4 shadow-sm">
+                <span class="text-4xl block">🔐</span>
+                <h2 class="text-xl font-bold text-gray-900">Akses Dashboard Memerlukan Login Akun</h2>
+                <p class="text-xs text-gray-500 max-w-md mx-auto">Silakan masuk ke akun Anda atau daftarkan akun baru sesuai peran Anda (Customer atau Admin).</p>
+                <div class="flex justify-center gap-3 pt-2">
+                    <a href="login.html" class="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition">Masuk ke Akun &rarr;</a>
+                    <a href="register.html" class="px-4 py-2 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 border rounded-lg transition">Daftar Akun Baru</a>
+                </div>
+            </section>
+
+            <!-- PERAN 1: FITUR LUAS ADMIN -->
+            <section id="view-owner-luas" class="space-y-8" aria-labelledby="owner-view-title">
+                
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded-full">👑 Mode Akses: Admin</span>
+                        <h2 id="owner-view-title" class="text-2xl font-bold text-gray-900">Panel Kontrol Operasional: Kurogane Cosplay Hub</h2>
+                        <p class="text-xs text-gray-500">Status: <span class="text-emerald-600 font-bold">✓ Mitra Terverifikasi KYC</span> | Rating: ★★★★★ <strong>4.8 / 5.0</strong></p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="admin-dashboard.html" class="px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-900 rounded-lg transition">⚙️ Admin Dashboard Pusat &rarr;</a>
+                    </div>
+                </header>
+
+                <section class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Total Kostum</h3>
+                        <p class="text-2xl font-bold text-gray-900 mt-1">24</p>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Sedang Disewa</h3>
+                        <p class="text-2xl font-bold text-indigo-600 mt-1">7</p>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Menunggu Kirim</h3>
+                        <p class="text-2xl font-bold text-amber-600 mt-1">3</p>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                        <h3 class="text-xs text-gray-500">Perlu Laundry</h3>
+                        <p class="text-2xl font-bold text-blue-600 mt-1">4</p>
+                    </article>
+                    <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm col-span-2 md:col-span-1">
+                        <h3 class="text-xs text-gray-500">Saldo Escrow</h3>
+                        <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 3.850.000</p>
+                    </article>
+                </section>
+
+                <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                    <h3 id="jadwal-sewa-heading" class="font-bold text-gray-900 text-base">Jadwal Sewa Aktif & Status Pengembalian</h3>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                    <th class="p-3">ID Booking</th>
+                                    <th class="p-3">Kostum</th>
+                                    <th class="p-3">Penyewa</th>
+                                    <th class="p-3">Jadwal</th>
+                                    <th class="p-3">Status Barang</th>
+                                    <th class="p-3">Status Escrow</th>
+                                    <th class="p-3">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-mono">#BK-2026-081</td>
+                                    <td class="p-3"><strong>Frieren (Size M)</strong></td>
+                                    <td class="p-3">Alisa Putri</td>
+                                    <td class="p-3">24-27 Sep 2026</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded">Dikirim</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Tertahan</span></td>
+                                    <td class="p-3"><button type="button" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-800 border">Lacak Resi</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono">#BK-2026-085</td>
+                                    <td class="p-3"><strong>Raiden Shogun (Size S)</strong></td>
+                                    <td class="p-3">Rian Kusuma</td>
+                                    <td class="p-3">28-30 Sep 2026</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded">Menunggu Kirim</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">DP 30% Masuk</span></td>
+                                    <td class="p-3"><button type="button" class="px-2.5 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded border border-indigo-200 font-semibold">Input Resi</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- MODUL EKSKLUSIF ADMIN/OWNER: JUAL PUTUS KOSTUM RENTAL KAMI -->
+                <section class="bg-gradient-to-br from-indigo-50 via-white to-amber-50/50 p-6 border-2 border-indigo-200 rounded-2xl shadow-sm space-y-4">
+                    <header class="flex flex-wrap items-center justify-between gap-3 border-b border-indigo-100 pb-3">
+                        <div>
+                            <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-amber-200 text-amber-900 rounded-full">⚡ Fitur Likuidasi Internal Admin / Owner</span>
+                            <h3 class="font-bold text-gray-900 text-base mt-1">🏷️ Jual Putus Kostum Usaha Kami (Pencairan Dana Cepat)</h3>
+                            <p class="text-xs text-gray-600">Khusus digunakan saat usaha rental kami membutuhkan perputaran modal/dana segar dengan menjual unit inventaris langsung ke cosplayer.</p>
+                        </div>
+                        <button type="button" class="px-3.5 py-2 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">
+                            + Pasang Kostum Toko untuk Jual Putus
+                        </button>
+                    </header>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs bg-white rounded-xl border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                    <th class="p-3">ID Aset Toko</th>
+                                    <th class="p-3">Kostum Koleksi Toko</th>
+                                    <th class="p-3">Kondisi & Kelengkapan</th>
+                                    <th class="p-3">Harga Jual Putus</th>
+                                    <th class="p-3">Toleransi Nego</th>
+                                    <th class="p-3">Status Penjualan</th>
+                                    <th class="p-3">Tindakan Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-mono">#OWN-KST-03</td>
+                                    <td class="p-3"><strong>Zhongli Archon (Size L)</strong><br><small class="text-gray-500">Ex-Koleksi Rental Utama</small></td>
+                                    <td class="p-3">Grade A (95%) | Fullset + Tombak</td>
+                                    <td class="p-3"><strong class="text-indigo-600">Rp 1.450.000</strong></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">Nego Maks: 8%</span><br><small class="text-gray-500">Min: Rp 1.334.000</small></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold">Ditawar Calon Pembeli</span></td>
+                                    <td class="p-3 space-x-1">
+                                        <button type="button" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Terima Nego</button>
+                                        <button type="button" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded border">Ubah Harga</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </section>
+
+            <!-- PERAN 2: FITUR CUSTOMER (COSPLAYER & PEMILIK RENTAL LAMA) -->
+            <section id="view-customer" class="space-y-6 hidden" aria-labelledby="customer-view-title">
+                
+                <header class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded-full">🎭 Mode Akses: Customer (Cosplayer / Pemilik Rental Lama)</span>
+                        <h2 id="customer-view-title" class="text-2xl font-bold text-gray-900">Halo, Alisa Putri / Sakura Wardrobe!</h2>
+                        <p class="text-xs text-gray-500">Status Akun: <span class="text-emerald-600 font-bold">✓ Terverifikasi KYC</span> (Bebas Deposit Rp 0 & Auto-Identifikasi Form Alih Fungsi)</p>
+                    </div>
+                </header>
+
+                <!-- SUB-TAB SWITCHER -->
+                <nav class="flex flex-wrap gap-2 border-b border-gray-200 pb-3" aria-label="Customer Subtabs">
+                    <button type="button" id="tab-btn-cust-rent" onclick="switchCustomerSubtab('rent')" class="px-4 py-2 text-xs font-bold rounded-xl bg-indigo-600 text-white shadow-sm transition">
+                        📦 Sewa Kostum Saya (Pelacakan Resi & Status Rental)
+                    </button>
+                    <button type="button" id="tab-btn-cust-alih" onclick="switchCustomerSubtab('alih')" class="px-4 py-2 text-xs font-bold rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
+                        🔄 Alih Fungsi Kostum Saya (Kurasi Grade & Nego 0-8%)
+                    </button>
+                </nav>
+
+                <!-- SUBSECTION 1: SEWA KOSTUM SAYA -->
+                <div id="customer-sub-rent" class="space-y-8">
+                    <!-- BANNER PERENTAL INFO -->
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900 space-y-1">
+                        <p class="font-bold">✨ Manfaat Akun Customer Terdaftar (Fitur Sewa):</p>
+                        <p class="text-gray-600">Akun Anda mempermudah tracking status pengiriman kostum, jadwal pengembalian, status pelunasan DP, serta pengembalian dana deposit (uang jaminan) otomatis melalui Escrow tanpa repot konfirmasi manual.</p>
+                    </div>
+
+                    <!-- METRICS PERENTAL -->
+                    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Kostum Sedang Disewa</h3>
+                            <p class="text-2xl font-bold text-indigo-600 mt-1">1 Kostum</p>
+                            <span class="text-[10px] text-gray-500">Frieren (Size M)</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Booking DP (Mendatang)</h3>
+                            <p class="text-2xl font-bold text-amber-600 mt-1">1 Booking</p>
+                            <span class="text-[10px] text-gray-500">DP 30% Terbayar</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Riwayat Sewa Selesai</h3>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">4 Kali</p>
+                            <span class="text-[10px] text-emerald-600">Skor Reputasi: 5.0 ★</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Uang Jaminan di Escrow</h3>
+                            <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 100.000</p>
+                            <span class="text-[10px] text-emerald-600">Proses refund otomatis</span>
+                        </article>
+                    </section>
+
+                    <!-- TABEL STATUS KOSTUM YANG DIRENTAL -->
+                    <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-gray-900 text-base">Status Kostum yang Sedang / Akan Dirental</h3>
+                            <span class="text-xs text-gray-500">Pantau resi kurir, batas waktu kembali, dan status dana jaminan</span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                        <th class="p-3">ID Booking</th>
+                                        <th class="p-3">Kostum & Seri</th>
+                                        <th class="p-3">Tanggal Sewa</th>
+                                        <th class="p-3">Skema Bayar</th>
+                                        <th class="p-3">Uang Jaminan</th>
+                                        <th class="p-3">Resi & Pengiriman</th>
+                                        <th class="p-3">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- SUBSECTION 2: ALIH FUNGSI KOSTUM SAYA -->
+                <div id="customer-sub-alih" class="space-y-8 hidden">
+                    <!-- BANNER ALIH FUNGSI INFO -->
+                    <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl text-xs text-indigo-900 space-y-1">
+                        <p class="font-bold">✨ Manfaat Akun Customer Terdaftar (Fitur Alih Fungsi):</p>
+                        <p class="text-gray-600">Memudahkan identifikasi kepemilikan kostum lama saat mengisi alur formulir alih fungsi (Titip Sewa / Akuisisi oleh Chileorent). Anda tidak perlu mengulang proses verifikasi identitas (KTP/rekening) untuk setiap kostum yang diajukan.</p>
+                    </div>
+
+                    <!-- METRICS PENJUAL / ALIH FUNGSI -->
+                    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Kostum Dialihfungsikan</h3>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">3 Unit</p>
+                            <span class="text-[10px] text-gray-500">2 Akuisisi Chileorent, 1 Titip Sewa</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Menunggu Kurasi Fisik</h3>
+                            <p class="text-2xl font-bold text-amber-600 mt-1">1 Pengajuan</p>
+                            <span class="text-[10px] text-gray-500">Proses Grade & Cek Foto</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Tawaran Nego Masuk (0-8%)</h3>
+                            <p class="text-2xl font-bold text-indigo-600 mt-1">2 Calon Pembeli</p>
+                            <span class="text-[10px] text-gray-500">Toleransi nego terkendali</span>
+                        </article>
+                        <article class="bg-white p-4 border border-gray-200 rounded-xl shadow-sm">
+                            <h3 class="text-xs text-gray-500">Saldo Rekening Escrow</h3>
+                            <p class="text-2xl font-bold text-emerald-600 mt-1">Rp 1.850.000</p>
+                            <span class="text-[10px] text-emerald-600">Siap dicairkan ke bank</span>
+                        </article>
+                    </section>
+
+                    <!-- TABEL STATUS KOSTUM ALIH FUNGSI -->
+                    <section class="bg-white p-6 border border-gray-200 rounded-2xl shadow-sm space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-bold text-gray-900 text-base">Status Kostum yang Sedang Dialihfungsikan</h3>
+                            <span class="text-xs text-gray-500">Daftar kostum Anda yang sedang dikurasi atau dipasarkan</span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
+                                        <th class="p-3">ID Pengajuan</th>
+                                        <th class="p-3">Kostum & Karakter</th>
+                                        <th class="p-3">Skema Dipilih</th>
+                                        <th class="p-3">Harga & Toleransi Nego</th>
+                                        <th class="p-3">Grade Kurasi</th>
+                                        <th class="p-3">Status Listing</th>
+                                        <th class="p-3">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Sistem Manajemen Rental Pintar & Marketplace Sewa Kostum Cosplay Indonesia.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                    <li><a href="admin-dashboard.html" class="hover:text-white transition">Admin Dashboard Pusat</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Bantuan Rental</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Pencairan Dana Escrow</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Panduan Sanitasi & Grade</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT ENGINE & DASHBOARD RENTAL CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        function switchCustomerSubtab(sub) {
+            const rentSub = document.getElementById('customer-sub-rent');
+            const alihSub = document.getElementById('customer-sub-alih');
+            const btnRent = document.getElementById('tab-btn-cust-rent');
+            const btnAlih = document.getElementById('tab-btn-cust-alih');
+
+            if (sub === 'alih') {
+                if (rentSub) rentSub.classList.add('hidden');
+                if (alihSub) alihSub.classList.remove('hidden');
+                if (btnRent) {
+                    btnRent.className = 'px-4 py-2 text-xs font-bold rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition';
+                }
+                if (btnAlih) {
+                    btnAlih.className = 'px-4 py-2 text-xs font-bold rounded-xl bg-indigo-600 text-white shadow-sm transition';
+                }
+            } else {
+                if (rentSub) rentSub.classList.remove('hidden');
+                if (alihSub) alihSub.classList.add('hidden');
+                if (btnRent) {
+                    btnRent.className = 'px-4 py-2 text-xs font-bold rounded-xl bg-indigo-600 text-white shadow-sm transition';
+                }
+                if (btnAlih) {
+                    btnAlih.className = 'px-4 py-2 text-xs font-bold rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition';
+                }
+            }
+        }
+
+        function setRoleTab(tabId) {
+            const sections = ['view-owner-luas', 'view-customer', 'view-guest-notice'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === tabId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            const breadcrumbNav = document.querySelector('.breadcrumb-nav');
+            const adminHideNavItems = document.querySelectorAll('#navigasi-utama a[href*="index.html"], #navigasi-utama a[href*="catalog.html"], #navigasi-utama a[href*="alih-fungsi.html"]');
+
+            if (tabId === 'view-owner-luas') {
+                // Sembunyikan breadcrumb path dan menu publik untuk admin
+                if (breadcrumbNav) breadcrumbNav.classList.add('hidden');
+                adminHideNavItems.forEach(el => {
+                    const li = el.closest('li');
+                    if (li) li.classList.add('hidden');
+                });
+            } else {
+                // Tampilkan kembali semua 4 menu dan breadcrumb untuk customer
+                if (breadcrumbNav) breadcrumbNav.classList.remove('hidden');
+                adminHideNavItems.forEach(el => {
+                    const li = el.closest('li');
+                    if (li) li.classList.remove('hidden');
+                });
+            }
+
+            const breadcrumbEl = document.getElementById('breadcrumb-dashboard-title');
+            if (breadcrumbEl) {
+                if (tabId === 'view-customer') {
+                    breadcrumbEl.textContent = 'Dashboard Customer - Pelacakan Sewa & Alih Fungsi Kostum';
+                } else if (tabId === 'view-owner-luas') {
+                    breadcrumbEl.textContent = 'Dashboard Admin - Manajemen Operasional Rental';
+                } else {
+                    breadcrumbEl.textContent = 'Dashboard Rental';
+                }
+            }
+        }
+
+        function renderOwnerTables() {
+            const rentals = ChileoDB.getRentals();
+            const ownerTbody = document.querySelector('#view-owner-luas tbody');
+            if (ownerTbody) {
+                ownerTbody.innerHTML = rentals.map(r => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-indigo-600">${r.id}</td>
+                        <td class="p-3"><strong>${r.costumeTitle}</strong></td>
+                        <td class="p-3">${r.renterName}</td>
+                        <td class="p-3">${r.startDate} s/d ${r.endDate}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${r.itemStatus.includes('Dipakai') ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'} rounded font-medium">${r.itemStatus}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">${r.scheme}</span></td>
+                        <td class="p-3 space-x-1">
+                            <button type="button" onclick="promptTracking('${r.id}')" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-800 border">Input Resi</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Liquidation table
+            const liquidations = ChileoDB.getOwnerLiquidation();
+            const liqTbody = document.querySelector('#view-owner-luas section.bg-gradient-to-br tbody');
+            if (liqTbody) {
+                liqTbody.innerHTML = liquidations.map(l => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold">${l.id}</td>
+                        <td class="p-3"><strong>${l.costumeTitle}</strong><br><small class="text-gray-500">${l.source}</small></td>
+                        <td class="p-3">${l.condition}</td>
+                        <td class="p-3"><strong class="text-indigo-600">${formatRupiah(l.directPrice)}</strong></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">Nego Maks: ${l.negoTolerance}%</span><br><small class="text-gray-500">Min: ${formatRupiah(l.floorPrice)}</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${l.status.includes('Selesai') ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} rounded font-bold">${l.status}</span></td>
+                        <td class="p-3 space-x-1">
+                            ${l.status.includes('Ditawar') ? `<button type="button" onclick="acceptLiquidation('${l.id}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-medium">Terima Nego</button>` : ''}
+                            <button type="button" onclick="alert('Harga aset ${l.costumeTitle} dapat disesuaikan kembali dari panel inventaris.')" class="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded border">Ubah</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function renderSellerTable() {
+            const list = ChileoDB.getRepurposing();
+            const sellerTbody = document.querySelector('#customer-sub-alih tbody, #view-penjual-terbatas tbody');
+            if (sellerTbody) {
+                sellerTbody.innerHTML = list.map(item => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-purple-700">${item.id}</td>
+                        <td class="p-3"><strong>${item.character}</strong><br><small class="text-gray-500">${item.series}</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-medium">${item.schemeLabel}</span></td>
+                        <td class="p-3">${formatRupiah(item.basePrice)}<br><small class="text-indigo-600 font-medium">Nego Maks: ${item.negoTolerance}% (${formatRupiah(item.minPrice)})</small></td>
+                        <td class="p-3"><span class="px-2 py-0.5 ${item.adminGrade.includes('Grade') ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} rounded font-bold">${item.adminGrade}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-medium">${item.status}</span></td>
+                        <td class="p-3">
+                            <a href="alih-fungsi.html#simulasi-nego" class="px-2.5 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded border border-indigo-200 font-semibold inline-block">Cek Nego</a>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function renderRenterTable() {
+            const list = ChileoDB.getRentals();
+            const renterTbody = document.querySelector('#customer-sub-rent tbody, #view-perental-terbatas tbody');
+            if (renterTbody) {
+                renterTbody.innerHTML = list.map(r => `
+                    <tr>
+                        <td class="p-3 font-mono font-bold text-emerald-700">${r.id}</td>
+                        <td class="p-3"><strong>${r.costumeTitle}</strong></td>
+                        <td class="p-3">${r.startDate} s/d ${r.endDate}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-medium">${r.scheme}</span></td>
+                        <td class="p-3">${r.depositAmount > 0 ? formatRupiah(r.depositAmount) : '<strong class="text-emerald-700">Rp 0 (Bebas Deposit)</strong>'}<br><small class="text-gray-500">${r.depositStatus}</small></td>
+                        <td class="p-3 font-mono text-indigo-600 font-bold">${r.courier}<br><span class="text-gray-600 font-normal">${r.trackingNumber}</span></td>
+                        <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">${r.itemStatus}</span></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function promptTracking(id) {
+            const resi = prompt('Masukkan Nomor Resi Ekspedisi untuk booking ' + id + ':', 'JNE-' + Math.floor(100000000 + Math.random() * 900000000));
+            if (resi) {
+                const rentals = ChileoDB.getRentals();
+                const found = rentals.find(x => x.id === id);
+                if (found) {
+                    found.trackingNumber = resi;
+                    found.itemStatus = 'Sedang Dikirim via Kurir';
+                    localStorage.setItem('chileorent_rentals', JSON.stringify(rentals));
+                    renderOwnerTables();
+                    renderRenterTable();
+                    alert('✓ Nomor resi ' + resi + ' berhasil disimpan dan disinkronkan ke Dashboard Customer!');
+                }
+            }
+        }
+
+        function acceptLiquidation(id) {
+            const list = ChileoDB.getOwnerLiquidation();
+            const found = list.find(x => x.id === id);
+            if (found) {
+                found.status = 'Selesai Terjual Putus (Dana Rp ' + Number(found.buyerBid || found.floorPrice).toLocaleString('id-ID') + ' Masuk Kas)';
+                localStorage.setItem('chileorent_owner_liquidation', JSON.stringify(list));
+                renderOwnerTables();
+                alert('✓ Penjualan Jual Putus aset unit toko disetujui! Dana langsung dicairkan ke kas operasional rental kami.');
+            }
+        }
+
+        function addNewStoreLiquidation() {
+            const title = prompt('Nama Kostum Toko Kami yang Ingin Dijual Putus (Butuh Dana Cepat):', 'Arataki Itto Fullset (Size L)');
+            if (!title) return;
+            const price = Number(prompt('Harga Jual Putus Langsung (Rp):', '1250000')) || 1000000;
+            const tolerance = Number(prompt('Batas Toleransi Nego (0 s.d 8%):', '8')) || 8;
+            const floorPrice = price - Math.round(price * (tolerance / 100));
+
+            const newItem = {
+                id: 'OWN-KST-' + Math.floor(10 + Math.random() * 90),
+                costumeTitle: title,
+                source: 'Inventaris Rental Utama Kami (Butuh Dana Kas Cepat)',
+                condition: 'Grade A (Koleksi Toko Lengkap)',
+                directPrice: price,
+                negoTolerance: tolerance,
+                floorPrice: floorPrice,
+                buyerBid: 0,
+                status: 'Aktif Dijual Putus'
+            };
+
+            ChileoDB.addOwnerLiquidation(newItem);
+            renderOwnerTables();
+            alert('✓ Kostum ' + title + ' berhasil didaftarkan ke modul Jual Putus Toko Kami!');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const session = ChileoDB.getUserSession();
+
+            renderOwnerTables();
+            renderSellerTable();
+            renderRenterTable();
+
+            // Hook up add store liquidation button
+            const addLiqBtn = document.querySelector('#view-owner-luas section.bg-gradient-to-br button');
+            if (addLiqBtn) {
+                addLiqBtn.onclick = addNewStoreLiquidation;
+            }
+
+            const hash = window.location.hash.replace('#', '');
+            const params = new URLSearchParams(window.location.search);
+            const role = params.get('role');
+
+            if (hash === 'view-owner-luas') {
+                setRoleTab('view-owner-luas');
+            } else if (hash === 'view-penjual-terbatas' || hash === 'view-alih-fungsi') {
+                setRoleTab('view-customer');
+                switchCustomerSubtab('alih');
+            } else if (hash === 'view-perental-terbatas' || hash === 'view-customer') {
+                setRoleTab('view-customer');
+                switchCustomerSubtab('rent');
+            } else if (role === 'admin' || role === 'owner_admin' || session.role === 'admin' || session.role === 'owner_admin') {
+                setRoleTab('view-owner-luas');
+            } else if (role === 'customer' || session.role === 'customer' || role === 'renter' || session.role === 'renter' || role === 'seller' || session.role === 'seller') {
+                setRoleTab('view-customer');
+                if (session.name) {
+                    const custTitle = document.getElementById('customer-view-title');
+                    if (custTitle) custTitle.textContent = 'Halo, ' + session.name + '!';
+                }
+            } else {
+                setRoleTab('view-guest-notice');
+            }
+        });
+    </script>
+</body>
+</html>

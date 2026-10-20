@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alih Fungsi Kostum & Fitur Nego Fleksibel (0-8%) - Chileorent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            <!-- Logo & Slogan -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition whitespace-nowrap">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="hidden xl:block text-xs text-gray-500 border-l border-gray-300 pl-3 whitespace-nowrap">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="hidden md:flex items-center">
+                <ul class="flex items-center gap-2 lg:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" aria-current="page" class="px-2.5 py-1 text-indigo-600 font-semibold border-b-2 border-indigo-600 whitespace-nowrap">Alih Fungsi Kostum <span class="hidden xl:inline text-xs text-indigo-500 font-semibold">(Nego 0-8%)</span></a></li>
+                    <li><a href="dashboard-rental.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksi Auth Desktop -->
+            <div id="desktop-auth-actions" class="hidden md:flex items-center gap-2 shrink-0">
+                <a href="login.html" class="px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition whitespace-nowrap">Daftar Akun</a>
+            </div>
+
+            <!-- Kontrol Mobile: Badge Singkat Pengguna + Tombol Hamburger -->
+            <div class="flex items-center gap-2 md:hidden">
+                <div id="mobile-compact-badge" class="flex items-center"></div>
+                <button type="button" id="mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobile-dropdown-menu" class="p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="hamburger-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="hamburger-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-4 space-y-3 shadow-lg">
+            <nav aria-label="Navigasi Mobile">
+                <ul class="flex flex-col space-y-1 text-sm font-medium text-gray-700">
+                    <li><a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" aria-current="page" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-50 text-indigo-600 font-semibold">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-auth-actions" class="pt-2 border-t border-gray-100">
+                <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                    <a href="login.html" class="py-2.5 px-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+                    <a href="register.html" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm transition">Daftar Akun</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Alur Alih Fungsi Produk & Fitur Nego Fleksibel (0% - 8%)</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="konten-alih-fungsi" class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- INTRO -->
+            <section class="intro-section bg-white p-6 sm:p-8 border border-gray-200 rounded-2xl shadow-sm space-y-4" aria-labelledby="intro-heading">
+                <span class="inline-block px-3 py-1 text-xs font-semibold bg-indigo-100 text-indigo-700 rounded-full">Solusi Tepat Guna Bagi Komunitas & Usaha Rental</span>
+                <h1 id="intro-heading" class="text-2xl sm:text-3xl font-extrabold text-gray-900">Alih Fungsikan Kostum Cosplay Anda: Putar Aset & Hasilkan Pendapatan</h1>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Apakah Anda <strong>pemilik usaha rental yang sedang menutup operasional</strong> dan memiliki tumpukan inventaris kostum? Atau seorang <strong>cosplayer yang lelah menunggu pembeli</strong> saat ingin menjual kostum yang jarang terpakai?
+                </p>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Jangan biarkan kostum sekadar menimbun di lemari! Di Chileorent, Anda dapat mengalihfungsikan kostum untuk <strong>dititip-sewakan</strong> ke sesama cosplayer atau <strong>diakuisisi langsung oleh pihak Chileorent</strong>. Lengkap dengan <strong>fitur nego fleksibel terkontrol (pilihan toleransi 0% hingga 8%)</strong> dalam proses kesepakatan harga dan jaminan keamanan <strong>Rekening Bersama (Escrow) otomatis</strong>.
+                </p>
+
+                <!-- 2 SKEMA ALIH FUNGSI -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                    <article class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+                        <div class="text-2xl">🤝</div>
+                        <h2 class="font-bold text-gray-900 text-base">Skema 1: Titip Sewa (Konsinyasi Bagi Hasil)</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Kostum tetap milik Anda, namun dikelola, dirawat, dan disewakan ke cosplayer via ekosistem Chileorent dengan sistem bagi hasil berkala (70% pemilik : 30% platform).</p>
+                        <ul class="text-[11px] text-gray-500 space-y-1 pt-2 border-t border-gray-200">
+                            <li>✓ Bagi hasil transparan & pasif income rutin</li>
+                            <li>✓ Bebas repot urusan laundry & packing ekspedisi</li>
+                            <li>✓ Perlindungan asuransi & deposit jaminan</li>
+                        </ul>
+                    </article>
+
+                    <article class="p-5 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+                        <div class="text-2xl">🏢</div>
+                        <h2 class="font-bold text-gray-900 text-base">Skema 2: Akuisisi Langsung oleh Chileorent</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Solusi cepat bagi pemilik usaha rental yang menutup toko atau cosplayer yang ingin mencairkan dana. Chileorent membeli inventaris Anda (satuan maupun borongan) dengan harga taksiran transparan didukung batas nego 0-8%.</p>
+                        <ul class="text-[11px] text-gray-500 space-y-1 pt-2 border-t border-gray-200">
+                            <li>✓ Pencairan dana cepat & borongan via Escrow</li>
+                            <li>✓ Penjemputan paket inventaris kostum ke lokasi</li>
+                            <li>✓ Negosiasi batas toleransi harga aman (0-8%)</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- NOTIFIKASI KHUSUS JUAL PUTUS -->
+                <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 flex items-start gap-2.5">
+                    <span class="text-base">ℹ️</span>
+                    <div>
+                        <strong>Mengenai Opsi "Jual Putus":</strong>
+                        <p class="text-[11px] text-amber-800 mt-0.5">Penjualan putus langsung ke konsumen merupakan fitur operasional internal yang dikelola oleh Administrator/Owner Chileorent guna melikuidasi unit kostum dari inventaris rentalan kami sendiri saat membutuhkan perputaran modal dan dana segar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FORM SECTION -->
+            <section class="bg-white p-6 sm:p-8 border border-gray-200 rounded-2xl shadow-sm space-y-8" aria-labelledby="form-heading">
+                <header>
+                    <h2 id="form-heading" class="text-2xl font-bold text-gray-900">Formulir Pendaftaran & Alih Fungsi Kostum</h2>
+                    <p class="text-xs text-gray-500 mt-1">Isi data kostum secara jujur dan transparan untuk memudahkan proses verifikasi kelayakan fisik dan aktivasi opsi tawar-menawar.</p>
+                </header>
+
+                <form id="form-alih-fungsi" action="#konfirmasi" method="POST" enctype="multipart/form-data" class="space-y-8">
+
+                    <!-- Banner Autofill -->
+                    <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800">
+                        💡 <strong>Sudah memiliki akun Penjual terdaftar?</strong> <a href="login.html" class="underline font-bold">Masuk ke akun Anda</a> agar data identitas pemilik kostum lama, domisili, dan verifikasi KYC otomatis terisi tanpa perlu upload ulang identitas!
+                    </div>
+
+                    <!-- BAGIAN 1 -->
+                    <fieldset class="space-y-4 border border-gray-200 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-600 px-2">Bagian 1: Identitas Pemilik / Mitra Rental</legend>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-gray-700">Kategori Pengirim:</label>
+                            <div class="space-y-2 text-xs">
+                                <label class="flex items-start gap-2 cursor-pointer">
+                                    <input type="radio" name="owner_type" value="ex_rental" checked class="mt-0.5 text-indigo-600">
+                                    <span>Pemilik Usaha Rental Kostum (Sedang / Telah Menutup Usaha)</span>
+                                </label>
+                                <label class="flex items-start gap-2 cursor-pointer">
+                                    <input type="radio" name="owner_type" value="individual_cosplayer" class="mt-0.5 text-indigo-600">
+                                    <span>Cosplayer Individu (Ingin Jual / Titip Sewa Kostum Koleksi)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="owner-name" class="text-xs font-semibold text-gray-700">Nama Pemilik / Nama Rental Usaha:</label>
+                                <input type="text" id="owner-name" name="owner_name" placeholder="Cth: Kurogane Rental" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-1 focus:ring-indigo-500">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="owner-phone" class="text-xs font-semibold text-gray-700">Nomor WhatsApp Aktif:</label>
+                                <input type="tel" id="owner-phone" name="owner_phone" placeholder="Cth: 081234567890" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-1 focus:ring-indigo-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="owner-social" class="text-xs font-semibold text-gray-700">Media Sosial / Portofolio:</label>
+                                <input type="url" id="owner-social" name="owner_social" placeholder="https://instagram.com/..." class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-1 focus:ring-indigo-500">
+                                <small class="text-[10px] text-gray-500 block">Digunakan untuk memvalidasi reputasi komunitas.</small>
+                            </div>
+                            <div class="space-y-1">
+                                <label for="owner-city" class="text-xs font-semibold text-gray-700">Kota / Domisili Gudang Kostum:</label>
+                                <input type="text" id="owner-city" name="owner_city" placeholder="Cth: Kota Bandung" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-1 focus:ring-indigo-500">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="owner-id-file" class="text-xs font-semibold text-gray-700">Unggah Bukti Verifikasi Identitas (KTP / ID):</label>
+                            <input type="file" id="owner-id-file" name="owner_id_file" accept="image/*,.pdf" required class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                            <small class="text-[10px] text-gray-500 block">Keamanan data terjamin 100% untuk kepatuhan verifikasi KYC.</small>
+                        </div>
+                    </fieldset>
+
+                    <!-- BAGIAN 2 -->
+                    <fieldset class="space-y-4 border border-gray-200 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-600 px-2">Bagian 2: Pilih Skema Alih Fungsi yang Diinginkan</legend>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <label class="p-4 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:border-indigo-500 flex flex-col space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="selected_scheme" value="titip_sewa" checked class="text-indigo-600">
+                                    <strong class="text-gray-900">Titip Sewa (Konsinyasi Bagi Hasil)</strong>
+                                </div>
+                                <span class="text-gray-500">Kostum Anda kami bantu rawat dan sewakan secara berkala dengan sistem bagi hasil 70% pemilik : 30% platform.</span>
+                            </label>
+
+                            <label class="p-4 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:border-indigo-500 flex flex-col space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="selected_scheme" value="akuisisi_chileorent" class="text-indigo-600">
+                                    <strong class="text-gray-900">Akuisisi Langsung oleh Chileorent</strong>
+                                </div>
+                                <span class="text-gray-500">Chileorent membeli inventaris Anda (satuan maupun borongan rental tutup). Pencairan dana cepat didukung batas toleransi nego (0-8%).</span>
+                            </label>
+                        </div>
+
+                        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg text-[11px] text-gray-500">
+                            ℹ️ <em>Opsi Jual Putus langsung ke konsumen merupakan fitur operasional khusus Admin/Owner Chileorent guna melikuidasi unit aset rentalan toko kami sendiri saat membutuhkan perputaran dana usaha.</em>
+                        </div>
+                    </fieldset>
+
+                    <!-- BAGIAN 3 -->
+                    <fieldset class="space-y-4 border border-gray-200 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-600 px-2">Bagian 3: Rincian Spesifikasi & Kondisi Kostum</legend>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="character-name" class="text-xs font-semibold text-gray-700">Nama Karakter Cosplay:</label>
+                                <input type="text" id="character-name" name="character_name" placeholder="Cth: Raiden Shogun" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="series-name" class="text-xs font-semibold text-gray-700">Asal Anime / Game / Seri:</label>
+                                <input type="text" id="series-name" name="series_name" placeholder="Cth: Genshin Impact" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="space-y-1">
+                                <label for="costume-size" class="text-xs font-semibold text-gray-700">Ukuran Kostum:</label>
+                                <select id="costume-size" name="costume_size" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white">
+                                    <option value="">Pilih Ukuran</option>
+                                    <option value="S">S (Small)</option>
+                                    <option value="M">M (Medium)</option>
+                                    <option value="L">L (Large)</option>
+                                    <option value="XL">XL (Extra Large)</option>
+                                    <option value="XXL">XXL</option>
+                                    <option value="Custom">Custom Size</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label for="bust-waist-detail" class="text-xs font-semibold text-gray-700">Detail LD & LP:</label>
+                                <input type="text" id="bust-waist-detail" name="bust_waist" placeholder="Cth: LD 88cm, LP 70cm" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="costume-maker" class="text-xs font-semibold text-gray-700">Brand / Maker:</label>
+                                <input type="text" id="costume-maker" name="costume_maker" placeholder="Cth: Uwowo, Taobao" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-gray-700">Daftar Item Kelengkapan:</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="outfit" checked class="rounded text-indigo-600"> Kostum Utama</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="pants_skirt" checked class="rounded text-indigo-600"> Bawahan</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="wig" class="rounded text-indigo-600"> Wig Terstyling</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="shoes" class="rounded text-indigo-600"> Sepatu / Boots</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="accessories" class="rounded text-indigo-600"> Aksesoris Kecil</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="armor" class="rounded text-indigo-600"> Armor EVA</label>
+                                <label class="flex items-center gap-2"><input type="checkbox" name="item_inclusions" value="weapon_prop" class="rounded text-indigo-600"> Senjata / Prop</label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="usage-history" class="text-xs font-semibold text-gray-700">Riwayat Pemakaian:</label>
+                            <select id="usage-history" name="usage_history" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white">
+                                <option value="new">Baru / Belum Pernah Dipakai (Brand New)</option>
+                                <option value="event_1_2">Dipakai 1-2 kali event pribadi</option>
+                                <option value="rental_active">Kostum aktif inventaris rental (Terawat)</option>
+                                <option value="old_stock">Stok lama gudang rental</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="costume-flaws" class="text-xs font-semibold text-gray-700">Catatan Minus / Cacat Fisik:</label>
+                            <textarea id="costume-flaws" name="costume_flaws" rows="3" placeholder="Sebutkan jika ada minus..." class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- BAGIAN 4 -->
+                    <fieldset id="fitur-nego" class="space-y-4 border-2 border-indigo-500 bg-indigo-50/30 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-700 bg-white px-2 border border-indigo-300 rounded">Bagian 4: Pengaturan Harga & Fitur Nego Fleksibel (Pilihan 0% - 8%)</legend>
+
+                        <div class="p-4 bg-white border border-indigo-200 rounded-xl text-xs space-y-2">
+                            <h3 class="font-bold text-indigo-900 text-sm">🤝 Mengapa Sistem Nego Chileorent Dibatasi 0% hingga 8%?</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Chileorent menciptakan <strong>fitur negosiasi terkontrol</strong> di mana Anda sebagai pemilik memegang kendali penuh: Anda dapat memilih apakah kostum ini boleh ditawar, serta menentukan batas persentase diskon penawaran dari <strong>0% (Harga Pas)</strong> sampai <strong>maksimal 8%</strong>.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="base-price" class="text-xs font-semibold text-gray-700">Harga Patokan Awal (Rp):</label>
+                                <input type="number" id="base-price" name="base_price" placeholder="500000" min="50000" step="10000" required class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-4">
+                                <input type="checkbox" id="enable-nego-toggle" name="enable_nego" value="yes" checked class="rounded text-indigo-600">
+                                <label for="enable-nego-toggle" class="text-xs font-bold text-gray-800">Aktifkan Fitur Tawar-Menawar (Nego Fleksibel)</label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 bg-white p-4 border border-gray-200 rounded-xl">
+                            <label for="nego-tolerance-range" class="text-xs font-bold text-gray-800 block">
+                                Tentukan Batas Maksimal Toleransi Nego (Pilihan 0% s.d. 8%):
+                            </label>
+                            <input type="range" id="nego-tolerance-range" name="nego_tolerance" min="0" max="8" step="1" value="8" class="w-full accent-indigo-600">
+
+                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px] text-gray-600">
+                                <label class="flex items-center gap-1"><input type="radio" name="nego_preset" value="0"> 0% (Pas)</label>
+                                <label class="flex items-center gap-1"><input type="radio" name="nego_preset" value="2"> 2%</label>
+                                <label class="flex items-center gap-1"><input type="radio" name="nego_preset" value="4"> 4%</label>
+                                <label class="flex items-center gap-1"><input type="radio" name="nego_preset" value="6"> 6%</label>
+                                <label class="flex items-center gap-1"><input type="radio" name="nego_preset" value="8" checked> 8% (Maks)</label>
+                            </div>
+
+                            <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg text-xs space-y-1 mt-3">
+                                <h4 class="font-bold text-gray-900">Kalkulasi Batas Aman Sistem:</h4>
+                                <dl class="grid grid-cols-2 gap-1 text-gray-600">
+                                    <dt>Harga Awal:</dt><dd id="calc-base-display" class="font-semibold text-right">Rp 500.000</dd>
+                                    <dt>Toleransi:</dt><dd id="calc-percent-display" class="font-semibold text-right">8% (Maksimal)</dd>
+                                    <dt>Potongan Maks:</dt><dd id="calc-discount-display" class="font-semibold text-right">Rp 40.000</dd>
+                                    <dt class="font-bold text-gray-900">Batas Terendah:</dt><dd class="text-right"><strong id="calc-floor-display" class="text-indigo-600 font-bold">Rp 460.000</strong></dd>
+                                </dl>
+                                <p class="text-[10px] text-gray-500 italic mt-2">🛡️ Tawaran di bawah batas ini akan ditolak otomatis oleh sistem.</p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- BAGIAN 5 SIMULASI -->
+                    <section id="simulasi-nego" class="p-5 bg-slate-900 text-white rounded-xl space-y-4" aria-labelledby="simulasi-heading">
+                        <h3 id="simulasi-heading" class="font-bold text-base">Pratinjau: Dialog Nego Calon Pembeli</h3>
+
+                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 space-y-3">
+                            <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                                <h4 class="text-xs font-bold text-indigo-300">Tawar Harga Kostum (Batas Nego: Maksimal 8%)</h4>
+                                <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">Nego Aktif</span>
+                            </div>
+
+                            <div class="text-xs space-y-1 text-gray-300">
+                                <p>Harga Buka: <strong>Rp 500.000</strong></p>
+                                <p>Batas Terendah: <strong>Rp 460.000</strong> (-8%)</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <input type="number" id="mock-buyer-bid" placeholder="Cth: 470000" min="460000" max="500000" class="w-full px-3 py-1.5 text-xs bg-gray-900 border border-gray-700 rounded text-white focus:outline-none">
+                                <input type="text" id="mock-buyer-note" placeholder="Pesan singkat..." class="w-full px-3 py-1.5 text-xs bg-gray-900 border border-gray-700 rounded text-white focus:outline-none">
+                            </div>
+
+                            <div class="text-[11px] text-emerald-400">
+                                ✓ Tawaran Rp 470.000 berada dalam batas toleransi aman (penurunan 6.0%).
+                            </div>
+
+                            <button type="button" class="w-full py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded transition">Kirim Tawaran Nego</button>
+                        </div>
+                    </section>
+
+                    <!-- BAGIAN 6 -->
+                    <fieldset class="space-y-4 border border-gray-200 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-600 px-2">Bagian 6: Bukti Foto Verifikasi Fisik (Grade A/B/C)</legend>
+                        <p class="text-xs text-gray-500">Unggah foto asli dengan pencahayaan jelas untuk diinspeksi kurator Chileorent:</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="space-y-1">
+                                <label for="photo-front" class="font-semibold text-gray-700">1. Foto Tampak Depan Keseluruhan:</label>
+                                <input type="file" id="photo-front" name="photo_front" accept="image/*" required class="w-full text-xs text-gray-500">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="photo-back" class="font-semibold text-gray-700">2. Foto Tampak Belakang:</label>
+                                <input type="file" id="photo-back" name="photo_back" accept="image/*" required class="w-full text-xs text-gray-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="space-y-1">
+                                <label for="photo-wig-props" class="font-semibold text-gray-700">3. Foto Wig & Aksesoris:</label>
+                                <input type="file" id="photo-wig-props" name="photo_wig_props" accept="image/*" class="w-full text-xs text-gray-500">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="photo-flaws-zoom" class="font-semibold text-gray-700">4. Foto Close-up Minus (Jika ada):</label>
+                                <input type="file" id="photo-flaws-zoom" name="photo_flaws" accept="image/*" class="w-full text-xs text-gray-500">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- BAGIAN 7 -->
+                    <fieldset class="space-y-4 border border-gray-200 p-5 rounded-xl">
+                        <legend class="text-sm font-bold text-indigo-600 px-2">Bagian 7: Kebijakan Escrow & Persetujuan</legend>
+
+                        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl text-xs space-y-2 text-gray-600">
+                            <h4 class="font-bold text-gray-900">Ketentuan Keamanan Transaksi Alih Fungsi:</h4>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Dana pembayaran ditampung di <strong>Rekening Bersama Escrow Otomatis</strong> hingga barang sampai dan dicek.</li>
+                                <li>Setelah sesuai, dana hasil penjualan / sewa diteruskan ke rekening Anda.</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex items-start gap-2 text-xs">
+                            <input type="checkbox" name="agree_terms" value="yes" required class="mt-0.5 text-indigo-600">
+                            <label class="text-gray-700">Saya menyatakan data diisi dengan jujur, menyetujui batas nego (0-8%), serta mengikuti aturan Rekening Bersama Escrow.</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="w-full py-3 text-base font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
+                        Ajukan Alih Fungsi Kostum Sekarang &rarr;
+                    </button>
+
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Platform marketplace sewa kostum cosplay terverifikasi dan solusi alur alih fungsi kostum dengan sistem nego terkendali 0-8%.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Keamanan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Sistem Escrow Otomatis</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Standar Verifikasi Grade A/B/C</a></li>
+                    <li><a href="#fitur-nego" class="hover:text-white transition">Aturan Nego Maksimal 8%</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Kontak & Bantuan</h4>
+                <address class="not-italic text-xs space-y-2">
+                    <p>Email: bantuan@chileorent.com</p>
+                    <p>WhatsApp: +62 812-3456-7890</p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ENGINE SCRIPT & ALIH FUNGSI CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        function checkSellerAutofill() {
+            const session = ChileoDB.getUserSession();
+            const banner = document.querySelector('#form-alih-fungsi .bg-amber-50');
+
+            if (session.name) {
+                const ownerNameInput = document.getElementById('owner-name');
+                const ownerPhoneInput = document.getElementById('owner-phone');
+                const ownerCityInput = document.getElementById('owner-city');
+
+                if (ownerNameInput) ownerNameInput.value = session.name;
+                if (ownerPhoneInput && session.phone) ownerPhoneInput.value = session.phone;
+                if (ownerCityInput && session.city) ownerCityInput.value = session.city;
+
+                if (banner) {
+                    banner.className = "p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800";
+                    banner.innerHTML = `✓ <strong>Identitas Terisi Otomatis:</strong> Masuk sebagai <strong>${session.name}</strong> (${session.role === 'seller' ? 'Penjual Terdaftar' : 'Pengelola/Admin'}). Data identitas & status KYC valid tanpa perlu upload ulang KTP!`;
+                }
+            }
+        }
+
+        function updateNegoCalculator() {
+            const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+            const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+
+            const discount = Math.round(basePrice * (tolerance / 100));
+            const floorPrice = basePrice - discount;
+
+            const baseDisp = document.getElementById('calc-base-display');
+            const percentDisp = document.getElementById('calc-percent-display');
+            const discountDisp = document.getElementById('calc-discount-display');
+            const floorDisp = document.getElementById('calc-floor-display');
+
+            if (baseDisp) baseDisp.textContent = formatRupiah(basePrice);
+            if (percentDisp) percentDisp.textContent = tolerance + '% (Maksimal)';
+            if (discountDisp) discountDisp.textContent = formatRupiah(discount);
+            if (floorDisp) floorDisp.textContent = formatRupiah(floorPrice);
+
+            // Sync presets
+            const presetRadio = document.querySelector(`input[name="nego_preset"][value="${tolerance}"]`);
+            if (presetRadio) presetRadio.checked = true;
+
+            // Update Mock dialog
+            const mockBidInput = document.getElementById('mock-buyer-bid');
+            if (mockBidInput) {
+                mockBidInput.min = floorPrice;
+                mockBidInput.max = basePrice;
+                mockBidInput.value = Math.round((basePrice + floorPrice) / 2);
+            }
+            const mockDialogInfo = document.querySelector('#simulasi-nego .space-y-1');
+            if (mockDialogInfo) {
+                mockDialogInfo.innerHTML = `
+                    <p>Harga Buka: <strong>${formatRupiah(basePrice)}</strong></p>
+                    <p>Batas Terendah yang Diterima: <strong>${formatRupiah(floorPrice)}</strong> (-${tolerance}%)</p>
+                `;
+            }
+        }
+
+        function testBuyerBid() {
+            const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+            const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+            const discount = Math.round(basePrice * (tolerance / 100));
+            const floorPrice = basePrice - discount;
+
+            const bidInput = document.getElementById('mock-buyer-bid');
+            const bidVal = Number(bidInput?.value) || 0;
+            const resultBox = document.querySelector('#simulasi-nego .text-\\[11px\\]') || document.querySelector('#simulasi-nego div[class*="text-"]');
+
+            if (!resultBox) return;
+
+            if (bidVal < floorPrice) {
+                resultBox.className = "text-xs font-semibold text-rose-400 p-2 bg-rose-950/40 rounded border border-rose-800";
+                resultBox.innerHTML = `❌ Tawaran ${formatRupiah(bidVal)} DITOLAK otomatis oleh sistem karena di bawah batas minimal toleransi (${formatRupiah(floorPrice)}).`;
+            } else if (bidVal > basePrice) {
+                resultBox.className = "text-xs font-semibold text-amber-400 p-2 bg-amber-950/40 rounded border border-amber-800";
+                resultBox.innerHTML = `ℹ️ Tawaran ${formatRupiah(bidVal)} melebihi harga buka (${formatRupiah(basePrice)}).`;
+            } else {
+                const pct = (((basePrice - bidVal) / basePrice) * 100).toFixed(1);
+                resultBox.className = "text-xs font-semibold text-emerald-400 p-2 bg-emerald-950/40 rounded border border-emerald-800";
+                resultBox.innerHTML = `✓ Tawaran ${formatRupiah(bidVal)} DITERIMA! Berada dalam batas toleransi aman (penurunan ${pct}% dari harga buka).`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkSellerAutofill();
+            updateNegoCalculator();
+
+            document.getElementById('base-price')?.addEventListener('input', updateNegoCalculator);
+            document.getElementById('nego-tolerance-range')?.addEventListener('input', (e) => {
+                updateNegoCalculator();
+            });
+
+            document.querySelectorAll('input[name="nego_preset"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const slider = document.getElementById('nego-tolerance-range');
+                    if (slider) {
+                        slider.value = e.target.value;
+                        updateNegoCalculator();
+                    }
+                });
+            });
+
+            // Button test mock bid
+            const bidBtn = document.querySelector('#simulasi-nego button');
+            if (bidBtn) {
+                bidBtn.addEventListener('click', testBuyerBid);
+            }
+
+            // Form Submit
+            document.getElementById('form-alih-fungsi')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const character = document.getElementById('character-name')?.value || 'Kostum Cosplay';
+                const series = document.getElementById('series-name')?.value || 'Anime';
+                const ownerName = document.getElementById('owner-name')?.value || 'Sakura Wardrobe';
+                const basePrice = Number(document.getElementById('base-price')?.value) || 500000;
+                const tolerance = Number(document.getElementById('nego-tolerance-range')?.value) || 0;
+                const floorPrice = basePrice - Math.round(basePrice * (tolerance / 100));
+
+                const schemeRadio = document.querySelector('input[name="selected_scheme"]:checked')?.value || 'titip_sewa';
+                const schemeLabel = schemeRadio === 'titip_sewa' ? 'Titip Sewa (Bagi Hasil 70:30)' : 'Akuisisi Langsung oleh Chileorent';
+
+                const newSubmission = {
+                    id: 'AF-' + new Date().getFullYear() + '-' + Math.floor(100 + Math.random() * 900),
+                    ownerName: ownerName,
+                    ownerCategory: document.querySelector('input[name="owner_type"]:checked')?.value === 'ex_rental' ? 'Pemilik Usaha Rental Tutup' : 'Cosplayer Individu',
+                    character: character,
+                    series: series,
+                    scheme: schemeRadio,
+                    schemeLabel: schemeLabel,
+                    basePrice: basePrice,
+                    negoTolerance: tolerance,
+                    minPrice: floorPrice,
+                    submittedGrade: 'A',
+                    adminGrade: 'Menunggu Kurasi Fisik Admin',
+                    status: 'Menunggu Verifikasi Admin',
+                    escrowStatus: 'Proses Kurasi Escrow',
+                    date: new Date().toISOString().split('T')[0]
+                };
+
+                ChileoDB.addRepurposing(newSubmission);
+
+                alert('✅ Pengajuan Alih Fungsi Berhasil Dikirim!\n\nID: ' + newSubmission.id + '\nKarakter: ' + newSubmission.character + '\nSkema: ' + newSubmission.schemeLabel + '\nBatas Nego: ' + tolerance + '%\n\nPengajuan Anda sekarang masuk ke Antrean Kurasi Admin untuk penentuan Grade resmi.');
+                window.location.href = 'dashboard-rental.html#view-penjual-terbatas';
+            });
+        });
+    </script>
+</body>
+</html>

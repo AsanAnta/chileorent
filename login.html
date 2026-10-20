@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk Pengelola (Owner & Admin) - Chileorent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header id="header-utama" class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+            <!-- Logo & Slogan -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="index.html" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition whitespace-nowrap">
+                    <h1>Chileorent</h1>
+                </a>
+                <p class="hidden xl:block text-xs text-gray-500 border-l border-gray-300 pl-3 whitespace-nowrap">
+                    Marketplace Sewa & Solusi Alih Fungsi Kostum Cosplay
+                </p>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav id="navigasi-utama" aria-label="Navigasi Utama" class="hidden md:flex items-center">
+                <ul class="flex items-center gap-2 lg:gap-4 text-sm font-medium text-gray-600">
+                    <li><a href="index.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Beranda</a></li>
+                    <li><a href="catalog.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Alih Fungsi Kostum <span class="hidden xl:inline text-xs text-indigo-500 font-semibold">(Nego 0-8%)</span></a></li>
+                    <li><a href="dashboard-rental.html" class="px-2.5 py-1 hover:text-indigo-600 transition whitespace-nowrap">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksi Auth Desktop -->
+            <div id="desktop-auth-actions" class="hidden md:flex items-center gap-2 shrink-0">
+                <a href="login.html" aria-current="page" class="px-3 py-1.5 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-lg hover:bg-indigo-50 transition whitespace-nowrap">Masuk</a>
+                <a href="register.html" class="px-3 py-1.5 text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 rounded-lg transition whitespace-nowrap">Daftar Akun</a>
+            </div>
+
+            <!-- Kontrol Mobile: Badge Singkat Pengguna + Tombol Hamburger -->
+            <div class="flex items-center gap-2 md:hidden">
+                <div id="mobile-compact-badge" class="flex items-center"></div>
+                <button type="button" id="mobile-menu-btn" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobile-dropdown-menu" class="p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-xl transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="hamburger-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="hamburger-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-4 space-y-3 shadow-lg">
+            <nav aria-label="Navigasi Mobile">
+                <ul class="flex flex-col space-y-1 text-sm font-medium text-gray-700">
+                    <li><a href="index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-indigo-600 transition">Dashboard Rental</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-auth-actions" class="pt-2 border-t border-gray-100">
+                <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                    <a href="login.html" aria-current="page" class="py-2.5 px-3 border border-indigo-600 rounded-xl text-indigo-600 bg-indigo-50 font-bold transition">Masuk</a>
+                    <a href="register.html" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-sm transition">Daftar Akun</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav bg-gray-100 border-b border-gray-200 py-2.5 text-xs text-gray-600" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-indigo-600">Beranda</a></li>
+                <li>&gt;</li>
+                <li aria-current="page" class="font-semibold text-gray-800">Masuk Portal Akun</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="konten-login" class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8">
+
+            <!-- LOGIN CARD (7 Cols) -->
+            <section class="md:col-span-7 bg-white p-6 sm:p-8 border border-gray-200 rounded-2xl shadow-sm space-y-6" aria-labelledby="login-title">
+                
+                <header class="space-y-2">
+                    <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-800 rounded-full">🔐 Portal Otentikasi Chileorent</span>
+                    <h2 id="login-title" class="text-2xl font-bold text-gray-900">Masuk ke Akun Anda</h2>
+                    <p class="text-xs text-gray-500">Silakan pilih peran akun Anda untuk diarahkan ke dasbor yang sesuai.</p>
+                </header>
+
+                <form id="form-login" action="dashboard-rental.html" method="POST" class="space-y-4">
+
+                    <fieldset class="space-y-2">
+                        <legend class="text-xs font-bold uppercase text-gray-500 tracking-wider">Masuk Sebagai Peran:</legend>
+                        <div class="space-y-2 text-xs">
+                            <label class="p-3 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:border-indigo-500 flex items-start gap-2 block">
+                                <input type="radio" name="user_role" value="customer" checked class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-gray-900 block">🎭 Customer (Cosplayer/Pemilik Rental Lama)</strong>
+                                    <small class="text-gray-500">Akses pengguna: Lacak status sewa & nomor resi, otomatisasi formulir alih fungsi kostum, serta pantau hasil kurasi Grade & nego (0-8%).</small>
+                                </div>
+                            </label>
+
+                            <label class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl cursor-pointer hover:border-indigo-500 flex items-start gap-2 block">
+                                <input type="radio" name="user_role" value="admin" class="mt-0.5 text-indigo-600">
+                                <div>
+                                    <strong class="text-indigo-900 block">👑 Admin</strong>
+                                    <small class="text-indigo-700">Akses luas: Admin Dashboard (kurasi & escrow) + Rental Dashboard (kelola inventaris & jual putus unit toko).</small>
+                                </div>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="space-y-1">
+                        <label for="login-identifier" class="text-xs font-semibold text-gray-700">Email / Username / ID:</label>
+                        <input type="text" id="login-identifier" name="identifier" value="alisa@cosplay.id" placeholder="Cth: nama@email.com" required autocomplete="username" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                    </div>
+
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-center">
+                            <label for="login-password" class="text-xs font-semibold text-gray-700">Kata Sandi:</label>
+                            <a href="#lupa-password" class="text-[11px] text-indigo-600 hover:underline">Lupa Kata Sandi?</a>
+                        </div>
+                        <input type="password" id="login-password" name="password" value="********" placeholder="Masukkan kata sandi" required autocomplete="current-password" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs">
+                        <input type="checkbox" name="remember_me" value="yes" checked class="rounded text-indigo-600">
+                        <label class="text-gray-600">Ingat sesi saya di perangkat ini</label>
+                    </div>
+
+                    <button type="submit" class="w-full py-2.5 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md transition">
+                        Masuk ke Dashboard Akun &rarr;
+                    </button>
+
+                </form>
+
+                <footer class="pt-2 text-xs text-center space-y-1">
+                    <p class="text-gray-600">Belum memiliki akun? <a href="register.html" class="text-indigo-600 font-bold hover:underline">Daftar Akun Baru &rarr;</a></p>
+                </footer>
+
+            </section>
+
+            <!-- SIDEBAR INFO (5 Cols) -->
+            <aside class="md:col-span-5 space-y-6 text-xs text-gray-600">
+                <div class="p-6 bg-indigo-900 text-white rounded-2xl space-y-3">
+                    <h3 class="font-bold text-base text-indigo-200">Keamanan Ekosistem Chileorent</h3>
+                    <ul class="space-y-2 text-indigo-100">
+                        <li>• <strong>Enkripsi Tingkat Tinggi:</strong> Seluruh data identitas KYC dan transaksi dilindungi enkripsi.</li>
+                        <li>• <strong>Pemantauan Escrow Real-Time:</strong> Status penahanan dan pelepasan dana transparan.</li>
+                        <li>• <strong>Kontrol Toleransi Nego:</strong> Mengubah batas tawar 0-8% dari dashboard.</li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-utama" class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-white">Chileorent</h3>
+                <p class="text-xs leading-relaxed">Portal Pengelola Resmi - Sistem Manajemen Rental Pintar & Pengawasan Marketplace Cosplay.</p>
+                <p class="text-xs text-gray-500">&copy; 2026 Chileorent Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigasi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="catalog.html" class="hover:text-white transition">Katalog Sewa</a></li>
+                    <li><a href="alih-fungsi.html" class="hover:text-white transition">Alih Fungsi Kostum (Nego 0-8%)</a></li>
+                    <li><a href="dashboard-rental.html" class="hover:text-white transition">Dashboard Rental</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Keamanan</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html#alur-escrow" class="hover:text-white transition">Sistem Escrow Otomatis</a></li>
+                    <li><a href="index.html#pusat-verifikasi" class="hover:text-white transition">Standar Verifikasi Grade A/B/C</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ENGINE SCRIPT & LOGIN CONTROLLER -->
+    <script src="app.js"></script>
+    <script>
+        const roleInputs = document.querySelectorAll('input[name="user_role"]');
+        const idInput = document.getElementById('login-identifier');
+
+        roleInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (input.value === 'admin' || input.value === 'owner_admin') {
+                    idInput.value = 'admin@chileorent.com';
+                } else {
+                    idInput.value = 'alisa@cosplay.id';
+                }
+            });
+        });
+
+        document.getElementById('form-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedRole = document.querySelector('input[name="user_role"]:checked')?.value || 'customer';
+            const identifier = idInput ? idInput.value.trim() : 'Pengguna';
+
+            let sessionData = {
+                role: selectedRole,
+                email: identifier,
+                isVerified: true
+            };
+
+            if (selectedRole === 'admin' || selectedRole === 'owner_admin') {
+                sessionData.name = 'Kurogane Hub & Administrator';
+                sessionData.role = 'admin';
+                ChileoDB.setUserSession(sessionData);
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                sessionData.name = identifier.includes('@') ? (identifier.split('@')[0] === 'alisa' ? 'Alisa Putri (Customer Cosplayer)' : identifier.split('@')[0]) : identifier;
+                sessionData.city = 'Kota Bandung';
+                sessionData.role = 'customer';
+                ChileoDB.setUserSession(sessionData);
+                window.location.href = 'dashboard-rental.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
