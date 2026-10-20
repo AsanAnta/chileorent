@@ -25,6 +25,10 @@ Chileorent/
 │   └── costumes.json     # Endpoint REST API Data Kostum Cosplay (JSON)
 ├── api/
 │   └── costumes.json     # Endpoint Alias REST API
+<<<<<<< HEAD
+=======
+├── index.php             # Implementasi Week 5: PHP Prosedural & Server-Side Rendering (SSR)
+>>>>>>> 5e6fa73 (Pesan commit Anda)
 ├── index.html            # Beranda Utama (Hero, Highlight Katalog API, Escrow, FAQ)
 ├── catalog.html          # Katalog Marketplace Sewa (Live Fetch API, Filter & Inspector)
 ├── detail-kostum.html    # Detail Sewa Kostum (Sinkronisasi Data API & Form Booking)
@@ -56,6 +60,16 @@ Buka browser dan akses: `http://localhost:8000`
 ### Cara 3: Menggunakan Live Server (VS Code)
 Klik kanan pada `index.html` di VS Code, lalu pilih **"Open with Live Server"**.
 
+<<<<<<< HEAD
+=======
+### Cara 4: Menggunakan Built-in Web Server PHP (Khusus Week 5)
+Buka terminal di folder proyek, lalu jalankan:
+```bash
+php -S localhost:8000
+```
+Buka browser dan akses: `http://localhost:8000/index.php` (atau simpan ke folder `htdocs` jika menggunakan XAMPP).
+
+>>>>>>> 5e6fa73 (Pesan commit Anda)
 ---
 
 ## ⚡ Pertemuan 4: Task 01 - Connect to API
@@ -70,6 +84,7 @@ Mengimplementasikan integrasi REST API menggunakan **JavaScript Fetch API** sesu
 1. **Web Page**: Halaman web Chileorent (`index.html`, `catalog.html`, `detail-kostum.html`) diakses pengguna.
 2. **JavaScript**: Modul `ChileoAPI` pada `app.js` mengeksekusi request HTTP asynchronous.
 3. **Fetch API**: Mengirim `GET` request ke endpoint `data/costumes.json`.
+<<<<<<< HEAD
    ```javascript
    fetch('data/costumes.json')
        .then(res => {
@@ -86,3 +101,49 @@ Mengimplementasikan integrasi REST API menggunakan **JavaScript Fetch API** sesu
 4. **REST API Endpoint**: `data/costumes.json` (dan alias `api/costumes.json`) menyediakan resource data kostum cosplay lengkap.
 5. **JSON Data**: Data diterima dalam format JSON standar (memuat atribut `id`, `judul`/`title`, `deskripsi`/`description`, `kategori`/`category`, `harga`/`price`, `tanggal`, dll) dan langsung di-render ke antarmuka pengguna.
 6. **API Inspector & Modal**: Di halaman `catalog.html`, disediakan banner status koneksi, tombol **"🔄 Uji Fetch API"**, dan tombol **"{ ; } Response JSON"** untuk memeriksa status HTTP, latency, dan payload data mentah secara interaktif.
+=======
+4. **REST API Endpoint**: `data/costumes.json` (dan alias `api/costumes.json`) menyediakan resource data kostum cosplay lengkap.
+5. **JSON Data**: Data diterima dalam format JSON standar dan langsung di-render ke antarmuka pengguna.
+6. **API Inspector & Modal**: Di halaman `catalog.html`, disediakan banner status koneksi, tombol **"🔄 Uji Fetch API"**, dan tombol **"{ ; } Response JSON"**.
+
+---
+
+## 🐘 Pertemuan 5: PHP Prosedural (Server-Side Rendering)
+
+Mengimplementasikan rendering halaman dari sisi server (**Server-Side Rendering / SSR**) menggunakan bahasa pemrograman **PHP Prosedural** pada berkas [`index.php`](index.php) sesuai instruksi praktikum:
+
+```
+[ BROWSER ] ◄── HTML Siap Tampil ── [ SERVER PHP ]
+                                           │
+  ┌────────────────────────────────────────┴────────────────────────────────────────┐
+  ▼                                        ▼                                        ▼
+[ Task 01: Variabel Tema ]     [ Task 02: Olah Data ]               [ Task 03: SSR Grid Cards ]
+$nama_aplikasi, $tagline,      - Array multidimensi $program_prioritas  - Loop foreach kartu
+$deskripsi, $menu_navigasi     - Conditional badge status & grade       - Penomoran otomatis No. #
+                               - Fungsi formatRupiah()                  - Melanjutkan struktur Week 4
+```
+
+### Rincian Capaian Tugas:
+
+1. **Task 01: Create PHP Page (Variabel Sesuai Tema)**:
+   - Dibuat berkas [`index.php`](index.php) berbasis PHP prosedural.
+   - Dideklarasikan variabel identitas & tema platform: `$nama_aplikasi`, `$tagline`, `$slogan_hero`, `$deskripsi_platform`, `$kontak_email`, `$kontak_wa`, `$tahun_aktif`, serta array navigasi `$menu_navigasi`.
+   - Variabel diinterpolasi langsung ke dalam elemen halaman web (Navbar, Hero Section, dan Footer).
+
+2. **Task 02: Process Data with PHP (Array Multidimensi, Conditional Status/Badge, Loop Penomoran)**:
+   - **Array Multidimensi**: Array asosiatif multidimensi `$program_prioritas` memuat 8 data kostum cosplay dengan rincian lengkap (`id`, `judul`, `seri`, `kategori`, `grade`, `ukuran`, `harga`, `rating`, `status`, `gambar`, `kelengkapan`, dll).
+   - **Conditional Status / Badge**:
+     - `renderStatusBadge($status)`: Percabangan `if / elseif / else` untuk menghasilkan badge visual status ketersediaan:
+       - `Tersedia`: Badge hijau (*Siap Sewa*) dengan indikator titik berkedip.
+       - `Disewa`: Badge kuning/amber (*Sedang Disewa*).
+       - `Booking`: Badge biru langit (*Dibooking / DP Terkunci*).
+       - `Perawatan`: Badge merah/rose (*Dicuci / Perbaikan*).
+     - `renderGradeBadge($grade)`: Percabangan kondisi grade mutu fisik kostum (Grade A, B, atau C).
+     - `formatRupiah($angka)`: Format mata uang standar Rupiah Indonesia (misal: `Rp 120.000`).
+   - **Loop Penomoran**: Variabel `$nomor_urut = 1;` diinkrementasi pada setiap iterasi untuk menampilkan label `No. #1`, `No. #2`, dst. pada setiap kartu.
+
+3. **Task 03: Build Dynamic Server-Side Content (SSR Dynamic Grid Cards Melanjutkan Struktur Week 4)**:
+   - Kartu kostum dirender secara dinamis langsung dari server PHP menggunakan sintaks perulangan `<?php foreach ($program_prioritas as $kostum): ?> ... <?php endforeach; ?>`.
+   - Mengadopsi dan melanjutkan struktur kartu dari Week 4 (gambar dengan penanganan fallback, badge nomor urut, badge grade, badge ukuran, badge status sewa, tag seri & kategori, judul, rating bintang, checklist kelengkapan aksesoris, harga sewa per 3 hari, dan tombol detail booking).
+
+>>>>>>> 5e6fa73 (Pesan commit Anda)
