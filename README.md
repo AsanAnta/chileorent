@@ -146,4 +146,101 @@ $deskripsi, $menu_navigasi     - Conditional badge status & grade       - Penomo
    - Kartu kostum dirender secara dinamis langsung dari server PHP menggunakan sintaks perulangan `<?php foreach ($program_prioritas as $kostum): ?> ... <?php endforeach; ?>`.
    - Mengadopsi dan melanjutkan struktur kartu dari Week 4 (gambar dengan penanganan fallback, badge nomor urut, badge grade, badge ukuran, badge status sewa, tag seri & kategori, judul, rating bintang, checklist kelengkapan aksesoris, harga sewa per 3 hari, dan tombol detail booking).
 
+<<<<<<< HEAD
 >>>>>>> 5e6fa73 (Pesan commit Anda)
+=======
+---
+
+## 🧩 Pertemuan 6: PHP Object-Oriented Programming (OOP)
+
+Mengimplementasikan paradigma **Object-Oriented Programming (OOP)** menggunakan PHP pada berkas [`index.php`](index.php) sesuai alur kuliah (`CLASS → OBJECT → METHOD → PHP → GENERATED HTML`):
+
+```
+[ CLASS Chileorent ] ──► [ OBJECT $chileorent ] ──► [ METHODS: getProfile(), getPrograms() ] ──► [ GENERATED HTML ]
+```
+
+### Rincian Capaian Tugas Pertemuan 6:
+
+1. **Task 01: Create a Class (`CLASS → OBJECT`)**:
+   - Dibuat `class Chileorent` yang merepresentasikan data dan entitas platform Chileorent.
+   - Memiliki property utama sesuai desain kebutuhan: `$name`, `$period`, `$tagline`, `$profile`, `$programs`, `$pillars`, `$escrowSteps`, dan `$faqs`.
+   - Instansiasi object dilakukan melalui `$chileorent = new Chileorent();` dan datanya diakses langsung oleh halaman.
+
+2. **Task 02: Add Properties & Methods (`OBJECT = DATA + BEHAVIOR`)**:
+   - **Data (Properties)**: Menyimpan profil platform, periode operasional (`2024 - 2026`), daftar 8 kostum Program Prioritas, 6 Pilar Solusi Cerdas, tahapan Escrow, dan daftar FAQ.
+   - **Behavior (Methods)**:
+     - `getProfile()`: Mengembalikan data profil lengkap platform, hero, highlight statistik, kontak, dan navigasi.
+     - `getPrograms()`: Mengembalikan daftar data Program Prioritas Kostum Cosplay.
+     - `getPillars()`: Mengembalikan data 6 Pilar Fitur Utama Chileorent.
+     - `getProgramStats()`: Menghitung ringkasan unit berdasarkan status ketersediaan (`total`, `siap_sewa`, `terbooking`, `perawatan`).
+     - `getStatusBadge($status)` & `getGradeBadge($grade)`: Mengolah logika tampilan badge status ketersediaan dan grade fisik kostum.
+     - `formatRupiah($nominal)`: Memformat harga sewa ke format Rupiah.
+     - `getEscrowSteps()` & `getFaqs()`: Mengambil data tahapan rekening bersama dan FAQ.
+
+3. **Task 03: Generate Dynamic Content with Object (`OBJECT → PHP → HTML`)**:
+   - Seluruh bagian konten halaman (`Header`, `Hero Profile Card`, `6 Pilar Solusi Cerdas`, `Grid Kartu Program Prioritas`, `Alur Escrow`, `FAQ`, dan `Footer`) dihasilkan secara dinamis dengan memanggil method dari object `$chileorent` tanpa mengubah keselarasan desain halaman.
+
+---
+
+## 🏛️ Pertemuan 7: Model View Controller (MVC)
+
+Mengimplementasikan pola arsitektur **Model View Controller (MVC)** pada aplikasi web Chileorent sesuai diagram perkuliahan (`REQUEST → CONTROLLER → MODEL → VIEW`):
+
+```
+                       [ USER ]
+                          │
+                          ▼ (HTTP Request)
+              [ CONTROLLER: ChileorentController ]
+                    │                   ▲
+       (Calls Data) │                   │ (Returns Data)
+                    ▼                   │
+            [ MODEL: Chileorent ] ──────┘
+                    │
+                    ▼ (Passes Data)
+          [ VIEW: chileorent-page.php ]
+                    │
+                    ▼ (Rendered Page)
+               [ BROWSER UI ]
+```
+
+### 📂 Struktur Berkas MVC (Sesuai Diagram Slide):
+
+```text
+Chileorent/
+├── Model/
+│   └── Chileorent.php          # Model Data & Aturan Bisnis (Kostum, Profil, Pilar, Escrow)
+├── Controller/
+│   └── ChileorentController.php# Controller (index, show, process)
+├── View/
+│   └── chileorent-page.php     # View Presentasi HTML Responsif
+└── index.php                   # Front Controller & Router Utama
+```
+
+### Rincian Capaian Tugas Pertemuan 7:
+
+1. **Task 01: Design the MVC Structure**:
+   - Memisahkan struktur aplikasi secara tegas ke dalam direktori `Model/`, `View/`, dan `Controller/`.
+   - **Model (`Model/Chileorent.php`)**: Bertanggung jawab penuh atas data dan logika bisnis platform (daftar kostum program prioritas, 6 pilar, alur escrow, kriteria grade A/B/C, dan data profil). Bersih dari kode HTML.
+   - **View (`View/chileorent-page.php`)**: Bertanggung jawab menampilkan antarmuka web (UI) kepada pengguna dari data yang dipasok oleh Controller tanpa duplikasi logika.
+   - **Controller (`Controller/ChileorentController.php`)**: Bertindak sebagai penghubung dan pengatur alur kerja antara Request pengguna, Model, dan View.
+
+2. **Task 02: Build the Controller (`REQUEST → CONTROLLER`)**:
+   - Menerima request HTTP dari pengguna (`$_GET['action']`, `$_GET['id']`, atau form filter pencarian).
+   - Memiliki method wajib sesuai materi slide:
+     - `index()`: Memanggil data lengkap dari Model dan merender tampilan utama.
+     - `show($id)`: Menangani request untuk menampilkan rincian kostum tertentu berdasarkan ID (misal: `index.php?action=show&id=c1`).
+     - `process($request)`: Menangani pengolahan data masukan/filter pengguna (kata kunci karakter & status ketersediaan) dan memberikan data hasil ke View.
+   - Menginstansiasi Model dan meneruskan data yang telah diolah ke View menggunakan fungsi perenderan modular.
+
+3. **Task 03: Connect Model, Controller & View (`MODEL → CONTROLLER → VIEW`)**:
+   - **Data berasal dari Model**:
+     - `name`: Chileorent
+     - `period`: 2024 - 2026
+     - `programs`: 8 Program Prioritas Kostum Cosplay (Sousou no Frieren, Raiden Shogun, Kafka, Gojo Satoru, Houshou Marine, Kamen Rider Geats, Hu Tao, Anya Forger).
+   - **Controller memproses data**: Method controller (`index()`, `show()`, `process()`) menyusun data dan mengontrol alur proses bisnis.
+   - **Data dikirim ke View**: Controller mengekstrak array data dan memanggil view `View/chileorent-page.php`.
+   - **View menampilkan data**: Tampilan antarmuka menampilkan seluruh elemen katalog, pilar, dan status ketersediaan secara dinamis.
+   - **Tidak ada error**: Seluruh berkas lulus validasi sintaks PHP dan pengujian fungsional berjalan lancar.
+
+
+>>>>>>> bb48c82 (Refactor MVC Pertemuan 7 murni tema Chileorent tanpa entitas presiden)
